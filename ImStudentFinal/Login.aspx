@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="01_login.aspx.cs" Inherits="mis2_finalProject.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="01Login.aspx.cs" Inherits="_01Login" %>
 
 <!DOCTYPE html>
 
@@ -67,3 +67,4 @@
     </form>
 </body>
 </html>
+
