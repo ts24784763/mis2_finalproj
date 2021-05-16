@@ -1,0 +1,103 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.platformName {
+    font-family: 'Microsoft JhengHei';
+    font-size: medium;
+    color: darkslateblue;
+    padding-left: 60px;
+    padding-top: 20px;
+}
+
+#menu {
+    float: right;
+    text-align: right;
+    padding-right: 60px;
+    padding-top:20px;
+}
+
+#loginLeft {
+    float: left;
+    width: 400px;
+    height: 600px;
+    line-height: 50px;
+    padding: 20px;
+    padding-left: 100px;
+}
+
+#loginRight {
+    float: right;
+    width: 500px;
+    height: 600px;
+    line-height: 30px;
+    padding: 20px;
+    padding-right: 100px;
+}
+
+.input_text:focus, input.input_text_focus {
+    border-color: #646464;
+    background-color: #ffffc0;
+}
+
+#btnLogin {
+    background-color: midnightblue;
+    color: white;
+    font-family: 'Microsoft JhengHei';
+    text-align: center;
+}
+
+.loginLabel {
+    color: midnightblue;
+    font-family: 'Microsoft JhengHei';
+}

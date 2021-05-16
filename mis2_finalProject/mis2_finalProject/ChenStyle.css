@@ -1,0 +1,35 @@
+﻿.bluebar {
+    background-color: rgb(30,82,177);
+    margin: 50px 0;
+    text-align: center;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+    .bluebar .textWrap {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        width: 60%;
+        margin: 40px 20% 30px 20%;
+       
+    }
+    .bluebar .select {
+        font-size: 16px;
+        height: 34px;
+        background-color: rgb(30,82,177);
+        border-color: white;
+        width: 250px;
+    }
+    .bluebar .button {
+        font-size: 16px;
+        height: 34px;
+        border-color: white;
+        width: 250px;
+        background-color: white;
+        color: rgb(30,82,177);
+        border: 0;
+        elevation: 0;
+    }
