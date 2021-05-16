@@ -18,10 +18,10 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">首頁</a>
+            <a href="index.aspx">首頁</a>
             <a href="#">探索學校</a>
             <a href="#">關於我們</a>
-            <a href="#">登入/註冊</a>
+            <a href="Login.aspx">登入/註冊</a>
             </div>
         </div>
         <div class="block">

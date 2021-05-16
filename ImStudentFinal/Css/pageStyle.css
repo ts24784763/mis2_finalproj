@@ -10,10 +10,10 @@
     margin: 10px 0;
     position:relative;
 }
-.rightText{
-    position:absolute;
-    right:30px;
-    bottom:10px;
+.rightText {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
 }
 .bar a {
      color: rgb(147,167,206);
