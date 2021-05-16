@@ -1,0 +1,32 @@
+﻿input {
+    border: none;
+    border-bottom: 1px solid #4A4AFF;
+    font-family: 'Microsoft JhengHei';
+}
+
+.regisAre {
+    padding-top: 80px;
+    width: 600px;
+    height: 800px;
+    font-family: 'Microsoft JhengHei';
+    line-height: 20px;
+}
+
+#labJoinus {
+    color: darkslateblue;
+}
+
+radioButton {
+    padding-right: 300px;
+}
+
+#btnSubmitRegister {
+    background-color: midnightblue;
+    color: white;
+    font-family: 'Microsoft JhengHei';
+}
+
+.spaced input[type="radio"] {
+    margin-top: 10px;
+}
+ 

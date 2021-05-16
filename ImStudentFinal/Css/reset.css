@@ -69,7 +69,7 @@ table {
 
 #loginLeft {
     float: left;
-    width: 400px;
+    width: 500px;
     height: 600px;
     line-height: 50px;
     padding: 20px;
@@ -78,11 +78,11 @@ table {
 
 #loginRight {
     float: right;
-    width: 500px;
+    width: 550px;
     height: 600px;
     line-height: 30px;
     padding: 20px;
-    padding-right: 100px;
+    padding-right: 150px;
 }
 
 .input_text:focus, input.input_text_focus {
@@ -100,4 +100,10 @@ table {
 .loginLabel {
     color: midnightblue;
     font-family: 'Microsoft JhengHei';
+}
+
+.loginBtn {
+    color: midnightblue;
+    font-family: 'Microsoft JhengHei';
+    border: none;
 }

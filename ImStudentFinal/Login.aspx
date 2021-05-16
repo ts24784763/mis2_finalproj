@@ -6,7 +6,10 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
+    <link href="../Css/pageStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style1 {
             width: 279px;
@@ -24,28 +27,26 @@
     </style>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <form id="form1" runat="server">
-        <div>
-            <div id="menu">
-                <asp:Menu ID="Menu1" runat="server" Font-Names="Microsoft JhengHei UI" ForeColor="#336699" Orientation="Horizontal" StaticSubMenuIndent="16px">
-                <Items>
-                <asp:MenuItem Text="首頁" Value="首頁"></asp:MenuItem>
-                <asp:MenuItem Text="探索學校" Value="探索學校"></asp:MenuItem>
-                <asp:MenuItem Text="關於我們" Value="關於我們"></asp:MenuItem>
-                <asp:MenuItem Text="登入/註冊" Value="登入/註冊"></asp:MenuItem>
-                </Items>
-                <StaticMenuItemStyle HorizontalPadding="10px" />
-                </asp:Menu>
+        <div class="bar">
+            IM STUDENT
+            <div class="rightText">
+            <a href="index.aspx">首頁</a>
+            <a href="#">探索學校</a>
+            <a href="#">關於我們</a>
+            <a href="Login.aspx">登入/註冊</a>
             </div>
         </div>
-        <p class="platformName">IM STUDENT</p>
         <div id="loginLeft" class="auto-style1">
             <div>&nbsp;</div>
             <div>&nbsp;</div>
             <div>&nbsp;</div>
             <div>
                 <center>
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size:xx-large; padding-left:100px">歡迎您回來！</label>
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size:xx-large; padding-left: 150px;">歡迎您回來！</label>
                 </center>
             </div>
         </div>
@@ -56,12 +57,19 @@
             <div>&nbsp;</div>
             <div class="auto-style3">
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*Email :<br />
-                </label>&nbsp;<input id="labEmail" type="text" value="Enter your email" class="auto-style1" /><br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*密碼 :<br />
-                </label>&nbsp;<input id="labPassword" type="text" value="Enter your password" class="auto-style4" /><br />
-                <button id="btnLogin" class="auto-style5">登入</button>
+                </label>&nbsp;<br />
+                <asp:TextBox id="txtEmail" type="text" placeholder="Enter your email" runat="server" Width="276px" BackColor="#F7F7F7"></asp:TextBox><br />
+                <asp:RequiredFieldValidator ID="emailValidator" runat="server" ErrorMessage="請輸入信箱" ForeColor="#CC0000" ControlToValidate="txtEmail" Enabled="False"></asp:RequiredFieldValidator>
                 <br />
-                <asp:Label id="labRegister" class="loginLabel" runat="server">註冊</asp:Label><b>｜</b><asp:Label id="labForgetPassword" class="loginLabel" runat="server">忘記密碼</asp:Label>
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*密碼 :<br />
+                </label>&nbsp;<br />
+                <asp:TextBox id="txtPassword" placeholder="Enter your password" class="auto-style4" runat="server" BackColor="#F7F7F7" TextMode="Password"></asp:TextBox><br />
+                <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="請輸入密碼" ControlToValidate="txtPassword" ForeColor="#CC0000" Enabled="False"></asp:RequiredFieldValidator>
+                <br />
+                <asp:Button id="btnLogin" class="auto-style5" runat="server" Text="登入" OnClick="btnLogin_Click" Height="32px"></asp:Button>
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                <asp:Button id="btnRegister" class="loginBtn" runat="server" Text="註冊" BackColor="#F7F7F7" OnClick="btnRegister_Click"></asp:Button><b>｜</b><asp:Button id="btnForgetPassword" class="loginBtn" runat="server" Text="忘記密碼" BackColor="#F7F7F7"></asp:Button>
             </div>
         </div>
     </form>
