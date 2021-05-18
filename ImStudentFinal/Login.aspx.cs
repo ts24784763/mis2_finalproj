@@ -20,11 +20,6 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        if (!Page.IsValid)
-        {
-            emailValidator.Enabled = false;
-            passwordValidator.Enabled = false;
-        }
         Response.Redirect("register.aspx");
     }
 }

@@ -29,4 +29,44 @@ radioButton {
 .spaced input[type="radio"] {
     margin-top: 10px;
 }
- 
+
+#loginLeft {
+    float: left;
+    width: 700px;
+    height: 600px;
+    line-height: 50px;
+    padding: 20px;
+    padding-left: 100px;
+}
+
+#loginRight {
+    float: right;
+    width: 700px;
+    height: 600px;
+    line-height: 30px;
+    padding: 20px;
+    padding-right: 150px;
+}
+
+.input_text:focus, input.input_text_focus {
+    border-color: #646464;
+    background-color: #ffffc0;
+}
+
+#btnLogin {
+    background-color: midnightblue;
+    color: white;
+    font-family: 'Microsoft JhengHei';
+    text-align: center;
+}
+
+.loginLabel {
+    color: midnightblue;
+    font-family: 'Microsoft JhengHei';
+}
+
+.loginBtn {
+    color: midnightblue;
+    font-family: 'Microsoft JhengHei';
+    border: none;
+}

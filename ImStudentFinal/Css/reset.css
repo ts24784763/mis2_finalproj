@@ -29,10 +29,6 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-body {
-    line-height: 1;
-}
-
 ol, ul {
     list-style: none;
 }
@@ -52,24 +48,9 @@ table {
     border-spacing: 0;
 }
 
-.platformName {
-    font-family: 'Microsoft JhengHei';
-    font-size: medium;
-    color: darkslateblue;
-    padding-left: 60px;
-    padding-top: 20px;
-}
-
-#menu {
-    float: right;
-    text-align: right;
-    padding-right: 60px;
-    padding-top:20px;
-}
-
 #loginLeft {
     float: left;
-    width: 500px;
+    width: 700px;
     height: 600px;
     line-height: 50px;
     padding: 20px;
@@ -78,7 +59,7 @@ table {
 
 #loginRight {
     float: right;
-    width: 550px;
+    width: 700px;
     height: 600px;
     line-height: 30px;
     padding: 20px;
