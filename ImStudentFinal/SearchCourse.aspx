@@ -11,11 +11,8 @@
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
 </head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <form id="form2" runat="server">
+<body class="body">
+    <form id="form1" runat="server">
         <div class="bar">
             IM STUDENT
             <div class="rightText">
@@ -25,21 +22,34 @@
             <a href="#">登入/註冊</a>
             </div>
         </div>
-        <div class="bluebar" aria-orientation="vertical">
+        <div class="bluebar">
+            <br /><br /><br /><br /><br /><br />
             <div class="textWrap">挑選您有興趣的課程</div>
-            <div>
+            <br /><br /><br /><br /><br />
+            <div class="wrap">
                 <asp:DropDownList ID="ddlType" runat="server" CssClass="select" ForeColor="White"></asp:DropDownList>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:DropDownList ID="ddlUpdateTime" CssClass="select" ForeColor="White" runat="server"></asp:DropDownList>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:DropDownList ID="ddlCondition" CssClass="select" ForeColor="White" runat="server"></asp:DropDownList>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋"  />
+                <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
         </div>
-    </form>
-        <div>
+        <div class"bottom">
+            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片1"/>
+            會計學
+            30weeks
+            NT$100
+            <asp:Button ID="btninfo1" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
         </div>
-
+        <div class"bottom">
+            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片1"/>
+            會計學
+            30weeks
+            NT$100
+            <asp:Button ID="btninfo2" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
+        </div>
+    </form>
 </body>
 </html>

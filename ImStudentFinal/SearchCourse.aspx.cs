@@ -11,4 +11,9 @@ public partial class SearchCourse : System.Web.UI.Page
     {
 
     }
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+
+    }
 }
