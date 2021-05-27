@@ -60,6 +60,10 @@ radioButton {
     text-align: center;
 }
 
+#loginArea {
+    position: absolute;
+}
+
 .loginLabel {
     color: midnightblue;
     font-family: 'Microsoft JhengHei';

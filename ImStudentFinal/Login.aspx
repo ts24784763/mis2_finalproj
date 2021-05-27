@@ -37,19 +37,20 @@
             <a href="Login.aspx">登入/註冊</a>
             </div>
         </div>
-        <div id="loginLeft" class="auto-style1">
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <div>
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size:xx-large; padding-left:250px">歡迎您回來！</label>
+        <div id="loginArea">
+            <div id="loginLeft" class="auto-style1">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>
+                    <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size:xx-large; padding-left:250px">歡迎您回來！</label>
+                </div>
             </div>
-        </div>
-        <div id="loginRight">
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <div>
+            <div id="loginRight">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>
                 <br />
                 <br />
                 &nbsp;</div>
@@ -68,8 +69,9 @@
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button id="btnRegister" class="loginBtn" runat="server" Text="註冊" CausesValidation="false" BackColor="#F7F7F7" OnClick="btnRegister_Click"></asp:Button><b>｜</b><asp:Button id="btnForgetPassword" class="loginBtn" runat="server" Text="忘記密碼" CausesValidation="false" BackColor="#F7F7F7"></asp:Button>
+                </div>
             </div>
-        </div>
+       </div>
     </form>
 </body>
 </html>

@@ -49,8 +49,9 @@ table {
 }
 
 #loginLeft {
+    position: relative;
     float: left;
-    width: 700px;
+    width: 50%;
     height: 600px;
     line-height: 50px;
     padding: 20px;
@@ -58,8 +59,9 @@ table {
 }
 
 #loginRight {
+    position: relative;
     float: right;
-    width: 700px;
+    width: 50%;
     height: 600px;
     line-height: 30px;
     padding: 20px;
