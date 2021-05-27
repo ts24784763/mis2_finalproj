@@ -23,15 +23,13 @@
             </div>
         </div>
         <div class="bluebar">
-            <br /><br /><br /><br /><br /><br />
+            <br />
+            <br />
+            <br /><br /><br />
             <div class="textWrap">挑選您有興趣的課程</div>
-            <br /><br /><br /><br /><br />
+            <br /><br /><br />
             <div class="wrap">
-                <asp:DropDownList ID="ddlType" runat="server" CssClass="select" ForeColor="White"></asp:DropDownList>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:DropDownList ID="ddlUpdateTime" CssClass="select" ForeColor="White" runat="server"></asp:DropDownList>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:DropDownList ID="ddlCondition" CssClass="select" ForeColor="White" runat="server"></asp:DropDownList>
+                <asp:TextBox ID="txtSearch" placeholder="輸入你想查詢的學校" CssClass="box" runat="server"></asp:TextBox>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
