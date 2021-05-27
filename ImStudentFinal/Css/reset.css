@@ -48,26 +48,6 @@ table {
     border-spacing: 0;
 }
 
-#loginLeft {
-    position: relative;
-    float: left;
-    width: 50%;
-    height: 600px;
-    line-height: 50px;
-    padding: 20px;
-    padding-left: 100px;
-}
-
-#loginRight {
-    position: relative;
-    float: right;
-    width: 50%;
-    height: 600px;
-    line-height: 30px;
-    padding: 20px;
-    padding-right: 150px;
-}
-
 .input_text:focus, input.input_text_focus {
     border-color: #646464;
     background-color: #ffffc0;
