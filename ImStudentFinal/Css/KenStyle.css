@@ -88,3 +88,8 @@ radioButton {
     font-family: 'Microsoft JhengHei';
     text-align: center;
 }
+
+.applySchoolBtn {
+    font-family: 'Microsoft JhengHei';
+    border-radius: 25px 25px 25px 25px;
+}
