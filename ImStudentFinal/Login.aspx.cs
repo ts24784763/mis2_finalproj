@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,12 +16,49 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        Response.Redirect("index.aspx");
+        if(userLogin(txtEmail.Text,txtPassword.Text))
+            Response.Write("<script>alert('登入成功');location.href='index.aspx';</script>");
+        else
+            Response.Write("<script>alert('登入失敗')</script>");
     }
 
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         Response.Redirect("register.aspx");
+    }
+
+    /// <summary>
+    /// 取得DB連線字串
+    /// </summary>
+    /// <returns></returns>
+    private string GetDBConnectionString()
+    {
+        return
+            System.Configuration.ConfigurationManager.ConnectionStrings["IMSTUDENTDBConn"].ConnectionString.ToString();
+    }
+
+    public bool userLogin(string Account, string Password)
+    {
+        string userPassword = "";
+        string sql = @"SELECT Password FROM MEMBER WHERE Account = @Account AND Password = @Password";
+        using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Account", Account));
+            cmd.Parameters.Add(new SqlParameter("@Password", Password));
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }                
+        }
     }
 }

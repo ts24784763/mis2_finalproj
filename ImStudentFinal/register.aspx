@@ -95,16 +95,16 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:RadioButtonList ID="RadioButtonList1" CssClass="spaced"  runat="server">
+                <asp:RadioButtonList ID="radioRole" CssClass="spaced"  runat="server">
                     <asp:ListItem>學生</asp:ListItem>
                     <asp:ListItem>老師</asp:ListItem>
                     <asp:ListItem>校長</asp:ListItem>
                 </asp:RadioButtonList>
                 <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="RadioButtonList1" ErrorMessage="請選擇身分" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="radioRole" ErrorMessage="請選擇身分" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Button ID="btnSubmitRegister" runat="server" Text="註冊" Width="388px" Height="31px" />
+                <asp:Button ID="btnSubmitRegister" runat="server" Text="註冊" Width="388px" Height="31px" OnClick="btnSubmitRegister_Click1" />
                 <br />
                 <br />
                 <br />
