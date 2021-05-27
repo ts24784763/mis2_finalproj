@@ -1,4 +1,4 @@
-﻿input {
+﻿.blueBtmLine {
     border: none;
     border-bottom: 1px solid #4A4AFF;
     font-family: 'Microsoft JhengHei';
@@ -69,4 +69,15 @@ radioButton {
     color: midnightblue;
     font-family: 'Microsoft JhengHei';
     border: none;
+}
+
+#applyTitle .schoolName #applyForm {
+    font-family: 'Microsoft JhengHei';
+}
+
+#uploadBtn {
+    background-color: cornflowerblue;
+    color: white;
+    font-family: 'Microsoft JhengHei';
+    text-align: center;
 }

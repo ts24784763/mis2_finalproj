@@ -27,7 +27,7 @@
         </div>
         <div>
         </div>
-        <div class="regisArea">
+        <form id="regisForm" class="regisArea">
             <center>
                 <br />
                 <br />
@@ -39,40 +39,40 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtName" type="text" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtName" type="text" CssClass="blueBtmLine" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="nameValidator" runat="server" ErrorMessage="請輸入姓名" ForeColor="#CC0000" ControlToValidate="txtName"></asp:RequiredFieldValidator>
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 340px">*email :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 340px">*帳號:<br />
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtEmail" type="text" placeholder="Enter your email" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
                 <br />
                 <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="請輸入信箱" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="請輸入帳號" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="信箱格式錯誤 ( ex : test@gmail.com )" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="帳號需為8~16碼，其中須包括英文及數字。" ForeColor="#CC0000" ValidationExpression="^.*(?=.{8,16})(?=.*\d)(?=.*[a-zA-Z]).*$"></asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px">*手機號碼 :<br />
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPhone" type="text" placeholder="Enter your phoneNumber" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPhone" type="text" CssClass="blueBtmLine" placeholder="Enter your phoneNumber" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="請輸入手機號碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="手機號碼格式錯誤（ex : 0988888888 )" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="手機號碼格式錯誤（ex : 0988888888 )" ForeColor="#CC0000" ValidationExpression="[0]{1}[9]{1}[0-9]{8}"></asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">*密碼 :<br />
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPassword" type="text" placeholder="Enter your password" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPassword" type="text" CssClass="blueBtmLine" placeholder="Enter your password" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPassword" ErrorMessage="請輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
@@ -84,7 +84,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPassword2" type="text" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPassword2" type="text" CssClass="blueBtmLine" placeholder="Enter your password again" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPassword2" ErrorMessage="請再次輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
@@ -110,7 +110,7 @@
                 <br />
                 <br />
             </center>
-        </div>
+        </form>
     </form>
 </body>
 </html>
