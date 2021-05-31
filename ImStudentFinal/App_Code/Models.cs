@@ -18,6 +18,7 @@ public class Models
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string Role { get; set; }
-        public string Wallet { get; set; }
+        public int Wallet { get; set; }
+        public string School { get; set; }
     }
 }

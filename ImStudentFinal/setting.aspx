@@ -27,11 +27,11 @@
         <div class="area">
            <div class="wrapper">
            <div class="photoItems">
-               <img src="https://picsum.photos/300/150?random=1"/>
-               <asp:Label ID="myName" CssClass="myName" runat="server" Text="試試看"></asp:Label>
-               <asp:Label ID="title" CssClass="nameSub" runat="server" Text="身分：(學生/校長/老師)"></asp:Label>
-               <asp:Label ID="school" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
-               <asp:Label ID="money" CssClass="money" runat="server" Text="錢包餘額： $ 15"></asp:Label>
+               <asp:Image ID="imgRole" runat="server" CssClass="imgCircle"/>               
+               <asp:Label ID="lbName" CssClass="myName" runat="server" Text="試試看"></asp:Label>
+               <asp:Label ID="lbRole" CssClass="nameSub" runat="server" Text="身分：(學生/校長/老師)"></asp:Label>
+               <asp:Label ID="lbSchool" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
+               <asp:Label ID="lbMoney" CssClass="money" runat="server" Text="錢包餘額： $ "></asp:Label>
            </div>
            <div class="certification">
                <asp:Label ID="myCertification" runat="server" Text="• 我的證書："></asp:Label>
@@ -40,14 +40,14 @@
            </div>
            <div class="setting">
                <asp:Label ID="settings" CssClass="settingFonts" runat="server" Text="個人資料設定"></asp:Label><hr />
-                       Email<br /><br />
-            <asp:Label ID="email" CssClass="emailFonts" runat="server" Text="xxxx@mail.com"></asp:Label>
+                       帳號<br /><br />
+            <asp:Label ID="lbEmail" CssClass="emailFonts" runat="server" Text="xxxx@mail.com"></asp:Label>
                <br /><br />姓名<br /><br />
-               <asp:TextBox ID="enterName" runat="server"></asp:TextBox><br /><br />
+               <asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br />
                電話<br /><br />
-               <asp:TextBox ID="cellPhone" runat="server"></asp:TextBox><br /><br />
+               <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox><br /><br />
                <br />
-               <asp:Button ID="update" CssClass="updateBtn" runat="server" Text="更新資訊" />
+               <asp:Button ID="update" CssClass="updateBtn" runat="server" Text="更新資訊" OnClick="update_Click" />
            </div>
       
         </div>
