@@ -21,4 +21,13 @@ public class Models
         public int Wallet { get; set; }
         public string School { get; set; }
     }
+
+    public class ResumeModel
+    {
+        public string StudentAccount  {get;set;}
+	    public string SchoolName      {get;set;}
+	    public string SelfIntroduction{get;set;} 
+	    public string ResumeFileName  {get;set;}
+	    public string ResumeFilePath  {get; set;}
+    }
 }
