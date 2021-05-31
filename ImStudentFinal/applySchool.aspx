@@ -37,24 +37,25 @@
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="上傳履歷："></asp:Label>
-            <asp:TextBox ID="resumePath" runat="server"></asp:TextBox>
+            <asp:FileUpload ID="uploadResume" runat="server" />
+            <%--            <asp:TextBox ID="resumePath" runat="server"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="uploadBtn" runat="server" CssClass="mt-0" Height="36px" Text="上傳" Font-Size="Small" Width="105px" />
+            <asp:Button ID="uploadBtn" runat="server" CssClass="mt-0" Height="36px" Text="上傳" Font-Size="Small" Width="105px" />--%>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Text="自我介紹："></asp:Label>
         </div>
             <center>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="introTextbox" ErrorMessage="請輸入自我介紹！" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtIntro" ErrorMessage="請輸入自我介紹！" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br />
-            <asp:TextBox ID="introTextbox" runat="server" Height="155px" TextMode="MultiLine" Width="394px"></asp:TextBox>
+            <asp:TextBox ID="txtIntro" runat="server" Height="155px" TextMode="MultiLine" Width="394px"></asp:TextBox>
                 <br />
             </center>
             <br />
             <center>
                 <asp:Button ID="cancleBtn" CssClass="applySchoolBtn" runat="server" CausesValidation="false" Text="取 消" BackColor="#99CCFF" Height="44px" Width="170px" OnClick="cancleBtn_Click" />
                 　　　　
-                <asp:Button ID="confirmSubmitBtn" CssClass="applySchoolBtn" runat="server" Text="確 認 送 出 &gt;" BackColor="#99CCFF" Height="44px" Width="170px" />
+                <asp:Button ID="confirmSubmitBtn" CssClass="applySchoolBtn" runat="server" Text="確 認 送 出 &gt;" BackColor="#99CCFF" Height="44px" Width="170px" OnClick="confirmSubmitBtn_Click" />
             </center>
     </form>
 </body>

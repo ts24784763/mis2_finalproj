@@ -48,7 +48,7 @@ public partial class register : System.Web.UI.Page
             Account = txtEmail.Text,
             Name = txtName.Text,
             Password = txtPassword.Text,
-            PhoneNumber = txtPassword.Text,
+            PhoneNumber = txtPhone.Text,
             Role = radioRole.SelectedValue
         };
         try
@@ -59,7 +59,6 @@ public partial class register : System.Web.UI.Page
         catch
         {
             Response.Write("<script>alert('註冊失敗 帳號已存在')</script>");
-        }
-        
+        }       
     }
 }
