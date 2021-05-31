@@ -210,3 +210,110 @@
     color:white;
     width:220px;
 }
+.schoolBody {
+    width: 100%;
+    height: 120vh;
+    background-color: white;
+    color: rgb(147,167,206);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.schoolTable {
+    width: 60%;
+    height: 90%;
+    background-color: white;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.schoolLeft {
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-width: 2px;
+    border-color: rgb(240,240,241);
+    border-style: solid;
+    display:flex;
+    flex-direction:column;
+}
+.schoolRight {
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-width: 2px;
+    border-color: rgb(240,240,241);
+    border-style: solid;
+    display:flex;
+    flex-direction:column;
+}
+
+
+.photoItems .imgCircle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 0 10px 0;
+}
+
+.schoolFonts {
+    color: rgb(106,143,173);
+    font-size: 15px;
+    margin-top:20px;
+    margin-left:30px;
+}
+.schoolItems {
+    display: inline-block;
+}
+.schoolImg{
+    width:90%;
+    height:90%;
+    margin-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.schoolTitle {
+    color: rgb(75,119,153);
+    font-size: 20px;
+    font-weight:bold;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.schoolItems .schoolImg {
+    margin-left: 20px;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    margin-top: 0px;
+}
+.schoolItems .schoolTitle {
+    color: rgb(75,119,153);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left:5px;
+}
+.accordionFonts {
+    font-size: 15px;
+    color: rgb(75,119,153);
+}
+.accordion-body {
+    font-size: 15px;
+    color: black;
+}
+.schoolLeft .items {
+    border-width: 0.5px;
+    border-color: rgb(240,240,241);
+    border-style: solid;
+}
+.items .itemsFont {
+    margin: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(75,119,153);
+}
+.items .itemsProcess {
+    margin: 20px;
+    font-size: 20px;
+    color: black;
+}

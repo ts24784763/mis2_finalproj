@@ -27,7 +27,7 @@
         <div class="area">
            <div class="wrapper">
            <div class="photoItems">
-               <img src="https://picsum.photos/300/150?random=1"/>
+               <asp:Image ID="Image1" runat="server" CssClass="imgCircle" src="https://picsum.photos/300/150?random=1"/>
                <asp:Label ID="myName" CssClass="myName" runat="server" Text="試試看"></asp:Label>
                <asp:Label ID="title" CssClass="nameSub" runat="server" Text="身分：(學生/校長/老師)"></asp:Label>
                <asp:Label ID="school" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
@@ -54,3 +54,4 @@
     </form>
 </body>
 </html>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
