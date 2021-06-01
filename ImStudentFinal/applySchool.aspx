@@ -51,6 +51,7 @@
                 <br />
             </center>
             <br />
+            <br />
             <center>
                 <asp:Button ID="cancleBtn" CssClass="applySchoolBtn" runat="server" CausesValidation="false" Text="取 消" BackColor="#99CCFF" Height="44px" Width="170px" OnClick="cancleBtn_Click" />
                 　　　　
