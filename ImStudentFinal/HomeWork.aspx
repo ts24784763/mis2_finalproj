@@ -46,14 +46,22 @@
             <br />
             <br />
             <br />
-            <asp:Calendar ID="CalDate" runat="server" OnSelectionChanged="CalDate_SelectionChanged" Height="291px" Width="443px">
-                <DayHeaderStyle BorderStyle="Dotted" />
-                <DayStyle BorderStyle="Dashed" />
+            <asp:Calendar ID="CalDate" runat="server" Width="400px" Height="200px" Font-Names="Tahoma" Font-Size="11px" NextMonthText="." PrevMonthText="." SelectMonthText="»" SelectWeekText="›" CssClass="myCalendar" OnSelectionChanged="CalDate_SelectionChanged"  CellPadding="0">
+                <OtherMonthDayStyle ForeColor="#b0b0b0" />
+                <DayStyle CssClass="myCalendarDay" ForeColor="#2d3338" />
+                <DayHeaderStyle CssClass="myCalendarDayHeader" ForeColor="#2d3338" />
+                <SelectedDayStyle Font-Bold="True" Font-Size="12px" CssClass="myCalendarSelector" />
+                <TodayDayStyle CssClass="myCalendarToday" />
+                <SelectorStyle CssClass="myCalendarSelector" />
+                <NextPrevStyle CssClass="myCalendarNextPrev" />
+                <TitleStyle CssClass="myCalendarTitle" />
             </asp:Calendar>
+
             <br /><br />
             <asp:Button ID="btnSearch" runat="server" CssClass="button" Width="400px" Height="50px"  Text="搜尋"
                 style="background-color: midnightblue; color: white;"  />
         </div>
+            <br /><br /><br /><br /><br /><br />
         </center>
     </form>
 </body>

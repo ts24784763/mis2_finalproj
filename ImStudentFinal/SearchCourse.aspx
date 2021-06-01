@@ -34,7 +34,7 @@
                 <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
         </div>
-        <div class"bottom">
+        <%--<div class"bottom">
             <img src="https://picsum.photos/300/150?random=1" alt="測試圖片1"/>
             會計學
             30weeks
@@ -47,7 +47,7 @@
             30weeks
             NT$100
             <asp:Button ID="btninfo2" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
-        </div>
+        </div>--%>
     </form>
 </body>
 </html>
