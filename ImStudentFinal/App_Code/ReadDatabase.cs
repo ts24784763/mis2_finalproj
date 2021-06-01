@@ -111,4 +111,29 @@ public class ReadDatabase
         return result.FirstOrDefault();
     }
 
+    public static List<Models.CourseAndTeacherModel> CourseAndTeacherInfo(string schoolName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT CourseName, Name AS TeacherName FROM COURSE LEFT JOIN MEMBER ON TeacherAccount = Account WHERE COURSE.School = @SchoolName";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@SchoolName", schoolName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseAndTeacherModel> result = new List<Models.CourseAndTeacherModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseAndTeacherModel()
+            {
+                CourseName = row["CourseName"].ToString(),
+                TeacherName = row["TeacherName"].ToString(),
+            });
+        }
+        return result;
+    }
 }

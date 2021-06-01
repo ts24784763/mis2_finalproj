@@ -50,23 +50,23 @@
                 </div>
              </center>
                 <div class="teacherIntro">
-                    <asp:DataList ID="DataList1" runat="server" CellPadding="4" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
-                        <AlternatingItemStyle BackColor="White" />
+                <asp:DataList ID="TeacherDataList" runat="server" CellPadding="4" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="#EFF3FB" />
-                <ItemTemplate>
-                    <center>
-                    <asp:Image id="teacherImg" runat="server" Text='<%# Eval("教師照片") %>' ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" Height="190px" Width="180px"/>
-                    <br />
-                    <asp:Label ID="teacherName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("教師名稱") %>'/>
-                    <br />
-                    <asp:Label ID="teacherCourses" runat="server" Font-Size="Larger" ForeColor="#93a7ce" Text='<%# Eval("授課課程", "{0:C}") %>'/>
-                    <br />
-                    </center>
-                </ItemTemplate>
+                    <ItemTemplate>
+                        <center>
+                        <asp:Image id="teacherImg" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" Height="190px" Width="180px"/>
+                        <br />
+                        <asp:Label ID="lbTeacherName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("TeacherName") %>'/>
+                        <br />
+                        <asp:Label ID="lbCourseName" runat="server" Font-Size="Larger" ForeColor="#93a7ce" Text='<%# Eval("CourseName") %>'/>
+                        <br />
+                        </center>
+                    </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    </asp:DataList>
+                </asp:DataList>
                 </div> 
              <center>
                 <div style="padding-top: 30px">

@@ -50,4 +50,10 @@ public class Models
         public string TeacherAccount { get; set; }
         public string School { get; set; }
     }
+
+    public class CourseAndTeacherModel
+    {
+        public string CourseName { get; set; }
+        public string TeacherName { get; set; }
+    }
 }
