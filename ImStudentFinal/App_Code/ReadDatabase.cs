@@ -136,4 +136,65 @@ public class ReadDatabase
         }
         return result;
     }
+
+    public static List<Models.SchoolModel> SearchSchoolByWord(string searchWord)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT * FROM SCHOOL WHERE SchoolName LIKE '%' + @searchWord + '%' OR SchoolIntroduction LIKE '%' + @searchWord + '%'";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@searchWord", searchWord));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.SchoolModel> result = new List<Models.SchoolModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.SchoolModel()
+            {
+                SchoolName = row["SchoolName"].ToString(),
+                SchoolIntroduction = row["SchoolIntroduction"].ToString(),
+                RequiredCredits = int.Parse(row["RequiredCredits"].ToString()),
+                SchoolStatus = row["SchoolStatus"].ToString(),
+                License = row["License"].ToString(),
+                Principal = row["Principal"].ToString(),
+            });
+        }
+        return result;
+    }
+
+    public static List<Models.CourseModel> SearchCourseBySchool(string schoolName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT * FROM COURSE WHERE School = @school";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@school", schoolName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseModel> result = new List<Models.CourseModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseModel()
+            {
+                CourseId = int.Parse(row["CourseId"].ToString()),
+                CourseName = row["CourseName"].ToString(),
+                CourseIntroduction = row["CourseIntroduction"].ToString(),
+                CourseCredits = int.Parse(row["CourseCredits"].ToString()),
+                TeacherAccount = row["TeacherAccount"].ToString(),
+                School = row["School"].ToString(),
+            });
+        }
+        return result;
+    }
+
 }
