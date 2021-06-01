@@ -30,4 +30,24 @@ public class Models
 	    public string ResumeFileName  {get;set;}
 	    public string ResumeFilePath  {get; set;}
     }
+
+    public class SchoolModel
+    {
+        public string SchoolName { get; set; }
+        public string SchoolIntroduction { get; set; }
+        public int RequiredCredits { get; set; }
+        public string SchoolStatus { get; set; }
+        public string License { get; set; }
+        public string Principal { get; set; }
+    }
+
+    public class CourseModel
+    {
+        public int CourseId { get; set; }
+        public string CourseName { get; set; }
+        public string CourseIntroduction { get; set; }
+        public int CourseCredits { get; set; }
+        public string TeacherAccount { get; set; }
+        public string School { get; set; }
+    }
 }

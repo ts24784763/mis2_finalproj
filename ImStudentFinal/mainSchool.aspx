@@ -26,7 +26,7 @@
                     <div class="schoolLeft">
                         <div class="items">
                             <div class="itemsProcess">
-                               會計學校
+                               <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
                             </div>
                         </div>
                         <div class="items">
@@ -75,20 +75,15 @@
                         <asp:Label ID="schoolFonts1" CssClass="schoolFonts" runat="server" Text="🏆️取得畢業門檻學分將可獲得證書"></asp:Label>
                         <br />
                         <div class="schoolItems">
-                           <asp:Label ID="schoolWeek" CssClass="schoolFonts" runat="server" Text="30週"></asp:Label>
-                            <asp:Label ID="schoolCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
+                            <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
                          <asp:Label ID="intro" CssClass="schoolTitle" runat="server" Text="簡介"></asp:Label>     
-                         <asp:Label ID="schoolName" CssClass="schoolFonts" runat="server" Text="好學校"></asp:Label>
+                         <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" runat="server" Text="好學校"></asp:Label>
                          <asp:Label ID="schoolCertification" CssClass="schoolTitle" runat="server" Text="證書"></asp:Label>
-                         <asp:Label ID="certificationName" CssClass="schoolFonts" runat="server" Text="IMS認證會計"></asp:Label>
+                         <asp:Label ID="lbLicense" CssClass="schoolFonts" runat="server" Text="IMS認證會計"></asp:Label>
                          <asp:Label ID="schoolPrinciple" CssClass="schoolTitle" runat="server" Text="校長"></asp:Label>
-                        <div class="schoolItems">
-                            <asp:Image ID="principleImg" CssClass="schoolImg" runat="server"  src="https://picsum.photos/20/20?random=1"/>
-                           <asp:Label ID="xxx" CssClass="schoolTitle" runat="server" Text="XXX"></asp:Label>
-                        </div>
-
+                         <asp:Label ID="lbPrincipal" CssClass="schoolFonts" runat="server" Text="XXX"></asp:Label>
                     </div>
                 </div>
             </div>

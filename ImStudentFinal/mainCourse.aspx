@@ -26,7 +26,7 @@
                     <div class="schoolLeft">
                         <div class="items">
                             <div class="itemsProcess">
-                               會計學校
+                                <asp:Label ID="lbSchoolName" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                         <div class="items">
@@ -72,15 +72,15 @@
                           
                     </div>
                     <div class="schoolRight">
-                        <asp:Label ID="courseName" CssClass="courseFonts" runat="server" Text="基礎會計"></asp:Label>
+                        <asp:Label ID="lbCourseName" CssClass="courseFonts" runat="server" Text="基礎會計"></asp:Label>
                         <br />
                         <div class="teacherArea">
-                           <asp:Label ID="teacherName" CssClass="Items" runat="server" Text="XXX"></asp:Label>
+                           <asp:Label ID="lbTeacherName" CssClass="Items" runat="server" Text="XXX"></asp:Label>
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
                         <div> <a href="#" class="courseLink">(課程連結)</a></div>
-                        <asp:Label ID="courseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
+                        <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="homeworkArea">
                             <asp:Label ID="homeworkName" CssClass="fontStyle" runat="server" Text="作業名稱："></asp:Label>
                             <asp:Button ID="uploadHomework" CssClass="homeworkButton" runat="server" Text="上傳作業" />
