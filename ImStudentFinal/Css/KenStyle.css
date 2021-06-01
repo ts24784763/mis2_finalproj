@@ -168,64 +168,10 @@ radioButton {
     margin: auto;
 }
 
-.teacherIntro .leftTeacherInfo {
+.courseInfo {
     position: relative;
-    float: left;
-    width:50%;
-    height: 300px;
-    padding-top: 20px;
-    padding-left: 20px;
-    background-color: white;
-    border: solid;
-    border-color: lightgrey;
-}
-
-.teacherIntro .leftTeacherInfo .teacherImg {
-    position: relative;
-    float: left;
-    width: 40%;
-}
-
-#teacherImg {
-    border-radius: 50%;
-    border: 5px solid lightgrey;
-    width: 100%;
-}
-
-.teacherIntro .leftTeacherInfo .teacherDetail {
-    position: relative;
-    float: right;
-    padding-left: 50px;
-    width: 60%;
-    color: dimgray;
-    line-height: 30px;
-}
-
-.teacherIntro .rightTeacherInfo {
-    position: relative;
-    float: left;
-    width: 50%;
-    height: 300px;
-    padding-top: 20px;
-    padding-left: 20px;
-    background-color: white;
-    border-top: solid;
-    border-right: solid;
-    border-bottom: solid;
-    border-color: lightgrey;
-}
-
-.teacherIntro .rightTeacherInfo .teacherImg {
-    position: relative;
-    float: left;
-    width: 40%;
-}
-
-.teacherIntro .rightTeacherInfo .teacherDetail {
-    position: relative;
-    float: right;
-    padding-left: 50px;
-    width: 60%;
-    color: dimgray;
-    line-height: 30px;
+    width: 90%;
+    height: 350px;
+    padding-top: 50px;
+    margin: auto;
 }
