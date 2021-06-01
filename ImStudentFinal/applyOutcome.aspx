@@ -26,7 +26,7 @@
                         審核學生
                     </div>
                 <div class="mainTable">
-<asp:DataList ID="DataList1" runat="server" CellPadding="4"  ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+<asp:DataList ID="DataList1" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -37,7 +37,7 @@
                     <br />
                     <asp:Label ID="大學名稱" runat="server" Text='<%# Eval("大學名稱") %>'/>
                     <br />
-                    申請狀況：<asp:Label ID="申請狀況：" runat="server" Text='<%# Eval("通過", "{0:C}") %>'/>
+                    申請狀況：<asp:Label ID="申請狀況" runat="server" Text='<%# Eval("通過", "{0:C}") %>'/>
                     <div style="float:right;">
                     <asp:Button ID="繳費" runat="server" Text='繳費入學' PostBackUrl='<%# Eval("繳費入學", "05.BookDetail.aspx?field={0}") %>' Width="200px"/>
                    </div>
