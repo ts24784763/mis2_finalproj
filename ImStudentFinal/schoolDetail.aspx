@@ -50,11 +50,11 @@
                 </div>
              </center>
                 <div class="teacherIntro">
-                <asp:DataList ID="TeacherDataList" runat="server" CellPadding="4" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                <asp:DataList ID="teacherDataList" runat="server" CellPadding="4" ForeColor="#333333" RepeatDirection="Horizontal" RepeatColumns="4" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <ItemStyle BackColor="#EFF3FB" CssClass="teacherTd"/>
                     <ItemTemplate>
                         <center>
                         <asp:Image id="teacherImg" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" Height="190px" Width="180px"/>
@@ -75,18 +75,18 @@
                 </div>
              </center>
                 <div class="courseInfo">
-                    <asp:DataList ID="DataList2" runat="server" CellPadding="8" RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                    <asp:DataList ID="DataList2" runat="server" CellPadding="4" RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                         <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="#EFF3FB" />
                 <ItemTemplate>
                     <center>
-                    <asp:Image id="courseImg" runat="server" Text='<%# Eval("課程圖片") %>' ImageUrl="https://picsum.photos/300/150?random=1" Height="150px" Width="220px"/>
+                    <asp:Image id="courseImg" runat="server" Text='<%# Eval("課程圖片") %>' ImageUrl="https://picsum.photos/300/150?random=1" Height="150px" Width="220px" style="padding:30px"/>
                     <br />
-                    <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("課程名稱") %>'/>
+                    <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("課程名稱") %>' style="padding:30px"/>
                     <br />
-                    <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("課程簡介", "{0:C}") %>'/>
+                    <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("課程簡介", "{0:C}") %>' style="padding:30px"/>
                     <br />
                     </center>
                 </ItemTemplate>
