@@ -25,15 +25,16 @@
         <div class="schoolDetailsArea">
             <center>
                 <div style="padding-top: 30px">
+                    <br />
                 <asp:Label CssClass="schoolName" runat="server" Text="ＸＸ大學" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="True" ID="lbSchoolName"></asp:Label>
                 </div>
             </center>
                 <div class="schoolIntro">
                     <div class="leftIntro">
                         <div class="IntroConent">
-                            <asp:Label ID="Label1" runat="server" Text="學校簡介"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text="學校簡介" ForeColor="DarkBlue"></asp:Label>
                             <br />
-                            <asp:Label ID="lbSchoolIntro" runat="server" Text="簡介內容...."></asp:Label>
+                            　　<asp:Label ID="lbSchoolIntro" runat="server" Text="簡介內容...."></asp:Label>
                         </div>
                         <div class="necessaryCredits">
                             <asp:Label ID="creditLab" runat="server" Text="畢業所需學分數："></asp:Label>
@@ -54,7 +55,7 @@
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <ItemStyle BackColor="White" CssClass="teacherTd" />
                     <ItemTemplate>
                         <center>
                         <asp:Image id="teacherImg" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" Height="190px" Width="180px"/>
@@ -79,10 +80,11 @@
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <ItemStyle BackColor="White" CssClass="courseTd" />
                     <ItemTemplate>
                         <center>
                         <asp:Image id="courseImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" Height="150px" Width="220px"/>
+                        <br />
                         <br />
                         <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("CourseName") %>'/>
                         <br />
@@ -92,6 +94,7 @@
                     </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:DataList>
+                    <br />
                 </div>
         </div>
     </form>

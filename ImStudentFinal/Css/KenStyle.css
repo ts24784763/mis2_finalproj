@@ -126,11 +126,13 @@ radioButton {
 
 .schoolIntro .leftIntro .IntroConent {
     position: relative;
-    width: 100%;
+    width: 95%;
     height: 85%;
     font-size: 20px;
     text-align: left;
     color: dimgray;
+    padding-left: 10px;
+    line-height: 1.5;
 }
 
 .schoolIntro .leftIntro .necessaryCredits {
@@ -183,8 +185,23 @@ radioButton {
     border-color: lightgrey;
 }
 
-#teacherDataList {
+#TeacherDataList {
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
+}
+
+#CourseDataList {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+}
+
+.courseTd {
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+    line-height: 1.5;
 }

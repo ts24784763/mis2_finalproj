@@ -57,12 +57,12 @@
             <div class="auto-style3">
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*Email :<br />
                 </label>&nbsp;<br />
-                <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="276px" BackColor="#F7F7F7"></asp:TextBox><br />
+                <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="276px" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="emailValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入信箱" ForeColor="#CC0000" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*密碼 :<br />
                 </label>&nbsp;<br />
-                <asp:TextBox id="txtPassword" placeholder="Enter your password" class="blueBtmLine auto-style4" runat="server" BackColor="#F7F7F7" TextMode="Password"></asp:TextBox><br />
+                <asp:TextBox id="txtPassword" placeholder="Enter your password" class="blueBtmLine auto-style4" runat="server" BackColor="#F0F0F0" TextMode="Password"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="passwordValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入密碼" ControlToValidate="txtPassword" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Button id="btnLogin" CssClass="blueBtmLine" class="auto-style5" runat="server" Text="登入" CausesValidation="true" OnClick="btnLogin_Click" Height="32px" Width="283px"></asp:Button>

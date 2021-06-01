@@ -39,7 +39,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtName" type="text" CssClass="blueBtmLine" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtName" type="text" CssClass="blueBtmLine" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="nameValidator" runat="server" ErrorMessage="請輸入姓名" ForeColor="#CC0000" ControlToValidate="txtName"></asp:RequiredFieldValidator>
@@ -48,7 +48,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="請輸入帳號" ForeColor="#CC0000"></asp:RequiredFieldValidator>
@@ -60,7 +60,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPhone" type="text" CssClass="blueBtmLine" placeholder="Enter your phoneNumber" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPhone" type="text" CssClass="blueBtmLine" placeholder="Enter your phoneNumber" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="請輸入手機號碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
@@ -72,7 +72,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPassword" type="text" CssClass="blueBtmLine" placeholder="Enter your password" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPassword" type="text" CssClass="blueBtmLine" placeholder="Enter your password" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPassword" ErrorMessage="請輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
@@ -84,7 +84,7 @@
                 </label>
                 &nbsp;<br />
                 <br />
-                <asp:TextBox id="txtPassword2" type="text" CssClass="blueBtmLine" placeholder="Enter your password again" runat="server" Width="393px" BackColor="#F7F7F7"></asp:TextBox>
+                <asp:TextBox id="txtPassword2" type="text" CssClass="blueBtmLine" placeholder="Enter your password again" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPassword2" ErrorMessage="請再次輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
