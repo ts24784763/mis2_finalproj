@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomeWork.aspx.cs" Inherits="HomeWork" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomeWork.aspx.cs" Inherits="HomeWork" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
