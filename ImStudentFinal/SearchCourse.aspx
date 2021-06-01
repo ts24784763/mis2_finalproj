@@ -23,18 +23,16 @@
             </div>
         </div>
         <div class="bluebar">
-            <br />
-            <br />
             <br /><br /><br />
             <div class="textWrap">挑選您有興趣的課程</div>
-            <br /><br /><br />
+            <br /><br />
             <div class="wrap">
                 <asp:TextBox ID="txtSearch" placeholder="輸入你想查詢的學校" CssClass="box" runat="server"></asp:TextBox>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
         </div>
-        <div class"bottom">
+        <%--<div class"bottom">
             <img src="https://picsum.photos/300/150?random=1" alt="測試圖片1"/>
             會計學
             30weeks
@@ -47,7 +45,28 @@
             30weeks
             NT$100
             <asp:Button ID="btninfo2" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
-        </div>
+        </div>--%>
+        <center>
+        <asp:DataList ID="DListCourseInfo" runat="server" CellPadding="3" ForeColor="#333333" EnableViewState="False" RepeatDirection="Horizontal">
+            <AlternatingItemStyle BackColor="White" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
+            <ItemStyle BackColor="#EFF3FB" />
+            <ItemTemplate>
+                <center>
+                    <asp:Image ID="lblCoursePhoto" runat="server" ></asp:Image>
+                    <br />
+                    <asp:Label ID="lblCourseName" runat="server" text="會計"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblCourseInfo" runat="server" text="很棒的一堂課"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblCoursePeroid" runat="server" text="10 weeks"></asp:Label>
+                    <br />
+                    <asp:Button ID="btnCheck" runat="server" Text="查看"></asp:Button>
+                </center>
+            </ItemTemplate>
+        </asp:DataList>
+        </center>
     </form>
 </body>
 </html>
