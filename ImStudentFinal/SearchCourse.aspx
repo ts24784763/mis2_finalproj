@@ -40,7 +40,7 @@
             <ItemStyle BackColor="#EFF3FB" />
             <ItemTemplate>
                 <center>
-                    <asp:Image ID="lblCoursePhoto" runat="server" ></asp:Image>
+                    <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl="../image/YZULogo.png"></asp:Image>
                     <br />
                     <asp:Label ID="lblCourseName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />
