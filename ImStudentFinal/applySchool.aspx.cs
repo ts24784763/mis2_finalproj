@@ -23,7 +23,7 @@ public partial class applySchool : System.Web.UI.Page
     protected void confirmSubmitBtn_Click(object sender, EventArgs e)
     {
         string userSession = "28cyc"; //TODO
-        string schoolName = "yzuuu"; //TODO
+        string schoolName = "元智資管學校"; //TODO
         if (uploadResume.HasFile)
         {
             string path = "Resume/" + schoolName + "_" + userSession + "_" + uploadResume.FileName;

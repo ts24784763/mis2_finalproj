@@ -65,4 +65,14 @@ public class Models
         public DateTime Deadline { get; set; }
         public int CourseId { get; set; }
     }
+
+    public class StudentResumeModel
+    {
+        public string StudentName { get; set; }
+        public string StudentAccount { get; set; }
+        public string SchoolName { get; set; }
+        public string SelfIntroduction { get; set; }
+        public string ResumeFileName { get; set; }
+        public string ResumeFilePath { get; set; }
+    }
 }

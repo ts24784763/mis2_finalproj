@@ -197,4 +197,34 @@ public class ReadDatabase
         return result;
     }
 
+    public static List<Models.StudentResumeModel> StudentResumeInfo(string schoolName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name AS StudentName, StudentAccount, SchoolName, SelfIntroduction, ResumeFileName, ResumeFilePath FROM STUDENTRESUME 
+                             JOIN MEMBER ON StudentAccount = Account WHERE SchoolName = @SchoolName";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@SchoolName", schoolName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.StudentResumeModel> result = new List<Models.StudentResumeModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.StudentResumeModel()
+            {
+                StudentName = row["StudentName"].ToString(),
+                StudentAccount = row["StudentAccount"].ToString(),
+                SchoolName = row["SchoolName"].ToString(),
+                SelfIntroduction = row["SelfIntroduction"].ToString(),
+                ResumeFileName = row["ResumeFileName"].ToString(),
+                ResumeFilePath = row["ResumeFilePath"].ToString(),
+            });
+        }
+        return result;
+    }
 }

@@ -22,32 +22,30 @@
             </div>
         </div>
             <div class="schoolBody2">
-                    <div class="verifyTitle">
-                        審核學生
-                    </div>
-                <div class="mainTable">
-<asp:DataList ID="DataList1" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
-                <AlternatingItemStyle BackColor="White" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <div class="verifyTitle">
+                    審核學生
+                </div>
+            <div class="mainTable">
+            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+            <AlternatingItemStyle BackColor="White" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <ItemStyle BackColor="#EFF3FB" />
                 <ItemTemplate>
                     <center>
-                    <asp:Image ID="大學照片" runat="server" Text='<%# Eval("大學照片") %>' ImageUrl='<%# Eval("大學照片", "~/images/{0}.jpg") %>' Height="200px" Width="180px" />
+                    <asp:Image id="teacherImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
                     <br />
-                    <asp:Label ID="大學名稱" runat="server" Text='<%# Eval("大學名稱") %>'/>
+                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
-                    申請狀況：<asp:Label ID="申請狀況" runat="server" Text='<%# Eval("通過", "{0:C}") %>'/>
-                    <div style="float:right;">
-                    <asp:Button ID="繳費" runat="server" Text='繳費入學' PostBackUrl='<%# Eval("繳費入學", "05.BookDetail.aspx?field={0}") %>' Width="200px"/>
-                   </div>
+                    <asp:Label ID="lbSelfInto" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
+                    <br />
+                    <asp:Button ID="downloadFile" runat="server" Text='下載履歷' Width="200px"/>
                     </center>
                 </ItemTemplate>
-                <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            </asp:DataList>             
-                    
-                    </div>
+            <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>                               
             </div>
+        </div>
     </form>
 </body>
 </html>
