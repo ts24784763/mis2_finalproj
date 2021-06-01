@@ -35,7 +35,7 @@
                 <br />
                 <br />
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">*姓名 :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">姓名*<br />
                 </label>
                 &nbsp;<br />
                 <br />
@@ -44,7 +44,7 @@
                 <br />
                 <asp:RequiredFieldValidator ID="nameValidator" runat="server" ErrorMessage="請輸入姓名" ForeColor="#CC0000" ControlToValidate="txtName"></asp:RequiredFieldValidator>
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 340px">*帳號:<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 340px">帳號*<br />
                 </label>
                 &nbsp;<br />
                 <br />
@@ -56,7 +56,7 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="帳號需為8~16碼，其中須包括英文及數字。" ForeColor="#CC0000" ValidationExpression="^.*(?=.{8,16})(?=.*\d)(?=.*[a-zA-Z]).*$"></asp:RegularExpressionValidator>
                 <br />
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px">*手機號碼 :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px">手機號碼*<br />
                 </label>
                 &nbsp;<br />
                 <br />
@@ -68,7 +68,7 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="手機號碼格式錯誤（ex : 0988888888 )" ForeColor="#CC0000" ValidationExpression="[0]{1}[9]{1}[0-9]{8}"></asp:RegularExpressionValidator>
                 <br />
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">*密碼 :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">密碼*<br />
                 </label>
                 &nbsp;<br />
                 <br />
@@ -80,7 +80,7 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPassword" ErrorMessage="密碼長度為8到16碼" ForeColor="#CC0000" ValidationExpression="[0-9,a-z,A-Z,_,@,#,$,%,^,&amp;,*]{8,16}"></asp:RegularExpressionValidator>
                 <br />
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px">*再次輸入密碼 :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px">再次輸入密碼*<br />
                 </label>
                 &nbsp;<br />
                 <br />
@@ -91,7 +91,7 @@
                 <br />
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtPassword2" ErrorMessage="密碼輸入不符！" ForeColor="#CC0000"></asp:CompareValidator>
                 <br />
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">*身分 :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">身分*<br />
                 </label>
                 &nbsp;<br />
                 <br />
