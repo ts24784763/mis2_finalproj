@@ -58,7 +58,8 @@
     width: 50%;
     height: auto;
     background-color: #F0F0F0;
-    font-family: 'Microsoft JhengHei UI'
+    font-family: 'Microsoft JhengHei UI';
+    align-self: center;
 }
 .textbox {
     border: 1px solid grey;
