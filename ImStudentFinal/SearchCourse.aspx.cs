@@ -14,6 +14,8 @@ public partial class SearchCourse : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-
+        string searchWord = txtSearch.Text;
+        DataListSchoolInfo.DataSource = ReadDatabase.SearchSchoolByWord(searchWord);
+        DataListSchoolInfo.DataBind();
     }
 }
