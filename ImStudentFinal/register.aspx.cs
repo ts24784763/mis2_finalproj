@@ -13,21 +13,11 @@ public partial class register : System.Web.UI.Page
         
     }
 
-    /// <summary>
-    /// 取得DB連線字串
-    /// </summary>
-    /// <returns></returns>
-    private string GetDBConnectionString()
-    {
-        return
-            System.Configuration.ConfigurationManager.ConnectionStrings["IMSTUDENTDBConn"].ConnectionString.ToString();
-    }
-
     public void Register(Models.MemberModel member)
     {
         string sql = @"INSERT INTO MEMBER (Account, Name, Password, PhoneNumber, Role, Wallet)
                                     VALUES (@Account, @Name, @Password, @PhoneNumber, @Role, 50000)";
-        using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);

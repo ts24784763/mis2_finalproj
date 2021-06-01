@@ -56,4 +56,13 @@ public class Models
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
     }
+
+    public class HWPostModel
+    {
+        public int HomeWorkId { get; set; }
+        public string HomeWorkName { get; set; }
+        public string HomeWorkDetail { get; set; }
+        public DateTime Deadline { get; set; }
+        public int CourseId { get; set; }
+    }
 }

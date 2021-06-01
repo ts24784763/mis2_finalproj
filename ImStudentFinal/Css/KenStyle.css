@@ -175,3 +175,16 @@ radioButton {
     padding-top: 50px;
     margin: auto;
 }
+
+.teacherTd {
+    padding: 30px;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+}
+
+#teacherDataList {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+}

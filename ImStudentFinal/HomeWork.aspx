@@ -36,13 +36,13 @@
             <asp:Label ID="lblHWContent" runat="server" Text="*作業內容："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtHWContent" placeholder="輸入作業內容"  runat="server" Height="100px" Width="400px" BackColor="#F7F7F7" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="txtHWDetail" placeholder="輸入作業內容"  runat="server" Height="100px" Width="400px" BackColor="#F7F7F7" TextMode="MultiLine"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblDeadLine" runat="server" Text="*繳交期限："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtDate" placeholder="選擇日期"  runat="server" Width="400px" Height="45px" BackColor="#F7F7F7"></asp:TextBox>
+            <asp:TextBox ID="txtDeadline" placeholder="選擇日期"  runat="server" Width="400px" Height="45px" BackColor="#F7F7F7"></asp:TextBox>
             <br />
             <br />
             <br />
@@ -58,8 +58,8 @@
             </asp:Calendar>
 
             <br /><br />
-            <asp:Button ID="btnSearch" runat="server" CssClass="button" Width="400px" Height="50px"  Text="搜尋"
-                style="background-color: midnightblue; color: white;"  />
+            <asp:Button ID="btnAddHW" runat="server" CssClass="button" Width="400px" Height="50px"  Text="新增作業"
+                style="background-color: midnightblue; color: white;" OnClick="btnAddHW_Click"  />
         </div>
             <br /><br /><br /><br /><br /><br />
         </center>
