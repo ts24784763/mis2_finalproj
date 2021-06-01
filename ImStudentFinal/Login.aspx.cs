@@ -28,21 +28,10 @@ public partial class Login : System.Web.UI.Page
         Response.Redirect("register.aspx");
     }
 
-    /// <summary>
-    /// 取得DB連線字串
-    /// </summary>
-    /// <returns></returns>
-    private string GetDBConnectionString()
-    {
-        return
-            System.Configuration.ConfigurationManager.ConnectionStrings["IMSTUDENTDBConn"].ConnectionString.ToString();
-    }
-
     public bool userLogin(string Account, string Password)
     {
-        string userPassword = "";
         string sql = @"SELECT Password FROM MEMBER WHERE Account = @Account AND Password = @Password";
-        using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);

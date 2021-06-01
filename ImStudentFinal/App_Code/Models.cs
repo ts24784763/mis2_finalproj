@@ -56,4 +56,23 @@ public class Models
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
     }
+
+    public class HWPostModel
+    {
+        public int HomeWorkId { get; set; }
+        public string HomeWorkName { get; set; }
+        public string HomeWorkDetail { get; set; }
+        public DateTime Deadline { get; set; }
+        public int CourseId { get; set; }
+    }
+
+    public class StudentResumeModel
+    {
+        public string StudentName { get; set; }
+        public string StudentAccount { get; set; }
+        public string SchoolName { get; set; }
+        public string SelfIntroduction { get; set; }
+        public string ResumeFileName { get; set; }
+        public string ResumeFilePath { get; set; }
+    }
 }
