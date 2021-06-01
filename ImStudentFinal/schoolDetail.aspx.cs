@@ -10,7 +10,12 @@ public partial class schoolDetail : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string schoolName = "元智資管學校";
+        lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
+        lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntroduction;
+        lbCreditNum.Text = ReadDatabase.SchoolInfo(schoolName).RequiredCredits.ToString();
         TeacherDataList.DataSource = ReadDatabase.CourseAndTeacherInfo(schoolName);
         TeacherDataList.DataBind();
+        CourseDataList.DataSource = ReadDatabase.SearchCourseBySchool(schoolName);
+        CourseDataList.DataBind();
     }
 }
