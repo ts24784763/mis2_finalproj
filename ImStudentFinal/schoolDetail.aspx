@@ -25,7 +25,7 @@
         <div class="schoolDetailsArea">
             <center>
                 <div style="padding-top: 30px">
-                <asp:Label CssClass="schoolName" runat="server" Text="ＸＸ大學" Font-Size="XX-Large" ForeColor="DarkBlue"></asp:Label>
+                <asp:Label CssClass="schoolName" runat="server" Text="ＸＸ大學" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                 </div>
             </center>
                 <div class="schoolIntro">
@@ -46,36 +46,53 @@
                 </div>
             <center>
                 <div style="padding-top: 30px">
-                    <asp:Label runat="server" Text="師資陣容" Font-Size="XX-Large" ForeColor="DarkBlue"></asp:Label>
+                    <asp:Label runat="server" Text="師資陣容" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                 </div>
              </center>
                 <div class="teacherIntro">
-                    <div class="leftTeacherInfo">
-                        <div class="teacherImg">
-                            <img id="teacherImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" alt="測試圖片"/>
-                        </div>
-                        <div class="teacherDetail">
-                            <asp:Label ID="teacherName" runat="server" Text="教師姓名" Font-Size="X-Large" ForeColor="DarkBlue"></asp:Label>
-                            <br />
-                            <asp:Label ID="teacherDepartment" runat="server" Text="授課領域" Font-Size="Larger" ForeColor="#93a7ce"></asp:Label>
-                            <br />
-                            <asp:Label ID="teacherIntroduction" runat="server" Text="教師詳細介紹"></asp:Label>
-                        </div>
-                    </div>
-                    <div class="rightTeacherInfo">
-                        <div class="teacherImg">
-                            <img id="teacherImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" alt="測試圖片"/>
-                        </div>
-                        <div class="teacherDetail">
-                            <asp:Label ID="Label2" runat="server" Text="教師姓名" Font-Size="X-Large" ForeColor="DarkBlue"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label3" runat="server" Text="授課領域" Font-Size="Larger" ForeColor="#93a7ce"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label4" runat="server" Text="教師詳細介紹"></asp:Label>
-                        </div>
-                    </div>
+                    <asp:DataList ID="DataList1" runat="server" CellPadding="4" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                        <AlternatingItemStyle BackColor="White" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="#EFF3FB" />
+                <ItemTemplate>
+                    <center>
+                    <asp:Image id="teacherImg" runat="server" Text='<%# Eval("教師照片") %>' ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png" Height="190px" Width="180px"/>
+                    <br />
+                    <asp:Label ID="teacherName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("教師名稱") %>'/>
+                    <br />
+                    <asp:Label ID="teacherCourses" runat="server" Font-Size="Larger" ForeColor="#93a7ce" Text='<%# Eval("授課課程", "{0:C}") %>'/>
+                    <br />
+                    </center>
+                </ItemTemplate>
+                <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    </asp:DataList>
                 </div> 
-                    
+             <center>
+                <div style="padding-top: 30px">
+                    <asp:Label runat="server" Text="課程總表" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
+                    <br />
+                </div>
+             </center>
+                <div class="courseInfo">
+                    <asp:DataList ID="DataList2" runat="server" CellPadding="8" RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                        <AlternatingItemStyle BackColor="White" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="#EFF3FB" />
+                <ItemTemplate>
+                    <center>
+                    <asp:Image id="courseImg" runat="server" Text='<%# Eval("課程圖片") %>' ImageUrl="https://picsum.photos/300/150?random=1" Height="150px" Width="220px"/>
+                    <br />
+                    <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("課程名稱") %>'/>
+                    <br />
+                    <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("課程簡介", "{0:C}") %>'/>
+                    <br />
+                    </center>
+                </ItemTemplate>
+                <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    </asp:DataList>
+                </div>
         </div>
     </form>
 </body>
