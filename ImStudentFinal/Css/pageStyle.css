@@ -43,6 +43,8 @@
     height: 200px;
     background-color: white;
     display: flex;
+    border-radius: 10px;
+    box-shadow: 3px 3px 9px black;
 }
 
     .block .textWrap {

@@ -20,11 +20,7 @@
         .auto-style4 {
             width: 278px;
         }
-        .auto-style5 {
-            width: 290px;
-            height: 27px;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,7 +51,7 @@
                 <br />
                 &nbsp;</div>
             <div class="auto-style3">
-                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*Email :<br />
+                <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*帳號 :<br />
                 </label>&nbsp;<br />
                 <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="276px" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="emailValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入信箱" ForeColor="#CC0000" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
