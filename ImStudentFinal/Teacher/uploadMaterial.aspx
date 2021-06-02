@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MaterialUpload.aspx.cs" Inherits="Material" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="uploadMaterial.aspx.cs" Inherits="Material" %>
 
 <!DOCTYPE html>
 

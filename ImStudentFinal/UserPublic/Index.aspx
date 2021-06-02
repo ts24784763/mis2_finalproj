@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="Index" %>
 
 <!DOCTYPE html>
 
@@ -30,12 +30,10 @@
             輕鬆在家進行課程，取得學位！</div>
             <div class="wrap">
                 <button class="button1">
-                    申請學校
-                    <img src="image/image_01.png"/>
+                    申請學校<img src="../image/image_01.png" />
                 </button>
                 <button class="button2">
-                    建立學校
-                                        <img src="image/image_02.png"/>
+                    建立學校<img src="../image/image_02.png" />
                 </button>
             </div>
         </div>

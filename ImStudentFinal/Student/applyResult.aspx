@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="applyOutcome.aspx.cs" Inherits="applyOutcome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="applyResult.aspx.cs" Inherits="applyOutcome" %>
 
 <!DOCTYPE html>
 
@@ -23,7 +23,7 @@
         </div>
             <div class="schoolBody2">
                 <div class="verifyTitle">
-                    審核學生
+                    申請學校結果
                 </div>
             <div class="mainTable">
             <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
@@ -33,11 +33,9 @@
             <ItemStyle BackColor="#EFF3FB" />
                 <ItemTemplate>
                     <center>
-                    <asp:Image id="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
+                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("School") %>'/>
                     <br />
-                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
-                    <br />
-                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
+                    申請狀況：<asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyResult") %>'/>
                     </center>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />

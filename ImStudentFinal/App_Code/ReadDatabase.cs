@@ -20,6 +20,11 @@ public class ReadDatabase
             System.Configuration.ConfigurationManager.ConnectionStrings["IMSTUDENTDBConn"].ConnectionString.ToString();
     }
 
+    /// <summary>
+    /// 查詢school所有資料
+    /// </summary>
+    /// <param name="schoolName">學校名字</param>
+    /// <returns></returns>
     public static Models.SchoolModel SchoolInfo(string schoolName)
     {
         DataTable dt = new DataTable();
@@ -40,16 +45,25 @@ public class ReadDatabase
             result.Add(new Models.SchoolModel()
             {
                 SchoolName = row["SchoolName"].ToString(),
-                SchoolIntroduction = row["SchoolIntroduction"].ToString(),
+                SchoolIntro = row["SchoolIntro"].ToString(),
+                SemesterDays = int.Parse(row["SemesterDays"].ToString()),
+                SchoolFee = int.Parse(row["SchoolFee"].ToString()),
+                License = row["License"].ToString(),
+                OpenSelectCourseDate = Convert.ToDateTime(row["OpenSelectCourseDate"].ToString()),
+                OpenSemesterDate = Convert.ToDateTime(row["OpenSemesterDate"].ToString()),
                 RequiredCredits = int.Parse(row["RequiredCredits"].ToString()),
                 SchoolStatus = row["SchoolStatus"].ToString(),
-                License = row["License"].ToString(),
                 Principal = row["Principal"].ToString(),
             });
         }
         return result.FirstOrDefault();
     }
 
+    /// <summary>
+    /// 查詢member所有資料
+    /// </summary>
+    /// <param name="userAccount">用戶帳號</param>
+    /// <returns></returns>
     public static Models.MemberModel UserInfo(string userAccount)
     {
         DataTable dt = new DataTable();
@@ -81,6 +95,11 @@ public class ReadDatabase
         return result.FirstOrDefault();
     }
 
+    /// <summary>
+    /// 查詢course所有資料
+    /// </summary>
+    /// <param name="courseId">課程id</param>
+    /// <returns></returns>
     public static Models.CourseModel CourseInfo(int courseId)
     {
         DataTable dt = new DataTable();
@@ -102,19 +121,27 @@ public class ReadDatabase
             {
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 CourseName = row["CourseName"].ToString(),
-                CourseIntroduction = row["CourseIntroduction"].ToString(),
-                CourseCredits = int.Parse(row["CourseCredits"].ToString()),
-                TeacherAccount = row["TeacherAccount"].ToString(),
+                CourseIntro = row["CourseIntro"].ToString(),
+                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
+                Teacher = row["Teacher"].ToString(),
                 School = row["School"].ToString(),
+                //HWName = row["HWName"].ToString(),
+                //HWDetail = row["HWDetail"].ToString(),
+                //HWDeadlineDays = int.Parse(row["Teacher"].ToString()),
             });
         }
         return result.FirstOrDefault();
     }
 
+    /// <summary>
+    /// 根據學校列出所有老師及開設課程
+    /// </summary>
+    /// <param name="schoolName">學校名字</param>
+    /// <returns></returns>
     public static List<Models.CourseAndTeacherModel> CourseAndTeacherInfo(string schoolName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT CourseName, Name AS TeacherName FROM COURSE LEFT JOIN MEMBER ON TeacherAccount = Account WHERE COURSE.School = @SchoolName";
+        string sql = @"SELECT CourseName, Teacher TeacherAccount, Name TeacherName FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -131,16 +158,22 @@ public class ReadDatabase
             result.Add(new Models.CourseAndTeacherModel()
             {
                 CourseName = row["CourseName"].ToString(),
+                TeacherAccount = row["TeacherAccount"].ToString(),
                 TeacherName = row["TeacherName"].ToString(),
             });
         }
         return result;
     }
 
+    /// <summary>
+    /// 根據關鍵字搜尋學校
+    /// </summary>
+    /// <param name="searchWord">關鍵字</param>
+    /// <returns></returns>
     public static List<Models.SchoolModel> SearchSchoolByWord(string searchWord)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT * FROM SCHOOL WHERE SchoolName LIKE '%' + @searchWord + '%' OR SchoolIntroduction LIKE '%' + @searchWord + '%'";
+        string sql = @"SELECT * FROM SCHOOL WHERE SchoolName LIKE '%' + @searchWord + '%' OR SchoolIntro LIKE '%' + @searchWord + '%'";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -157,7 +190,7 @@ public class ReadDatabase
             result.Add(new Models.SchoolModel()
             {
                 SchoolName = row["SchoolName"].ToString(),
-                SchoolIntroduction = row["SchoolIntroduction"].ToString(),
+                SchoolIntro = row["SchoolIntro"].ToString(),
                 RequiredCredits = int.Parse(row["RequiredCredits"].ToString()),
                 SchoolStatus = row["SchoolStatus"].ToString(),
                 License = row["License"].ToString(),
@@ -167,10 +200,15 @@ public class ReadDatabase
         return result;
     }
 
+    /// <summary>
+    /// 根據學校列出所有課程
+    /// </summary>
+    /// <param name="schoolName">學校名字</param>
+    /// <returns></returns>
     public static List<Models.CourseModel> SearchCourseBySchool(string schoolName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT * FROM COURSE WHERE School = @school";
+        string sql = @"SELECT CourseName, CourseIntro FROM COURSE WHERE School = @school";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -186,45 +224,93 @@ public class ReadDatabase
         {
             result.Add(new Models.CourseModel()
             {
-                CourseId = int.Parse(row["CourseId"].ToString()),
                 CourseName = row["CourseName"].ToString(),
-                CourseIntroduction = row["CourseIntroduction"].ToString(),
-                CourseCredits = int.Parse(row["CourseCredits"].ToString()),
-                TeacherAccount = row["TeacherAccount"].ToString(),
-                School = row["School"].ToString(),
+                CourseIntro = row["CourseIntro"].ToString(),
             });
         }
         return result;
     }
 
-    public static List<Models.StudentResumeModel> StudentResumeInfo(string schoolName)
+    /// <summary>
+    /// 依照學生或學校(擇一)查詢學生申請學校資料
+    /// </summary>
+    /// <param name="studentAccount">學生帳號</param>
+    /// <returns></returns>
+    public static List<Models.StudentApplySchoolModel> studentApplySchool(string studentAccount, string schoolName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT Name AS StudentName, StudentAccount, SchoolName, SelfIntroduction, ResumeFileName, ResumeFilePath FROM STUDENTRESUME 
-                             JOIN MEMBER ON StudentAccount = Account WHERE SchoolName = @SchoolName";
+        string sql = @"SELECT Name AS StudentName, Applicant AS StudentAccount, Receiver AS School, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult 
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '學生申請學校' AND ApplyResult = '等待審核中'";
+        if (studentAccount != "")
+            sql += "AND Applicant = @student";
+        else if(schoolName != "")
+            sql += "AND Receiver = @school";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@SchoolName", schoolName));
+            cmd.Parameters.Add(new SqlParameter("@student", studentAccount));
+            cmd.Parameters.Add(new SqlParameter("@school", schoolName));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
         }
 
-        List<Models.StudentResumeModel> result = new List<Models.StudentResumeModel>();
+        List<Models.StudentApplySchoolModel> result = new List<Models.StudentApplySchoolModel>();
         foreach (DataRow row in dt.Rows)
         {
-            result.Add(new Models.StudentResumeModel()
+            result.Add(new Models.StudentApplySchoolModel()
             {
                 StudentName = row["StudentName"].ToString(),
                 StudentAccount = row["StudentAccount"].ToString(),
-                SchoolName = row["SchoolName"].ToString(),
-                SelfIntroduction = row["SelfIntroduction"].ToString(),
+                School = row["School"].ToString(),
+                ApplyIntro = row["ApplyIntro"].ToString(),
+                ApplyResult = row["ApplyResult"].ToString(),
                 ResumeFileName = row["ResumeFileName"].ToString(),
                 ResumeFilePath = row["ResumeFilePath"].ToString(),
             });
         }
         return result;
     }
+
+    /// <summary>
+    /// 依照學生或學校(擇一)查詢學生繳費狀況
+    /// </summary>
+    /// <param name="studentAccount">學生帳號</param>
+    /// <returns></returns>
+    public static List<Models.StudentPaymentStatusModel> studentPaymentStatus(string studentAccount, string schoolName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name AS StudentName, Applicant AS StudentAccount, Receiver AS School, ApplyIntro, PaymentStatus
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '學生申請學校' AND ApplyResult = '通過' ";
+        if (studentAccount != "")
+            sql += "AND Applicant = @student";
+        else if (schoolName != "")
+            sql += "AND Receiver = @school";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@student", studentAccount));
+            cmd.Parameters.Add(new SqlParameter("@school", schoolName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.StudentPaymentStatusModel> result = new List<Models.StudentPaymentStatusModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.StudentPaymentStatusModel()
+            {
+                StudentName = row["StudentName"].ToString(),
+                StudentAccount = row["StudentAccount"].ToString(),
+                School = row["School"].ToString(),
+                ApplyIntro = row["ApplyIntro"].ToString(),
+                PaymentStatus = row["PaymentStatus"].ToString(),
+            });
+        }
+        return result;
+    }
+
 }

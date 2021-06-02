@@ -9,8 +9,8 @@ public partial class applyOutcome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string schoolName = "元智資管學校";
-        StudentResumeDataList.DataSource = ReadDatabase.StudentResumeInfo(schoolName);
+        string studentAccount = "28cyc";
+        StudentResumeDataList.DataSource = ReadDatabase.studentApplySchool(studentAccount, "");
         StudentResumeDataList.DataBind();
     }
 }

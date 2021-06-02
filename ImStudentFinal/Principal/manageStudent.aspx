@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="verifyStudent.aspx.cs" Inherits="verifyStudent" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="manageStudent.aspx.cs" Inherits="verifyStudent" %>
 
 <!DOCTYPE html>
 
@@ -23,9 +23,10 @@
         </div>
             <div class="schoolBody2">
                     <div class="verifyTitle">
-                        審核學生
+                        管理學生
                     </div>
                 <div class="mainTable">
+            <%--審核學生--%>
             <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -37,7 +38,7 @@
                     <br />
                     <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
-                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
+                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
                     <br />
                     <asp:Button ID="btnDeny" runat="server" Text='拒絕' Width="200px"/>
                     <asp:Button ID="btnDownloadResume" runat="server" Text='檢視履歷'  Width="200px"/>
@@ -45,7 +46,28 @@
                     </center>
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            </asp:DataList>                             
+            </asp:DataList>  
+            <%--繳費狀況--%>
+            <asp:DataList ID="StudentPaymentDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                <AlternatingItemStyle BackColor="White" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="#EFF3FB" />
+                <ItemTemplate>
+                    <center>
+                    <asp:Image ID="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="200px" Width="180px" />
+                    <br />
+                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
+                    <br />
+                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
+                    <br />
+                    繳費狀況：<asp:Label ID="lbPaymentStatus" runat="server" Text='<%# Eval("PaymentStatus") %>'/>
+                    <div style="float:right;">
+                   </div>
+                   </center>
+                </ItemTemplate>
+                <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>
                 </div>
             </div>
     </form>

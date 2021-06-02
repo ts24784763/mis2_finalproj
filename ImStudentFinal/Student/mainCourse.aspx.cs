@@ -12,7 +12,7 @@ public partial class mainCourse : System.Web.UI.Page
         int courseId = 100001; //TODO
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
-        lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).TeacherAccount).Name;
-        lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredits.ToString() + " 學分";
+        lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
+        lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SearchCourse.aspx.cs" Inherits="SearchCourse"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="searchSchool.aspx.cs" Inherits="SearchCourse"  %>
 
 <!DOCTYPE html>
 
@@ -49,7 +49,7 @@
                     <asp:Label ID="lblCourseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("SchoolIntroduction") %>'></asp:Label>
+                    <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("SchoolIntro") %>'></asp:Label>
                     <br />
                     <br />
                     <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>

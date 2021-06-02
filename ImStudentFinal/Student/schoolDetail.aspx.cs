@@ -11,7 +11,7 @@ public partial class schoolDetail : System.Web.UI.Page
     {
         string schoolName = "元智資管學校";
         lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
-        lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntroduction;
+        lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
         lbCreditNum.Text = ReadDatabase.SchoolInfo(schoolName).RequiredCredits.ToString();
         TeacherDataList.DataSource = ReadDatabase.CourseAndTeacherInfo(schoolName);
         TeacherDataList.DataBind();

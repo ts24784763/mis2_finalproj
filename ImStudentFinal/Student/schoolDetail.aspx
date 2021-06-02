@@ -91,7 +91,7 @@
                         <br />
                         <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("CourseName") %>'/>
                         <br />
-                        <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("CourseIntroduction") %>'/>
+                        <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("CourseIntro") %>'/>
                         <br />
                         </center>
                     </ItemTemplate>

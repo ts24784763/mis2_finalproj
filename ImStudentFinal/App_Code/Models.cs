@@ -9,7 +9,7 @@ using System.Web;
 public class Models
 {
     /// <summary>
-    /// 用戶資料
+    /// 用戶資料model
     /// </summary>
     public class MemberModel
     {
@@ -22,38 +22,62 @@ public class Models
         public string School { get; set; }
     }
 
-    public class ResumeModel
+    /// <summary>
+    /// 申請資料(包含三種申請)model
+    /// </summary>
+    public class ApplyModel
     {
-        public string StudentAccount  {get;set;}
-	    public string SchoolName      {get;set;}
-	    public string SelfIntroduction{get;set;} 
-	    public string ResumeFileName  {get;set;}
-	    public string ResumeFilePath  {get; set;}
+        public string Applicant { get; set; }
+        public string Receiver { get; set; }
+        public string ApplyType { get; set; }
+        public string ApplyIntro { get; set; }
+        public string ResumeFileName { get; set; }
+        public string ResumeFilePath { get; set; }
+        public string ApplyResult { get; set; }
+        public string PaymentStatus { get; set; }
+        public string ObtainLicense { get; set; }
     }
 
+    /// <summary>
+    /// 學校資料model
+    /// </summary>
     public class SchoolModel
     {
         public string SchoolName { get; set; }
-        public string SchoolIntroduction { get; set; }
+        public string SchoolIntro { get; set; }
         public int RequiredCredits { get; set; }
-        public string SchoolStatus { get; set; }
+        public int SemesterDays { get; set; }
+        public int SchoolFee { get; set; }
         public string License { get; set; }
+        public DateTime? OpenSelectCourseDate { get; set; }
+        public DateTime? OpenSemesterDate { get; set; }
+        public string SchoolStatus { get; set; }
         public string Principal { get; set; }
     }
 
+    /// <summary>
+    /// 課程資料model
+    /// </summary>
     public class CourseModel
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; }
-        public string CourseIntroduction { get; set; }
-        public int CourseCredits { get; set; }
-        public string TeacherAccount { get; set; }
+        public string CourseIntro { get; set; }
+        public int CourseCredit { get; set; }
         public string School { get; set; }
+        public string Teacher { get; set; }
+        public string HWName { get; set; }
+        public string HWDetail { get; set; }
+        public int HWDeadlineDays { get; set; }
     }
 
+    /// <summary>
+    /// 課程與授課老師資料model
+    /// </summary>
     public class CourseAndTeacherModel
     {
         public string CourseName { get; set; }
+        public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
     }
 
@@ -66,13 +90,26 @@ public class Models
         public int CourseId { get; set; }
     }
 
-    public class StudentResumeModel
+    /// <summary>
+    /// 學生申請學校資料model
+    /// </summary>
+    public class StudentApplySchoolModel
     {
         public string StudentName { get; set; }
         public string StudentAccount { get; set; }
-        public string SchoolName { get; set; }
-        public string SelfIntroduction { get; set; }
+        public string School { get; set; }
+        public string ApplyIntro { get; set; }
         public string ResumeFileName { get; set; }
         public string ResumeFilePath { get; set; }
+        public string ApplyResult { get; set; }
+    }
+
+    public class StudentPaymentStatusModel
+    {
+        public string StudentName { get; set; }
+        public string StudentAccount { get; set; }
+        public string School { get; set; }
+        public string ApplyIntro { get; set; }
+        public string PaymentStatus { get; set; }
     }
 }
