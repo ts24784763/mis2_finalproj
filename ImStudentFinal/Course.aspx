@@ -23,35 +23,35 @@
             <a href="#">登入/註冊</a>
             </div>
         </div>
+        <br /><br /><br />
         <center>
             <asp:Label ID="lblCourse" runat="server" Text="新增課程" Font-Size="XX-Large"></asp:Label>
-            <br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br />
         <div class="HWContent">
-            <asp:Label ID="lblCourseName" runat="server" Text="*課程名稱："></asp:Label>
+            <asp:Label ID="lblCourseName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*課程名稱："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtCourseName" placeholder="輸入課程名稱"  runat="server" Width="400px" Height="45px"  BackColor="#F7F7F7" ></asp:TextBox>
+            <asp:TextBox ID="txtCourseName" CssClass="Cohwtxt" placeholder=" 輸入課程名稱"  runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblTeacher" runat="server" Text="*開課老師："></asp:Label>
+            <asp:Label ID="lblInvited" runat="server" Text="已受邀至XX學校開課"></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtTeacher" placeholder="輸入開課老師名稱"  runat="server" Height="45px" Width="400px" BackColor="#F7F7F7"></asp:TextBox>
+            <asp:Label ID="lblCredit" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 335px" runat="server" Text="*學分數："></asp:Label>
+            <%--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp--%>
             <br />
             <br />
-            <asp:Label ID="lblCredit" runat="server" Text="*學分數："></asp:Label>
+            <asp:DropDownList ID="ddlCredit" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 335px;" Width="" runat="server"></asp:DropDownList>
             <br />
             <br />
-            <asp:DropDownList ID="ddlCredit" runat="server"></asp:DropDownList>
+            <asp:Label ID="lblCourseInfo" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*課程資訊："></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="*課程資訊："></asp:Label>
-            <br />
-            <br />
-            <asp:TextBox ID="txtCourseInfo" placeholder="輸入課程資訊"  runat="server" Height="100px" Width="400px" BackColor="#F7F7F7" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="txtCourseInfo" CssClass="Cohwtxt" placeholder=" 輸入課程資訊"  runat="server" Height="100px" Width="400px" TextMode="MultiLine"></asp:TextBox>
             <br /><br /><br /><br />
             <asp:Button ID="btnSubmit" runat="server" CssClass="button" Width="400px" Height="50px"  Text="確認送出"
                 style="background-color: midnightblue; color: white;" />
+            <br /><br /><br /><br />
         </div>
         </center>
     </form>

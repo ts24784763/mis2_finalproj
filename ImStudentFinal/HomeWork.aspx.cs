@@ -15,7 +15,7 @@ public partial class HomeWork : System.Web.UI.Page
 
     protected void CalDate_SelectionChanged(object sender, EventArgs e)
     {
-        txtDeadline.Text = CalDate.SelectedDate.ToString();
+        
     }
 
     public void AddHomeWork(Models.HWPostModel HWPost)
@@ -43,7 +43,7 @@ public partial class HomeWork : System.Web.UI.Page
         {
             HomeWorkName = txtHWName.Text,
             HomeWorkDetail = txtHWDetail.Text,
-            Deadline = Convert.ToDateTime(txtDeadline.Text),
+            Deadline = Convert.ToDateTime(CalDate.SelectedDate.ToString()),
             CourseId = courseId
         };
         try
