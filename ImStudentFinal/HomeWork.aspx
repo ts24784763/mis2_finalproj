@@ -10,7 +10,6 @@
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
-    <link href="../Css/KenStyle.css" rel="stylesheet" />
 </head>
 <body class="body">
     <form id="form1" runat="server">
@@ -24,27 +23,29 @@
             </div>
         </div>
         <center>
+            <br /><br /><br />
             <asp:Label ID="lblHomeWork" runat="server" Text="新增作業" Font-Size="XX-Large"></asp:Label>
-            <br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br />
         <div class="HWContent">
-            <asp:Label ID="lblHWName" runat="server" Text="*作業名稱："></asp:Label>
+            <asp:Label ID="lblHWName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*作業名稱："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtHWName" placeholder="輸入作業名稱"  runat="server" Width="400px" Height="45px"  BackColor="#F7F7F7" ></asp:TextBox>
+            <asp:TextBox ID="txtHWName" CssClass="Cohwtxt" placeholder=" 輸入作業名稱"  runat="server" Width="400px" Height="45px" ></asp:TextBox>
+            <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHWName" ErrorMessage="請輸入作業名稱" ForeColor="Red"></asp:RequiredFieldValidator>
+            <br />
+            <asp:Label ID="lblHWContent" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*作業內容："></asp:Label>
             <br />
             <br />
-            <asp:Label ID="lblHWContent" runat="server" Text="*作業內容："></asp:Label>
+            <asp:TextBox ID="txtHWDetail" CssClass="Cohwtxt" placeholder=" 輸入作業內容"  runat="server" Height="100px" Width="400px" TextMode="MultiLine"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHWDetail" ErrorMessage="請輸入作業內容" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
-            <asp:TextBox ID="txtHWDetail" placeholder="輸入作業內容"  runat="server" Height="100px" Width="400px" BackColor="#F7F7F7" TextMode="MultiLine"></asp:TextBox>
+            <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*繳交期限："></asp:Label>
             <br />
-            <br />
-            <asp:Label ID="lblDeadLine" runat="server" Text="*繳交期限："></asp:Label>
-            <br />
-            <br />
+            <%--<br />
             <asp:TextBox ID="txtDeadline" placeholder="選擇日期"  runat="server" Width="400px" Height="45px" BackColor="#F7F7F7"></asp:TextBox>
-            <br />
-            <br />
+            <br />--%>
             <br />
             <asp:Calendar ID="CalDate" runat="server" Width="400px" Height="200px" Font-Names="Tahoma" Font-Size="11px" NextMonthText="." PrevMonthText="." SelectMonthText="»" SelectWeekText="›" CssClass="myCalendar" OnSelectionChanged="CalDate_SelectionChanged"  CellPadding="0">
                 <OtherMonthDayStyle ForeColor="#b0b0b0" />
@@ -58,7 +59,7 @@
             </asp:Calendar>
 
             <br /><br />
-            <asp:Button ID="btnAddHW" runat="server" CssClass="button" Width="400px" Height="50px"  Text="新增作業"
+            <asp:Button ID="btnAddHW" runat="server" CssClass="button" Width="300px" Height="50px"  Text="新增作業"
                 style="background-color: midnightblue; color: white;" OnClick="btnAddHW_Click"  />
         </div>
             <br /><br /><br /><br /><br /><br />

@@ -12,7 +12,6 @@
 </head>
 <body class="body">
     <form id="form1" runat="server">
-        
         <div class="bar">
             IM STUDENT
             <div class="rightText">
