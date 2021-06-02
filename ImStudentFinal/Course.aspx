@@ -33,8 +33,9 @@
             <br />
             <asp:TextBox ID="txtCourseName" CssClass="Cohwtxt" placeholder=" 輸入課程名稱"  runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCourseName" ErrorMessage="請輸入課程名稱" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="lblInvited" runat="server" Text="已受邀至XX學校開課"></asp:Label>
+            <asp:Label ID="lblInvited" runat="server" Text="您已受邀至XX學校開課"></asp:Label>
             <br />
             <br />
             <asp:Label ID="lblCredit" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 335px" runat="server" Text="*學分數："></asp:Label>
@@ -43,12 +44,15 @@
             <br />
             <asp:DropDownList ID="ddlCredit" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 335px;" Width="" runat="server"></asp:DropDownList>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlCredit" ErrorMessage="請選擇學分數" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="lblCourseInfo" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*課程資訊："></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="txtCourseInfo" CssClass="Cohwtxt" placeholder=" 輸入課程資訊"  runat="server" Height="100px" Width="400px" TextMode="MultiLine"></asp:TextBox>
-            <br /><br /><br /><br />
+            <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCourseInfo" ErrorMessage="請輸入課程資訊" ForeColor="Red"></asp:RequiredFieldValidator>
+            <br /><br /><br />
             <asp:Button ID="btnSubmit" runat="server" CssClass="button" Width="400px" Height="50px"  Text="確認送出"
                 style="background-color: midnightblue; color: white;" />
             <br /><br /><br /><br />
