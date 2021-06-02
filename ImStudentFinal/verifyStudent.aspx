@@ -26,28 +26,27 @@
                         審核學生
                     </div>
                 <div class="mainTable">
-<asp:DataList ID="DataList1" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="#EFF3FB" />
                 <ItemTemplate>
                     <center>
-                    <asp:Image ID="學生照片" runat="server" Text='<%# Eval("學生照片") %>' ImageUrl='<%# Eval("學生照片", "~/images/{0}.jpg") %>' Height="200px" Width="180px" />
+                    <asp:Image ID="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="200px" Width="180px" />
                     <br />
-                    <asp:Label ID="學生名稱" runat="server" Text='<%# Eval("學生名稱") %>'/>
+                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
-                    <asp:Label ID="自我介紹" runat="server" Text='<%# Eval("自我介紹", "{0:C}") %>'/>
+                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
                     <br />
-                    <asp:Button ID="denyBtn" runat="server" Text='拒絕' PostBackUrl='<%# Eval("商品照片", "05.BookDetail.aspx?field={0}") %>' Width="200px"/>
-                    <asp:Button ID="viewResume" runat="server" Text='檢視履歷' PostBackUrl='<%# Eval("商品照片", "05.BookDetail.aspx?field={0}") %>' Width="200px"/>
-                    <asp:Button ID="confirmStudent" runat="server" Text='允許入學 ＞' PostBackUrl='<%# Eval("商品照片", "05.BookDetail.aspx?field={0}") %>' Width="200px"/>
+                    <asp:Button ID="btnDeny" runat="server" Text='拒絕' Width="200px"/>
+                    <asp:Button ID="btnDownloadResume" runat="server" Text='檢視履歷'  Width="200px"/>
+                    <asp:Button ID="btnAllow" runat="server" Text='允許入學 ＞' Width="200px"/>
                     </center>
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            </asp:DataList>             
-                    
-                    </div>
+            </asp:DataList>                             
+                </div>
             </div>
     </form>
 </body>

@@ -37,12 +37,7 @@
                     <br />
                     <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
-                    <asp:Label ID="lbSelfInto" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
-                    <br />
-                    <asp:Button ID="btnDenyEnter" runat="server" Text='拒絕入學' Width="200px"/>
-                    <asp:Button ID="btnDownloadFile" runat="server" Text='下載履歷' Width="200px"/>
-                    <asp:Button ID="btnAllowEnter" runat="server" Text='允許入學' Width="200px"/>
-
+                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
                     </center>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
