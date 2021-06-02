@@ -79,12 +79,12 @@
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
-                        <div> <a href="#" class="courseLink">(課程連結)</a></div>
+                        <div> <a href="#" class="courseLink">(課程簡介)</a></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="homeworkArea">
                             <asp:Label ID="homeworkName" CssClass="fontStyle" runat="server" Text="作業名稱："></asp:Label>
                             <asp:Button ID="uploadHomework" CssClass="homeworkButton" runat="server" Text="上傳作業" />
-                            <asp:Label ID="homeworkPoints" CssClass="fontStyle" runat="server" Text="分數："></asp:Label>
+                            <asp:Label ID="homeworkPoints" CssClass="fontStyle" runat="server" Text="尚未通過"></asp:Label>
                         </div>
                     </div>
                 </div>
