@@ -45,7 +45,7 @@
                         <img id="schoolImg" src="https://s30876.pcdn.co/wp-content/uploads/discussion-1170x630.jpg" alt="測試圖片"/>
                     </div>
                 </div>
-            <center>
+             <center>
                 <div style="padding-top: 30px">
                     <asp:Label runat="server" Text="師資陣容" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                 </div>

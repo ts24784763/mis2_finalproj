@@ -61,6 +61,8 @@
             <br /><br />
             <asp:Button ID="btnAddHW" runat="server" CssClass="button" Width="300px" Height="50px"  Text="新增作業"
                 style="background-color: midnightblue; color: white;" OnClick="btnAddHW_Click"  />
+            <br />
+            <br />
         </div>
             <br /><br /><br /><br /><br /><br />
         </center>
