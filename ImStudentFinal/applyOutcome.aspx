@@ -33,13 +33,16 @@
             <ItemStyle BackColor="#EFF3FB" />
                 <ItemTemplate>
                     <center>
-                    <asp:Image id="teacherImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
+                    <asp:Image id="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
                     <br />
                     <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
                     <asp:Label ID="lbSelfInto" runat="server" Text='<%# Eval("SelfIntroduction") %>'/>
                     <br />
-                    <asp:Button ID="downloadFile" runat="server" Text='下載履歷' Width="200px"/>
+                    <asp:Button ID="btnDenyEnter" runat="server" Text='拒絕入學' Width="200px"/>
+                    <asp:Button ID="btnDownloadFile" runat="server" Text='下載履歷' Width="200px"/>
+                    <asp:Button ID="btnAllowEnter" runat="server" Text='允許入學' Width="200px"/>
+
                     </center>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
