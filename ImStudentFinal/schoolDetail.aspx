@@ -27,6 +27,9 @@
                 <div style="padding-top: 30px">
                     <br />
                 <asp:Label CssClass="schoolName" runat="server" Text="ＸＸ大學" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="True" ID="lbSchoolName"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Button ID="applyBtn" CssClass="applyBtn" runat="server" Text="申請加入" Width="161px" Height="38px" OnClick="applyBtn_Click"/>
                 </div>
             </center>
                 <div class="schoolIntro">
@@ -45,7 +48,7 @@
                         <img id="schoolImg" src="https://s30876.pcdn.co/wp-content/uploads/discussion-1170x630.jpg" alt="測試圖片"/>
                     </div>
                 </div>
-            <center>
+             <center>
                 <div style="padding-top: 30px">
                     <asp:Label runat="server" Text="師資陣容" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                 </div>
@@ -89,6 +92,30 @@
                         <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("CourseName") %>'/>
                         <br />
                         <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("CourseIntroduction") %>'/>
+                        <br />
+                        </center>
+                    </ItemTemplate>
+                <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                </asp:DataList>
+                </div>
+            <center>
+                <div style="padding-top: 30px">
+                    <asp:Label runat="server" Text="校友清單" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
+                    <br />
+                </div>
+             </center>
+                <div class="graduatedMemberInfo">
+                <asp:DataList ID="GraduatedMemberDataList" runat="server" CellPadding="8" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+                <AlternatingItemStyle BackColor="White" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="White" CssClass="memberTd" />
+                    <ItemTemplate>
+                        <center>
+                        <asp:Image id="memberImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="180px" Width="180px"/>
+                        <br />
+                        <br />
+                        <asp:Label ID="memberName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("MemberName") %>'/>
                         <br />
                         </center>
                     </ItemTemplate>

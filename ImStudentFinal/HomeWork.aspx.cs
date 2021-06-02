@@ -15,7 +15,7 @@ public partial class HomeWork : System.Web.UI.Page
 
     protected void CalDate_SelectionChanged(object sender, EventArgs e)
     {
-        txtDeadline.Text = CalDate.SelectedDate.ToString();
+        
     }
 
     public void AddHomeWork(Models.HWPostModel HWPost)
@@ -39,11 +39,18 @@ public partial class HomeWork : System.Web.UI.Page
     protected void btnAddHW_Click(object sender, EventArgs e)
     {
         int courseId = 100001; //TODO
+        //選擇日期 若無選擇設定為當日
+        var Deadline = CalDate.SelectedDate.ToString();
+        if (Deadline == "")
+        {
+            Deadline = DateTime.Now.ToString();
+        }
+
         Models.HWPostModel HWPost = new Models.HWPostModel
         {
             HomeWorkName = txtHWName.Text,
             HomeWorkDetail = txtHWDetail.Text,
-            Deadline = Convert.ToDateTime(txtDeadline.Text),
+            Deadline = Convert.ToDateTime(Deadline),
             CourseId = courseId
         };
         try

@@ -37,7 +37,7 @@
         position: relative;
     }
 
-    .bluebar .button {
+.button {
         font-size: 16px;
         height: 34px;
         border-color: white;
@@ -48,6 +48,26 @@
         elevation: 0;
         position: relative;
     }
+
+.Applybtn {
+    font-size: 16px;
+    height: 60px;
+    width: 200px;
+    background-color: white;
+    color: rgb(30,82,177);
+    border-style: solid;
+    border-width: 2px;
+    elevation: 0;
+    position: relative;
+    border-color: lightgrey;
+}
+    .Applybtn:hover {
+        background-color: grey;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
 .bottom {
     width: 30%;
     /*margin: 10px 10px 10px 10px;*/
@@ -65,6 +85,25 @@
     border: 1px solid grey;
     border-radius: 10px;
 }
+
+.Cohwtxt {
+    border-radius:5px;
+    border: none;
+    elevation: 0;
+    background-color: lightgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*------------------------------------------------------------------------------------*/
 /*日曆*/

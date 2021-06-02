@@ -18,4 +18,9 @@ public partial class schoolDetail : System.Web.UI.Page
         CourseDataList.DataSource = ReadDatabase.SearchCourseBySchool(schoolName);
         CourseDataList.DataBind();
     }
+
+    protected void applyBtn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("applySchool.aspx");
+    }
 }

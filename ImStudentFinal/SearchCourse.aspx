@@ -10,6 +10,7 @@
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
 </head>
 <body class="body">
     <form id="form1" runat="server">
@@ -19,8 +20,8 @@
             <a href="#">首頁</a>
             <a href="#">探索學校</a>
             <a href="#">關於我們</a>
-            <a href="#">登入/註冊</a>
-            </div>
+            <a href="#">登出</a>
+        </div>
         </div>
         <div class="bluebar">
             <br /><br /><br />
@@ -33,26 +34,34 @@
             </div>
         </div>
         <center>
-        <asp:DataList ID="DataListSchoolInfo" runat="server" CellPadding="3" ForeColor="#333333" EnableViewState="False" RepeatDirection="Horizontal">
-            <AlternatingItemStyle BackColor="White" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
-            <ItemStyle BackColor="#EFF3FB" />
+            <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" />
+        </center>
+        <div class="courseInfo">
+        <center>
+        <asp:DataList ID="DataListSchoolInfo" runat="server" EnableViewState="False" RepeatDirection="Horizontal" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1">
+            <FooterStyle BackColor="#507CD1" ForeColor="Black" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="#E7E7FF" />
+            <ItemStyle BackColor="white" CssClass="courseTd" ForeColor="Black"/>
             <ItemTemplate>
                 <center>
                     <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl="../image/YZULogo.png"></asp:Image>
                     <br />
-                    <asp:Label ID="lblCourseName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
+                    <asp:Label ID="lblCourseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />
-                    <asp:Label ID="lblCourseInfo" runat="server" Text='<%# Eval("SchoolIntroduction") %>'></asp:Label>
                     <br />
-                    <asp:Label ID="lblCoursePeroid" runat="server" Text='<%# Eval("License") %>'></asp:Label>
+                    <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("SchoolIntroduction") %>'></asp:Label>
                     <br />
-                    <asp:Button ID="btnCheck" runat="server" Text="查看"></asp:Button>
+                    <br />
+                    <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnCheck" style="background-color: midnightblue; color: white;" runat="server" Text="查看"></asp:Button>
                 </center>
             </ItemTemplate>
+            <SelectedItemStyle BackColor="white" Font-Bold="True" ForeColor="White" />
         </asp:DataList>
         </center>
+        </div>
     </form>
 </body>
 </html>

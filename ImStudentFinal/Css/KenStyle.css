@@ -98,6 +98,22 @@ radioButton {
     font-family: 'Microsoft JhengHei';
     border-radius: 25px 25px 25px 25px;
 }
+    .applySchoolBtn:hover {
+        background-color: white;
+        transition: background-color 0.4s;
+    }
+
+.applyBtn {
+    background-color: lightblue;
+    
+}
+
+    .applyBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
 
 .schoolDetailsArea {
     position: absolute;
@@ -178,7 +194,21 @@ radioButton {
     margin: auto;
 }
 
+.graduatedMemberInfo {
+    position: relative;
+    width: 90%;
+    padding-top: 30px;
+    margin: auto;
+}
+
 .teacherTd {
+    padding: 30px;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+}
+
+.memberTd {
     padding: 30px;
     margin: auto;
     border: solid;
@@ -192,6 +222,12 @@ radioButton {
 }
 
 #CourseDataList {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+}
+
+#GraduatedMemberDataList {
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
