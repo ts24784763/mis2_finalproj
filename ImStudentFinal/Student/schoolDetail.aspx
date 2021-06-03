@@ -49,7 +49,7 @@
                     </div>
                 </div>
              <center>
-                <div style="padding-top: 30px">
+                <div style="padding-top: 50px">
                     <asp:Label runat="server" Text="師資陣容" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                 </div>
              </center>
@@ -73,7 +73,7 @@
                 </asp:DataList>
                 </div> 
              <center>
-                <div style="padding-top: 30px">
+                <div style="padding-top: 50px">
                     <asp:Label runat="server" Text="課程總表" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                     <br />
                 </div>
@@ -99,7 +99,7 @@
                 </asp:DataList>
                 </div>
             <center>
-                <div style="padding-top: 30px">
+                <div style="padding-top: 50px">
                     <asp:Label runat="server" Text="校友清單" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                     <br />
                 </div>
