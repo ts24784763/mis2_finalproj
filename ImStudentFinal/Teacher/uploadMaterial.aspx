@@ -27,21 +27,25 @@
             <br /><br /><br />
             <asp:Label ID="lblMaterialName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*教材名稱：" ></asp:Label>
             <br /><br />
-            <asp:TextBox ID="txtMaterialName" CssClass="HWContent" placeholder="輸入教材名稱" runat="server" Width="400px" Height="45px"  BackColor="#F7F7F7" ></asp:TextBox>
+            <asp:TextBox ID="txtMaterialName" CssClass="Cohwtxt" placeholder=" 輸入教材名稱" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
             <asp:Label ID="lblMemo" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px" runat="server" Text="備註："></asp:Label>
             <br /><br />
-            <asp:TextBox ID="txtMemo" CssClass="HWContent" runat="server" Height="45px" Width="400px" BackColor="#F7F7F7"></asp:TextBox>
+            <asp:TextBox ID="txtMemo" CssClass="Cohwtxt" placeholder=" 輸入備註" runat="server" Height="45px" Width="400px"></asp:TextBox>
             <br /><br />
             <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px" runat="server" Text="*附件："></asp:Label>
             <br /><br />
-            <asp:Button ID="btnDoc" runat="server"  Width="100px" Height="30px"  Text="瀏覽檔案" style="background-color: black; color: white;" />
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳教材" style="color: black; border-radius:10px" />
+            <asp:Button ID="btnDoc" runat="server"  Width="100px" Height="30px"  Text="瀏覽檔案" style="background-color: black; elevation:0; border:0; color: white;" />
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳教材" style="color: black; border-radius:5px" />
             <br /><br /><br /><br />
-            <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 300px" runat="server" Text="已上傳教材：" ></asp:Label>
+            <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳教材：" ></asp:Label>
             <br /><br />
-            <asp:DataList ID="DataListSchoolInfo" runat="server" CellPadding="3" ForeColor="#333333" EnableViewState="False" RepeatDirection="Horizontal">
+            <asp:GridView ID="GridView1"  RowStyle-CssClass="bottomBorder"  runat="server" >    
+                <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
+                <RowStyle CssClass="bottomBorder" />
+            </asp:GridView>
+            <%--<asp:DataList ID="DataListSchoolInfo" runat="server" CellPadding="3" ForeColor="#333333" EnableViewState="False" RepeatDirection="Horizontal">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
@@ -55,7 +59,7 @@
                     <asp:Label ID="lblCoursePeroid" runat="server" Text='<%# Eval("License") %>'></asp:Label>
                 </center>
             </ItemTemplate>
-        </asp:DataList>
+        </asp:DataList>--%>
         </center>
         <br />
     </form>
