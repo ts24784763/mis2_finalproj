@@ -34,7 +34,7 @@
             </center>
                 <div class="schoolIntro">
                     <div class="leftIntro">
-                        <div class="IntroConent">
+                        <div class="IntroContent">
                             <asp:Label ID="Label1" runat="server" Text="學校簡介" ForeColor="DarkBlue"></asp:Label>
                             <br />
                             　　<asp:Label ID="lbSchoolIntro" runat="server" Text="簡介內容...."></asp:Label>
