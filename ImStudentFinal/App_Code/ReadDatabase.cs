@@ -243,7 +243,7 @@ public class ReadDatabase
                         FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '學生申請學校' AND ApplyResult = '等待審核中'";
         if (studentAccount != "")
             sql += "AND Applicant = @student";
-        else if(schoolName != "")
+        else if (schoolName != "")
             sql += "AND Receiver = @school";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
@@ -313,4 +313,28 @@ public class ReadDatabase
         return result;
     }
 
+    /// <summary>
+    /// 判斷課程是否有作業
+    /// </summary>
+    /// <param name="CourseId"></param>
+    /// <returns></returns>
+    public static bool CourseHaveHW(int CourseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT HWName FROM COURSE WHERE CourseId = @CourseId ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        var a = dt.Rows[0]["HWName"].ToString();
+        if (dt.Rows[0]["HWName"].ToString() == "")
+            return false;
+        else
+            return true;
+    }
 }

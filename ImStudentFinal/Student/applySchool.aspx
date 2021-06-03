@@ -38,9 +38,6 @@
             <br />
             <asp:Label ID="Label1" runat="server" Text="上傳履歷："></asp:Label>
             <asp:FileUpload ID="uploadResume" runat="server" />
-            <%--            <asp:TextBox ID="resumePath" runat="server"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="uploadBtn" runat="server" CssClass="mt-0" Height="36px" Text="上傳" Font-Size="Small" Width="105px" />--%>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Text="自我介紹："></asp:Label>

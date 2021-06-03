@@ -23,10 +23,11 @@ public partial class applySchool : System.Web.UI.Page
     protected void confirmSubmitBtn_Click(object sender, EventArgs e)
     {
         string userSession = "28cyc"; //TODO
+        string studentName = ReadDatabase.UserInfo(userSession).Name;
         string schoolName = "元智資管學校"; //TODO
         if (uploadResume.HasFile)
         {
-            string path = "resume/" + schoolName + "_" + userSession + "_" + uploadResume.FileName;
+            string path = "resume/" + schoolName + " " + studentName + "_" + uploadResume.FileName;
             Models.ApplyModel apply = new Models.ApplyModel
             {
                 Applicant = userSession, 
