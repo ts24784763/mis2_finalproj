@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,5 +15,11 @@ public partial class verifyStudent : System.Web.UI.Page
         StudentResumeDataList.DataBind();
         StudentPaymentDataList.DataSource = ReadDatabase.studentPaymentStatus("", schoolName);
         StudentPaymentDataList.DataBind();
+    }
+
+    protected void btnDownloadResume_Click(object sender, EventArgs e)
+    {
+        WebClient mywebClient = new WebClient();
+        mywebClient.DownloadFile("../Student/Resume/1.docx", "1.docx");
     }
 }

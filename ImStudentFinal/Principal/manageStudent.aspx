@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="manageStudent.aspx.cs" Inherits="verifyStudent" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="manageStudent.aspx.cs" Inherits="verifyStudent" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@
                     </div>
                 <div class="mainTable">
             <%--審核學生--%>
-            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" >
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -41,7 +41,7 @@
                     <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
                     <br />
                     <asp:Button ID="btnDeny" runat="server" Text='拒絕' Width="200px"/>
-                    <asp:Button ID="btnDownloadResume" runat="server" Text='檢視履歷'  Width="200px"/>
+                    <asp:Button ID="btnDownloadResume" runat="server" Text='檢視履歷' onclick="btnDownloadResume_Click" Width="200px"/>
                     <asp:Button ID="btnAllow" runat="server" Text='允許入學 ＞' Width="200px"/>
                     </center>
                 </ItemTemplate>
@@ -59,7 +59,9 @@
                     <br />
                     <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
                     <br />
+                        <a href='../Student/Resume/1.docx'>
                     <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
+                        </a>
                     <br />
                     繳費狀況：<asp:Label ID="lbPaymentStatus" runat="server" Text='<%# Eval("PaymentStatus") %>'/>
                     <div style="float:right;">
