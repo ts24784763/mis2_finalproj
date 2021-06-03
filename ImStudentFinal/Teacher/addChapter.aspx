@@ -38,8 +38,6 @@
             <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳影片：" ></asp:Label>
             <br /><br />
             <asp:GridView ID="GV"  CssClass="mGrid"  runat="server" >
-                <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
-                <RowStyle CssClass="bottomBorder" />
             </asp:GridView>
         </center>
         <br />

@@ -68,6 +68,7 @@
         transition: color 0.4s;
     }
 
+
 .bottom {
     width: 30%;
     /*margin: 10px 10px 10px 10px;*/
@@ -92,6 +93,23 @@
     elevation: 0;
     background-color: lightgray;
 }
+.HWblock {
+    position: relative;
+    margin: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 40px 40px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+}
+    .HWblock .wrap {
+        position: relative;
+        align-content: center;
+        width: 100%;
+    }
 
 
 
@@ -151,15 +169,6 @@
                 text-decoration: none;
             }
 /*------------------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
 
 /*------------------------------------------------------------------------------------*/
 /*日曆*/
