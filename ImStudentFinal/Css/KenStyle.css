@@ -240,3 +240,53 @@ radioButton {
     border-color: lightgrey;
     line-height: 1.5;
 }
+
+.schoolApplyResultArea {
+    position: absolute;
+    width: 100%;
+}
+
+#StudentResumeDataList {
+    padding-left: 15%;
+    padding-right: 15%;
+    width: 100%;
+}
+
+.applyResultList {
+    position: relative;
+    width: 70%;
+    padding-top: 20px;
+    margin: auto;
+}
+
+.resultTd {
+    padding: 30px;
+    border-top: solid;
+    border-color: lightgrey;
+    line-height: 1.5;
+}
+
+.resultTd .resultSchoolImg {
+    float: left;
+    width: 40%;
+    height: 100%;
+    padding-left: 15%;
+}
+
+.resultTd .resultSchoolInfo {
+    float: right;
+    width: 60%;
+    height: 100%;
+    padding-right: 10%;
+}
+
+.ToPayBtn {
+    float: right;
+}
+
+    .ToPayBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }

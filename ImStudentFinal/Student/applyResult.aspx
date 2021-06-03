@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,22 +22,29 @@
             <a href="Login.aspx">登入/註冊</a>
             </div>
         </div>
-            <div class="schoolBody2">
-                <div class="verifyTitle">
-                    申請學校結果
+            <div class="schoolApplyResultArea">
+                <div class="verifyTitle" style="color:DarkBlue; padding-top: 30px">
+                    學校申請結果
                 </div>
-            <div class="mainTable">
+            <div class="applyResultList">
             <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <ItemStyle BackColor="#EFF3FB" />
+            <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
-                    <center>
-                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("School") %>'/>
+                    <div class="resultSchoolImg">
+                        <asp:Image id="memberImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" Height="120px" Width="180px"/>
+                    </div>
+                    <div class="resultSchoolInfo">
+                        <asp:Label ID="lbStudentName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("School") %>'/>
                     <br />
-                    申請狀況：<asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyResult") %>'/>
-                    </center>
+                    <div style="padding-top: 30px">
+                        申請狀況：
+                    </div>
+                    <asp:Label ID="lbSelfIntro"  Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("ApplyResult") %>'/>
+                    <asp:Button ID="goToPayBtn" CssClass="ToPayBtn" runat="server" Text='繳費入學'  Width="120px"/>
+                    </div>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>                               
