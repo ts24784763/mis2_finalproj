@@ -337,4 +337,37 @@ public class ReadDatabase
         else
             return true;
     }
+
+    /// <summary>
+    /// 查詢chapter所有資料
+    /// </summary>
+    /// <param name="schoolName"></param>
+    /// <returns></returns>
+    public static List<Models.ChapterModel> ChapterInfo(int courseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId ORDER BY ChapterNum ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.ChapterModel> result = new List<Models.ChapterModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.ChapterModel()
+            {
+                ChapterNum = int.Parse(row["ChapterNum"].ToString()),
+                CourseId = int.Parse(row["CourseId"].ToString()),
+                ChapterName = row["ChapterName"].ToString(),
+                VideoUrl = row["VideoUrl"].ToString(),
+            });
+        }
+        return result;
+    }
 }

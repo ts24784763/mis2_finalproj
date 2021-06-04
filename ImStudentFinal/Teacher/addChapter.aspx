@@ -23,21 +23,21 @@
         </div>
         <center>
             <br /><br />
-            <asp:Label ID="lblCourse" runat="server" Text="影片上傳區" Font-Size="XX-Large"></asp:Label>
+            <asp:Label ID="lblCourse" runat="server" Text="新增章節" Font-Size="XX-Large"></asp:Label>
             <br /><br /><br />
-            <asp:Label ID="lblChapterName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*章節：" ></asp:Label>
+            <asp:Label ID="lblChapterName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*章節名稱：" ></asp:Label>
             <br /><br />
             <asp:TextBox ID="txtChapterName" CssClass="Cohwtxt" placeholder=" 輸入章節名稱" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
-            <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px" runat="server" Text="*附件："></asp:Label>
+            <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px" runat="server" Text="*影片網址："></asp:Label>
+            <br /><br />         
+            <asp:TextBox ID="txtVideoUrl" CssClass="Cohwtxt" placeholder=" 輸入影片網址" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
-            <asp:Button ID="btnDoc" runat="server"  Width="100px" Height="30px"  Text="瀏覽檔案" style="background-color: black; elevation:0; border:0; color: white;" />
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳影片" style="color: black; border-radius:5px" />
+            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳影片" style="color: black; border-radius:5px" OnClick="btnUpload_Click" />
             <br /><br /><br /><br />
             <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳影片：" ></asp:Label>
             <br /><br />
-            <asp:GridView ID="GV"  CssClass="mGrid"  runat="server" >
+            <asp:GridView ID="ChapterGridView"  CssClass="mGrid"  runat="server" >
                 <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
                 <RowStyle CssClass="bottomBorder" />
             </asp:GridView>
