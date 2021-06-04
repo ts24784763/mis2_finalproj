@@ -16,10 +16,4 @@ public partial class verifyStudent : System.Web.UI.Page
         StudentPaymentDataList.DataSource = ReadDatabase.studentPaymentStatus("", schoolName);
         StudentPaymentDataList.DataBind();
     }
-
-    protected void btnDownloadResume_Click(object sender, EventArgs e)
-    {
-        WebClient mywebClient = new WebClient();
-        mywebClient.DownloadFile("../Student/Resume/1.docx", "1.docx");
-    }
 }
