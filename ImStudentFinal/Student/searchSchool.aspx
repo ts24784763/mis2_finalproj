@@ -17,10 +17,9 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="#">登出</a>
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
         </div>
         </div>
         <div class="bluebar">
