@@ -40,9 +40,7 @@
             <br /><br /><br /><br />
             <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳教材：" ></asp:Label>
             <br /><br />
-            <asp:GridView ID="GridView1"  RowStyle-CssClass="bottomBorder"  runat="server" >    
-                <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
-                <RowStyle CssClass="bottomBorder" />
+            <asp:GridView ID="GridView1"  CssClass="mGrid"  runat="server" >    
             </asp:GridView>
         </center>
         <br />

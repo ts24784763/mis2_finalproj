@@ -8,8 +8,10 @@
     <title></title>
 </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
   <div class="bar">
@@ -21,58 +23,78 @@
             <a href="Login.aspx">登入/註冊</a>
             </div>
         </div>
-            <div class="schoolBody2">
-                    <div class="verifyTitle">
+            <div class="studentManageArea">
+                    <div class="verifyTitle" style="color:DarkBlue; padding-top: 30px">
                         管理學生
                     </div>
-                <div class="mainTable">
+            <center>
+            <ul class="nav nav-tabs" style="justify-content: center; align-items:center">
+		        <li class="active"><a data-toggle="tab" href="#approval">審 核 學 生</a></li>
+		        <li><a data-toggle="tab" href="#paystatus">繳 費 狀 況</a></li>
+		    </ul>
+            </center>
+            <div class="tab-content">
+		    <div id="approval" class="tab-pane fade in active">
+                <div class="manageStudentTable">
             <%--審核學生--%>
             <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" >
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <ItemStyle BackColor="#EFF3FB" CssClass="studentTd"/>
                 <ItemTemplate>
-                    <center>
-                    <asp:Image ID="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="200px" Width="180px" />
-                    <br />
-                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
-                    <br />
-                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
-                    <br />
-                    <asp:Button ID="btnDeny" runat="server" Text='拒絕' Width="200px"/>
-                    <asp:Button ID="btnDownloadResume" runat="server" Text='檢視履歷' onclick="btnDownloadResume_Click" Width="200px"/>
-                    <asp:Button ID="btnAllow" runat="server" Text='允許入學 ＞' Width="200px"/>
+                    <div class="studentImg">
+                        <asp:Image id="memberImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
+                    </div>
+                    <div class="studentInfo">
+                        <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("StudentName") %>'/>
+                        <br />
+                        <div style="padding-top: 10px">
+                            <asp:Label ID="lbSelfIntro" ForeColor="DimGray" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
+                            <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='拒絕' Width="120px"/>
+                            <div style="padding-top: 15%">
+                                <asp:Button ID="btnDownloadResume" CssClass="DownloadResumeBtn" runat="server" Text='檢視履歷' onclick="btnDownloadResume_Click" Width="200px"/>
+                                <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='允許入學' Width="120px"/>
+                            </div>
+                        </div>
+                    </div>
                     </center>
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            </asp:DataList>  
+            </asp:DataList>
+                </div>
+		    </div>
+            <div id="paystatus" class="tab-pane fade">
+                <div class="manageStudentTable">
             <%--繳費狀況--%>
             <asp:DataList ID="StudentPaymentDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#EFF3FB" />
+                <ItemStyle BackColor="#EFF3FB" CssClass="studentTd"/>
                 <ItemTemplate>
-                    <center>
-                    <asp:Image ID="imgStudent" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="200px" Width="180px" />
-                    <br />
-                    <asp:Label ID="lbStudentName" runat="server" Text='<%# Eval("StudentName") %>'/>
-                    <br />
-                        <a href='../Student/Resume/1.docx'>
-                    <asp:Label ID="lbSelfIntro" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
-                        </a>
-                    <br />
-                    繳費狀況：<asp:Label ID="lbPaymentStatus" runat="server" Text='<%# Eval("PaymentStatus") %>'/>
-                    <div style="float:right;">
-                   </div>
-                   </center>
+                    <div class="studentImg">
+                        <asp:Image id="memberImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
+                    </div>
+                    <div class="studentInfo">
+                        <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("StudentName") %>'/>
+                        <br />
+                        <div style="padding-top: 10px">
+                            <asp:Label ID="lbSelfIntro" ForeColor="DimGray" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
+                        </div>
+                    </div>
+                        <div style="padding-top: 15%">
+                            繳費狀況：<asp:Label ID="lbPaymentStatus" ForeColor="darkblue" Font-Bold="true" runat="server" Text='<%# Eval("PaymentStatus") %>'/>
+                        </div>
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
                 </div>
             </div>
+        </div>
     </form>
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

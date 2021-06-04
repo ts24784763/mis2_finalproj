@@ -140,7 +140,7 @@ radioButton {
     border-color: lightgrey;
 }
 
-.schoolIntro .leftIntro .IntroConent {
+.schoolIntro .leftIntro .IntroContent {
     position: relative;
     width: 95%;
     height: 85%;
@@ -241,12 +241,19 @@ radioButton {
     line-height: 1.5;
 }
 
-.schoolApplyResultArea {
-    position: absolute;
+.schoolApplyResultArea .studentManageArea {
+    position: relative;
     width: 100%;
+    display: flex;
 }
 
 #StudentResumeDataList {
+    padding-left: 15%;
+    padding-right: 15%;
+    width: 100%;
+}
+
+#StudentPaymentDataList {
     padding-left: 15%;
     padding-right: 15%;
     width: 100%;
@@ -290,3 +297,59 @@ radioButton {
         color: white;
         transition: color 0.4s;
     }
+
+.manageStudentTable {
+    position: relative;
+    width: 70%;
+    padding-top: 20px;
+    margin: auto;
+}
+
+.studentTd {
+    padding: 30px;
+    border-top: solid;
+    border-color: lightgrey;
+    line-height: 1.5;
+}
+
+.studentTd .studentImg {
+    float: left;
+    width: 35%;
+    height: 100%;
+    padding-left: 10%;
+}
+
+.studentTd .studentInfo {
+    float: right;
+    width: 65%;
+    height: 100%;
+}
+
+.DenyBtn {
+    float: right;
+}
+
+    .DenyBtn:hover {
+        background-color: darkred;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+.AllowBtn {
+    float: right;
+}
+
+    .AllowBtn:hover {
+        background-color: forestgreen;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+.DownloadResumeBtn:hover {
+    background-color: darkblue;
+    transition: background-color 0.4s;
+    color: white;
+    transition: color 0.4s;
+}

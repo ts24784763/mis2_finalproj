@@ -23,6 +23,7 @@
         </div>
         <center>
             <br /><br />
+
             <asp:Label ID="lblCourse" runat="server" Text="新增章節" Font-Size="XX-Large"></asp:Label>
             <br /><br /><br />
             <asp:Label ID="lblChapterName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*章節名稱：" ></asp:Label>
@@ -39,7 +40,6 @@
             <br /><br />
             <asp:GridView ID="ChapterGridView"  CssClass="mGrid"  runat="server" >
                 <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
-                <RowStyle CssClass="bottomBorder" />
             </asp:GridView>
         </center>
         <br />

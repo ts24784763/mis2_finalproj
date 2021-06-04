@@ -568,3 +568,87 @@
         color: black;
         font-size: 20px;
     }
+.wrapperBuilding {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    align-items:center;
+    color:rgb(56,75,88);   
+}
+.wrapperBuilding .labelItems {
+    font-size:30px;
+    font-weight:bold;
+    color: rgb(56,75,90);
+}
+.wrapperBuilding .wrapper{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:40px;
+    color: rgb(56,75,88);
+
+}
+.wrapperBuilding .wrapper .checkBtn{
+    width: 100%;
+    height: 45px;
+    background-color:rgb(38,82,155);
+    color:white;
+    font-weight:bold;
+
+}
+
+.wrapperBuilding .textWraper{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom-color:rgb(56,75,90);
+}
+.wrapperBuilding .wrapper .btnArea .checkBtn2 {
+        width: 30%;
+        height: 45px;
+        background-color: rgb(38,82,155);
+        color: white;
+        font-weight: bold;
+}
+.wrapperBuilding .wrapper .btnArea{
+    display:flex;
+    justify-content:space-around;
+}
+.wrapperTeacher {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    align-items:center;
+    flex-direction:column;
+}
+.wrapperTeacher .labelItems {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(56,75,90);
+    }
+.wrapperTeacher .wrapper .teacherTitle {
+        width: 100%;
+        justify-content: space-around;
+        height: auto;
+        font-size: 20px;
+        color: rgb(56,75,90);
+}
+.wrapperTeacher .wrapper .teacherName {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
+    width:100%;
+}
+.wrapperTeacher .wrapper .inviteBtn {
+    width: 100%;
+    height: 45px;
+    background-color: rgb(38,82,155);
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+}
