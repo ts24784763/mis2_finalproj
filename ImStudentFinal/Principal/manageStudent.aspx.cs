@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,10 +17,21 @@ public partial class verifyStudent : System.Web.UI.Page
         StudentPaymentDataList.DataSource = ReadDatabase.studentPaymentStatus("", schoolName);
         StudentPaymentDataList.DataBind();
     }
-
+    
     protected void btnDownloadResume_Click(object sender, EventArgs e)
     {
-        WebClient mywebClient = new WebClient();
-        mywebClient.DownloadFile("../Student/Resume/1.docx", "1.docx");
+        string filename = @"Specify the file path in the server over here...."; 
+        FileInfo fileInfo = new FileInfo(filename);
+
+        if (fileInfo.Exists)
+        {
+            Response.Clear();
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
+            Response.AddHeader("Content-Length", fileInfo.Length.ToString());
+            Response.ContentType = "application/octet-stream";
+            Response.Flush();
+            Response.TransmitFile(fileInfo.FullName);
+            Response.End();
+        }
     }
 }

@@ -94,14 +94,18 @@ radioButton {
     text-align: center;
 }
 
+#uploadResume:hover {
+    background-color: darkblue;
+    transition: background-color 0.4s;
+    color: white;
+    transition: color 0.4s;
+}
+
 .applySchoolBtn {
     font-family: 'Microsoft JhengHei';
     border-radius: 25px 25px 25px 25px;
+    border-color: #F0F0F0;
 }
-    .applySchoolBtn:hover {
-        background-color: white;
-        transition: background-color 0.4s;
-    }
 
 .applyBtn {
     background-color: lightblue;
@@ -323,6 +327,23 @@ radioButton {
     float: right;
     width: 65%;
     height: 100%;
+}
+
+.studentTd .studentInfo .stuInfoLeft {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.studentTd .studentInfo .stuInfoRight {
+    float: right;
+    width: 30%;
+    height: 100%;
+    padding-top: 15%;
+}
+
+.introLab {
+    word-break: break-word;
 }
 
 .DenyBtn {
