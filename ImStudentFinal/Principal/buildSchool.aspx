@@ -24,12 +24,12 @@
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="開始建立屬於您的學校" ></asp:Label>
             <div class="wrapper">
                 <asp:Label ID="schoolName" runat="server" Text="學校名稱*"></asp:Label><br />
-                <asp:TextBox id="enterName" CssClass="textWraper" type="text" placeholder="Enter the name of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtSchoolName" CssClass="textWraper" type="text" placeholder="Enter the name of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="dateNum" runat="server" Text="一個學期的長度*"></asp:Label><br />
-                <asp:TextBox id="enterDate"  CssClass="textWraper" type="text" placeholder="Enter the date of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtSchoolDay"  CssClass="textWraper" type="text" placeholder="Enter the date of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="introduct" runat="server" Text="簡介*"></asp:Label><br />
-                <asp:TextBox id="enterIntro"  CssClass="textWraper" type="text" placeholder="Enter the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
-                <br /><asp:Button ID="checkBtn" CssClass="checkBtn" runat="server" Text="創建完畢，進入整修" />
+                <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Enter the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <br /><asp:Button ID="checkBtn" CssClass="checkBtn" runat="server" Text="創建完畢，進入整修" OnClick="checkBtn_Click" />
             </div>
         </div>
     </form>

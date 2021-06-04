@@ -27,7 +27,6 @@ public partial class HomeWork : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-
     }
 
     protected void btnAddHW_Click(object sender, EventArgs e)
