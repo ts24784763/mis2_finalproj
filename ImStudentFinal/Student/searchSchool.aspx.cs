@@ -18,4 +18,9 @@ public partial class SearchCourse : System.Web.UI.Page
         DataListSchoolInfo.DataSource = ReadDatabase.SearchSchoolByWord(searchWord);
         DataListSchoolInfo.DataBind();
     }
+
+    protected void btnApplyOutCome_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("applyResult.aspx");
+    }
 }
