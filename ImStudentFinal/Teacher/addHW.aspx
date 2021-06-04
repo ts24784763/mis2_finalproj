@@ -30,7 +30,7 @@
             <asp:Label ID="lblHWName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*作業名稱："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtHWName" CssClass="Cohwtxt" placeholder=" 輸入作業名稱"  runat="server" Width="400px" Height="45px" ></asp:TextBox>
+            <asp:TextBox ID="txtHWName" CssClass="Cohwtxt" placeholder=" 輸入作業名稱" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHWName" ErrorMessage="請輸入作業名稱" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
