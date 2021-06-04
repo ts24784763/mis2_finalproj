@@ -41,9 +41,13 @@
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHWDetail" ErrorMessage="請輸入作業內容" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*繳交期限："></asp:Label>
+            <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px" runat="server" Text="*設定繳交期限："></asp:Label>
             <br />
-            <asp:TextBox ID="txtHWDeadlineDays" runat="server"></asp:TextBox>
+            <br />
+            <asp:TextBox ID="txtHWDeadlineDays" placeholder=" 輸入繳交期限 例：7" CssClass="Cohwtxt" runat="server" Width="350px" Height="45px" TextMode="Number"></asp:TextBox>
+            &nbsp&nbsp&nbsp&nbsp
+            <asp:Label ID="lblDay" style="font-size: x-large;" runat="server" Text="天"></asp:Label><br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHWDeadlineDays" ErrorMessage="請輸入繳交期限" ForeColor="Red"></asp:RequiredFieldValidator>
             <br /><br />
             <asp:Button ID="btnAddHW" runat="server" CssClass="button" Width="300px" Height="50px"  Text="新增作業"
                 style="background-color: midnightblue; color: white;" OnClick="btnAddHW_Click"  />
