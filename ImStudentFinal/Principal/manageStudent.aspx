@@ -37,7 +37,7 @@
 		    <div id="approval" class="tab-pane fade in active">
                 <div class="manageStudentTable">
             <%--審核學生--%>
-            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="2" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" >
+            <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  RepeatColumns="1" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" >
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -47,13 +47,19 @@
                         <asp:Image id="memberImg" runat="server" ImageUrl="https://img.88icon.com/download/jpg/201912/cb36087ee5a2ac01449eeb0f549e5704.jpg!88bg" Height="190px" Width="180px"/>
                     </div>
                     <div class="studentInfo">
-                        <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("StudentName") %>'/>
-                        <br />
-                        <div style="padding-top: 10px">
-                            <asp:Label ID="lbSelfIntro" ForeColor="DimGray" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
-                            <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='拒絕' Width="120px"/>
+                        <div class="stuInfoLeft">
+                            <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("StudentName") %>'/>
+                            <br />
+                            <div style="padding-top: 10px">
+                                <asp:Label ID="lbSelfIntro" ForeColor="DimGray" CssClass="introLab" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
+                            </div>
                             <div style="padding-top: 15%">
                                 <asp:Button ID="btnDownloadResume" CssClass="DownloadResumeBtn" runat="server" Text='檢視履歷' onclick="btnDownloadResume_Click" Width="200px"/>
+                            </div>
+                        </div>
+                        <div class="stuInfoRight">
+                                <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='拒絕' Width="120px"/>
+                            <div style="padding-top:50px">
                                 <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='允許入學' Width="120px"/>
                             </div>
                         </div>
