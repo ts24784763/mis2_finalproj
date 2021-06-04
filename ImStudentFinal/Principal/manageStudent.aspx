@@ -54,7 +54,7 @@
                                 <asp:Label ID="lbSelfIntro" ForeColor="DimGray" CssClass="introLab" runat="server" Text='<%# Eval("ApplyIntro") %>'/>
                             </div>
                             <div style="padding-top: 15%">
-                                <asp:Button ID="btnDownloadResume" CssClass="DownloadResumeBtn" runat="server" Text='檢視履歷' Width="200px"/>
+                                <asp:Button ID="btnDownloadResume" OnClick="btnDownloadResume_Click" CssClass="DownloadResumeBtn" runat="server" Text='檢視履歷' Width="200px"/>
                             </div>
                         </div>
                         <div class="stuInfoRight">
