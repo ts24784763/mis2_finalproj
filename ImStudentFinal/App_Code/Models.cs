@@ -120,4 +120,15 @@ public class Models
         public int CourseId { get; set; }
         public int ChapterNum { get; set; }
     }
+
+    /// <summary>
+    /// 章節資料model
+    /// </summary>
+    public class ChapterModel
+    {
+        public int ChapterNum { get; set; }
+        public int CourseId { get; set; }
+        public string ChapterName { get; set; }
+        public string VideoUrl { get; set; }
+    }
 }
