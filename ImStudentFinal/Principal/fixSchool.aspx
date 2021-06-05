@@ -15,11 +15,11 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">整修學校</a>
-            <a href="#">邀請老師</a>
-            <a href="#">管理學生</a>
-            <a href="#">個人資料設定</a>
-            <a href="#">登出</a>
+            <a href="../Principal/fixSchool.aspx">整修學校</a>
+            <a href="../Principal/inviteTeacher.aspx">邀請老師</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
         <div class="wrapperBuilding" style="width:80%;margin:0 auto;">

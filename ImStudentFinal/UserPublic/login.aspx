@@ -25,12 +25,9 @@
 <body>
     <form id="form1" runat="server">
         <div class="bar">
-            IM STUDENT
+            <a href="../UserPublic/index.aspx" style="font-size: 30px;">IM STUDENT</a>
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="register.aspx">註冊</a>
+            <a href="../UserPublic/login.aspx">登入/註冊</a>
             </div>
         </div>
         <div id="loginArea">
@@ -54,12 +51,12 @@
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*帳號 :<br />
                 </label>&nbsp;<br />
                 <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="276px" BackColor="#F0F0F0"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="emailValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入信箱" ForeColor="#CC0000" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="emailValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入信箱" ForeColor="#CC0000" ControlToValidate="txtEmail" BorderStyle="None"></asp:RequiredFieldValidator>
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium">*密碼 :<br />
                 </label>&nbsp;<br />
                 <asp:TextBox id="txtPassword" placeholder="Enter your password" class="blueBtmLine auto-style4" runat="server" BackColor="#F0F0F0" TextMode="Password"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="passwordValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入密碼" ControlToValidate="txtPassword" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="passwordValidator" CssClass="blueBtmLine" runat="server" ErrorMessage="請輸入密碼" ControlToValidate="txtPassword" ForeColor="#CC0000" BorderStyle="None"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Button id="btnLogin" CssClass="blueBtmLine" class="auto-style5" runat="server" Text="登入" CausesValidation="true" OnClick="btnLogin_Click" Height="32px" Width="283px"></asp:Button>
                 <br />

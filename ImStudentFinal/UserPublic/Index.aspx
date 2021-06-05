@@ -16,12 +16,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <form id="form1" runat="server">
         <div class="bar">
-            IM STUDENT
+            <a href="../UserPublic/index.aspx" style="font-size: 30px;">IM STUDENT</a>
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../UserPublic/login.aspx">登入/註冊</a>
             </div>
         </div>
         <div class="block">
@@ -52,5 +49,7 @@
             </div>
          </div>
     </form>
+    <script type="text/javascript" src="../Script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../Script/kenJs.js"></script>
 </body>
 </html>

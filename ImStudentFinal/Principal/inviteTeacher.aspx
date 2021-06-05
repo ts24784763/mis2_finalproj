@@ -15,15 +15,15 @@
     <div class="bar">
             IM STUDENT
         <div class="rightText">
-        <a href="#">整修學校</a>
-        <a href="#">邀請老師</a>
-        <a href="#">管理學生</a>
-        <a href="#">個人資料設定</a>
-        <a href="#">登出</a>
+            <a href="../Principal/fixSchool.aspx">整修學校</a>
+            <a href="../Principal/inviteTeacher.aspx">邀請老師</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
         </div>
     </div>
-        <div class="wrapperTeacher">
-            <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="老師管理列表" ></asp:Label>
+        <div class="wrapperTeacher" style="padding-top:30px">
+            <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="老師管理列表"></asp:Label>
             <div class="wrapper">
             <asp:DataList ID="StudentResumeDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
             <AlternatingItemStyle BackColor="#F0F0F" />
