@@ -47,7 +47,7 @@
                電話<br /><br />
                <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox><br /><br />
                <br />
-               <asp:Button ID="update" CssClass="updateBtn" runat="server" Text="更新資訊" />
+               <asp:Button ID="update" CssClass="updateBtn" runat="server" Text="更新資訊" OnClick="update_Click" />
            </div>
       
         </div>

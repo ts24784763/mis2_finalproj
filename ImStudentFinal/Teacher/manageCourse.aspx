@@ -75,7 +75,7 @@
                     <div class="schoolRight">
                         <div style="display:flex;flex-direction:row;"> 
                             <asp:Label ID="lbCourseName" CssClass="courseFonts" runat="server" Text="基礎會計"></asp:Label>
-                            <asp:Button ID="editBtn" CssClass="editButton" runat="server" Text="編輯" />
+                            <asp:Button ID="editBtn" CssClass="editButton" runat="server" Text="編輯" OnClick="editBtn_Click" />
                         </div>
                     
                         <br />

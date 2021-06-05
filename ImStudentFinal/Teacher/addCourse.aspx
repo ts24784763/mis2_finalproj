@@ -55,7 +55,7 @@
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCourseInfo" ErrorMessage="請輸入課程資訊" ForeColor="Red"></asp:RequiredFieldValidator>
             <br /><br /><br />
-            <asp:Button ID="btnSubmit" runat="server" CssClass="button" Width="400px" Height="50px"  Text="確認送出"
+            <asp:Button ID="btnSubmit" runat="server" CssClass="button" Width="400px" Height="50px"
                 style="background-color: midnightblue; color: white;" OnClick="btnSubmit_Click" />
             <br /><br /><br /><br />
         </div>
