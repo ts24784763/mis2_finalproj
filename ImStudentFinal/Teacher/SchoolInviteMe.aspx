@@ -10,6 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link href="../Css/reset.css" rel="stylesheet" />
 <link href="../Css/pageStyle.css" rel="stylesheet" />
+<link href="../Css/ChenStyle.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
         <div class="bar">
@@ -33,7 +34,7 @@
                 <ItemTemplate>
                    <div class="teacherTitle">
                        <asp:Label ID="teacherTitle" runat="server" Text="學校1"></asp:Label>  <asp:Label ID="lblStatus" runat="server" Text="邀請中/已加入"></asp:Label>
-                       <asp:Button ID="btnJoin" runat="server" Text="加入" />
+                       <asp:Button ID="btnJoin" runat="server" CssClass="Applybtn" Text="加入" />
                    </div>
                     <div class="teacherName">
                         <asp:TextBox ID="teacher" CssClass="teacherName" runat="server"  BackColor="#F0F0F0"></asp:TextBox>
