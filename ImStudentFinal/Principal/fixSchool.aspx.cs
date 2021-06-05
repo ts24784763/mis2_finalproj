@@ -11,7 +11,7 @@ public partial class Principal_fixSchool : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string principal = Session["userID"].ToString();
-        lbSchoolName.Text = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(principal).School).SchoolName;
+        lbSchoolName.Text = "整修" + ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(principal).School).SchoolName;
     }
 
     public void editSchool(Models.SchoolModel school)
@@ -53,5 +53,10 @@ public partial class Principal_fixSchool : System.Web.UI.Page
         {
             Response.Write("<script>alert('整修失敗');</script>");
         }
+    }
+
+    protected void viewCourse_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("courseInSchool.aspx");
     }
 }

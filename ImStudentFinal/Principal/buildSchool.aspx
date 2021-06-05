@@ -29,7 +29,8 @@
                 <asp:TextBox id="txtSchoolDay"  CssClass="textWraper" type="text" placeholder="Enter the date of the school" runat="server" Width="93%" BackColor="#F0F0F0"></asp:TextBox>
                 <asp:Label ID="Label1" runat="server" Text="天"></asp:Label><br />
                 <asp:Label ID="introduct" runat="server" Text="簡介*"></asp:Label><br />
-                <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Enter the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Enter the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:FileUpload ID="uploadSchoolImage" runat="server" />
                 <br /><asp:Button ID="checkBtn" CssClass="checkBtn" runat="server" Text="創建完畢，進入整修" OnClick="checkBtn_Click" />
             </div>
         </div>

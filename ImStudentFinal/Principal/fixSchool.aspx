@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="wrapperBuilding" style="width:80%;margin:0 auto;">
-            <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="整修您的學校資料" ></asp:Label>
+            <asp:Label ID="lbSchoolName" CssClass="labelItems" runat="server" Text="整修您的學校資料" ></asp:Label>
             <div class="wrapper">
-                <asp:Label ID="lbSchoolName" runat="server" Text="學校名稱"></asp:Label><br />
+                <br />
                 <asp:Label ID="schoolDate" runat="server" Text="一個學期的長度"></asp:Label><br />
                 <asp:TextBox id="txtDays" CssClass="textWraper" type="text" placeholder="Update the date of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="addCertification" runat="server" Text="證書"></asp:Label><br />
@@ -38,7 +38,7 @@
                 <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Update the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <div class="btnArea" style="margin-top:20px;">
-                         <asp:Button ID="viewCourse" CssClass="checkBtn2" runat="server" Text="查看目前課程" />
+                         <asp:Button ID="viewCourse" CssClass="checkBtn2" runat="server" Text="查看目前課程" OnClick="viewCourse_Click" />
                           <asp:Button ID="savingBtn" CssClass="checkBtn2" runat="server" Text="儲存" BackColor="Black" OnClick="savingBtn_Click"/>
                 </div>
             </div>
