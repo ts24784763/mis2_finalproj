@@ -80,6 +80,7 @@ public class Models
         public string CourseName { get; set; }
         public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
+        public int CourseCredit { get; set; }
     }
 
     /// <summary>

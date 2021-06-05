@@ -141,7 +141,7 @@ public class ReadDatabase
     public static List<Models.CourseAndTeacherModel> CourseInSchool(string schoolName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT CourseId, CourseName, Teacher TeacherAccount, Name TeacherName FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
+        string sql = @"SELECT CourseId, CourseName, Teacher TeacherAccount, Name TeacherName, CourseCredit FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -161,6 +161,7 @@ public class ReadDatabase
                 CourseName = row["CourseName"].ToString(),
                 TeacherAccount = row["TeacherAccount"].ToString(),
                 TeacherName = row["TeacherName"].ToString(),
+                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
             });
         }
         return result;
