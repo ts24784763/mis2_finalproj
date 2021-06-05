@@ -59,4 +59,12 @@ public partial class selectCourse : System.Web.UI.Page
         GVCourse.HeaderRow.Cells[4].Text = "教授姓名";
         GVCourse.HeaderRow.Cells[5].Text = "學分數";
     }
+    protected void MyButtonClick(object sender, System.EventArgs e)
+    {
+        //Get the button that raised the event
+        Button btn = (Button)sender;
+
+        //Get the row that contains this button
+        GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+    }
 }

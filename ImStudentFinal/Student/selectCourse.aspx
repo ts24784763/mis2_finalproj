@@ -43,9 +43,9 @@
         <center>
             <br /><br />
     <asp:GridView ID="GVCourse" CssClass="mGrid" HorizontalAlign="Center" runat="server"  >
-        <Columns>
-            <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="選擇課程" ShowHeader="True" Text="選取" />
-        </Columns>
+            <Columns>
+                <asp:ButtonField ButtonType="Button" CommandName="Choose" HeaderText="選擇課程" Text="新增" />
+            </Columns>
     </asp:GridView>
             <br />
         
