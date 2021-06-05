@@ -49,7 +49,7 @@
                     </div>
                     <div class="studentInfo">
                         <div class="stuInfoLeft">
-                            <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("StudentName") %>'/>
+                            <asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("ApplicantName") %>'/>
                             <br />
                             <div style="padding-top: 10px">
                                 <asp:Label ID="lbSelfIntro" ForeColor="DimGray" CssClass="introLab" runat="server" Text='<%# Eval("ApplyIntro") %>'/>

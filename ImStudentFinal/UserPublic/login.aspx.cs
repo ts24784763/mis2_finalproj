@@ -25,9 +25,9 @@ public partial class Login : System.Web.UI.Page
             {
                 if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "學生")
                     nextPage = "../Student/searchSchool.aspx";
+                else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
+                    nextPage = "../Principal/buildSchool.aspx";
                 //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
-                //    nextPage = "~/Student/mainSchool.aspx";
-                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
                 //    nextPage = "~/Student/mainSchool.aspx";
             }
             //有學校
@@ -35,9 +35,9 @@ public partial class Login : System.Web.UI.Page
             {
                 if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "學生")
                     nextPage = "../Student/mainSchool.aspx";
+                else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
+                    nextPage = "../Principal/fixSchool.aspx"; //哪頁?
                 //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
-                //    nextPage = "~/Student/mainSchool.aspx";
-                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
                 //    nextPage = "~/Student/mainSchool.aspx";
             }
             Response.Write("<script>alert('登入成功');location.href='" + nextPage + "';</script>");

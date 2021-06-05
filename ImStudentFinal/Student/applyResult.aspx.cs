@@ -10,7 +10,7 @@ public partial class applyOutcome : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string studentAccount = Session["userID"].ToString();
-        StudentResumeDataList.DataSource = ReadDatabase.studentApplySchool(studentAccount, "");
+        StudentResumeDataList.DataSource = ReadDatabase.ApplyInfo("學生申請學校",studentAccount, "");
         StudentResumeDataList.DataBind();
     }
 }
