@@ -35,7 +35,7 @@
             <div class="wrap">
                 <asp:TextBox ID="txtSearch" placeholder=" 輸入你想查詢的學校" CssClass="box" runat="server"></asp:TextBox>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
+                <asp:Button ID="btnSearch" runat="server" CssClass="button" Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
         </div>
         <center>
