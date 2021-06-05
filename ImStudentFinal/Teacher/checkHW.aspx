@@ -25,12 +25,11 @@
             <br /><br />
                 <asp:Label ID="lblHWArea" runat="server" Text="作業區" Font-Size="XX-Large"></asp:Label>
             <div class="HWblock">
-                
                 <div class="wrap">
                 <br />
-                <asp:Label ID="lblStudentName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-top: 40px; padding-right: 40px; padding-left: 40px" runat="server" Text="*查詢學生名稱：" ></asp:Label>
-                <asp:TextBox ID="txtStudentName" CssClass="Cohwtxt" placeholder=" 輸入學生名稱" runat="server" Width="300px" Height="45px" ></asp:TextBox>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <asp:Label ID="lblStudentName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-top: 40px; padding-right: 20px; " runat="server" Text="*查詢學生名稱：" ></asp:Label>
+                <asp:TextBox ID="txtStudentName" CssClass="Cohwtxt" placeholder=" 輸入學生名稱" runat="server" Width="250px" Height="45px" ></asp:TextBox>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="btnSearch" runat="server" Width="150px" Height="40px" CssClass="Applybtn" Text="搜尋" />
                 </div>
             </div>
