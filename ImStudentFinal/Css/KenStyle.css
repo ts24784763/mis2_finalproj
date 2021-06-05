@@ -35,6 +35,10 @@ radioButton {
     margin-top: 10px;
 }
 
+.rdBtnCredit td {
+    padding-right: 20px;
+}
+
 #loginLeft {
     position: relative;
     float: left;
@@ -405,3 +409,44 @@ radioButton {
         color: white;
         transition: color 0.4s;
     }
+
+#btnSubmit {
+    border-radius: 5px;
+
+}
+
+    #btnSubmit:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+#btnAddHW {
+    border-radius: 5px;
+}
+
+    #btnAddHW:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+#btnSearch {
+    border-radius: 5px;
+}
+
+    #btnSearch:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+#uploadMaterialFile:hover {
+    background-color: darkblue;
+    transition: background-color 0.4s;
+    color: white;
+    transition: color 0.4s;
+}

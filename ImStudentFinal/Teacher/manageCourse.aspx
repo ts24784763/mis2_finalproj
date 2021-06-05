@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 管理課程</title>
 </head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
@@ -15,10 +15,9 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Teacher/schoolInfo.aspx">管理我的課程</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
             <div class="schoolBody">
@@ -69,13 +68,13 @@
                           </div>
                         </div>
                          <div class="btn" style="margin-top: auto; ">
-                            <asp:Button ID="uploardCourse" CssClass="btnCourse" runat="server" Text="上傳課程影片" />
+                            <asp:Button ID="uploardCourse" CssClass="btnCourse" style="border-radius: 5px;" runat="server" Text="上傳課程影片" />
                         </div>
                     </div>
                     <div class="schoolRight">
                         <div style="display:flex;flex-direction:row;"> 
                             <asp:Label ID="lbCourseName" CssClass="courseFonts" runat="server" Text="基礎會計"></asp:Label>
-                            <asp:Button ID="editBtn" CssClass="editButton" runat="server" Text="編輯" OnClick="editBtn_Click" />
+                            <asp:Button ID="editBtn" CssClass="editButton" style="border-radius: 5px;" runat="server" Text="編輯" Width="60px" />
                         </div>
                     
                         <br />
@@ -87,7 +86,7 @@
                         <div> <a href="#" class="courseLink">(課程簡介)</a></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="subHomeworkArea">
-                            <asp:Button ID="addHomework" CssClass="homeworkButton" runat="server" Text="新增作業" />
+                            <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" />
                         </div>
                     </div>
                 </div>

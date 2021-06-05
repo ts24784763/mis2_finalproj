@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 新增章節</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
@@ -17,15 +17,14 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="#">登入/註冊</a>
+            <a href="../Teacher/schoolInfo.aspx">管理我的課程</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
         <center>
             <br /><br />
-            <asp:Label ID="lblCourse" runat="server" Text="新增章節" Font-Size="XX-Large"></asp:Label>
+            <asp:Label ID="lblCourse" ForeColor="DarkBlue" runat="server" Text="新增章節" Font-Size="XX-Large"></asp:Label>
             <br /><br /><br />
             <asp:Label ID="lblChapterName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*章節名稱：" ></asp:Label>
             <br /><br />
