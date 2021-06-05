@@ -12,6 +12,16 @@
 
 })
 
+$(".button1").click(function (e) {
+    e.preventDefault();
+    window.location.href = "../UserPublic/login.aspx";
+})
+
+$(".button2").click(function (e) {
+    e.preventDefault();
+    window.location.href = "../UserPublic/login.aspx";
+})
+
 $("#btn-open-window").click(function (e) {
     e.preventDefault();
     initWindow();
