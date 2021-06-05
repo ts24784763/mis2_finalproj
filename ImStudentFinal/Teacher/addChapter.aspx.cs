@@ -12,9 +12,9 @@ public partial class Student_addChapter : System.Web.UI.Page
     {
         int CourseId = 100001; //TODO
         string CourseName = ReadDatabase.CourseInfo(CourseId).CourseName;
-        int ChapterNum = ReadDatabase.ChapterInfo(CourseId).Count+1; //目前要新增第幾章
+        int ChapterNum = ReadDatabase.ChapterInCourse(CourseId).Count+1; //目前要新增第幾章
         lblCourse.Text = CourseName +" 新增第"+ ChapterNum.ToString() + "章";
-        ChapterGridView.DataSource = ReadDatabase.ChapterInfo(CourseId);
+        ChapterGridView.DataSource = ReadDatabase.ChapterInCourse(CourseId);
         ChapterGridView.DataBind();
     }
 
@@ -40,7 +40,7 @@ public partial class Student_addChapter : System.Web.UI.Page
     {
         int CourseId = 100001; //TODO
         string CourseName = ReadDatabase.CourseInfo(CourseId).CourseName;
-        int ChapterNum = ReadDatabase.ChapterInfo(CourseId).Count + 1; //目前要新增第幾章
+        int ChapterNum = ReadDatabase.ChapterInCourse(CourseId).Count + 1; //目前要新增第幾章
         Models.ChapterModel chapter = new Models.ChapterModel
         {
             ChapterNum = ChapterNum,

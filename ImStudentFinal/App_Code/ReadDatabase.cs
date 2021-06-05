@@ -21,7 +21,7 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 查詢school所有資料
+    /// 查詢特定school所有資料
     /// </summary>
     /// <param name="schoolName">學校名字</param>
     /// <returns></returns>
@@ -46,12 +46,12 @@ public class ReadDatabase
             {
                 SchoolName = row["SchoolName"].ToString(),
                 SchoolIntro = row["SchoolIntro"].ToString(),
-                SemesterDays = int.Parse(row["SemesterDays"].ToString()),
-                SchoolFee = int.Parse(row["SchoolFee"].ToString()),
+                SemesterDays = int.Parse(row["SemesterDays"].ToString() == "" ? "0" : row["SemesterDays"].ToString()),
+                SchoolFee = int.Parse(row["SchoolFee"].ToString() == "" ? "0" : row["SchoolFee"].ToString()),
                 License = row["License"].ToString(),
                 OpenSelectCourseDate = Convert.ToDateTime(row["OpenSelectCourseDate"].ToString()),
                 OpenSemesterDate = Convert.ToDateTime(row["OpenSemesterDate"].ToString()),
-                RequiredCredits = int.Parse(row["RequiredCredits"].ToString()),
+                RequiredCredits = int.Parse(row["RequiredCredits"].ToString() == "" ? "0" : row["RequiredCredits"].ToString()),
                 SchoolStatus = row["SchoolStatus"].ToString(),
                 Principal = row["Principal"].ToString(),
             });
@@ -60,7 +60,7 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 查詢member所有資料
+    /// 查詢特定member所有資料
     /// </summary>
     /// <param name="userAccount">用戶帳號</param>
     /// <returns></returns>
@@ -96,7 +96,7 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 查詢course所有資料
+    /// 查詢特定course所有資料
     /// </summary>
     /// <param name="courseId">課程id</param>
     /// <returns></returns>
@@ -134,14 +134,14 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 根據學校列出所有老師及開設課程
+    /// 根據學校列出開設課程及老師姓名
     /// </summary>
     /// <param name="schoolName">學校名字</param>
     /// <returns></returns>
-    public static List<Models.CourseAndTeacherModel> CourseAndTeacherInfo(string schoolName)
+    public static List<Models.CourseAndTeacherModel> CourseInSchool(string schoolName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT CourseName, Teacher TeacherAccount, Name TeacherName FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
+        string sql = @"SELECT CourseId, CourseName, Teacher TeacherAccount, Name TeacherName FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -157,6 +157,7 @@ public class ReadDatabase
         {
             result.Add(new Models.CourseAndTeacherModel()
             {
+                CourseId = row["CourseId"].ToString(),
                 CourseName = row["CourseName"].ToString(),
                 TeacherAccount = row["TeacherAccount"].ToString(),
                 TeacherName = row["TeacherName"].ToString(),
@@ -173,7 +174,7 @@ public class ReadDatabase
     public static List<Models.SchoolModel> SearchSchoolByWord(string searchWord)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT * FROM SCHOOL WHERE SchoolName LIKE '%' + @searchWord + '%' OR SchoolIntro LIKE '%' + @searchWord + '%'";
+        string sql = @"SELECT * FROM SCHOOL WHERE SchoolStatus = 'SELL' AND (SchoolName LIKE '%' + @searchWord + '%' OR SchoolIntro LIKE '%' + @searchWord + '%')";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -191,7 +192,7 @@ public class ReadDatabase
             {
                 SchoolName = row["SchoolName"].ToString(),
                 SchoolIntro = row["SchoolIntro"].ToString(),
-                RequiredCredits = int.Parse(row["RequiredCredits"].ToString()),
+                RequiredCredits = int.Parse(row["RequiredCredits"].ToString() == "" ? "0" : row["RequiredCredits"].ToString()),
                 SchoolStatus = row["SchoolStatus"].ToString(),
                 License = row["License"].ToString(),
                 Principal = row["Principal"].ToString(),
@@ -201,7 +202,7 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 根據學校列出所有課程
+    /// 根據學校列出此學校所有課程
     /// </summary>
     /// <param name="schoolName">學校名字</param>
     /// <returns></returns>
@@ -314,36 +315,11 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 判斷課程是否有作業
-    /// </summary>
-    /// <param name="CourseId"></param>
-    /// <returns></returns>
-    public static bool CourseHaveHW(int CourseId)
-    {
-        DataTable dt = new DataTable();
-        string sql = @"SELECT HWName FROM COURSE WHERE CourseId = @CourseId ";
-        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-            sqlAdapter.Fill(dt);
-            conn.Close();
-        }
-        var a = dt.Rows[0]["HWName"].ToString();
-        if (dt.Rows[0]["HWName"].ToString() == "")
-            return false;
-        else
-            return true;
-    }
-
-    /// <summary>
-    /// 查詢chapter所有資料
+    /// 根據課程列出此課程所有章節
     /// </summary>
     /// <param name="schoolName"></param>
     /// <returns></returns>
-    public static List<Models.ChapterModel> ChapterInfo(int courseId)
+    public static List<Models.ChapterModel> ChapterInCourse(int courseId)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId ORDER BY ChapterNum ";
@@ -366,6 +342,46 @@ public class ReadDatabase
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 ChapterName = row["ChapterName"].ToString(),
                 VideoUrl = row["VideoUrl"].ToString(),
+            });
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// 將特定學校中的所有課程列成list
+    /// </summary>
+    /// <param name="schoolName"></param>
+    /// <returns></returns>
+    public static List<Models.ListModel> ListAllCourseInSchool(string schoolName)
+    {
+        List<Models.ListModel> result = new List<Models.ListModel>();
+        int courseNum = ReadDatabase.CourseInSchool(schoolName).Count;
+        for (int i = 0; i < courseNum; i++)
+        {
+            result.Add(new Models.ListModel()
+            {
+                Value = ReadDatabase.CourseInSchool(schoolName)[i].CourseId,
+                Text = ReadDatabase.CourseInSchool(schoolName)[i].CourseName,
+            });
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// 將特定課程中的所有章節列成list
+    /// </summary>
+    /// <param name="courseId"></param>
+    /// <returns></returns>
+    public static List<Models.ListModel> ListAllChapterInCourse(int courseId)
+    {
+        List<Models.ListModel> result = new List<Models.ListModel>();
+        int chapterNum = ReadDatabase.ChapterInCourse(courseId).Count;
+        for (int i = 0; i < chapterNum; i++)
+        {
+            result.Add(new Models.ListModel()
+            {
+                Value = ReadDatabase.ChapterInCourse(courseId)[i].ChapterNum.ToString(),
+                Text = ReadDatabase.ChapterInCourse(courseId)[i].ChapterName,
             });
         }
         return result;

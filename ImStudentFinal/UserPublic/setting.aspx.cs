@@ -11,7 +11,7 @@ public partial class setting : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string userSession = "28cyc"; //TODO
+        string userSession = Session["userID"].ToString();
         lbName.Text = ReadDatabase.UserInfo(userSession).Name;
         lbRole.Text = ReadDatabase.UserInfo(userSession).Role;
         lbSchool.Text = ReadDatabase.UserInfo(userSession).School;
@@ -28,11 +28,12 @@ public partial class setting : System.Web.UI.Page
 
     protected void update_Click(object sender, EventArgs e)
     {
+        string userSession = Session["userID"].ToString();
         Models.MemberModel member = new Models.MemberModel
         {
-            Account = "28cyc",
-            Name = txtName.Text == "" ? ReadDatabase.UserInfo("28cyc").Name : txtName.Text,
-            PhoneNumber = txtPhone.Text == "" ? ReadDatabase.UserInfo("28cyc").PhoneNumber : txtPhone.Text,
+            Account = userSession,
+            Name = txtName.Text == "" ? ReadDatabase.UserInfo(userSession).Name : txtName.Text,
+            PhoneNumber = txtPhone.Text == "" ? ReadDatabase.UserInfo(userSession).PhoneNumber : txtPhone.Text,
         };
         try
         {
