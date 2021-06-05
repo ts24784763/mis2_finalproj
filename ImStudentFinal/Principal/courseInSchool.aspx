@@ -54,7 +54,7 @@
                                 <span class="k-invalid-msg" data-for="bought_datepicker"></span>
                             </li>
                             <li class="uk-text-right" style="padding-top: 30px">
-                                <button class="k-button k-primary" id="btn-openSchool">完 成</button>
+                                <button class="k-button k-primary" id="btnOpenSchool">完 成</button>
                             </li>
                         </ul>
                     </div>
@@ -92,5 +92,23 @@
     <script type="text/javascript" src="../Script/kendo.all.min.js"></script>
     <script type="text/javascript" src="../Script/uikit.min.js"></script>
     <script type="text/javascript" src="../Script/kenJs.js"></script>
+    <script>
+        $("#btnOpenSchool").click(function (e) {
+            var OpenSelectCourseDate = kendo.toString($("#selectCourseTimeRange_datepicker").data("kendoDatePicker").value(),"yyyy/MM/dd");
+            var OpenSemesterDate = kendo.toString($("#startSemester_datepicker").data("kendoDatePicker").value(), "yyyy/MM/dd");
+            console.log("type=openSchool&OpenSelectCourseDate=" + OpenSelectCourseDate + "&OpenSemesterDate=" + OpenSemesterDate);
+            $.ajax({
+                type: "Post",
+                url: "courseInSchool.aspx?type=openSchool&OpenSelectCourseDate="+OpenSelectCourseDate+"&OpenSemesterDate="+OpenSemesterDate,
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    alert("學校上架成功");
+                }, error: function (error) {
+                    alert("學校上架失敗");
+                }
+            });
+            location.href = "mainSchool.aspx";
+        });
+</script>
 </body>
 </html>
