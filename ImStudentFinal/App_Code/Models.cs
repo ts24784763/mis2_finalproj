@@ -76,6 +76,7 @@ public class Models
     /// </summary>
     public class CourseAndTeacherModel
     {
+        public string CourseId { get; set; }
         public string CourseName { get; set; }
         public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
@@ -130,5 +131,11 @@ public class Models
         public int CourseId { get; set; }
         public string ChapterName { get; set; }
         public string VideoUrl { get; set; }
+    }
+
+    public class ListModel
+    {
+        public string Value { get; set; }
+        public string Text { get; set; }
     }
 }

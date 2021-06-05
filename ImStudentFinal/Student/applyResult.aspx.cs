@@ -9,7 +9,7 @@ public partial class applyOutcome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string studentAccount = "28cyc";
+        string studentAccount = Session["userID"].ToString();
         StudentResumeDataList.DataSource = ReadDatabase.studentApplySchool(studentAccount, "");
         StudentResumeDataList.DataBind();
     }
