@@ -450,3 +450,14 @@ radioButton {
     color: white;
     transition: color 0.4s;
 }
+
+#uploadSchoolImage {
+    border-radius: 5px;
+}
+
+    #uploadSchoolImage:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
