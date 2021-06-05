@@ -44,7 +44,7 @@
             <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px" runat="server" Text="*設定繳交期限："></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtHWDeadlineDays" placeholder=" 輸入繳交期限 例：7" CssClass="Cohwtxt" runat="server" Width="350px" Height="45px" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="txtHWDeadlineDays" placeholder=" 輸入繳交期限 例：7" CssClass="Cohwtxt" runat="server" Width="350px" Height="45px" TextMode="Number" ></asp:TextBox>
             &nbsp&nbsp&nbsp&nbsp
             <asp:Label ID="lblDay" style="font-size: x-large;" runat="server" Text="天"></asp:Label><br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHWDeadlineDays" ErrorMessage="請輸入繳交期限" ForeColor="Red"></asp:RequiredFieldValidator>
