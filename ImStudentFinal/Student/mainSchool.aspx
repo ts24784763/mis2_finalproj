@@ -34,56 +34,26 @@
                                🛈  總覽
                             </div>
                         </div>
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                <div class="accordionFonts">
-                                基礎會計 <br /><br /> <asp:Label ID="classFigure" runat="server" Text="0/1 堂"></asp:Label>
-                                 </div>
-                              </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                <div class="accordionFonts">                                
-                                  進階會計<br /><br />
-                                  <asp:Label ID="classFigure2" runat="server" Text="0/2 堂"></asp:Label>
-                              </div>
-                               </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                               <div class="accordion-body">
-                                <strong>第二章</strong>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
+
+
                          
                         </div>
-                          
                     </div>
-                    <div class="schoolRight">
+                    <div class="schoolRight" >
                         <asp:Label ID="schoolFonts1" CssClass="schoolFonts" runat="server" Text="🏆️取得畢業門檻學分將可獲得證書"></asp:Label>
                         <br />
                         <div class="schoolItems">
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
-                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
+                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"  src="https://picsum.photos/300/150?random=1"/>
                          <asp:Label ID="intro" CssClass="schoolTitle" runat="server" Text="簡介"></asp:Label>     
                          <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" runat="server" Text="好學校"></asp:Label>
                          <asp:Label ID="schoolCertification" CssClass="schoolTitle" runat="server" Text="證書"></asp:Label>
                          <asp:Label ID="lbLicense" CssClass="schoolFonts" runat="server" Text="IMS認證會計"></asp:Label>
+                        <div style="display:flex;flex-direction:column;">
                          <asp:Label ID="schoolPrinciple" CssClass="schoolTitle" runat="server" Text="校長"></asp:Label>
-                         <asp:Label ID="lbPrincipal" CssClass="schoolFonts" runat="server" Text="XXX"></asp:Label>
+                         <asp:Label ID="lbPrincipal" CssClass="schoolFonts" runat="server" Text="XXX"></asp:Label></div>
                     </div>
                 </div>
             </div>
@@ -91,3 +61,9 @@
 </body>
 </html>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script>
+            function test() {
+                document.getElementById('lbPrincipal').innerText ="GOOD";
+            }
+</script>
+
