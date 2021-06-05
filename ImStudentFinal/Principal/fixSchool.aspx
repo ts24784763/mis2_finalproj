@@ -22,7 +22,7 @@
             <a href="#">登出</a>
             </div>
         </div>
-        <div class="wrapperBuilding">
+        <div class="wrapperBuilding" style="width:80%;margin:0 auto;">
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="整修您的學校資料" ></asp:Label>
             <div class="wrapper">
                 <asp:Label ID="schoolName" runat="server" Text="學校名稱"></asp:Label><br />
@@ -37,7 +37,7 @@
                 <asp:Label ID="introduct" runat="server" Text="簡介"></asp:Label><br />
                 <asp:TextBox id="enterIntro"  CssClass="textWraper" type="text" placeholder="Update the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
-                <div class="btnArea">
+                <div class="btnArea" style="margin-top:20px;">
                          <asp:Button ID="viewCourse" CssClass="checkBtn2" runat="server" Text="查看目前課程" />
                           <asp:Button ID="savingBtn" CssClass="checkBtn2" runat="server" Text="儲存" BackColor="Black"/>
                 </div>

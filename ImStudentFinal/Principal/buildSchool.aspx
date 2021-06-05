@@ -15,12 +15,12 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">建立學校</a>
-            <a href="#">個人資料設定</a>
-            <a href="#">登出</a>
+<a href="../Principal/buildSchool.aspx">建立學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
-        <div class="wrapperBuilding">
+        <div class="wrapperBuilding" style="width:80%;margin:0 auto;">
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="開始建立屬於您的學校" ></asp:Label>
             <div class="wrapper">
                 <asp:Label ID="schoolName" runat="server" Text="學校名稱*"></asp:Label><br />
