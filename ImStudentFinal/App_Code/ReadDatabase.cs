@@ -234,38 +234,41 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 依照學生或學校(擇一)查詢學生申請學校資料
+    /// 依照申請種類、申請者or收到申請者(擇一)查詢申請資料
     /// </summary>
-    /// <param name="studentAccount">學生帳號</param>
+    /// <param name="ApplyType">申請種類</param>
+    /// <param name="Applicant">申請者</param>
+    /// <param name="Receiver">受到申請者</param>
     /// <returns></returns>
-    public static List<Models.StudentApplySchoolModel> studentApplySchool(string studentAccount, string schoolName)
+    public static List<Models.ApplyModel> ApplyInfo(string ApplyType, string Applicant, string Receiver)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT Name AS StudentName, Applicant AS StudentAccount, Receiver AS School, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult 
-                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '學生申請學校' AND ApplyResult = '等待審核中'";
-        if (studentAccount != "")
-            sql += "AND Applicant = @student";
-        else if (schoolName != "")
-            sql += "AND Receiver = @school";
+        string sql = @"SELECT Name AS ApplicantName, Applicant, Receiver, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType AND ApplyResult = '等待審核中'";
+        if (Applicant != "")
+            sql += "AND Applicant = @Applicant";
+        else if (Receiver != "")
+            sql += "AND Receiver = @Receiver";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@student", studentAccount));
-            cmd.Parameters.Add(new SqlParameter("@school", schoolName));
+            cmd.Parameters.Add(new SqlParameter("@ApplyType", ApplyType));
+            cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
         }
 
-        List<Models.StudentApplySchoolModel> result = new List<Models.StudentApplySchoolModel>();
+        List<Models.ApplyModel> result = new List<Models.ApplyModel>();
         foreach (DataRow row in dt.Rows)
         {
-            result.Add(new Models.StudentApplySchoolModel()
+            result.Add(new Models.ApplyModel()
             {
-                StudentName = row["StudentName"].ToString(),
-                StudentAccount = row["StudentAccount"].ToString(),
-                School = row["School"].ToString(),
+                ApplicantName = row["ApplicantName"].ToString(),
+                Applicant = row["Applicant"].ToString(),
+                Receiver = row["Receiver"].ToString(),
                 ApplyIntro = row["ApplyIntro"].ToString(),
                 ApplyResult = row["ApplyResult"].ToString(),
                 ResumeFileName = row["ResumeFileName"].ToString(),
@@ -387,4 +390,33 @@ public class ReadDatabase
         }
         return result;
     }
+
+    //public static List<Models.MemberModel> TeacherCanInvite(int courseId)
+    //{
+    //    DataTable dt = new DataTable();
+    //    string sql = @"SELECT * FROM MEMBER WHERE Role = '老師' AND School IS NULL ";
+    //    using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+    //    {
+    //        conn.Open();
+    //        SqlCommand cmd = new SqlCommand(sql, conn);
+    //        cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
+    //        SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+    //        sqlAdapter.Fill(dt);
+    //        conn.Close();
+    //    }
+
+    //    List<Models.ChapterModel> result = new List<Models.ChapterModel>();
+    //    foreach (DataRow row in dt.Rows)
+    //    {
+    //        result.Add(new Models.ChapterModel()
+    //        {
+    //            ChapterNum = int.Parse(row["ChapterNum"].ToString()),
+    //            CourseId = int.Parse(row["CourseId"].ToString()),
+    //            ChapterName = row["ChapterName"].ToString(),
+    //            VideoUrl = row["VideoUrl"].ToString(),
+    //        });
+    //    }
+    //    return result;
+    //}
+
 }

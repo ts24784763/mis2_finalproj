@@ -25,21 +25,21 @@
         <div class="wrapperBuilding" style="width:80%;margin:0 auto;">
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="整修您的學校資料" ></asp:Label>
             <div class="wrapper">
-                <asp:Label ID="schoolName" runat="server" Text="學校名稱"></asp:Label><br />
+                <asp:Label ID="lbSchoolName" runat="server" Text="學校名稱"></asp:Label><br />
                 <asp:Label ID="schoolDate" runat="server" Text="一個學期的長度"></asp:Label><br />
-                <asp:TextBox id="updateDate" CssClass="textWraper" type="text" placeholder="Update the date of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtDays" CssClass="textWraper" type="text" placeholder="Update the date of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="addCertification" runat="server" Text="證書"></asp:Label><br />
-                <asp:TextBox id="enterCertification" CssClass="textWraper" type="text" placeholder="Add the certification of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtCertification" CssClass="textWraper" type="text" placeholder="Add the certification of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="graduationCredit" runat="server" Text="畢業門檻學分"></asp:Label><br />
-                <asp:TextBox id="enterGraduationCredit" CssClass="textWraper" type="text" placeholder="Update the credit of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtCredit" CssClass="textWraper" type="text" placeholder="Update the credit of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="dateNum" runat="server" Text="學費"></asp:Label><br />
-                <asp:TextBox id="enterDate"  CssClass="textWraper" type="text" placeholder="Update the money of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
+                <asp:TextBox id="txtFee"  CssClass="textWraper" type="text" placeholder="Update the money of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <asp:Label ID="introduct" runat="server" Text="簡介"></asp:Label><br />
-                <asp:TextBox id="enterIntro"  CssClass="textWraper" type="text" placeholder="Update the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Update the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
                 <div class="btnArea" style="margin-top:20px;">
                          <asp:Button ID="viewCourse" CssClass="checkBtn2" runat="server" Text="查看目前課程" />
-                          <asp:Button ID="savingBtn" CssClass="checkBtn2" runat="server" Text="儲存" BackColor="Black"/>
+                          <asp:Button ID="savingBtn" CssClass="checkBtn2" runat="server" Text="儲存" BackColor="Black" OnClick="savingBtn_Click"/>
                 </div>
             </div>
         </div>

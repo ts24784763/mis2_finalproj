@@ -12,7 +12,7 @@ public partial class verifyStudent : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string schoolName = "元智資管學校";
-        StudentResumeDataList.DataSource = ReadDatabase.studentApplySchool("",schoolName);
+        StudentResumeDataList.DataSource = ReadDatabase.ApplyInfo("學生申請學校", "",schoolName);
         StudentResumeDataList.DataBind();
         StudentPaymentDataList.DataSource = ReadDatabase.studentPaymentStatus("", schoolName);
         StudentPaymentDataList.DataBind();
@@ -55,8 +55,6 @@ public partial class verifyStudent : System.Web.UI.Page
             if (download != null)
                 download.Close();
         }
-
-
     }
 }
 

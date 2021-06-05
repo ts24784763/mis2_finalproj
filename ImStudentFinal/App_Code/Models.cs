@@ -27,6 +27,7 @@ public class Models
     /// </summary>
     public class ApplyModel
     {
+        public string ApplicantName { get; set; }
         public string Applicant { get; set; }
         public string Receiver { get; set; }
         public string ApplyType { get; set; }
@@ -81,20 +82,6 @@ public class Models
         public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
         public int CourseCredit { get; set; }
-    }
-
-    /// <summary>
-    /// 學生申請學校資料model
-    /// </summary>
-    public class StudentApplySchoolModel
-    {
-        public string StudentName { get; set; }
-        public string StudentAccount { get; set; }
-        public string School { get; set; }
-        public string ApplyIntro { get; set; }
-        public string ResumeFileName { get; set; }
-        public string ResumeFilePath { get; set; }
-        public string ApplyResult { get; set; }
     }
 
     /// <summary>
