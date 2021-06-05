@@ -120,6 +120,7 @@
     background-color: white;
     color: rgb(147,167,206);
     display: flex;
+    line-height: 2;
     flex-direction: row;
     justify-content: center;
 }
@@ -598,7 +599,7 @@
     background-color:rgb(38,82,155);
     color:white;
     font-weight:bold;
-
+    border-radius: 5px;
 }
 
 .wrapperBuilding .textWraper{
