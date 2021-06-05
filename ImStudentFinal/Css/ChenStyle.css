@@ -116,8 +116,8 @@
 /*------------------------------------------------------------------------------------*/
 .mGrid {
     width: 600px;
-    height: 100px;
-    background-color: lightgray;
+    height: 200px;
+    background-color: white;
     margin: 5px 0 10px 0;
     border: solid 1px #525252;
     border-collapse: collapse;
@@ -125,130 +125,17 @@
 }
 
     .mGrid td {
-        padding: 2px;
+        padding: 20px;
         border: solid 1px #c1c1c1;
         color: #717171;
     }
 
     .mGrid th {
-        padding: 4px 2px;
-        color: #fff;
-        background: #424242 url(grd_head.png) repeat-x top;
+        padding: 20px 10px;
+        color: white;
+        background: #005AB5 repeat-x top;
         border-left: solid 1px #525252;
-        font-size: 0.9em;
-    }
-
-    .mGrid .alt {
-        background: #fcfcfc url(grd_alt.png) repeat-x top;
-    }
-
-    .mGrid .pgr {
-        background: #424242 url(grd_pgr.png) repeat-x top;
-    }
-
-        .mGrid .pgr table {
-            margin: 5px 0;
-        }
-
-        .mGrid .pgr td {
-            border-width: 0;
-            padding: 0 6px;
-            border-left: solid 1px #666;
-            font-weight: bold;
-            color: #fff;
-            line-height: 12px;
-        }
-
-        .mGrid .pgr a {
-            color: #666;
-            text-decoration: none;
-        }
-
-            .mGrid .pgr a:hover {
-                color: #000;
-                text-decoration: none;
-            }
-/*------------------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------------------*/
-/*日曆*/
-.myCalendar {
-    background-color: #f2f2f2;
-    width: 156px;
-    border: 10px solid #b1b5b5 !important;
-    border-top: 0px !important;
-}
-
-    .myCalendar a {
-        text-decoration: none;
-    }
-
-    .myCalendar .myCalendarTitle {
-        font-weight: bold;
-        height: 40px;
-        line-height: 40px;
-        background-color: #b1b5b5;
-        color: #ffffff;
-    }
-
-    .myCalendar th.myCalendarDayHeader {
-        height: 25px;
-        border-bottom: outset 2px #fbfbfb;
-        border-right: outset 2px #fbfbfb;
-    }
-
-    .myCalendar td.myCalendarDay {
-        border: outset 2px #fbfbfb;
-    }
-
-        .myCalendar td.myCalendarDay:nth-child(7) a {
-            color: #c52e2e !important;
-        }
-
-    .myCalendar .myCalendarNextPrev {
-        text-align: center;
-    }
-
-        .myCalendar .myCalendarNextPrev a {
-            font-size: 1px;
-        }
-
-        .myCalendar .myCalendarNextPrev:nth-child(1) a {
-            color: white !important;
-        }
-
-            .myCalendar .myCalendarNextPrev:nth-child(1) a:hover, .myCalendar .myCalendarNextPrev:nth-child(3) a:hover {
-                background-color: transparent;
-            }
-
-        .myCalendar .myCalendarNextPrev:nth-child(3) a {
-            color: white !important;
-        }
-
-    .myCalendar td.myCalendarSelector a {
-        background-color: #b1b5b5;
-    }
-
-    .myCalendar .myCalendarDayHeader a,
-    .myCalendar .myCalendarDay a,
-    .myCalendar .myCalendarSelector a,
-    .myCalendar .myCalendarNextPrev a {
-        display: block;
-        line-height: 20px;
-    }
-
-    .myCalendar .myCalendarToday {
-        background-color: #f2f2f2;
-        -webkit-box-shadow: 0 0 7px 3px #e5e5e5;
-        box-shadow: 0 0 7px 3px #e5e5e5;
-    }
-
-        .myCalendar .myCalendarToday a {
-            color: #b1b5b5 !important;
-        }
-
-    .myCalendar .myCalendarDay a:hover,
-    .myCalendar .myCalendarSelector a:hover {
-        background-color: #b1b5b5;
+        font-size: 1.3em;
     }
 /*------------------------------------------------------------------------------------*/
+
