@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 老師總表</title>
 </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link href="../Css/reset.css" rel="stylesheet" />
@@ -24,9 +24,9 @@
     </div>
     <div class="searchTeacher">
         <div class="searchTop">
-            <asp:Label ID="searchTitle" CssClass="titleStyle" runat="server" Text="老師總表"></asp:Label>
+            <asp:Label ID="searchTitle" CssClass="titleStyle" style="padding-top: 30px" runat="server" Text="老師總表"></asp:Label>
             <div style="display:flex; flex-direction:row; justify-content:center; width:100%;">
-                   想邀請哪位老師：<asp:TextBox ID="searchTeacher" CssClass="searchTxt" runat="server"></asp:TextBox><asp:Button ID="searchBtn" CssClass="searchChecked" runat="server" Text="搜尋＞" />
+                   想邀請哪位老師：<asp:TextBox ID="searchTeacher" CssClass="searchTxt" runat="server"></asp:TextBox><asp:Button ID="searchBtn" CssClass="searchChecked" runat="server" Text="搜尋＞" Width="90px" />
             </div>
         </div>
         <div class="searchBottom">
