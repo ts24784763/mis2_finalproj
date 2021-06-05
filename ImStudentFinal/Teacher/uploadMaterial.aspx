@@ -35,31 +35,13 @@
             <br /><br />
             <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px" runat="server" Text="*附件："></asp:Label>
             <br /><br />
-            <asp:Button ID="btnDoc" runat="server"  Width="100px" Height="30px"  Text="瀏覽檔案" style="background-color: black; elevation:0; border:0; color: white;" />
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳教材" style="color: black; border-radius:5px" />
+			<asp:FileUpload ID="uploadMaterialFile" runat="server" />
+            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳教材" style="color: black; border-radius:5px" OnClick="btnUpload_Click" />
             <br /><br /><br /><br />
             <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳教材：" ></asp:Label>
             <br /><br />
-            <asp:GridView ID="GridView1"  RowStyle-CssClass="bottomBorder"  runat="server" >    
-                <HeaderStyle BackColor="royalblue" Font-Bold="True" ForeColor="White" />
-                <RowStyle CssClass="bottomBorder" />
+            <asp:GridView ID="GridView1"  CssClass="mGrid"  runat="server" >    
             </asp:GridView>
-            <%--<asp:DataList ID="DataListSchoolInfo" runat="server" CellPadding="3" ForeColor="#333333" EnableViewState="False" RepeatDirection="Horizontal">
-            <AlternatingItemStyle BackColor="White" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="White" />
-            <ItemStyle BackColor="#EFF3FB" />
-            <ItemTemplate>
-                <center>
-                    <asp:Label ID="lblCourseName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
-                    <br />
-                    <asp:Label ID="lblCourseInfo" runat="server" Text='<%# Eval("SchoolIntroduction") %>'></asp:Label>
-                    <br />
-                    <asp:Label ID="lblCoursePeroid" runat="server" Text='<%# Eval("License") %>'></asp:Label>
-                </center>
-            </ItemTemplate>
-        </asp:DataList>--%>
         </center>
         <br />
     </form>

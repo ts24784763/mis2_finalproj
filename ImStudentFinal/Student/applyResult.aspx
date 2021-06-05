@@ -16,10 +16,9 @@
   <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
             <div class="schoolApplyResultArea">
@@ -34,7 +33,7 @@
             <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
                     <div class="resultSchoolImg">
-                        <asp:Image id="memberImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" Height="120px" Width="180px"/>
+                        <asp:Image id="schoolImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" Height="120px" Width="180px"/>
                     </div>
                     <div class="resultSchoolInfo">
                         <asp:Label ID="lbStudentName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("School") %>'/>

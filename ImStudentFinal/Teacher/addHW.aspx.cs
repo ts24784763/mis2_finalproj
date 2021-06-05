@@ -13,44 +13,30 @@ public partial class HomeWork : System.Web.UI.Page
 
     }
 
-    protected void CalDate_SelectionChanged(object sender, EventArgs e)
+    public void AddHomeWork(Models.CourseModel course)
     {
-        
-    }
-
-    public void AddHomeWork(Models.HWPostModel HWPost)
-    {
-        string sql = @"INSERT INTO HW_POST (HomeWorkName, HomeWorkDetail, Deadline, CourseId)
-                                VALUES ( @HomeWorkName, @HomeWorkDetail, @Deadline, @CourseId)";
+        string sql = @"UPDATE COURSE SET HWName= @HWName, HWDetail= @HWDetail, HWDeadlineDays=30 WHERE CourseId=@CourseId";
         using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@HomeWorkName", HWPost.HomeWorkName));
-            cmd.Parameters.Add(new SqlParameter("@HomeWorkDetail", HWPost.HomeWorkDetail));
-            cmd.Parameters.Add(new SqlParameter("@Deadline", HWPost.Deadline));
-            cmd.Parameters.Add(new SqlParameter("@CourseId", HWPost.CourseId));
+            cmd.Parameters.Add(new SqlParameter("@HWName", course.HWName));
+            cmd.Parameters.Add(new SqlParameter("@HWDetail", course.HWDetail));
+            cmd.Parameters.Add(new SqlParameter("@HWDeadlineDays", course.HWDeadlineDays));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", course.CourseId));
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-
     }
 
     protected void btnAddHW_Click(object sender, EventArgs e)
     {
         int courseId = 100001; //TODO
-        //選擇日期 若無選擇設定為當日
-        var Deadline = CalDate.SelectedDate.ToString();
-        if (Deadline == "")
+        Models.CourseModel HWPost = new Models.CourseModel
         {
-            Deadline = DateTime.Now.ToString();
-        }
-
-        Models.HWPostModel HWPost = new Models.HWPostModel
-        {
-            HomeWorkName = txtHWName.Text,
-            HomeWorkDetail = txtHWDetail.Text,
-            Deadline = Convert.ToDateTime(Deadline),
+            HWName = txtHWName.Text,
+            HWDetail = txtHWDetail.Text,
+            HWDeadlineDays = int.Parse(txtHWDeadlineDays.Text),
             CourseId = courseId
         };
         try

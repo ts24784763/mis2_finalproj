@@ -12,6 +12,15 @@
     <link href="../Css/pageStyle.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
+        <div class="bar">
+            IM STUDENT
+            <div class="rightText">
+            <a href="../Student/selectCourse.aspx">選課</a>
+            <a href="../Student/mainSchool.aspx">我的學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+        </div>
      <div class="selectCourse">
          選課
      </div>

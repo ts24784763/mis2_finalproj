@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        ::placeholder {
+          color: white;
+          opacity: 1;
+        }
+    </style>
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
@@ -17,10 +23,9 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="#">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="#">登出</a>
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
         </div>
         </div>
         <div class="bluebar">
@@ -28,13 +33,13 @@
             <div class="textWrap">挑選您有興趣的學校課程</div>
             <br /><br />
             <div class="wrap">
-                <asp:TextBox ID="txtSearch" placeholder="輸入你想查詢的學校" CssClass="box" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSearch" placeholder=" 輸入你想查詢的學校" CssClass="box" runat="server"></asp:TextBox>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="btnSearch" runat="server" CssClass="button"  Text="搜尋" OnClick="btnSearch_Click"  />
             </div>
         </div>
         <center>
-            <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" />
+            <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" OnClick="btnApplyOutCome_Click" />
         </center>
         <div class="courseInfo">
         <center>
@@ -55,7 +60,7 @@
                     <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnCheck" style="background-color: midnightblue; color: white;" runat="server" Text="查看"></asp:Button>
+                    <asp:Button ID="btnCheck" style="background-color: midnightblue; color: white;" runat="server" Text="更多資訊" PostBackUrl='<%# Eval("SchoolName", "schoolDetail.aspx?school={0}") %>'></asp:Button>
                 </center>
             </ItemTemplate>
             <SelectedItemStyle BackColor="white" Font-Bold="True" ForeColor="White" />

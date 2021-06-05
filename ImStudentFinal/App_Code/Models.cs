@@ -76,18 +76,10 @@ public class Models
     /// </summary>
     public class CourseAndTeacherModel
     {
+        public string CourseId { get; set; }
         public string CourseName { get; set; }
         public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
-    }
-
-    public class HWPostModel
-    {
-        public int HomeWorkId { get; set; }
-        public string HomeWorkName { get; set; }
-        public string HomeWorkDetail { get; set; }
-        public DateTime Deadline { get; set; }
-        public int CourseId { get; set; }
     }
 
     /// <summary>
@@ -104,6 +96,9 @@ public class Models
         public string ApplyResult { get; set; }
     }
 
+    /// <summary>
+    /// 學生繳費狀況資料model
+    /// </summary>
     public class StudentPaymentStatusModel
     {
         public string StudentName { get; set; }
@@ -111,5 +106,36 @@ public class Models
         public string School { get; set; }
         public string ApplyIntro { get; set; }
         public string PaymentStatus { get; set; }
+    }
+
+    /// <summary>
+    /// 教材資料model
+    /// </summary>
+    public class MaterialModel
+    {
+        public int MaterialId { get; set; }
+        public string MaterialName { get; set; }
+        public string MaterialIntro { get; set; }
+        public string MaterialFileName { get; set; }
+        public string MaterialFilePath { get; set; }
+        public int CourseId { get; set; }
+        public int ChapterNum { get; set; }
+    }
+
+    /// <summary>
+    /// 章節資料model
+    /// </summary>
+    public class ChapterModel
+    {
+        public int ChapterNum { get; set; }
+        public int CourseId { get; set; }
+        public string ChapterName { get; set; }
+        public string VideoUrl { get; set; }
+    }
+
+    public class ListModel
+    {
+        public string Value { get; set; }
+        public string Text { get; set; }
     }
 }

@@ -16,10 +16,9 @@
     <div class="bar">
         IM STUDENT
         <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
         </div>
      </div>
         <div class="schoolDetailsArea">
@@ -34,7 +33,7 @@
             </center>
                 <div class="schoolIntro">
                     <div class="leftIntro">
-                        <div class="IntroConent">
+                        <div class="IntroContent">
                             <asp:Label ID="Label1" runat="server" Text="學校簡介" ForeColor="DarkBlue"></asp:Label>
                             <br />
                             　　<asp:Label ID="lbSchoolIntro" runat="server" Text="簡介內容...."></asp:Label>

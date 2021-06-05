@@ -10,7 +10,8 @@ public partial class applySchool : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string schoolName = Server.UrlDecode(Request.QueryString["school"]);
+        lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
     }
 
     protected void cancleBtn_Click(object sender, EventArgs e)
@@ -22,11 +23,12 @@ public partial class applySchool : System.Web.UI.Page
 
     protected void confirmSubmitBtn_Click(object sender, EventArgs e)
     {
-        string userSession = "28cyc"; //TODO
-        string schoolName = "元智資管學校"; //TODO
+        string userSession = Session["userID"].ToString();
+        string studentName = ReadDatabase.UserInfo(userSession).Name;
+        string schoolName = Server.UrlDecode(Request.QueryString["school"]);
         if (uploadResume.HasFile)
         {
-            string path = "resume/" + schoolName + "_" + userSession + "_" + uploadResume.FileName;
+            string path = "resume/" + schoolName + " " + studentName + "_" + uploadResume.FileName;
             Models.ApplyModel apply = new Models.ApplyModel
             {
                 Applicant = userSession, 
@@ -39,11 +41,11 @@ public partial class applySchool : System.Web.UI.Page
             {
                 studentApplySchool(apply);
                 uploadResume.SaveAs(Server.MapPath(path));
-                Response.Write("<script>alert('已送出申請')</script>");
+                Response.Write("<script>alert('已送出申請');location.href='schoolDetail.aspx?school=" + schoolName + "';</script>");
             }
             catch
             {
-                Response.Write("<script>alert('已申請過此學校')</script>");
+                Response.Write("<script>alert('申請失敗')</script>");
                 uploadResume.Dispose();
                 txtIntro.Text = "";
             }

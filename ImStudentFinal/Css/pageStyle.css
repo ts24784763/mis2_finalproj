@@ -568,3 +568,235 @@
         color: black;
         font-size: 20px;
     }
+.wrapperBuilding {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    align-items:center;
+    color:rgb(56,75,88);   
+}
+.wrapperBuilding .labelItems {
+    font-size:30px;
+    font-weight:bold;
+    color: rgb(56,75,90);
+}
+.wrapperBuilding .wrapper{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:40px;
+    color: rgb(56,75,88);
+
+}
+.wrapperBuilding .wrapper .checkBtn{
+    width: 100%;
+    height: 45px;
+    background-color:rgb(38,82,155);
+    color:white;
+    font-weight:bold;
+
+}
+
+.wrapperBuilding .textWraper{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom-color:rgb(56,75,90);
+}
+.wrapperBuilding .wrapper .btnArea .checkBtn2 {
+        width: 30%;
+        height: 45px;
+        background-color: rgb(38,82,155);
+        color: white;
+        font-weight: bold;
+}
+.wrapperBuilding .wrapper .btnArea{
+    display:flex;
+    justify-content:space-around;
+}
+.wrapperTeacher {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    align-items:center;
+    flex-direction:column;
+}
+.wrapperTeacher .labelItems {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(56,75,90);
+    }
+.wrapperTeacher .wrapper .teacherTitle {
+        width: 100%;
+        justify-content: space-around;
+        height: auto;
+        font-size: 20px;
+        color: rgb(56,75,90);
+}
+.wrapperTeacher .wrapper .teacherName {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
+    width:100%;
+}
+.wrapperTeacher .wrapper .inviteBtn {
+    width: 100%;
+    height: 45px;
+    background-color: rgb(38,82,155);
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.invitingTxt {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
+    width: 50%;
+}
+.searchBtn {
+    border-color: rgb(130,161,179);
+    color: rgb(130,161,179);
+    margin-left:10px;
+}
+.searchTeacher{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+.searchTeacher .searchTop{
+    height:20%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.searchTeacher .searchBottom{
+    height:80%;
+    width:100%;
+}
+.searchTop .titleStyle {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(56,75,90);
+    margin-bottom:20px;
+}
+.searchTop .searchChecked {
+    border-color: rgb(130,161,179);
+    color: rgb(130,161,179);
+    margin-left: 10px;
+}
+.searchTop .searchTxt {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
+    background-color:#F0F0F0;
+    width: 15%;
+}
+.searchBottom .Items{
+    width:50vw;
+    height:100vh;
+    padding:5%;   
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.searchBottom .name{
+    margin-top:30px;
+    color:black;
+    font-weight:bold;
+    font-size:20px;
+}
+.searchBottom .intro{
+    margin-top:30px;
+    widows:100%;
+    height:auto;
+    color:gray;
+    font-size:15px;
+}
+.searchBottom .btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.searchBottom .viewStyle {
+    background-color: rgb(51,121,173);
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    font-size: 13px;
+    padding: 5px;
+    height: 30px;
+    width: 100px;
+}
+.searchBottom .inviteStyle {
+    background-color: white;
+    border-color: rgb(51,121,173);
+    border-width:1px;
+    border-style:solid;
+    color: rgb(51,121,173);
+    font-size: 13px;
+    padding: 5px;
+    height: 30px;
+    width: 100px;
+    margin-left: 30px;
+}
+.searchBottom .datalistTeacher{
+    margin-top:30px;
+}
+.btn .btnCourse {
+    background-color: rgb(24,54,104);
+    border-color: rgb(51,121,173);
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    font-size: 20px;    
+    font-weight:bold;
+    padding: 5px;
+    height: 50px;
+    width: 130px;
+}
+.schoolRight .schoolImg {
+    width: 90%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.schoolRight .schoolIntroTitle {
+    color: rgb(51,121,173);
+    font-size: 20px;
+    font-weight:bold;
+}
+.schoolRight .schoolIntro {
+    color: rgb(51,121,173);
+    font-size: 15px;
+    margin-top:30px;
+}
+.schoolRight .Items3 {
+    font-size: 15px;
+    color: rgb(51,121,173);
+    margin-left:30px;
+}
+.schoolRight .editButton {
+    background-color: rgb(24,54,104);
+    border-color: rgb(51,121,173);
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    height: 30px;
+    width: 40px;
+    margin-left: 10px;
+    margin-top: 28px;
+}

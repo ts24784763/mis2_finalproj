@@ -16,10 +16,9 @@
     <div class="bar">
         IM STUDENT
         <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
         </div>
     </div>
     <div>
@@ -33,14 +32,11 @@
         <br />
         <div style="position: relative; padding-left:35%; line-height: 30px">
         <asp:Label class="schoolName" runat="server" Text="申請學校："></asp:Label>
-            <asp:Label class="schoolName" runat="server" Text="ＸＸ大學" Font-Size="large"></asp:Label>
+            <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="上傳履歷："></asp:Label>
             <asp:FileUpload ID="uploadResume" runat="server" />
-            <%--            <asp:TextBox ID="resumePath" runat="server"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="uploadBtn" runat="server" CssClass="mt-0" Height="36px" Text="上傳" Font-Size="Small" Width="105px" />--%>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Text="自我介紹："></asp:Label>
