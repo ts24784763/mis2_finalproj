@@ -35,9 +35,6 @@
                             </div>
                         </div>
                         <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
-
-
-                         
                         </div>
                     </div>
                     <div class="schoolRight" >

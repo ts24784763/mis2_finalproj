@@ -26,6 +26,13 @@ public partial class setting : System.Web.UI.Page
             imgRole.ImageUrl = "~/image/principal.png";
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        string userSession = Session["userID"].ToString();
+        txtName.Text = ReadDatabase.UserInfo(userSession).Name;
+        txtPhone.Text = ReadDatabase.UserInfo(userSession).PhoneNumber;
+    }
+
     protected void update_Click(object sender, EventArgs e)
     {
         string userSession = Session["userID"].ToString();
@@ -39,8 +46,6 @@ public partial class setting : System.Web.UI.Page
         {
             updateUserInfo(member);
             Response.Write("<script>alert('更新成功')</script>");
-            txtName.Text = "";
-            txtPhone.Text = "";
         }
         catch
         {
