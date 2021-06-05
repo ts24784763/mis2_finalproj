@@ -134,19 +134,23 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 根據學校列出開設課程及老師姓名
+    /// 根據學校(and特定老師)列出開設課程及老師姓名
     /// </summary>
     /// <param name="schoolName">學校名字</param>
+    /// <param name="teacherAccount">老師帳號</param>
     /// <returns></returns>
-    public static List<Models.CourseAndTeacherModel> CourseInSchool(string schoolName)
+    public static List<Models.CourseAndTeacherModel> CourseInSchool(string schoolName, string teacherAccount)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT CourseId, CourseName, Teacher TeacherAccount, Name TeacherName, CourseCredit FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
+        if (teacherAccount != "")
+            sql += " AND Teacher = @Teacher";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@SchoolName", schoolName));
+            cmd.Parameters.Add(new SqlParameter("@Teacher", teacherAccount));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -359,13 +363,13 @@ public class ReadDatabase
     public static List<Models.ListModel> ListAllCourseInSchool(string schoolName)
     {
         List<Models.ListModel> result = new List<Models.ListModel>();
-        int courseNum = ReadDatabase.CourseInSchool(schoolName).Count;
+        int courseNum = ReadDatabase.CourseInSchool(schoolName, "").Count;
         for (int i = 0; i < courseNum; i++)
         {
             result.Add(new Models.ListModel()
             {
-                Value = ReadDatabase.CourseInSchool(schoolName)[i].CourseId,
-                Text = ReadDatabase.CourseInSchool(schoolName)[i].CourseName,
+                Value = ReadDatabase.CourseInSchool(schoolName, "")[i].CourseId,
+                Text = ReadDatabase.CourseInSchool(schoolName, "")[i].CourseName,
             });
         }
         return result;
@@ -391,36 +395,25 @@ public class ReadDatabase
         return result;
     }
 
-    //public static List<Models.MemberModel> TeacherCanInvite(int courseId)
-    //{
-    //    DataTable dt = new DataTable();
-    //    string sql = @"SELECT * FROM MEMBER WHERE Role = '老師' AND School IS NULL ";
-    //    using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
-    //    {
-    //        conn.Open();
-    //        SqlCommand cmd = new SqlCommand(sql, conn);
-    //        cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-    //        SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-    //        sqlAdapter.Fill(dt);
-    //        conn.Close();
-    //    }
-
-    //    List<Models.ChapterModel> result = new List<Models.ChapterModel>();
-    //    foreach (DataRow row in dt.Rows)
-    //    {
-    //        result.Add(new Models.ChapterModel()
-    //        {
-    //            ChapterNum = int.Parse(row["ChapterNum"].ToString()),
-    //            CourseId = int.Parse(row["CourseId"].ToString()),
-    //            ChapterName = row["ChapterName"].ToString(),
-    //            VideoUrl = row["VideoUrl"].ToString(),
-    //        });
-    //    }
-    //    return result;
-    //}
-
-
-
+    /// <summary>
+    /// 將特定學校中特定老師開設的所有課程列成list
+    /// </summary>
+    /// <param name="schoolName"></param>
+    /// <returns></returns>
+    public static List<Models.ListModel> ListCourseInSchoolByTeacher(string schoolName, string teacherAccount)
+    {
+        List<Models.ListModel> result = new List<Models.ListModel>();
+        int courseNum = ReadDatabase.CourseInSchool(schoolName, teacherAccount).Count;
+        for (int i = 0; i < courseNum; i++)
+        {
+            result.Add(new Models.ListModel()
+            {
+                Value = ReadDatabase.CourseInSchool(schoolName, teacherAccount)[i].CourseId,
+                Text = ReadDatabase.CourseInSchool(schoolName, teacherAccount)[i].CourseName,
+            });
+        }
+        return result;
+    }
 
     /// <summary>
     /// 根據關鍵字搜尋課程
@@ -429,13 +422,8 @@ public class ReadDatabase
     public static List<Models.CourseAndTeacherModel> SearchCourseByWord(string CourseName, string professorName)
     {
         DataTable dt = new DataTable();
-        string sql = @"select 
-	                        Name,
-	                        CourseName,
-	                        CourseCredit
-                        from MEMBER M join COURSE C 
-                        on M.Account = C.Teacher 
-                        where CourseName like '%' + @CourseName + '%' and Name like '%' + @TeacherName + '%'";
+        string sql = @"SELECT Name, CourseName, CourseCredit FROM MEMBER M JOIN COURSE C ON M.Account = C.Teacher 
+                       WHERE CourseName LIKE '%' + @CourseName + '%' AND Name LIKE '%' + @TeacherName + '%'";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -457,7 +445,6 @@ public class ReadDatabase
                 CourseCredit = int.Parse(row["CourseCredit"].ToString()),
             });
         }
-
         return result;
     }
 }

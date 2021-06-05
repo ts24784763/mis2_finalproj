@@ -13,7 +13,7 @@ public partial class schoolDetail : System.Web.UI.Page
         lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
         lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
         lbCreditNum.Text = ReadDatabase.SchoolInfo(schoolName).RequiredCredits.ToString();
-        TeacherDataList.DataSource = ReadDatabase.CourseInSchool(schoolName);
+        TeacherDataList.DataSource = ReadDatabase.CourseInSchool(schoolName, "");
         TeacherDataList.DataBind();
         CourseDataList.DataSource = ReadDatabase.SearchCourseBySchool(schoolName);
         CourseDataList.DataBind();

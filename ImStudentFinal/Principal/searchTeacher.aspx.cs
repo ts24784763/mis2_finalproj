@@ -28,7 +28,6 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         {
             Response.Write("<script>alert('邀請失敗')</script>");
         }
-
     }
 
     public void inviteTeacher(string principalAccount, string teacherAccount)

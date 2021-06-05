@@ -20,7 +20,7 @@ public partial class selectCourse : System.Web.UI.Page
         //string schoolName = Server.UrlDecode(Request.QueryString["school"]);
         string schoolName = "元智資管學校";
 
-        GVCourse.DataSource = ReadDatabase.CourseInSchool(schoolName);
+        GVCourse.DataSource = ReadDatabase.CourseInSchool(schoolName, "");
         GVCourse.DataBind();
         //不顯示的colums 在此設定
         for (int co = 1; co <= 3; co += 2)

@@ -11,19 +11,18 @@ public partial class mainSchool : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-           string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-           lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
-           lbCredit.Text = ReadDatabase.SchoolInfo(schoolName).RequiredCredits.ToString()+" 學分數";
-           lbLicense.Text = ReadDatabase.SchoolInfo(schoolName).License;
-           lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
-           lbPrincipal.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(schoolName).Principal).Name;
-           var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
-           var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
+        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
+        lbSchoolName.Text = ReadDatabase.SchoolInfo(schoolName).SchoolName;
+        lbCredit.Text = ReadDatabase.SchoolInfo(schoolName).RequiredCredits.ToString()+" 學分數";
+        lbLicense.Text = ReadDatabase.SchoolInfo(schoolName).License;
+        lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
+        lbPrincipal.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(schoolName).Principal).Name;
+        var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
+        var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
         String html = string.Empty;
 
         for(int i=0; i<courseList.Count;i++)
-        {
-            
+        {       
             chapterList = ReadDatabase.ListAllChapterInCourse(int.Parse(courseList[i].Value)); //章節清單 參數放課程Id
             string num = i.ToString();
             html += "<div class=\"accordion-item\">";
@@ -37,17 +36,13 @@ public partial class mainSchool : System.Web.UI.Page
             for (int j = 0; j < chapterList.Count;j++)
             {
                 html += "<div class=\"accordion-body\">";
-
                 html += "<div onclick=\"test()\"><strong>第" + chapterList[i].Value + "章</strong></div>";
-                html += "</div>";
-                    
+                html += "</div>";                    
             }
             html += "</div>";
             html += "</div>";
             this.accordionPanelsStayOpenExample.Controls.Add(new LiteralControl(html));
-
             html = string.Empty;
         }
     }
-
 }
