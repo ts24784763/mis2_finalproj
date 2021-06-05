@@ -31,7 +31,7 @@
         </div>
         <div class="searchBottom">
             <asp:DataList ID="teacherDatalist" CssClass="datalistTeacher" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="2" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
-            <AlternatingItemStyle BackColor="#F0F0F" />
+            <AlternatingItemStyle BackColor="#F0F0F0" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
