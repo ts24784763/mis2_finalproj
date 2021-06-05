@@ -11,13 +11,37 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Session.Remove("userID");
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        if(userLogin(txtEmail.Text,txtPassword.Text))
-            Response.Write("<script>alert('登入成功');location.href='index.aspx';</script>");
+        string nextPage = "index.aspx";
+        if (userLogin(txtEmail.Text, txtPassword.Text))
+        {
+            Session["userID"] = txtEmail.Text;
+            //沒有學校
+            if (ReadDatabase.UserInfo(Session["userID"].ToString()).School == "") 
+            {
+                if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "學生")
+                    nextPage = "../Student/searchSchool.aspx";
+                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
+                //    nextPage = "~/Student/mainSchool.aspx";
+                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
+                //    nextPage = "~/Student/mainSchool.aspx";
+            }
+            //有學校
+            else
+            {
+                if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "學生")
+                    nextPage = "../Student/mainSchool.aspx";
+                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
+                //    nextPage = "~/Student/mainSchool.aspx";
+                //else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
+                //    nextPage = "~/Student/mainSchool.aspx";
+            }
+            Response.Write("<script>alert('登入成功');location.href='" + nextPage + "';</script>");
+        }
         else
             Response.Write("<script>alert('登入失敗')</script>");
     }

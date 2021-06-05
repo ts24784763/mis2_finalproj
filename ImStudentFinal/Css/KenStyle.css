@@ -374,3 +374,23 @@ radioButton {
     color: white;
     transition: color 0.4s;
 }
+
+.schoolCoursesArea {
+    position: absolute;
+    width: 100%;
+}
+
+#window {
+    line-height: 2;
+}
+
+.fieldlist {
+    margin: 0 0 3px;
+    padding: 0;
+}
+
+    .fieldlist li {
+        list-style: none;
+        padding-bottom: 10px;
+    }
+

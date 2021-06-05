@@ -39,7 +39,7 @@
             </div>
         </div>
         <center>
-            <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" />
+            <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" OnClick="btnApplyOutCome_Click" />
         </center>
         <div class="courseInfo">
         <center>
@@ -60,7 +60,7 @@
                     <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnCheck" style="background-color: midnightblue; color: white;" runat="server" Text="查看"></asp:Button>
+                    <asp:Button ID="btnCheck" style="background-color: midnightblue; color: white;" runat="server" Text="更多資訊" PostBackUrl='<%# Eval("SchoolName", "schoolDetail.aspx?school={0}") %>'></asp:Button>
                 </center>
             </ItemTemplate>
             <SelectedItemStyle BackColor="white" Font-Bold="True" ForeColor="White" />

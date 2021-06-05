@@ -18,10 +18,10 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Student/selectCourse.aspx">選課</a>
+            <a href="../Student/mainSchool.aspx">我的學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
         <div class="area">
@@ -40,7 +40,7 @@
            </div>
            <div class="setting">
                <asp:Label ID="settings" CssClass="settingFonts" runat="server" Text="個人資料設定"></asp:Label><hr />
-                       Email<br /><br />
+                       帳號<br /><br />
             <asp:Label ID="lbEmail" CssClass="emailFonts" runat="server" Text="xxxx@mail.com"></asp:Label>
                <br /><br />姓名<br /><br />
                <asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br />

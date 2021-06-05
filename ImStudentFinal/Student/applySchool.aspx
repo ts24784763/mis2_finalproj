@@ -32,7 +32,7 @@
         <br />
         <div style="position: relative; padding-left:35%; line-height: 30px">
         <asp:Label class="schoolName" runat="server" Text="申請學校："></asp:Label>
-            <asp:Label class="schoolName" runat="server" Text="ＸＸ大學" Font-Size="large"></asp:Label>
+            <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="上傳履歷："></asp:Label>
