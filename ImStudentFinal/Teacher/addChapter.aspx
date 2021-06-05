@@ -6,9 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
 </head>
 <body class="body">
     <form id="form1" runat="server">
@@ -33,7 +35,8 @@
             <br /><br />         
             <asp:TextBox ID="txtVideoUrl" CssClass="Cohwtxt" placeholder=" 輸入影片網址" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
-            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳影片" style="color: black; border-radius:5px" OnClick="btnUpload_Click" />
+            <br />
+            <asp:Button ID="btnUpload" runat="server"  Width="100px" Height="30px"  Text="上傳影片" OnClick="btnUpload_Click"/>
             <br /><br /><br /><br />
             <asp:Label ID="lblUploaded" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; elevation:0; font-size: medium; padding-right: 300px" runat="server" Text="已上傳影片：" ></asp:Label>
             <br /><br />

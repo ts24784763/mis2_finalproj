@@ -394,3 +394,14 @@ radioButton {
         padding-bottom: 10px;
     }
 
+#btnUpload {
+    color: black; 
+    border-radius:5px;
+}
+
+    #btnUpload:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
