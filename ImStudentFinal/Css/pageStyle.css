@@ -602,18 +602,22 @@
     border-radius: 5px;
 }
 
-    .wrapperBuilding .wrapper .checkBtn:hover {
+#searchBtn {
+    border-radius: 5px;
+}
+
+    #searchBtn:hover {
         background-color: darkblue;
         transition: background-color 0.4s;
         color: white;
         transition: color 0.4s;
     }
 
-.wrapperBuilding .textWraper{
-    border-top:none;
-    border-left:none;
-    border-right:none;
-    border-bottom-color:rgb(56,75,90);
+.wrapperBuilding .textWraper {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
 }
 .wrapperBuilding .wrapper .btnArea .checkBtn2 {
         width: 30%;
@@ -701,6 +705,12 @@
     color: rgb(130,161,179);
     margin-left: 10px;
 }
+    .searchTop .searchChecked:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
 .searchTop .searchTxt {
     border-top: none;
     border-left: none;
