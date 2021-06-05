@@ -6,11 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-</head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
+</head>
 <body>
     <form id="form1" runat="server">
         <div class="bar">
@@ -43,19 +43,24 @@
         <center>
             <br /><br />
     <asp:GridView ID="GVCourse" CssClass="mGrid" HorizontalAlign="Center" runat="server"  >
-            <Columns>
-                <asp:ButtonField ButtonType="Button" CommandName="Choose" HeaderText="選擇課程" Text="新增" />
-            </Columns>
+        <Columns>
+            <asp:TemplateField HeaderText="選擇課程">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkAdd" Text="  新增" runat="server"  ></asp:CheckBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
     </asp:GridView>
             <br />
-        
         <div style="font-size:25px;font-weight:bold;">
-            已勾選學分： 學分： <asp:Label ID="checkCreditSum" runat="server" Text="0/30"></asp:Label>
+               <asp:Button ID="btnCheck" runat="server" Text="查看是否超過學分上限" style="height: 50px;width: auto;margin-top: 20px;margin-left: 10px;border-color: lightblue;border-radius: 5px;color: black; font-size: 20px;" OnClick="btnCheck_Click" ></asp:Button>
+                <br /><br />
+            <asp:Label ID="checkCreditSum" runat="server" Text="0/30"></asp:Label>
         </div>
         </center>
         <div class="selectFooter">
-                <asp:Button ID="reset" runat="server" CssClass="btnStyle" Text="重新選擇" />                
-            <asp:Button ID="Button1" runat="server" CssClass="btnStyle" Text="選擇完成" />
+                <asp:Button ID="reset" runat="server" CssClass="btnStyle" Text="重新選擇" OnClick="reset_Click" />                
+            <asp:Button ID="btnSubmit" runat="server" CssClass="btnStyle" Text="選擇完成" OnClick="btnSubmit_Click" />
         </div>
     </form>
 </body>
