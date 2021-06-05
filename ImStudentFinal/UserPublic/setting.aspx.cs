@@ -50,8 +50,8 @@ public partial class setting : System.Web.UI.Page
         catch
         {
             Response.Write("<script>alert('更新失敗');</script>");
-            txtName.Text = "";
-            txtPhone.Text = "";
+            txtName.Text = ReadDatabase.UserInfo(userSession).Name;
+            txtPhone.Text = ReadDatabase.UserInfo(userSession).PhoneNumber;
         }
     }
 

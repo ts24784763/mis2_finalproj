@@ -41,7 +41,7 @@
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>  
-                <asp:Button ID="inviteTeacher" CssClass="inviteBtn" runat="server" Text="邀請老師" />
+                <asp:Button ID="inviteTeacher" CssClass="inviteBtn" runat="server" Text="邀請老師" OnClick="inviteTeacher_Click" />
             </div>
         </div>
     </form>

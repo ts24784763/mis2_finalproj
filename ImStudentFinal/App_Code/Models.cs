@@ -54,6 +54,7 @@ public class Models
         public DateTime? OpenSemesterDate { get; set; }
         public string SchoolStatus { get; set; }
         public string Principal { get; set; }
+        public string ImageUrl { get; set; }
     }
 
     /// <summary>
@@ -79,6 +80,7 @@ public class Models
     {
         public string CourseId { get; set; }
         public string CourseName { get; set; }
+        public string CourseIntro { get; set; }
         public string TeacherAccount { get; set; }
         public string TeacherName { get; set; }
         public int CourseCredit { get; set; }
