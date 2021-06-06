@@ -28,20 +28,20 @@
         </div>
         <div class="schoolCoursesArea">
             <div class="verifyTitle" style="color:DarkBlue; padding-top: 30px">
-                目前開設課程
+                <asp:Label ID="lbSchool" runat="server" Text="目前開設課程"></asp:Label>
             </div>
             <div class="uk-container align-center">
             <div style="text-align: center">
-                <button class="k-button k-primary btn-open-school" id="btn-open-window">學校開放上架</button>
+                <button class="k-button k-primary btn-open-school" id="btn-open-window">上架學校</button>
             </div>
                 <div id="window" style="text-align: center;background-color: white;color: black; display: none" >
                     <div id="openSchoolForm">
                         <ul class="fieldlist">
                             <li>
-                                <asp:Image id="schoolImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" />
+                                <asp:Image id="schoolImg" runat="server" />
                             </li>
                             <li>
-                                <asp:Label ID="lbStudentName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text="XX大學"/>
+                                <asp:Label ID="lbSchoolName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text="XX大學"/>
                             </li>
                             <li>
                                 <label style="font-size: large;">選課日期</label>
@@ -54,7 +54,7 @@
                                 <span class="k-invalid-msg" data-for="bought_datepicker"></span>
                             </li>
                             <li class="uk-text-right" style="padding-top: 30px">
-                                <button class="k-button k-primary" id="btn-openSchool">完 成</button>
+                                <button class="k-button k-primary" id="btnOpenSchool">完 成</button>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +78,7 @@
                                 <br />
                                 <br />
                                 <asp:Label ID="label1" runat="server" Text="授課教師："></asp:Label>
-                                <asp:Label ID="teacherName" Font-Size="Larger" ForeColor="#004B97" runat="server" Text='<%# Eval("CourseName") %>'/>
+                                <asp:Label ID="teacherName" Font-Size="Larger" ForeColor="#004B97" runat="server" Text='<%# Eval("TeacherName") %>'/>
                                 </center>
                             </ItemTemplate>
                         <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -92,5 +92,23 @@
     <script type="text/javascript" src="../Script/kendo.all.min.js"></script>
     <script type="text/javascript" src="../Script/uikit.min.js"></script>
     <script type="text/javascript" src="../Script/kenJs.js"></script>
+    <script>
+        $("#btnOpenSchool").click(function (e) {
+            var OpenSelectCourseDate = kendo.toString($("#selectCourseTimeRange_datepicker").data("kendoDatePicker").value(),"yyyy/MM/dd");
+            var OpenSemesterDate = kendo.toString($("#startSemester_datepicker").data("kendoDatePicker").value(), "yyyy/MM/dd");
+            console.log("type=openSchool&OpenSelectCourseDate=" + OpenSelectCourseDate + "&OpenSemesterDate=" + OpenSemesterDate);
+            $.ajax({
+                type: "Post",
+                url: "courseInSchool.aspx?type=openSchool&OpenSelectCourseDate="+OpenSelectCourseDate+"&OpenSemesterDate="+OpenSemesterDate,
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    alert("學校上架成功");
+                }, error: function (error) {
+                    alert("學校上架失敗");
+                }
+            });
+            location.href = "mainSchool.aspx";
+        });
+</script>
 </body>
 </html>

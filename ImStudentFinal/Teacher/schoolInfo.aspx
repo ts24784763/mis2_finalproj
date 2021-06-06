@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 課程主頁</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link href="../Css/reset.css" rel="stylesheet" />
@@ -16,10 +16,9 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="index.aspx">首頁</a>
-            <a href="#">探索學校</a>
-            <a href="#">關於我們</a>
-            <a href="Login.aspx">登入/註冊</a>
+            <a href="../Teacher/schoolInfo.aspx">管理我的課程</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
             </div>
         </div>
             <div class="schoolBody">

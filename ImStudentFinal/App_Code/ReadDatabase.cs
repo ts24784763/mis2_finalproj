@@ -54,6 +54,7 @@ public class ReadDatabase
                 RequiredCredits = int.Parse(row["RequiredCredits"].ToString() == "" ? "0" : row["RequiredCredits"].ToString()),
                 SchoolStatus = row["SchoolStatus"].ToString(),
                 Principal = row["Principal"].ToString(),
+                ImageUrl = row["ImageUrl"].ToString(),
             });
         }
         return result.FirstOrDefault();
@@ -142,7 +143,7 @@ public class ReadDatabase
     public static List<Models.CourseAndTeacherModel> CourseInSchool(string schoolName, string teacherAccount)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT CourseId, CourseName, Teacher TeacherAccount, Name TeacherName, CourseCredit FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
+        string sql = @"SELECT CourseId, CourseName, CourseIntro, Teacher TeacherAccount, Name TeacherName, CourseCredit FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName";
         if (teacherAccount != "")
             sql += " AND Teacher = @Teacher";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
@@ -163,6 +164,7 @@ public class ReadDatabase
             {
                 CourseId = row["CourseId"].ToString(),
                 CourseName = row["CourseName"].ToString(),
+                CourseIntro = row["CourseIntro"].ToString(),
                 TeacherAccount = row["TeacherAccount"].ToString(),
                 TeacherName = row["TeacherName"].ToString(),
                 CourseCredit = int.Parse(row["CourseCredit"].ToString()),

@@ -22,6 +22,6 @@ public partial class Teacher_schoolInfo : System.Web.UI.Page
 
     protected void addCourse_Click(object sender, EventArgs e)
     {
-        Response.Redirect("addCourse.aspx");
+        Response.Redirect("addCourse.aspx?act=add");
     }
 }

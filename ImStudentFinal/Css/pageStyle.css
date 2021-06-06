@@ -120,6 +120,7 @@
     background-color: white;
     color: rgb(147,167,206);
     display: flex;
+    line-height: 2;
     flex-direction: row;
     justify-content: center;
 }
@@ -584,7 +585,7 @@
     color: rgb(56,75,90);
 }
 .wrapperBuilding .wrapper{
-    width: 80%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -598,14 +599,25 @@
     background-color:rgb(38,82,155);
     color:white;
     font-weight:bold;
-
+    border-radius: 5px;
 }
 
-.wrapperBuilding .textWraper{
-    border-top:none;
-    border-left:none;
-    border-right:none;
-    border-bottom-color:rgb(56,75,90);
+#searchBtn {
+    border-radius: 5px;
+}
+
+    #searchBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
+
+.wrapperBuilding .textWraper {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(56,75,90);
 }
 .wrapperBuilding .wrapper .btnArea .checkBtn2 {
         width: 30%;
@@ -693,6 +705,12 @@
     color: rgb(130,161,179);
     margin-left: 10px;
 }
+    .searchTop .searchChecked:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
 .searchTop .searchTxt {
     border-top: none;
     border-left: none;

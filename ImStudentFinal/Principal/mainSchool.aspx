@@ -15,8 +15,7 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="../Student/selectCourse.aspx">選課</a>
-            <a href="../Student/mainSchool.aspx">我的學校</a>
+            <a href="../Principal/mainSchool.aspx">我的學校</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
@@ -29,16 +28,8 @@
                                <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
                             </div>
                         </div>
-                        <div class="items">
-                            <div class="itemsFont">
-                               🛈  總覽
-                            </div>
-                        </div>
-                        <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
-                        </div>
                     </div>
                     <div class="schoolRight" >
-                        <asp:Label ID="schoolFonts1" CssClass="schoolFonts" runat="server" Text="🏆️取得畢業門檻學分將可獲得證書"></asp:Label>
                         <br />
                         <div class="schoolItems">
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
@@ -58,14 +49,4 @@
 </body>
 </html>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-<script>
-    function test(check) {
-        course = check.id.split(":");
-        window.location.href = "../Student/mainChapter.aspx?courseId=" + course[0]+"&chapter="+course[1];
-    }
-    function course(check) {
-        course = check.id.split(":");
-        window.location.href = "../Student/mainCourse.aspx?courseId=" + course[0];  
-    }
-</script>
 

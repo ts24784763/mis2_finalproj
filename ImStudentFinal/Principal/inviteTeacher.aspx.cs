@@ -24,4 +24,9 @@ public partial class Principal_inviteTeacher : System.Web.UI.Page
         if (lbApplyResult.Text == "等待審核中") lbApplyResult.Text = "邀請中";
         else lbApplyResult.Text = "已加入";
     }
+
+    protected void inviteTeacher_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("searchTeacher.aspx");
+    }
 }

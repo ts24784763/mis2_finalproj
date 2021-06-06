@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 邀請老師</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link href="../Css/reset.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>  
-                <asp:Button ID="inviteTeacher" CssClass="inviteBtn" runat="server" Text="邀請老師" />
+                <asp:Button ID="inviteTeacher" CssClass="inviteBtn" runat="server" Text="邀請老師" OnClick="inviteTeacher_Click" />
             </div>
         </div>
     </form>
