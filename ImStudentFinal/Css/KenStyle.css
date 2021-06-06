@@ -115,7 +115,8 @@ radioButton {
 
 .applyBtn {
     background-color: lightblue;
-    
+    border-radius:10px;
+    width:80%;
 }
 
     .applyBtn:hover {

@@ -18,6 +18,7 @@ public partial class subCourse : System.Web.UI.Page
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbChapterName.Text = "第" + chapterNum.ToString() + "章";
         lbChapterName2.Text = ReadDatabase.ChapterInCourse(courseId, chapterNum)[0].ChapterName;
+
         var viedoUrl = ReadDatabase.ChapterInCourse(courseId, chapterNum)[0].VideoUrl;
         string videoPara = viedoUrl.Substring(viedoUrl.IndexOf("=")+1);
         string ytrURL = "https://www.youtube.com/embed/" + videoPara + "?rel=0&modestbranding=1";

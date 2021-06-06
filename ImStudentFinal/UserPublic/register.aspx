@@ -19,7 +19,8 @@
         <div class="bar">
             <a href="../UserPublic/index.aspx" style="font-size: 30px;">IM STUDENT</a>
             <div class="rightText">
-            <a href="../UserPublic/login.aspx">登入/註冊</a>
+            <a href="../UserPublic/Index.aspx">首頁</a>
+            <a href="../UserPublic/login.aspx">登入</a>
             </div>
         </div>
         <div>
@@ -27,85 +28,65 @@
         <form id="regisForm" class="regisArea">
             <center>
                 <br />
-                <br />
                 <asp:Label ID="labJoinus" runat="server" Text="加入我們" Font-Size="XX-Large"></asp:Label>
-                <br />
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">姓名*<br />
                 </label>
                 &nbsp;<br />
-                <br />
                 <asp:TextBox id="txtName" type="text" CssClass="blueBtmLine" placeholder="Enter your name" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
-                <br />
                 <asp:RequiredFieldValidator ID="nameValidator" runat="server" ErrorMessage="請輸入姓名" ForeColor="#CC0000" ControlToValidate="txtName"></asp:RequiredFieldValidator>
+                <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 340px">帳號*<br />
                 </label>
                 &nbsp;<br />
-                <br />
                 <asp:TextBox id="txtEmail" type="text" CssClass="blueBtmLine" placeholder="Enter your email" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
-                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="請輸入帳號" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                <br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="帳號需為8~16碼，其中須包括英文及數字。" ForeColor="#CC0000" ValidationExpression="^.*(?=.{8,16})(?=.*\d)(?=.*[a-zA-Z]).*$"></asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px">手機號碼*<br />
                 </label>
                 &nbsp;<br />
-                <br />
                 <asp:TextBox id="txtPhone" type="text" CssClass="blueBtmLine" placeholder="Enter your phoneNumber" runat="server" Width="393px" BackColor="#F0F0F0"></asp:TextBox>
                 <br />
-                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="請輸入手機號碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                <br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPhone" ErrorMessage="手機號碼格式錯誤（ex : 0988888888 )" ForeColor="#CC0000" ValidationExpression="[0]{1}[9]{1}[0-9]{8}"></asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">密碼*<br />
                 </label>
                 &nbsp;<br />
-                <br />
                 <asp:TextBox id="txtPassword" type="text" CssClass="blueBtmLine" placeholder="Enter your password" runat="server" Width="393px" BackColor="#F0F0F0" TextMode="Password"></asp:TextBox>
                 <br />
-                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPassword" ErrorMessage="請輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                <br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPassword" ErrorMessage="密碼長度為8到16碼" ForeColor="#CC0000" ValidationExpression="[0-9,a-z,A-Z,_,@,#,$,%,^,&amp;,*]{8,16}"></asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px">再次輸入密碼*<br />
                 </label>
                 &nbsp;<br />
-                <br />
                 <asp:TextBox id="txtPassword2" type="text" CssClass="blueBtmLine" placeholder="Enter your password again" runat="server" Width="393px" BackColor="#F0F0F0" TextMode="Password"></asp:TextBox>
                 <br />
-                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPassword2" ErrorMessage="請再次輸入密碼" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                <br />
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtPassword2" ErrorMessage="密碼輸入不符！" ForeColor="#CC0000"></asp:CompareValidator>
+                <br />
                 <br />
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">身分*<br />
                 </label>
                 &nbsp;<br />
-                <br />
-                <asp:RadioButtonList ID="radioRole" CssClass="spaced"  runat="server">
+                <asp:RadioButtonList ID="radioRole" CssClass="spaced"  runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem>學生</asp:ListItem>
                     <asp:ListItem>老師</asp:ListItem>
                     <asp:ListItem>校長</asp:ListItem>
                 </asp:RadioButtonList>
-                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="radioRole" ErrorMessage="請選擇身分" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Button ID="btnSubmitRegister" runat="server" Text="註冊" Width="390px" Height="41px" OnClick="btnSubmitRegister_Click1" />
-                <br />
-                <br />
-                <br />
-                <br />
             </center>
         </form>
     </form>

@@ -163,7 +163,7 @@ public class ReadDatabase
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 HWFileName = row["HWFileName"].ToString(),
                 HWFilePath = row["HWFilePath"].ToString(),
-                HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
+                //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
                 PassOrNot = row["PassOrNot"].ToString(),
             });
         }
@@ -296,6 +296,49 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@ApplyType", ApplyType));
+            cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.ApplyModel> result = new List<Models.ApplyModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.ApplyModel()
+            {
+                ApplicantName = row["ApplicantName"].ToString(),
+                Applicant = row["Applicant"].ToString(),
+                Receiver = row["Receiver"].ToString(),
+                ApplyIntro = row["ApplyIntro"].ToString(),
+                ApplyResult = row["ApplyResult"].ToString(),
+                ResumeFileName = row["ResumeFileName"].ToString(),
+                ResumeFilePath = row["ResumeFilePath"].ToString(),
+            });
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// 列出學校邀請老師列表(不論結果)
+    /// </summary>
+    /// <param name="Applicant"></param>
+    /// <param name="Receiver"></param>
+    /// <returns></returns>
+    public static List<Models.ApplyModel> SchoolInviteTeacher(string Applicant, string Receiver)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name AS ApplicantName, Applicant, Receiver, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '校長邀請老師'";
+        if (Applicant != "")
+            sql += "AND Applicant = @Applicant";
+        else if (Receiver != "")
+            sql += "AND Receiver = @Receiver";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
             cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);

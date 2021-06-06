@@ -27,7 +27,8 @@
         <div class="bar">
             <a href="../UserPublic/index.aspx" style="font-size: 30px;">IM STUDENT</a>
             <div class="rightText">
-            <a href="../UserPublic/login.aspx">登入/註冊</a>
+            <a href="../UserPublic/Index.aspx">首頁</a>
+            <a href="../UserPublic/register.aspx">註冊</a>
             </div>
         </div>
         <div id="loginArea">
@@ -60,8 +61,6 @@
                 <br />
                 <asp:Button id="btnLogin" CssClass="blueBtmLine" class="auto-style5" runat="server" Text="登入" CausesValidation="true" OnClick="btnLogin_Click" Height="32px" Width="283px"></asp:Button>
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button id="btnRegister" class="loginBtn" runat="server" Text="註冊" CausesValidation="false" BackColor="#F0F0F0" OnClick="btnRegister_Click"></asp:Button><b>｜</b><asp:Button id="btnForgetPassword" class="loginBtn" runat="server" Text="忘記密碼" CausesValidation="false" BackColor="#F0F0F0"></asp:Button>
                 </div>
             </div>
        </div>
