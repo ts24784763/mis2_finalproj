@@ -10,7 +10,8 @@ public partial class HomeWork : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        int courseId = 100001; //TODO
+        lblHomeWork.Text = ReadDatabase.CourseInfo(courseId).CourseName + "新增課程";
     }
 
     public void AddHomeWork(Models.CourseModel course)
@@ -42,7 +43,7 @@ public partial class HomeWork : System.Web.UI.Page
         try
         {
             AddHomeWork(HWPost);
-            Response.Write("<script>alert('作業新增成功')</script>");
+            Response.Write("<script>alert('作業新增成功');location.href='manageCourse.aspx';</script>");
         }
         catch
         {
