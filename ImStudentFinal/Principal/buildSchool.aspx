@@ -31,7 +31,7 @@
                 <br />
                 <asp:Label ID="dateNum" runat="server" style="color:midnightblue" Text="一個學期的長度*"></asp:Label><br />
                 <div style="white-space: nowrap">
-                    <asp:TextBox id="txtSchoolDay"  CssClass="textWraper" style="color:midnightblue" type="text" placeholder="Enter the semester days of the school" runat="server" Width="98%" BackColor="#F0F0F0"></asp:TextBox>
+                    <asp:TextBox id="txtSchoolDay"  CssClass="textWraper" style="color:midnightblue" type="text" placeholder="Enter the semester days of the school" TextMode="Number" runat="server" Width="98%" BackColor="#F0F0F0"></asp:TextBox>
                     <asp:Label ID="Label1" Width="2%" runat="server" Text="天"></asp:Label>
                 </div>
                 <center><asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="請輸入數字（學期天數可為30～365天）" ForeColor="#CC0000" ControlToValidate="txtSchoolDay" MaximumValue="365" MinimumValue="30" Type="Integer"></asp:RangeValidator></center>

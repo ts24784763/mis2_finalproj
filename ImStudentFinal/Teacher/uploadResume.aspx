@@ -39,6 +39,8 @@
             <br />
             <asp:TextBox ID="txtIntro" CssClass="Cohwtxt" placeholder=" 輸入自我介紹" runat="server" Height="100px" Width="400px" TextMode="MultiLine"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtIntro" ErrorMessage="請輸入自我介紹" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+            <br />
             <br />
             <asp:Label ID="lblResume" style="color:midnightblue;" runat="server" Text="上傳履歷："></asp:Label>
             &nbsp;<br />
@@ -46,8 +48,10 @@
             &nbsp;
             <asp:FileUpload ID="uploadResume" runat="server" />
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="uploadResume" ErrorMessage="請上傳您的履歷" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br />
         </div>
+            <br />
         <br />
             <asp:Button ID="btnSubmit" CssClass="button" Width="300px" Height="50px" runat="server" style="background-color: midnightblue; color: white;" Text="送出" OnClick="btnSubmit_Click" />
             <br /><br /><br /><br />
