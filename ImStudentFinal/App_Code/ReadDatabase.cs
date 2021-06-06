@@ -325,19 +325,23 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 根據課程列出此課程所有章節
+    /// 根據課程(and章節)列出此課程所有章節
     /// </summary>
     /// <param name="schoolName"></param>
     /// <returns></returns>
-    public static List<Models.ChapterModel> ChapterInCourse(int courseId)
+    public static List<Models.ChapterModel> ChapterInCourse(int courseId ,int chapterNum)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId ORDER BY ChapterNum ";
+        string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId";
+        if (chapterNum != 0)
+            sql += " AND ChapterNum = @ChapterNum";
+        sql += " ORDER BY ChapterNum ";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -385,13 +389,13 @@ public class ReadDatabase
     public static List<Models.ListModel> ListAllChapterInCourse(int courseId)
     {
         List<Models.ListModel> result = new List<Models.ListModel>();
-        int chapterNum = ReadDatabase.ChapterInCourse(courseId).Count;
+        int chapterNum = ReadDatabase.ChapterInCourse(courseId,0).Count;
         for (int i = 0; i < chapterNum; i++)
         {
             result.Add(new Models.ListModel()
             {
-                Value = ReadDatabase.ChapterInCourse(courseId)[i].ChapterNum.ToString(),
-                Text = ReadDatabase.ChapterInCourse(courseId)[i].ChapterName,
+                Value = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterNum.ToString(),
+                Text = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterName,
             });
         }
         return result;

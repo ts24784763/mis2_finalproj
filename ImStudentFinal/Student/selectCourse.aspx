@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="selectCourse.aspx.cs" Inherits="selectCourse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="selectCourse.aspx.cs" Inherits="selectCourse" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
@@ -23,7 +23,7 @@
             </div>
         </div>
      <div class="selectCourse">
-         選課
+         <asp:Label ID="lbTitle" runat="server" Text="Label"></asp:Label>
      </div>
      <div class="courseWrapper">
          <div class="left">
@@ -66,3 +66,4 @@
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
