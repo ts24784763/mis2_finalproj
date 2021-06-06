@@ -462,3 +462,22 @@ radioButton {
         color: white;
         transition: color 0.4s;
     }
+
+.schoolList {
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+    margin: auto;
+}
+
+.schoolTd {
+    padding: 30px;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+    line-height: 1.5;
+}
+
+#DataListSchoolInfo {
+    margin: auto;
+}
