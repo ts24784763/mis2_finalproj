@@ -78,7 +78,7 @@
                 <label style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 350px">身分*<br />
                 </label>
                 &nbsp;<br />
-                <asp:RadioButtonList ID="radioRole" CssClass="spaced"  runat="server" RepeatDirection="Horizontal">
+                <asp:RadioButtonList ID="radioRole" CssClass="spaced" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem>學生</asp:ListItem>
                     <asp:ListItem>老師</asp:ListItem>
                     <asp:ListItem>校長</asp:ListItem>

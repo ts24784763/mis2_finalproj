@@ -36,6 +36,10 @@ radioButton {
     margin-top: 10px;
 }
 
+.spaced td {
+    padding-right: 20px;
+}
+
 .rdBtnCredit td {
     padding-right: 20px;
 }
@@ -227,6 +231,7 @@ radioButton {
 
 .resultTd {
     padding: 30px;
+    width: 50%;
     margin: auto;
     border: solid;
     border-color: lightgrey;
