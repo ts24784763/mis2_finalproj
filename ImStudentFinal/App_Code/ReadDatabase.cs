@@ -541,4 +541,37 @@ public class ReadDatabase
             conn.Close();
         }
     }
+
+    /// <summary>
+    /// 計算學生已選學分加總
+    /// </summary>
+    public static Models.SumCredit SumCredit(string Student)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"select 
+                                Student, SUM(CourseCredit) as [SumCredit]
+                                from COURSE_SELECTION CS join COURSE C 
+                                on CS.CourseId = C.CourseId
+                                group by Student";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", Student));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.SumCredit> result = new List<Models.SumCredit>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.SumCredit()
+            {
+                Student = row["Student"].ToString(),
+                Credit = int.Parse(row["SumCredit"].ToString()),
+            });
+        }
+        return result.FirstOrDefault();
+    }
 }

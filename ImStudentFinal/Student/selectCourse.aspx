@@ -46,7 +46,7 @@
         <Columns>
             <asp:TemplateField HeaderText="選擇課程">
                 <ItemTemplate>
-                    <asp:CheckBox ID="chkAdd" Text="  新增" runat="server"  ></asp:CheckBox>
+                    <asp:CheckBox ID="chkAdd"  runat="server"  ></asp:CheckBox>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

@@ -137,4 +137,10 @@ public class Models
         public string HWFilePath { get; set; }
         public string HWUploadTime { get; set; }
     }
+    public class SumCredit
+    {
+        public string Student { get; set; }
+        public int Credit { get; set; }
+    }
+
 }
