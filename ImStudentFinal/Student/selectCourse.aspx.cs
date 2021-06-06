@@ -149,7 +149,7 @@ public partial class selectCourse : System.Web.UI.Page
                 Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
                 {
                     Student = Session["userID"].ToString(),
-                    CourseId = CourseID,
+                    CourseId = int.Parse(CourseID),
                 };
                 try
                 {
