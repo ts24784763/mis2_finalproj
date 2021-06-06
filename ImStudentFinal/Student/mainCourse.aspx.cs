@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,13 +10,17 @@ public partial class mainCourse : System.Web.UI.Page
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-        string urlCourseId = Server.UrlDecode(Request.QueryString["courseId"]);
-        int courseId = int.Parse(urlCourseId); //TODO
+        string studentAccount = Session["userID"].ToString();
+        string schoolName = ReadDatabase.UserInfo(studentAccount).School;
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
+        lbHW.Text = ReadDatabase.CourseInfo(courseId).HWName;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
+        string passString = ReadDatabase.CourseSelectionInfo(studentAccount, courseId).PassOrNot;
+        if (passString == "") lbHWPass.Text = "尚未批改";
+        else lbHWPass.Text = passString;
         var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(courseId);
         String html = string.Empty;
@@ -47,5 +52,61 @@ public partial class mainCourse : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    protected void uploadHomework_Click(object sender, EventArgs e)
+    {
+        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        string student = ReadDatabase.UserInfo(Session["userID"].ToString()).Name;
+        if (IsExists.AlreadyUploadHW(Session["userID"].ToString(), courseId))
+        {
+            Response.Write("<script>alert('你已繳交過這份作業')</script>");
+        }
+        else
+        {
+            if (uploadHW.HasFile)
+            {
+                string path = "homeWork/" + schoolName + " " + ReadDatabase.CourseInfo(courseId).CourseName + " " + student + "_" + uploadHW.FileName;
+                Models.CourseSelectionModel model = new Models.CourseSelectionModel
+                {
+                    Student = Session["userID"].ToString(),
+                    CourseId = courseId,
+                    HWFileName = uploadHW.FileName,
+                    HWFilePath = path,
+                };
+                try
+                {
+                    studentUploadHW(model);
+                    uploadHW.SaveAs(Server.MapPath(path));
+                    Response.Write("<script>alert('繳交作業成功')</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('繳交作業失敗')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('請先上傳作業')</script>");
+            }
+        }
+    }
+
+    public void studentUploadHW(Models.CourseSelectionModel model)
+    {
+        string sql = @"UPDATE COURSE_SELECTION SET HWFileName = @HWFileName, HWFilePath = @HWFilePath, HWUploadTime = GETDATE() 
+                        WHERE Student = @Student AND CourseId = @CourseId";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@HWFileName", model.HWFileName));
+            cmd.Parameters.Add(new SqlParameter("@HWFilePath", model.HWFilePath));
+            cmd.Parameters.Add(new SqlParameter("@Student", model.Student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", model.CourseId));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 } 

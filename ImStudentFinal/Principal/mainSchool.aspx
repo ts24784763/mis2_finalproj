@@ -27,6 +27,7 @@
                             <div class="itemsProcess">
                                <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
                             </div>
+
                         </div>
                     </div>
                     <div class="schoolRight" >

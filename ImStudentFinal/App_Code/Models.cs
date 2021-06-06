@@ -128,14 +128,15 @@ public class Models
         public string Value { get; set; }
         public string Text { get; set; }
     }
+
     public class CourseSelectionModel
     {
         public string Student { get; set; }
-        public string CourseId { get; set; }
+        public int CourseId { get; set; }
         public string PassOrNot { get; set; }
         public string HWFileName { get; set; }
         public string HWFilePath { get; set; }
-        public string HWUploadTime { get; set; }
+        public DateTime? HWUploadTime { get; set; }
     }
     public class SumCredit
     {

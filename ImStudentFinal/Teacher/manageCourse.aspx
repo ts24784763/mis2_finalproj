@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>IM STUDENT - 管理課程</title>
 </head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
 <body>
@@ -33,39 +33,9 @@
                                🛈  總覽
                             </div>
                         </div>
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                <div class="accordionFonts">
-                                基礎會計 <br /><br /> <asp:Label ID="classFigure" runat="server" Text="0/1 堂"></asp:Label>
-                                 </div>
-                              </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                <div class="accordionFonts">                                
-                                  進階會計<br /><br />
-                                  <asp:Label ID="classFigure2" runat="server" Text="0/2 堂"></asp:Label>
-                              </div>
-                               </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                               <div class="accordion-body">
-                                <strong>第二章</strong>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
+
+
                         </div>
                          <div class="btn" style="margin-top: auto; ">
                             <asp:Button ID="uploardCourse" CssClass="btnCourse" style="border-radius: 5px;" runat="server" Text="上傳課程影片" />
@@ -94,3 +64,14 @@
     </form>
 </body>
 </html>
+<script>
+    function test(check) {
+        course = check.id.split(":");
+        window.location.href = "../Teacher/manageChapter.aspx?courseId=" + course[0]+"&chapter="+course[1];
+    }
+    function course(check) {
+        course = check.id.split(":");
+        window.location.href = "../Teacher/manageCourse.aspx?courseId=" + course[0];  
+    }
+</script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
