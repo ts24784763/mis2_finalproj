@@ -25,20 +25,16 @@
         <br /><br /><br />
         <center>
             <asp:Label ID="lbCourse" ForeColor="DarkBlue" runat="server" Text="在 新增課程" Font-Size="XX-Large"></asp:Label>
-            <br /><br /><br /><br />
+            <br /><br />
         <div class="HWContent">
             <asp:Label ID="lblCourseName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*課程名稱："></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="txtCourseName" CssClass="Cohwtxt" placeholder=" 輸入課程名稱"  runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br />
-            <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCourseName" ErrorMessage="請輸入課程名稱" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br />
-            <br /><br />
             <asp:Label ID="lblCredit" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 335px" runat="server" Text="*學分數："></asp:Label>
-            <br />
-            <br />
             <asp:RadioButtonList ID="RadioCredit" CssClass="rdBtnCredit" RepeatDirection="Horizontal" runat="server" >
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
@@ -46,15 +42,12 @@
                 <asp:ListItem>4</asp:ListItem>
                 <asp:ListItem>5</asp:ListItem>
             </asp:RadioButtonList>
-            <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="RadioCredit" ErrorMessage="請選擇學分數" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-            <br />
             <br />
             <asp:Label ID="lblCourseInfo" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*課程資訊："></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="txtCourseInfo" CssClass="Cohwtxt" placeholder=" 輸入課程資訊"  runat="server" Height="100px" Width="400px" TextMode="MultiLine"></asp:TextBox>
-            <br />
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCourseInfo" ErrorMessage="請輸入課程資訊" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br />

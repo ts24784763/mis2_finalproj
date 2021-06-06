@@ -16,7 +16,7 @@
         <div class="bar">
             IM STUDENT
             <div class="rightText">
-            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../Teacher/schoolInviteMe.aspx">探索學校</a>
             <a href="../Teacher/uploadResume.aspx">上傳履歷</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
@@ -32,11 +32,14 @@
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
-                   <div class="teacherTitle" style="border-bottom:solid;border-color:lightgrey;padding-bottom: 10px;padding-top: 10px;padding-left: 50px;padding-right: 50px;">
+                    <div style="display:flex; flex-direction:row;border-bottom:solid;border-color:lightgrey;padding-bottom: 10px;padding-top: 10px;padding-left: 50px;padding-right: 50px; background-color:#F0F0F0;">
+                   <div class="teacherTitle" style="width:65%; margin:auto">
                        <asp:Label ID="lbSchoolName" runat="server" Text='<%# Eval("Applicant") %>'></asp:Label>  
-                       <asp:Label ID="lbApplyResult" runat="server" Text='<%# Eval("ApplyResult") %>'></asp:Label>
+                       <asp:Label ID="lbApplyResult" runat="server" Text='<%# Eval("ApplyResult") %>'></asp:Label></div>
+                    <div style="width:35%;">
                        <asp:Button ID="btnJoin" runat="server" CssClass="Applybtn" Text='加入學校' CommandArgument='<%# Eval("Applicant") %>' OnClick="btnJoin_Click" />
                    </div>
+                        </div>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>  

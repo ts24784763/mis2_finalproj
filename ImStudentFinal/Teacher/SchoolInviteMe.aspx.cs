@@ -34,7 +34,7 @@ public partial class Teacher_SchoolInviteMe : System.Web.UI.Page
         try
         {
             joinSchool(schoolName, principalAccount, teacherAccount);
-            Response.Write("<script>alert('成功加入" + schoolName + "');location.href=schoolInfo.aspx';</script>");
+            Response.Write("<script>alert('成功加入" + schoolName + "');location.href='schoolInfo.aspx';</script>");
         }
         catch
         {

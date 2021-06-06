@@ -15,14 +15,12 @@ public partial class Teacher_schoolInfo : System.Web.UI.Page
         lbPrincipalName.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(school).Principal).Name;
         lbSchoolIntro.Text = ReadDatabase.SchoolInfo(school).SchoolIntro;
         lbSchoolDays.Text = ReadDatabase.SchoolInfo(school).SemesterDays.ToString() + "天";
-
         var courseList = ReadDatabase.ListCourseInSchoolByTeacher(school, teacherAccount);
-        var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
         String html = string.Empty;
 
         for (int i = 0; i < courseList.Count; i++)
         {
-            chapterList = ReadDatabase.ListAllChapterInCourse(int.Parse(courseList[i].Value)); //章節清單 參數放課程Id
+            var chapterList = ReadDatabase.ListAllChapterInCourse(int.Parse(courseList[i].Value)); //章節清單 參數放課程Id
             string num = i.ToString();
             html += "<div class=\"accordion-item\">";
             html += " <h2 class=\"accordion-header\" id=\"panelsStayOpen-heading" + num + "\">";
@@ -43,10 +41,6 @@ public partial class Teacher_schoolInfo : System.Web.UI.Page
             this.accordionPanelsStayOpenExample.Controls.Add(new LiteralControl(html));
             html = string.Empty;
         }
-
-
-
-
     }
 
     protected void addCourse_Click(object sender, EventArgs e)

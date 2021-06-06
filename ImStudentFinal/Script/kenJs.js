@@ -7,9 +7,6 @@
         dateInput: true
     });
 
-    $("#selectCourseTimeRange_datepicker").data("kendoDatePicker").value("");
-    $("#startSemester_datepicker").data("kendoDatePicker").value("");
-
 })
 
 $(".button1").click(function (e) {
@@ -27,12 +24,30 @@ $("#btn-open-window").click(function (e) {
     initWindow();
 });
 
+$("#btn-open-HwWindow").click(function (e) {
+    e.preventDefault();
+    initHwWindow();
+});
+
 $("#btn-openSchool").click(function () {
     var validator = $("#openSchoolForm").kendoValidator().data("kendoValidator");
     if (!validator.validate()) {
         alert("資料輸入有誤！");
     }
 });
+
+function initHwWindow() {
+    var windowOptions = {
+        actions: ["Close"],
+        width: "400px",
+        height: "550px",
+        title: "作業資訊",
+        visible: false,
+        modal: true
+    };
+    $("#window").kendoWindow(windowOptions);
+    $("#window").data("kendoWindow").center().open();
+};
 
 function initWindow() {
     var windowOptions = {

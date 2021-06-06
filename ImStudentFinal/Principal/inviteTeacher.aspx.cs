@@ -10,7 +10,7 @@ public partial class Principal_inviteTeacher : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string principal = Session["userID"].ToString();
-        invitedTeacherDataList.DataSource = ReadDatabase.ApplyInfo("校長邀請老師", principal, "");
+        invitedTeacherDataList.DataSource = ReadDatabase.AllApplyInfo("校長邀請老師", principal, "");
         invitedTeacherDataList.DataBind();
     }
 

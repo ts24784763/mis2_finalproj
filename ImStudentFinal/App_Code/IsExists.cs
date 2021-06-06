@@ -110,4 +110,30 @@ public class IsExists
         else
             return true;
     }
+
+    /// <summary>
+    /// 判斷此章節是否已上傳教材
+    /// </summary>
+    /// <param name="CourseId"></param>
+    /// <param name="ChapterNum"></param>
+    /// <returns></returns>
+    public static bool AlreadyUploadMaterial(int CourseId, int ChapterNum)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT MaterialFileName FROM CHAPTER WHERE CourseId = @CourseId AND ChapterNum = @ChapterNum ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", ChapterNum));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        if (dt.Rows[0]["MaterialFileName"].ToString() == "")
+            return false;
+        else
+            return true;
+    }
 }

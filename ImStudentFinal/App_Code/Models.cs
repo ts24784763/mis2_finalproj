@@ -101,16 +101,16 @@ public class Models
     /// <summary>
     /// 教材資料model
     /// </summary>
-    public class MaterialModel
-    {
-        public int MaterialId { get; set; }
-        public string MaterialName { get; set; }
-        public string MaterialIntro { get; set; }
-        public string MaterialFileName { get; set; }
-        public string MaterialFilePath { get; set; }
-        public int CourseId { get; set; }
-        public int ChapterNum { get; set; }
-    }
+    //public class MaterialModel
+    //{
+    //    public int MaterialId { get; set; }
+    //    public string MaterialName { get; set; }
+    //    public string MaterialIntro { get; set; }
+    //    public string MaterialFileName { get; set; }
+    //    public string MaterialFilePath { get; set; }
+    //    public int CourseId { get; set; }
+    //    public int ChapterNum { get; set; }
+    //}
 
     /// <summary>
     /// 章節資料model
@@ -121,6 +121,8 @@ public class Models
         public int CourseId { get; set; }
         public string ChapterName { get; set; }
         public string VideoUrl { get; set; }
+        public string MaterialFileName { get; set; }
+        public string MaterialFilePath { get; set; }
     }
 
     public class ListModel
@@ -142,10 +144,10 @@ public class Models
         public string StudentName { get; set; }
 
     }
+
     public class SumCredit
     {
         public string Student { get; set; }
         public int Credit { get; set; }
     }
-
 }
