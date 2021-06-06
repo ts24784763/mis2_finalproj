@@ -145,7 +145,7 @@ public partial class selectCourse : System.Web.UI.Page
         try
         {
             SelectedCourse(CourseSelection);
-            //Response.Write("<script>alert('選課成功');location.href='Login.aspx';</script>");
+            Response.Write("<script>alert('選課成功');location.href='Login.aspx';</script>");
         }
         catch
         {

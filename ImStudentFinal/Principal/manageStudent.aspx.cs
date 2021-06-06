@@ -20,7 +20,7 @@ public partial class verifyStudent : System.Web.UI.Page
     
     protected void btnDownloadResume_Click(object sender, EventArgs e)
     {
-        Response.ContentType = "../Student/Resume/1.docx";
+        Response.ContentType = "../Css/Resume/1.docx";
         Response.AppendHeader("Content-Disposition", "attachment; filename=1.docx");
 
         // Write the file to the Response  
@@ -30,7 +30,7 @@ public partial class verifyStudent : System.Web.UI.Page
         Stream download = null;
         try
         {
-            download = new FileStream(Server.MapPath("~/Student/Resume/1.docx"),
+            download = new FileStream(Server.MapPath("~/Css/Resume/1.docx"),
                                                            FileMode.Open,
                                                            FileAccess.Read);
             do
