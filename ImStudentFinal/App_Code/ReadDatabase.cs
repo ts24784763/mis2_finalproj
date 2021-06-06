@@ -341,7 +341,7 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", chapterNum));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
