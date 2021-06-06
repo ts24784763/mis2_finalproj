@@ -40,7 +40,11 @@ public partial class Login : System.Web.UI.Page
                 if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "學生")
                     nextPage = "../Student/mainSchool.aspx";
                 else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
-                    nextPage = "../Principal/fixSchool.aspx"; 
+                {
+                    if (ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(Session["userID"].ToString()).School).SchoolStatus == "SELL")
+                        nextPage = "../Principal/manageStudent.aspx";
+                    else nextPage = "../Principal/fixSchool.aspx";
+                }
                 else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
                     nextPage = "../Teacher/schoolInfo.aspx";
             }

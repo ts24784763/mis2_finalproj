@@ -45,7 +45,6 @@
                     <br />
                     <asp:Label ID="introduction" CssClass="intro" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
                     <div class="btn" style="margin:auto; padding-top:10%">
-                        <%--<asp:Label ID="viewResume" CssClass="viewStyle" runat="server" Text="檢視履歷"></asp:Label>--%>
                         <asp:Button ID="btnviewResume" OnClick="btnviewResume_Click" runat="server" CommandArgument ='<%# Eval("ResumeFilePath") %>' CssClass="viewStyle" Text="檢視履歷" />
                         <asp:Button ID="btnInvite" OnClick="btnInvite_Click" runat="server" CssClass="inviteStyle" Text="寄送邀請" CommandArgument='<%# Eval("Applicant") %>' />
                     </div>
