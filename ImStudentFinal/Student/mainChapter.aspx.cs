@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.IO;
 public partial class subCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -53,6 +53,41 @@ public partial class subCourse : System.Web.UI.Page
 
     protected void download_Click(object sender, EventArgs e)
     {
+        string resumePath = "../Teacher/material/" + ((Button)sender).CommandArgument;
+        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/"));
+        Response.ContentType = resumePath;
+        Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
+
+        // Write the file to the Response  
+        const int bufferLength = 10000;
+        byte[] buffer = new Byte[bufferLength];
+        int length = 0;
+        Stream download = null;
+        try
+        {
+            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
+            do
+            {
+                if (Response.IsClientConnected)
+                {
+                    length = download.Read(buffer, 0, bufferLength);
+                    Response.OutputStream.Write(buffer, 0, length);
+                    buffer = new Byte[bufferLength];
+                }
+                else
+                {
+                    length = -1;
+                }
+            }
+            while (length > 0);
+            Response.Flush();
+            Response.End();
+        }
+        finally
+        {
+            if (download != null)
+                download.Close();
+        }
 
     }
 }
