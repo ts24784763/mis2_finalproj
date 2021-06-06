@@ -24,7 +24,7 @@
         </div>
         <br /><br /><br /><br />
             <div class="wrapperTeacher">
-            <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="學校邀請通知" ></asp:Label>
+            <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="學校邀請通知" style="padding-bottom:50px"></asp:Label>
             <div class="wrapper">
             <asp:DataList ID="invitedDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" OnItemDataBound="invitedDataList_ItemDataBound">
             <AlternatingItemStyle BackColor="#F0F0F" />
@@ -32,14 +32,11 @@
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
-                   <div class="teacherTitle">
+                   <div class="teacherTitle" style="border-bottom:solid;border-color:lightgrey;padding-bottom: 10px;padding-top: 10px;padding-left: 50px;padding-right: 50px;">
                        <asp:Label ID="lbSchoolName" runat="server" Text='<%# Eval("Applicant") %>'></asp:Label>  
                        <asp:Label ID="lbApplyResult" runat="server" Text='<%# Eval("ApplyResult") %>'></asp:Label>
                        <asp:Button ID="btnJoin" runat="server" CssClass="Applybtn" Text='加入學校' CommandArgument='<%# Eval("Applicant") %>' OnClick="btnJoin_Click" />
                    </div>
-                    <div class="teacherName">
-                        <asp:TextBox ID="teacher" CssClass="teacherName" runat="server"  BackColor="#F0F0F0"></asp:TextBox>
-                    </div>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>  
