@@ -45,7 +45,7 @@ public partial class setting : System.Web.UI.Page
         try
         {
             updateUserInfo(member);
-            Response.Write("<script>alert('更新成功')</script>");
+            Response.Write("<script>alert('更新成功');location.href='../UserPublic/setting.aspx';</script>");
         }
         catch
         {
