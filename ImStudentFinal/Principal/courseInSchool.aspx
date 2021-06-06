@@ -99,15 +99,14 @@
             console.log("type=openSchool&OpenSelectCourseDate=" + OpenSelectCourseDate + "&OpenSemesterDate=" + OpenSemesterDate);
             $.ajax({
                 type: "Post",
-                url: "courseInSchool.aspx?type=openSchool&OpenSelectCourseDate="+OpenSelectCourseDate+"&OpenSemesterDate="+OpenSemesterDate,
-                contentType: "application/json; charset=utf-8",
+                url: "courseInSchool.aspx?type=openSchool&OpenSelectCourseDate=" + OpenSelectCourseDate + "&OpenSemesterDate=" + OpenSemesterDate,
                 success: function (response) {
                     alert("學校上架成功");
+                    location.href = "mainSchool.aspx";
                 }, error: function (error) {
                     alert("學校上架失敗");
                 }
             });
-            location.href = "mainSchool.aspx";
         });
 </script>
 </body>
