@@ -451,7 +451,7 @@
     font-size: 15px;
 }
 .subCourseArea {
-    display: inline-block;
+    /*display: inline-block;*/
     text-align: left;
     margin-left: 30px;
     color: rgb(75,119,153);
