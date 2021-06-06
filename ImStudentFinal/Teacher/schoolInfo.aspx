@@ -48,7 +48,7 @@
                            <label class="schoolIntroTitle" style="padding-right:5px">學期長度</label>
                            <asp:Label ID="lbSchoolDays" CssClass="Items3" runat="server" Text="幾天"></asp:Label>
                         </div>
-                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
+                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"/>
                         <div style="margin-top:20px; display:flex; flex-direction:column;">
                             <asp:Label ID="intro" CssClass="schoolIntroTitle" runat="server" Text="簡介"></asp:Label>
                             <asp:Label ID="lbSchoolIntro" CssClass="schoolIntro" runat="server" Text="好學校"></asp:Label>

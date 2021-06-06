@@ -51,4 +51,19 @@ public partial class Student_manageCourse : System.Web.UI.Page
         int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         Response.Redirect("addCourse.aspx?act=edit&courseId=" + courseId);
     }
+
+    protected void addHomework_Click(object sender, EventArgs e)
+    { 
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        if (IsExists.CourseHaveHW(courseId))
+            Response.Write("<script>alert('這堂課已經出過作業了');</script>");
+        else
+            Response.Redirect("addHW.aspx?courseId=" + courseId);
+    }
+
+    protected void btnAddChapter_Click(object sender, EventArgs e)
+    {
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        Response.Redirect("addChapter.aspx?courseId=" + courseId);
+    }
 }
