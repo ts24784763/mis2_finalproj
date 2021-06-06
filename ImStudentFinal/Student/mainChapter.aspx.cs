@@ -42,4 +42,9 @@ public partial class subCourse : System.Web.UI.Page
             html = string.Empty;
         }
     }
+
+    protected void download_Click(object sender, EventArgs e)
+    {
+
+    }
 }
