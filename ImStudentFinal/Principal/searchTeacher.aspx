@@ -26,7 +26,7 @@
         <div class="searchTop">
             <asp:Label ID="searchTitle" CssClass="titleStyle" style="padding-top: 30px" runat="server" Text="老師總表"></asp:Label>
             <div style="display:flex; flex-direction:row; justify-content:center; width:100%;">
-                   想邀請哪位老師：<asp:TextBox ID="searchTeacher" CssClass="searchTxt" runat="server"></asp:TextBox><asp:Button ID="searchBtn" CssClass="searchChecked" runat="server" Text="搜尋＞" Width="90px" />
+                   想邀請哪位老師：<asp:TextBox ID="searchTeacher" CssClass="searchTxt" runat="server"></asp:TextBox><asp:Button ID="searchBtn" CssClass="searchChecked" runat="server" Text="搜尋＞" Width="90px" OnClick="searchBtn_Click" />
             </div>
         </div>
         <div class="searchBottom">

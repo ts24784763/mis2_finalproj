@@ -12,8 +12,7 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        teacherDatalist.DataSource = ReadDatabase.ApplyInfo("老師上傳履歷", "", "");
-        teacherDatalist.DataBind();
+        LoadDatalist("PageLoad");
     }
 
     protected void btnInvite_Click(object sender, EventArgs e)
@@ -81,6 +80,26 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         {
             if (download != null)
                 download.Close();
+        }
+    }
+
+    protected void searchBtn_Click(object sender, EventArgs e)
+    {
+        LoadDatalist("Search");
+    }
+
+    private void LoadDatalist(string Type)
+    {
+        if (Type == "PageLoad")
+        {
+            teacherDatalist.DataSource = ReadDatabase.ApplyInfo("老師上傳履歷", "", "");
+            teacherDatalist.DataBind();
+        }
+        else if (Type == "Search")
+        {
+            string ApplicantName = searchTeacher.Text.Trim();
+            teacherDatalist.DataSource = ReadDatabase.SearchTeacherByWord("老師上傳履歷", "", "",ApplicantName, "等待審核中");
+            teacherDatalist.DataBind();
         }
     }
 }
