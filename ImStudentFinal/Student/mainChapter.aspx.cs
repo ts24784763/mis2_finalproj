@@ -12,8 +12,16 @@ public partial class subCourse : System.Web.UI.Page
         string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
         string urlChapter = Server.UrlDecode(Request.QueryString["chapter"]);
         string urlCourseId = Server.UrlDecode(Request.QueryString["courseId"]);
-        int courseId = int.Parse(urlCourseId); //TODO
-        int chapterId = int.Parse(urlChapter); //TODO
+        int courseId = int.Parse(urlCourseId);
+        int chapterId = int.Parse(urlChapter);
+        lbSchoolName.Text = schoolName;
+        lbCourseName.Text = ReadDatabase.CourseInfo(int.Parse(urlCourseId)).CourseName;
+        lbChapterName.Text = "第" + urlChapter + "章";
+        lbChapterName2.Text = "第" + urlChapter + "章";
+        var viedoUrl = ReadDatabase.ChapterInCourse(courseId, chapterId)[0].VideoUrl;
+        string videoPara = viedoUrl.Substring(viedoUrl.IndexOf("=")+1);
+        string ytrURL = "https://www.youtube.com/embed/" + videoPara + "?rel=0&modestbranding=1";
+        playVideo.Attributes.Add("src", ytrURL);
         var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(courseId); //章節清單 參數放課程Id
         String html = string.Empty;

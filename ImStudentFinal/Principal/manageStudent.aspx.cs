@@ -33,7 +33,8 @@ public partial class verifyStudent : System.Web.UI.Page
         Stream download = null;
         try
         {
-            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);            do
+            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
+            do
             {
                 if (Response.IsClientConnected)
                 {

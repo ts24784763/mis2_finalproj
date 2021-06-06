@@ -21,14 +21,22 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         string principalAccount = Session["userID"].ToString();
         string teacherAccount = ((Button)sender).CommandArgument;
         string teacherName = ReadDatabase.UserInfo(teacherAccount).Name;
-        try
+        if(IsExists.AlreadyApply(principalAccount, teacherAccount))
         {
-            inviteTeacher(principalAccount, teacherAccount);
-            Response.Write("<script>alert('已邀請"+ teacherName+"加入你的學校')</script>");
+            Response.Write("<script>alert('已邀請過這位老師')</script>");
+
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('邀請失敗')</script>");
+            try
+            {
+                inviteTeacher(principalAccount, teacherAccount);
+                Response.Write("<script>alert('已邀請" + teacherName + "加入你的學校')</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('邀請失敗')</script>");
+            }
         }
     }
 
@@ -47,8 +55,10 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
     }
     protected void btnviewResume_Click(object sender, EventArgs e)
     {
-        Response.ContentType = "../Css/Resume/1.docx";
-        Response.AppendHeader("Content-Disposition", "attachment; filename=1.docx");
+        string resumePath = "../Student/" + ((Button)sender).CommandArgument;
+        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/"));
+        Response.ContentType = resumePath;
+        Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
 
         // Write the file to the Response  
         const int bufferLength = 10000;
@@ -57,9 +67,7 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         Stream download = null;
         try
         {
-            download = new FileStream(Server.MapPath("~/Css/Resume/1.docx"),
-                                                           FileMode.Open,
-                                                           FileAccess.Read);
+            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
             do
             {
                 if (Response.IsClientConnected)
