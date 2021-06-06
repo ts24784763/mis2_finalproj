@@ -329,7 +329,7 @@ public class ReadDatabase
     /// </summary>
     /// <param name="schoolName"></param>
     /// <returns></returns>
-    public static List<Models.ChapterModel> ChapterInCourse(int courseId ,int chapterNum)
+    public static List<Models.ChapterModel> ChapterInCourse(int courseId, int chapterNum)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId";
@@ -341,7 +341,7 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-            cmd.Parameters.Add(new SqlParameter("@ChapterNum", chapterNum));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -389,13 +389,13 @@ public class ReadDatabase
     public static List<Models.ListModel> ListAllChapterInCourse(int courseId)
     {
         List<Models.ListModel> result = new List<Models.ListModel>();
-        int chapterNum = ReadDatabase.ChapterInCourse(courseId,0).Count;
+        int chapterNum = ReadDatabase.ChapterInCourse(courseId, 0).Count;
         for (int i = 0; i < chapterNum; i++)
         {
             result.Add(new Models.ListModel()
             {
-                Value = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterNum.ToString(),
-                Text = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterName,
+                Value = ReadDatabase.ChapterInCourse(courseId, 0)[i].ChapterNum.ToString(),
+                Text = ReadDatabase.ChapterInCourse(courseId, 0)[i].ChapterName,
             });
         }
         return result;
@@ -453,6 +453,55 @@ public class ReadDatabase
         }
         return result;
     }
+
+    /// <summary>
+    /// 根據關鍵字搜尋老師
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.ApplyModel> SearchTeacherByWord(string ApplyType, string Applicant, string Receiver, string ApplicantName, string ApplyResult)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name AS ApplicantName, Applicant, Receiver, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType";
+        if (Applicant != "")
+            sql += " AND Applicant = @Applicant\n";
+        else if (Receiver != "")
+            sql += " AND Receiver = @Receiver\n";
+        else if (ApplicantName != "")
+            sql += " AND Name like '%' + @ApplicantName + '%'\n";
+        else if (ApplyResult != "")
+            sql += " AND ApplyResult = @ApplyResult";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@ApplyType", ApplyType));
+            cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
+            cmd.Parameters.Add(new SqlParameter("@ApplicantName", ApplicantName));
+            cmd.Parameters.Add(new SqlParameter("@ApplyResult", ApplyResult));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.ApplyModel> result = new List<Models.ApplyModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.ApplyModel()
+            {
+                ApplicantName = row["ApplicantName"].ToString(),
+                Applicant = row["Applicant"].ToString(),
+                Receiver = row["Receiver"].ToString(),
+                ApplyIntro = row["ApplyIntro"].ToString(),
+                ApplyResult = row["ApplyResult"].ToString(),
+                ResumeFileName = row["ResumeFileName"].ToString(),
+                ResumeFilePath = row["ResumeFilePath"].ToString(),
+            });
+        }
+        return result;
+    }
+
     /// <summary>
     /// 送出審核結果
     /// </summary>
@@ -475,7 +524,6 @@ public class ReadDatabase
             conn.Close();
         }
     }
-
     /// <summary>
     /// 用戶加入學校
     /// </summary>
@@ -492,38 +540,5 @@ public class ReadDatabase
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-    }
-
-    /// <summary>
-    /// 根據關鍵字搜尋課程
-    /// </summary>
-    /// <returns></returns>
-    public static List<Models.CourseAndTeacherModel> SearchCourseByWord(string CourseName, string professorName)
-    {
-        DataTable dt = new DataTable();
-        string sql = @"SELECT Name, CourseName, CourseCredit FROM MEMBER M JOIN COURSE C ON M.Account = C.Teacher 
-                       WHERE CourseName LIKE '%' + @CourseName + '%' AND Name LIKE '%' + @TeacherName + '%'";
-        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
-            cmd.Parameters.Add(new SqlParameter("@TeacherName", professorName));
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-            sqlAdapter.Fill(dt);
-            conn.Close();
-        }
-
-        List<Models.CourseAndTeacherModel> result = new List<Models.CourseAndTeacherModel>();
-        foreach (DataRow row in dt.Rows)
-        {
-            result.Add(new Models.CourseAndTeacherModel()
-            {
-                CourseName = row["CourseName"].ToString(),
-                TeacherName = row["Name"].ToString(),
-                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
-            });
-        }
-        return result;
     }
 }
