@@ -21,14 +21,22 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         string principalAccount = Session["userID"].ToString();
         string teacherAccount = ((Button)sender).CommandArgument;
         string teacherName = ReadDatabase.UserInfo(teacherAccount).Name;
-        try
+        if(IsExists.AlreadyApply(principalAccount, teacherAccount))
         {
-            inviteTeacher(principalAccount, teacherAccount);
-            Response.Write("<script>alert('已邀請"+ teacherName+"加入你的學校')</script>");
+            Response.Write("<script>alert('已邀請過這位老師')</script>");
+
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('邀請失敗')</script>");
+            try
+            {
+                inviteTeacher(principalAccount, teacherAccount);
+                Response.Write("<script>alert('已邀請" + teacherName + "加入你的學校')</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('邀請失敗')</script>");
+            }
         }
     }
 
