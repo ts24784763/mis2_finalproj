@@ -138,4 +138,10 @@ public class Models
         public string HWFilePath { get; set; }
         public DateTime? HWUploadTime { get; set; }
     }
+    public class SumCredit
+    {
+        public string Student { get; set; }
+        public int Credit { get; set; }
+    }
+
 }
