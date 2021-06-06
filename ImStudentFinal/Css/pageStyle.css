@@ -839,3 +839,7 @@
     display: inline-block;
 
 }
+
+.uploadMargin {
+   margin:10px 0;
+}

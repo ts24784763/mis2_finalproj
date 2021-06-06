@@ -39,9 +39,9 @@
                 <asp:Label ID="introduct" runat="server" style="color:midnightblue" Text="簡介*"></asp:Label><br />
                 <asp:TextBox id="txtIntro"  CssClass="textWraper" type="text" placeholder="Enter the introduction of your school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox><br />
                 <center><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="請輸入簡介" ForeColor="#CC0000" ControlToValidate="txtIntro"></asp:RequiredFieldValidator></center>
-                <br />
+
                 <asp:Label ID="Label2" runat="server" style="color:midnightblue" Text="學校圖片"></asp:Label><br />
-                <asp:FileUpload ID="uploadSchoolImage" runat="server" />
+                <asp:FileUpload ID="uploadSchoolImage" CssClass="uploadMargin" runat="server" />
                 <br />
                 <br /><asp:Button ID="checkBtn" CssClass="checkBtn" runat="server" Text="創建完畢，進入整修" OnClick="checkBtn_Click" />
             </div>

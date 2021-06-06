@@ -26,13 +26,14 @@
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="老師管理列表"></asp:Label>
             <div class="wrapper" style="width:50%">
             <asp:DataList ID="invitedTeacherDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" OnItemDataBound="invitedTeacherDataList_ItemDataBound">
-            <AlternatingItemStyle BackColor="#F0F0F" />
+            <AlternatingItemStyle BackColor="#F0F0F0" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
                 <ItemTemplate>
                    <div class="teacherTitle" style="margin:10px 0;">
                        <asp:Label ID="lbTeacherName" CssClass="labelLeft" runat="server"  Text='<%# Eval("Receiver") %>'></asp:Label>  
-                       <asp:Label ID="lbApplyResult" Cs sClass="labelRight" runat="server"  Text='<%# Eval("ApplyResult") %>'></asp:Label>
+                       <asp:Label ID="lbApplyResult" CssClass="labelRight" runat="server"  Text='<%# Eval("ApplyResult") %>'></asp:Label>
+                       <hr style="border-bottom-color:cornflowerblue; border-bottom-style:solid; border-width:2px;" />
                    </div>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
