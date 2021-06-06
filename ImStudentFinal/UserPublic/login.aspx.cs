@@ -28,7 +28,11 @@ public partial class Login : System.Web.UI.Page
                 else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "校長")
                     nextPage = "../Principal/buildSchool.aspx";
                 else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
-                    nextPage = "../Teacher/schoolInviteMe.aspx";
+                {
+                    if(IsExists.AlreadyApply(Session["userID"].ToString(),"")) nextPage = "../Teacher/schoolInviteMe.aspx";
+                    else nextPage = "../Teacher/uploadResume.aspx";
+                }
+                    
             }
             //有學校
             else

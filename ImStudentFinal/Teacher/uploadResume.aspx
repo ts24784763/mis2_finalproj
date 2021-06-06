@@ -49,8 +49,7 @@
             <br />
         </div>
         <br />
-        
-            <asp:Button ID="btnSubmit" CssClass="button" Width="300px" Height="50px" runat="server" style="background-color: midnightblue; color: white;" Text="送出" />
+            <asp:Button ID="btnSubmit" CssClass="button" Width="300px" Height="50px" runat="server" style="background-color: midnightblue; color: white;" Text="送出" OnClick="btnSubmit_Click" />
             <br /><br /><br /><br />
         </center>
     </form>
