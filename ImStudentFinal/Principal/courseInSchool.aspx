@@ -102,7 +102,7 @@
                 url: "courseInSchool.aspx?type=openSchool&OpenSelectCourseDate=" + OpenSelectCourseDate + "&OpenSemesterDate=" + OpenSemesterDate,
                 success: function (response) {
                     alert("學校上架成功");
-                    location.href = "mainSchool.aspx";
+                    location.href = "manageStudent.aspx";
                 }, error: function (error) {
                     alert("學校上架失敗");
                 }

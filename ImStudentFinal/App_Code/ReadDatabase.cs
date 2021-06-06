@@ -341,7 +341,7 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", chapterNum));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -376,6 +376,37 @@ public class ReadDatabase
             {
                 Value = ReadDatabase.CourseInSchool(schoolName, "")[i].CourseId,
                 Text = ReadDatabase.CourseInSchool(schoolName, "")[i].CourseName,
+            });
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// 將特定學生選的所有課程列成list
+    /// </summary>
+    /// <param name="schoolName"></param>
+    /// <returns></returns>
+    public static List<Models.ListModel> ListAllCourseByStudent(string studentAccount)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT S.CourseId, C.CourseName FROM COURSE_SELECTION S JOIN COURSE C ON S.CourseId = C.CourseId WHERE Student = @Student ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", studentAccount));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.ListModel> result = new List<Models.ListModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.ListModel()
+            {
+                Text = row["CourseName"].ToString(),
+                Value = row["CourseId"].ToString(),
             });
         }
         return result;
