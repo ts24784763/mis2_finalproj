@@ -45,6 +45,7 @@
                     <div class="schoolRight">
                         <div style="display:inline-block;padding-left:30px;padding-top:20px;">
                         <div class="teacherSubCourseArea">
+                           <label class="schoolIntroTitle" style="padding-right:5px">學期長度</label>
                            <asp:Label ID="lbSchoolDays" CssClass="Items3" runat="server" Text="幾天"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
@@ -55,7 +56,7 @@
                     </div>
                     <div style="padding:30px; margin-top: auto; display:flex; flex-direction:column; font-size:20px; font-weight:bold;color: rgb(51,121,173);">
                         <asp:Label ID="principle" runat="server" Text="校長"></asp:Label>
-                        <asp:Label ID="lbPrincipalName" runat="server" Text="xxx" Font-Size="15"></asp:Label>
+                        <asp:Label ID="lbPrincipalName" style="padding-top:20px; color:#3379ad; font-size:15px" Font-Bold="false" runat="server" Text="xxx" Font-Size="15"></asp:Label>
                     </div>
                 </div>
             </div>
