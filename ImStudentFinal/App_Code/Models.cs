@@ -139,6 +139,10 @@ public class Models
         public string HWFileName { get; set; }
         public string HWFilePath { get; set; }
         public DateTime? HWUploadTime { get; set; }
+        public string Name { get; set; }
+        public string CourseName { get; set; }
+        public string StudentName { get; set; }
+
     }
 
     public class SumCredit

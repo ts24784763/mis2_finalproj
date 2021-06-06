@@ -239,6 +239,7 @@ public class ReadDatabase
                 SchoolStatus = row["SchoolStatus"].ToString(),
                 License = row["License"].ToString(),
                 Principal = row["Principal"].ToString(),
+                ImageUrl = row["ImageUrl"].ToString(),
             });
         }
         return result;
@@ -276,7 +277,7 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 依照申請種類、申請者or收到申請者(擇一)查詢申請資料
+    /// 依照申請種類、申請者or收到申請者(擇一)查詢"正在審核中的"申請資料
     /// </summary>
     /// <param name="ApplyType">申請種類</param>
     /// <param name="Applicant">申請者</param>
@@ -321,16 +322,16 @@ public class ReadDatabase
     }
 
     /// <summary>
-    /// 列出學校邀請老師列表(不論結果)
+    /// 依照申請種類、申請者or收到申請者(擇一)查詢"任何結果的"申請資料
     /// </summary>
     /// <param name="Applicant"></param>
     /// <param name="Receiver"></param>
     /// <returns></returns>
-    public static List<Models.ApplyModel> SchoolInviteTeacher(string Applicant, string Receiver)
+    public static List<Models.ApplyModel> AllApplyInfo(string ApplyType, string Applicant, string Receiver)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT Name AS ApplicantName, Applicant, Receiver, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult
-                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = '校長邀請老師'";
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType ";
         if (Applicant != "")
             sql += "AND Applicant = @Applicant";
         else if (Receiver != "")
@@ -339,6 +340,7 @@ public class ReadDatabase
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@ApplyType", ApplyType));
             cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
             cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
@@ -684,4 +686,52 @@ public class ReadDatabase
         }
         return result.FirstOrDefault();
     }
+
+    /// <summary>
+    /// 查詢作業資料
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.CourseSelectionModel> CheckHW(string StudentName, string CourseName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT CourseName,Name,COURSE_SELECTION.courseId,HWFileName FROM COURSE_SELECTION 
+                            Join MEMBER on Student=Account 
+                            Join COURSE on COURSE_SELECTION.courseId = COURSE.courseId 
+                            WHERE 1 = 1 ";
+        if (StudentName != "")
+        {
+            sql += " AND Name = @StudentName\n";
+        }
+        else if (CourseName != "")
+        {
+            sql += " AND COURSE.CourseName like '%'+  @CourseName +'%'\n";
+        }
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@StudentName", StudentName));
+            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseSelectionModel> result = new List<Models.CourseSelectionModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseSelectionModel()
+            {
+                Name = row["Name"].ToString(),
+                CourseId = int.Parse(row["CourseId"].ToString()),
+                HWFileName = row["HWFileName"].ToString(),
+                CourseName = row["CourseName"].ToString(),
+                //HWFilePath = row["HWFilePath"].ToString(),
+                //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
+                //PassOrNot = row["PassOrNot"].ToString(),
+            });
+        }
+        return result;
+    }
+
 }
