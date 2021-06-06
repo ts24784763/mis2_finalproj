@@ -42,8 +42,9 @@
                     <asp:Label ID="teacherName" CssClass="name" runat="server" Text='<%# Eval("ApplicantName") %>'></asp:Label>
                     <asp:Label ID="introduction" CssClass="intro" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
                     <div class="btn">
-                        <asp:Label ID="viewResume" CssClass="viewStyle" runat="server" Text="檢視履歷"></asp:Label>
-                        <asp:Button ID="btnInvite" runat="server" CssClass="inviteStyle" Text="寄送邀請" CommandArgument='<%# Eval("Applicant") %>' OnClick="btnInvite_Click" />
+                        <%--<asp:Label ID="viewResume" CssClass="viewStyle" runat="server" Text="檢視履歷"></asp:Label>--%>
+                        <asp:Button ID="btnviewResume" OnClick="btnviewResume_Click" runat="server" CssClass="viewStyle" Text="檢視履歷" />
+                        <asp:Button ID="btnInvite" OnClick="btnInvite_Click" runat="server" CssClass="inviteStyle" Text="寄送邀請" CommandArgument='<%# Eval("Applicant") %>' />
                     </div>
                 </div>
                 </ItemTemplate>
