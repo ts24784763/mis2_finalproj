@@ -29,6 +29,7 @@ radioButton {
     background-color: midnightblue;
     color: white;
     font-family: 'Microsoft JhengHei';
+    border-radius: 5px;
 }
 
 .spaced input[type="radio"] {
@@ -69,6 +70,7 @@ radioButton {
     color: white;
     font-family: 'Microsoft JhengHei';
     text-align: center;
+    border-radius: 5px;
 }
 
 #loginArea {
@@ -412,7 +414,6 @@ radioButton {
 
 #btnSubmit {
     border-radius: 5px;
-
 }
 
     #btnSubmit:hover {
