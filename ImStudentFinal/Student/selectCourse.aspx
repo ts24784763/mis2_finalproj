@@ -45,6 +45,7 @@
     <asp:GridView ID="GVCourse" CssClass="mGrid" HorizontalAlign="Center" runat="server"  >
         <Columns>
             <asp:TemplateField HeaderText="選擇課程">
+                <ItemStyle CssClass="GV"/>
                 <ItemTemplate>
                     <asp:CheckBox ID="chkAdd"  runat="server"  ></asp:CheckBox>
                 </ItemTemplate>
