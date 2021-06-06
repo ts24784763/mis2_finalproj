@@ -24,20 +24,16 @@
     </div>
         <div class="wrapperTeacher" style="padding-top:30px">
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="老師管理列表"></asp:Label>
-            <div class="wrapper">
+            <div class="wrapper" style="width:50%">
             <asp:DataList ID="invitedTeacherDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" OnItemDataBound="invitedTeacherDataList_ItemDataBound">
             <AlternatingItemStyle BackColor="#F0F0F" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
-            <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
-                   <div class="teacherTitle">
-                       <asp:Label ID="lbTeacherName" runat="server" Text='<%# Eval("Receiver") %>'></asp:Label>  
-                       <asp:Label ID="lbApplyResult" runat="server"  Text='<%# Eval("ApplyResult") %>'></asp:Label>
+                   <div class="teacherTitle" style="margin:10px 0;">
+                       <asp:Label ID="lbTeacherName" CssClass="labelLeft" runat="server"  Text='<%# Eval("Receiver") %>'></asp:Label>  
+                       <asp:Label ID="lbApplyResult" Cs sClass="labelRight" runat="server"  Text='<%# Eval("ApplyResult") %>'></asp:Label>
                    </div>
-                    <div class="teacherName">
-                        <asp:TextBox ID="teacher" CssClass="teacherName" runat="server"  BackColor="#F0F0F0"></asp:TextBox>
-                    </div>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>  

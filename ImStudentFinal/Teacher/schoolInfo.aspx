@@ -34,39 +34,9 @@
                                🛈  總覽
                             </div>
                         </div>
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                <div class="accordionFonts">
-                                基礎會計 <br /><br /> <asp:Label ID="classFigure" runat="server" Text="0/1 堂"></asp:Label>
-                                 </div>
-                              </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                <div class="accordionFonts">                                
-                                  進階會計<br /><br />
-                                  <asp:Label ID="classFigure2" runat="server" Text="0/2 堂"></asp:Label>
-                           </div>
-                               </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                              <div class="accordion-body">
-                                <strong>第一章</strong>
-                              </div>
-                               <div class="accordion-body">
-                                <strong>第二章</strong>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
+
+
                         </div>
                         <div class="btn" style="margin-top: auto; ">
                             <asp:Button ID="addCourse" CssClass="btnCourse" runat="server" Text="新增課程" OnClick="addCourse_Click" />
@@ -92,3 +62,15 @@
     </form>
 </body>
 </html>
+
+<script>
+    function test(check) {
+        course = check.id.split(":");
+        window.location.href = "../Student/mainChapter.aspx?courseId=" + course[0]+"&chapter="+course[1];
+    }
+    function course(check) {
+        course = check.id.split(":");
+        window.location.href = "../Student/mainCourse.aspx?courseId=" + course[0];  
+    }
+</script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
