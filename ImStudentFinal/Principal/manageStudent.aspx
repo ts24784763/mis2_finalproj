@@ -59,9 +59,9 @@
                             </div>
                         </div>
                         <div class="stuInfoRight">
-                                <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='拒絕' Width="120px"/>
+                                <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='拒絕' CommandArgument ='<%# Eval("Applicant") %>' Width="120px" OnClick="btnDeny_Click"/>
                             <div style="padding-top:50px">
-                                <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='允許入學' Width="120px"/>
+                                <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='允許入學' CommandArgument ='<%# Eval("Applicant") %>'  Width="120px" OnClick="btnAllow_Click"/>
                             </div>
                         </div>
                     </div>

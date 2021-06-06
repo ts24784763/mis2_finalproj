@@ -31,20 +31,6 @@ public partial class Principal_buildSchool : System.Web.UI.Page
         }
     }
 
-    public void addSchoolToPrincipal(Models.SchoolModel school)
-    {
-        string sql = @"UPDATE MEMBER SET School= @SchoolName WHERE Account= @Principal";
-        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@SchoolName", school.SchoolName));
-            cmd.Parameters.Add(new SqlParameter("@Principal", school.Principal));
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
-    }
-
     protected void checkBtn_Click(object sender, EventArgs e)
     {
         string principalAccount = Session["userID"].ToString();
@@ -64,7 +50,7 @@ public partial class Principal_buildSchool : System.Web.UI.Page
                 try
                 {
                     addSchool(school);
-                    addSchoolToPrincipal(school);
+                    ReadDatabase.addSchoolToUser(school.Principal, school.SchoolName);
                     uploadSchoolImage.SaveAs(Server.MapPath(path));
                     Response.Write("<script>alert('建校成功');location.href='fixSchool.aspx';</script>");
                 }

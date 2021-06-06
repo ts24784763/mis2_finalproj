@@ -341,7 +341,7 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", chapterNum));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -419,6 +419,79 @@ public class ReadDatabase
             });
         }
         return result;
+    }
+
+    /// <summary>
+    /// 根據關鍵字搜尋課程
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.CourseAndTeacherModel> SearchCourseByWord(string CourseName, string professorName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name, CourseName, CourseCredit FROM MEMBER M JOIN COURSE C ON M.Account = C.Teacher 
+                       WHERE CourseName LIKE '%' + @CourseName + '%' AND Name LIKE '%' + @TeacherName + '%'";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
+            cmd.Parameters.Add(new SqlParameter("@TeacherName", professorName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseAndTeacherModel> result = new List<Models.CourseAndTeacherModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseAndTeacherModel()
+            {
+                CourseName = row["CourseName"].ToString(),
+                TeacherName = row["Name"].ToString(),
+                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
+            });
+        }
+        return result;
+    }
+    /// <summary>
+    /// 送出審核結果
+    /// </summary>
+    /// <param name="apply"></param>
+    public static void denyOrAllowApply(Models.ApplyModel apply)
+    {
+        string sql = @"UPDATE APPLY SET ApplyResult = @ApplyResult";
+        if (apply.PaymentStatus != "")
+            sql += " ,PaymentStatus = @PaymentStatus";
+        sql += " WHERE Applicant = @Applicant AND Receiver = @Receiver";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Applicant", apply.Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", apply.Receiver));
+            cmd.Parameters.Add(new SqlParameter("@ApplyResult", apply.ApplyResult));
+            cmd.Parameters.Add(new SqlParameter("@PaymentStatus", apply.PaymentStatus));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+    }
+
+    /// <summary>
+    /// 用戶加入學校
+    /// </summary>
+    /// <param name="school"></param>
+    public static void addSchoolToUser(string user, string school)
+    {
+        string sql = @"UPDATE MEMBER SET School= @SchoolName WHERE Account= @Account";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@SchoolName", school));
+            cmd.Parameters.Add(new SqlParameter("@Account", user));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 
     /// <summary>

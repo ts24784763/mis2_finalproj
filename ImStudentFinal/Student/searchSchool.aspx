@@ -41,12 +41,11 @@
         <center>
             <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" OnClick="btnApplyOutCome_Click" />
         </center>
-        <div class="courseInfo">
-        <center>
-        <asp:DataList ID="DataListSchoolInfo" runat="server" EnableViewState="False" RepeatDirection="Horizontal" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1">
+        <div class="schoolList">
+        <asp:DataList ID="DataListSchoolInfo" runat="server" RepeatColumns="4" CellPadding="8" RepeatDirection="Horizontal" BackColor="White">
             <FooterStyle BackColor="#507CD1" ForeColor="Black" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="#E7E7FF" />
-            <ItemStyle BackColor="white" CssClass="courseTd" ForeColor="Black"/>
+            <ItemStyle BackColor="white" CssClass="schoolTd" ForeColor="Black"/>
             <ItemTemplate>
                 <center>
                     <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl="../image/YZULogo.png"></asp:Image>
@@ -65,7 +64,7 @@
             </ItemTemplate>
             <SelectedItemStyle BackColor="white" Font-Bold="True" ForeColor="White" />
         </asp:DataList>
-        </center>
+            <br />
         </div>
     </form>
 </body>

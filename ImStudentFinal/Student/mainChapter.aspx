@@ -42,10 +42,10 @@
                         <div style="display:inline-block;padding-left:30px;padding-top:20px;">
                         <asp:Label ID="lbCourseName" CssClass="subCourseFonts" runat="server" Text="基礎會計"></asp:Label>＞<asp:Label ID="lbChapterName" CssClass="subCourseFonts" runat="server" Text="第一章"></asp:Label></div>
                         <br />
-                        <div class="subCourseArea">
+                        <div class="subCourseArea" style="padding-bottom: 20px">
                            <asp:Label ID="lbChapterName2" CssClass="Items" runat="server" Text="第一章"></asp:Label>
                         </div>
-                        <iframe id="playVideo" runat="server" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+                        <iframe id="playVideo" style="padding-left:30px" runat="server" width="560" height="100%" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
                         <%--<asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>--%>
                         <div class="subHomeworkArea">
                             <asp:Button ID="download" CssClass="homeworkButton" runat="server" Text="下載教材" OnClick="download_Click" />
