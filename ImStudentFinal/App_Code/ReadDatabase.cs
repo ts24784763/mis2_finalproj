@@ -329,7 +329,7 @@ public class ReadDatabase
     /// </summary>
     /// <param name="schoolName"></param>
     /// <returns></returns>
-    public static List<Models.ChapterModel> ChapterInCourse(int courseId ,int chapterNum)
+    public static List<Models.ChapterModel> ChapterInCourse(int courseId, int chapterNum)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT * FROM CHAPTER WHERE CourseId = @courseId";
@@ -341,7 +341,7 @@ public class ReadDatabase
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@courseId", courseId));
-            cmd.Parameters.Add(new SqlParameter("@ChapterNum", chapterNum));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", courseId));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -389,13 +389,13 @@ public class ReadDatabase
     public static List<Models.ListModel> ListAllChapterInCourse(int courseId)
     {
         List<Models.ListModel> result = new List<Models.ListModel>();
-        int chapterNum = ReadDatabase.ChapterInCourse(courseId,0).Count;
+        int chapterNum = ReadDatabase.ChapterInCourse(courseId, 0).Count;
         for (int i = 0; i < chapterNum; i++)
         {
             result.Add(new Models.ListModel()
             {
-                Value = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterNum.ToString(),
-                Text = ReadDatabase.ChapterInCourse(courseId,0)[i].ChapterName,
+                Value = ReadDatabase.ChapterInCourse(courseId, 0)[i].ChapterNum.ToString(),
+                Text = ReadDatabase.ChapterInCourse(courseId, 0)[i].ChapterName,
             });
         }
         return result;
@@ -500,5 +500,45 @@ public class ReadDatabase
             });
         }
         return result;
+    }
+
+    /// <summary>
+    /// 送出審核結果
+    /// </summary>
+    /// <param name="apply"></param>
+    public static void denyOrAllowApply(Models.ApplyModel apply)
+    {
+        string sql = @"UPDATE APPLY SET ApplyResult = @ApplyResult";
+        if (apply.PaymentStatus != "")
+            sql += " ,PaymentStatus = @PaymentStatus";
+        sql += " WHERE Applicant = @Applicant AND Receiver = @Receiver";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Applicant", apply.Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", apply.Receiver));
+            cmd.Parameters.Add(new SqlParameter("@ApplyResult", apply.ApplyResult));
+            cmd.Parameters.Add(new SqlParameter("@PaymentStatus", apply.PaymentStatus));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+    }
+    /// <summary>
+    /// 用戶加入學校
+    /// </summary>
+    /// <param name="school"></param>
+    public static void addSchoolToUser(string user, string school)
+    {
+        string sql = @"UPDATE MEMBER SET School= @SchoolName WHERE Account= @Account";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@SchoolName", school));
+            cmd.Parameters.Add(new SqlParameter("@Account", user));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
