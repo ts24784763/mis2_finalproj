@@ -53,7 +53,7 @@
                         <div style="padding-left:30px; padding-top:30px"><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="subHomeworkArea">
-                            <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" />
+                            <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" OnClick="addHomework_Click" />
                         </div>
                     </div>
                 </div>
