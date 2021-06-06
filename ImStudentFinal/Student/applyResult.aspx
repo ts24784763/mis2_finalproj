@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="applyResult.aspx.cs" Inherits="applyOutcome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="applyResult.aspx.cs" Inherits="applyOutcome"  EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
