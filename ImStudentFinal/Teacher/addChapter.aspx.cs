@@ -10,12 +10,10 @@ public partial class Student_addChapter : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int CourseId = 100001; //TODO
+        int CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         string CourseName = ReadDatabase.CourseInfo(CourseId).CourseName;
         int ChapterNum = ReadDatabase.ChapterInCourse(CourseId,0).Count+1; //目前要新增第幾章
         lblCourse.Text = CourseName +" 新增第"+ ChapterNum.ToString() + "章";
-        ChapterGridView.DataSource = ReadDatabase.ChapterInCourse(CourseId,0);
-        ChapterGridView.DataBind();
     }
 
     public void uploadChapterAndVideo(Models.ChapterModel chapter)
@@ -38,7 +36,7 @@ public partial class Student_addChapter : System.Web.UI.Page
 
     protected void btnUpload_Click(object sender, EventArgs e)
     {
-        int CourseId = 100001; //TODO
+        int CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         string CourseName = ReadDatabase.CourseInfo(CourseId).CourseName;
         int ChapterNum = ReadDatabase.ChapterInCourse(CourseId,0).Count + 1; //目前要新增第幾章
         Models.ChapterModel chapter = new Models.ChapterModel
@@ -51,7 +49,7 @@ public partial class Student_addChapter : System.Web.UI.Page
         try
         {
             uploadChapterAndVideo(chapter);
-            Response.Write("<script>alert('章節新增成功')</script>");
+            Response.Write("<script>alert('章節新增成功');location.href='manageChapter.aspx?courseId=" + CourseId + "&chapter=" + ChapterNum + "';</script>");
         }
         catch
         {
