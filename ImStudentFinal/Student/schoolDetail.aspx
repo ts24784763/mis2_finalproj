@@ -103,7 +103,7 @@
                     <br />
                 </div>
              </center>
-                <div class="graduatedMemberInfo">
+                <%--<div class="graduatedMemberInfo">
                 <asp:DataList ID="GraduatedMemberDataList" runat="server" CellPadding="8" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -121,7 +121,7 @@
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:DataList>
                     <br />
-                </div>
+                </div>--%>
         </div>
     </form>
 </body>
