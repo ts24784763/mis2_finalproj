@@ -73,4 +73,16 @@ public class IsExists
             }
         }
     }
+
+    public static string checkSchoolInfo(string schoolName)
+    {
+        string emptyItem = "您的學校缺少這些資料：";
+        if (ReadDatabase.SchoolInfo(schoolName).SchoolIntro == "") emptyItem += "簡介 ";
+        if (ReadDatabase.SchoolInfo(schoolName).RequiredCredits == 0) emptyItem += "學分 ";
+        if (ReadDatabase.SchoolInfo(schoolName).SemesterDays == 0) emptyItem += "學期天數 ";
+        if (ReadDatabase.SchoolInfo(schoolName).SchoolFee == 0) emptyItem += "學費 ";
+        if (ReadDatabase.SchoolInfo(schoolName).License == "") emptyItem += "證書 ";
+        emptyItem += "請先填寫完成！";
+        return emptyItem;
+    }
 }

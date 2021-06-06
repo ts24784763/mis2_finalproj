@@ -56,3 +56,13 @@
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script>
+    function test(check) {
+        course = check.id.split(":");
+        window.location.href = "../Student/mainChapter.aspx?courseId=" + course[0]+"&chapter="+course[1];
+    }
+    function course(check) {
+        course = check.id.split(":");
+        window.location.href = "../Student/mainCourse.aspx?courseId=" + course[0];  
+    }
+</script>

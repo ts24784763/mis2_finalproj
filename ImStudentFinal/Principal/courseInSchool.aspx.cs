@@ -11,7 +11,8 @@ public partial class Principal_courseInSchool : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string schoolName = "美術學校";
+        string principal = Session["userID"].ToString();
+        string schoolName = ReadDatabase.UserInfo(principal).School;
         CourseDataList.DataSource = ReadDatabase.CourseInSchool(schoolName, "");
         CourseDataList.DataBind();
         lbSchool.Text = schoolName + " 目前開設課程";
@@ -28,7 +29,8 @@ public partial class Principal_courseInSchool : System.Web.UI.Page
 
     public void OpenSchool(string OpenSelectCourseDate, string OpenSemesterDate)
     {
-        string schoolName = "美術學校";
+        string principal = Session["userID"].ToString();
+        string schoolName = ReadDatabase.UserInfo(principal).School;
         string sql = @"UPDATE SCHOOL SET OpenSelectCourseDate = @OpenSelectCourseDate, OpenSemesterDate = @OpenSemesterDate, 
                         SchoolStatus = 'SELL' WHERE SchoolName = @SchoolName ";
         using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))

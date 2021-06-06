@@ -820,3 +820,8 @@
     margin-left: 10px;
     margin-top: 28px;
 }
+.StyleForBtn {
+    background-color: white;
+    border: none;
+    width:100%;
+}
