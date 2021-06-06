@@ -11,7 +11,8 @@ public partial class verifyStudent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string schoolName = "元智資管學校";
+        string principal = Session["userID"].ToString();
+        string schoolName = ReadDatabase.UserInfo(principal).School;
         StudentResumeDataList.DataSource = ReadDatabase.ApplyInfo("學生申請學校", "",schoolName);
         StudentResumeDataList.DataBind();
         StudentPaymentDataList.DataSource = ReadDatabase.studentPaymentStatus("", schoolName);
@@ -20,8 +21,10 @@ public partial class verifyStudent : System.Web.UI.Page
     
     protected void btnDownloadResume_Click(object sender, EventArgs e)
     {
-        Response.ContentType = "../Student/Resume/1.docx";
-        Response.AppendHeader("Content-Disposition", "attachment; filename=1.docx");
+        string resumePath = "../Student/"+((Button)sender).CommandArgument;
+        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/"));
+        Response.ContentType = resumePath;
+        Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
 
         // Write the file to the Response  
         const int bufferLength = 10000;
@@ -30,9 +33,7 @@ public partial class verifyStudent : System.Web.UI.Page
         Stream download = null;
         try
         {
-            download = new FileStream(Server.MapPath("~/Student/Resume/1.docx"),
-                                                           FileMode.Open,
-                                                           FileAccess.Read);
+            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
             do
             {
                 if (Response.IsClientConnected)

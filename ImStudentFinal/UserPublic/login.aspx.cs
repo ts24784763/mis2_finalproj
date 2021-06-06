@@ -44,7 +44,7 @@ public partial class Login : System.Web.UI.Page
                 else if (ReadDatabase.UserInfo(Session["userID"].ToString()).Role == "老師")
                     nextPage = "../Teacher/schoolInfo.aspx";
             }
-            Response.Write("<script>alert('登入成功');location.href='" + nextPage + "';</script>");
+            Response.Write("<script>alert('您好 " + ReadDatabase.UserInfo(Session["userID"].ToString()).Name + ReadDatabase.UserInfo(Session["userID"].ToString()).Role + "');location.href='" + nextPage + "';</script>");
         }
         else
             Response.Write("<script>alert('登入失敗')</script>");
