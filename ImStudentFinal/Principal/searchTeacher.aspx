@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link href="../Css/reset.css" rel="stylesheet" />
 <link href="../Css/pageStyle.css" rel="stylesheet" />
+<link href="../Css/KenStyle.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
     <div class="bar">
@@ -29,24 +30,26 @@
                    想邀請哪位老師：<asp:TextBox ID="searchTeacher" CssClass="searchTxt" runat="server"></asp:TextBox><asp:Button ID="searchBtn" CssClass="searchChecked" runat="server" Text="搜尋＞" Width="90px" OnClick="searchBtn_Click" />
             </div>
         </div>
-        <div class="searchBottom">
-            <asp:DataList ID="teacherDatalist" CssClass="datalistTeacher" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="2" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
+        <div class="searchBottom" style="width:60%; margin: auto; padding-top:30px">
+            <asp:DataList ID="teacherDatalist" style="width:100%" runat="server" CellPadding="4" ForeColor="#333333" RepeatColumns="2" RepeatDirection="Horizontal" HorizontalAlign="Center">
             <AlternatingItemStyle BackColor="#F0F0F0" />
             <FooterStyle BackColor="#F0F0F0" Font-Bold="True" ForeColor="white" />
             <HeaderStyle BackColor="#F0F0F0" Font-Bold="True" ForeColor="white" />
             <ItemStyle BackColor="#EFF3FB" CssClass="resultTd"/>
                 <ItemTemplate>
-                <div class="Items">
-                    <div style="display:flex;flex-direction:column;">
-                    <asp:Image ID="teacherImage" Height="250px" Width="250px" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png"/>
+                    <center>
+                    <div style="margin:auto; line-height:2">
+                    <asp:Image ID="teacherImage" Height="190px" Width="180px" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/1024px-Crystal_personal.svg.png"/>
+                    <br />
                     <asp:Label ID="teacherName" CssClass="name" runat="server" Text='<%# Eval("ApplicantName") %>'></asp:Label>
+                    <br />
                     <asp:Label ID="introduction" CssClass="intro" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
-                    <div class="btn">
+                    <div class="btn" style="margin:auto; padding-top:10%">
                         <%--<asp:Label ID="viewResume" CssClass="viewStyle" runat="server" Text="檢視履歷"></asp:Label>--%>
                         <asp:Button ID="btnviewResume" OnClick="btnviewResume_Click" runat="server" CommandArgument ='<%# Eval("ResumeFilePath") %>' CssClass="viewStyle" Text="檢視履歷" />
                         <asp:Button ID="btnInvite" OnClick="btnInvite_Click" runat="server" CssClass="inviteStyle" Text="寄送邀請" CommandArgument='<%# Eval("Applicant") %>' />
                     </div>
-                </div>
+                    </center>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="#F0F0F0" Font-Bold="True" ForeColor="#F0F0F0" />
             </asp:DataList>  

@@ -224,6 +224,13 @@ radioButton {
     border-color: lightgrey;
 }
 
+.resultTd {
+    padding: 30px;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+}
+
 #TeacherDataList {
     padding-left: 10%;
     padding-right: 10%;
