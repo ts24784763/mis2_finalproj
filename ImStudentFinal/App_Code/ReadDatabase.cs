@@ -453,7 +453,6 @@ public class ReadDatabase
         }
         return result;
     }
-
     /// <summary>
     /// 送出審核結果
     /// </summary>
@@ -493,5 +492,38 @@ public class ReadDatabase
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+    }
+
+    /// <summary>
+    /// 根據關鍵字搜尋課程
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.CourseAndTeacherModel> SearchCourseByWord(string CourseName, string professorName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name, CourseName, CourseCredit FROM MEMBER M JOIN COURSE C ON M.Account = C.Teacher 
+                       WHERE CourseName LIKE '%' + @CourseName + '%' AND Name LIKE '%' + @TeacherName + '%'";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
+            cmd.Parameters.Add(new SqlParameter("@TeacherName", professorName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseAndTeacherModel> result = new List<Models.CourseAndTeacherModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseAndTeacherModel()
+            {
+                CourseName = row["CourseName"].ToString(),
+                TeacherName = row["Name"].ToString(),
+                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
+            });
+        }
+        return result;
     }
 }
