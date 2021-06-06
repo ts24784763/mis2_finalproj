@@ -10,13 +10,14 @@ public partial class mainCourse : System.Web.UI.Page
     protected void Page_Init(object sender, EventArgs e)
     {
         string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-        int courseId = 100001; //TODO
+        string urlCourseId = Server.UrlDecode(Request.QueryString["courseId"]);
+        int courseId = int.Parse(urlCourseId); //TODO
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
         var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
-        var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
+        var chapterList = ReadDatabase.ListAllChapterInCourse(courseId);
         String html = string.Empty;
 
         for (int i = 0; i < courseList.Count; i++)
@@ -26,7 +27,7 @@ public partial class mainCourse : System.Web.UI.Page
             html += "<div class=\"accordion-item\">";
             html += " <h2 class=\"accordion-header\" id=\"panelsStayOpen-heading" + num + "\">";
             html += "<button class=\"accordion-button collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#panelsStayOpen-collapse" + num + "\" aria-expanded=\"true\" aria-controls=\"panelsStayOpen-collapse" + num + "\">";
-            html += "<div class=\"accordionFonts\" onclick=\"course(this) \" id =\"" + courseList[i].Value + "\" >" + courseList[i].Text + "<br><br>共" + chapterList.Count.ToString() + "堂";
+            html += "<div class=\"accordionFonts\" onclick=\"courseChange(this) \" id =\"" + courseList[i].Value + "\" >" + courseList[i].Text + "<br><br>共" + chapterList.Count.ToString() + "堂";
             html += "</div>";
             html += "</button>";
             html += "</h2>";
