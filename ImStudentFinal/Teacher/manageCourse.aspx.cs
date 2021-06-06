@@ -44,6 +44,24 @@ public partial class Student_manageCourse : System.Web.UI.Page
             this.accordionPanelsStayOpenExample.Controls.Add(new LiteralControl(html));
             html = string.Empty;
         }
+
+        if (IsExists.CourseHaveHW(courseId))
+        {
+            addHomework.Visible = false;
+            lbHWName.Visible = true;
+            lbHWDetail.Visible = true;
+            lbHWDeadline.Visible = true;
+            lbHWName.Text += ReadDatabase.CourseInfo(courseId).HWName;
+            lbHWDetail.Text += ReadDatabase.CourseInfo(courseId).HWDetail;
+            lbHWDeadline.Text += ReadDatabase.CourseInfo(courseId).HWDeadlineDays + "天";
+        }
+        else
+        {
+            addHomework.Visible = true;
+            lbHWName.Visible = false;
+            lbHWDetail.Visible = false;
+            lbHWDeadline.Visible = false;
+        }
     }
 
     protected void editBtn_Click(object sender, EventArgs e)
@@ -55,10 +73,7 @@ public partial class Student_manageCourse : System.Web.UI.Page
     protected void addHomework_Click(object sender, EventArgs e)
     { 
         int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
-        if (IsExists.CourseHaveHW(courseId))
-            Response.Write("<script>alert('這堂課已經出過作業了');</script>");
-        else
-            Response.Redirect("addHW.aspx?courseId=" + courseId);
+        Response.Redirect("addHW.aspx?courseId=" + courseId);
     }
 
     protected void btnAddChapter_Click(object sender, EventArgs e)

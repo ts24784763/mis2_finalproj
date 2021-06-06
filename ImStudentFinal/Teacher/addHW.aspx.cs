@@ -12,6 +12,8 @@ public partial class HomeWork : System.Web.UI.Page
     {
         int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         lblHomeWork.Text = ReadDatabase.CourseInfo(courseId).CourseName + " 新增作業";
+        int semesterDays = ReadDatabase.SchoolInfo(ReadDatabase.CourseInfo(courseId).School).SemesterDays;
+        lblDeadLine.Text = "*設定繳交期限(本學期共有" + semesterDays + "天)：";
     }
 
     public void AddHomeWork(Models.CourseModel course)
@@ -33,21 +35,29 @@ public partial class HomeWork : System.Web.UI.Page
     protected void btnAddHW_Click(object sender, EventArgs e)
     {
         int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
-        Models.CourseModel HWPost = new Models.CourseModel
+        int semesterDays = ReadDatabase.SchoolInfo(ReadDatabase.CourseInfo(courseId).School).SemesterDays;
+        if (int.Parse(txtHWDeadlineDays.Text) > semesterDays) 
         {
-            HWName = txtHWName.Text,
-            HWDetail = txtHWDetail.Text,
-            HWDeadlineDays = int.Parse(txtHWDeadlineDays.Text),
-            CourseId = courseId
-        };
-        try
-        {
-            AddHomeWork(HWPost);
-            Response.Write("<script>alert('作業新增成功');location.href='manageCourse.aspx?courseId="+ courseId + "';</script>");
+            Response.Write("<script>alert('繳交期限不能超過學期天數');</script>");
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('作業新增失敗');</script>");
+            Models.CourseModel HWPost = new Models.CourseModel
+            {
+                HWName = txtHWName.Text,
+                HWDetail = txtHWDetail.Text,
+                HWDeadlineDays = int.Parse(txtHWDeadlineDays.Text),
+                CourseId = courseId
+            };
+            try
+            {
+                AddHomeWork(HWPost);
+                Response.Write("<script>alert('作業新增成功');location.href='manageCourse.aspx?courseId=" + courseId + "';</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('作業新增失敗');</script>");
+            }
         }
     }
 }
