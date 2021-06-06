@@ -11,6 +11,8 @@
     display: inline-block;
     position: relative;
     font-size: 30px;
+    top: 0px;
+    left: 0px;
 }
 
 .rightText {
@@ -643,13 +645,7 @@
         font-weight: bold;
         color: rgb(56,75,90);
     }
-.wrapperTeacher .wrapper .teacherTitle {
-        width: 100%;
-        justify-content: space-around;
-        height: auto;
-        font-size: 20px;
-        color: rgb(56,75,90);
-}
+
 .wrapperTeacher .wrapper .teacherName {
     border-top: none;
     border-left: none;
@@ -824,4 +820,22 @@
     background-color: white;
     border: none;
     width:100%;
+}
+.labelLeft{
+    float:left;
+    background-color:#F0F0F0;
+}
+.labelRight {
+    background-color: #F0F0F0;
+    float:right;
+}
+.wrapperTeacher .wrapper .teacherTitle {
+    width: 100%;
+    justify-content: space-around;
+    background-color: #F0F0F0;
+    height: auto;
+    font-size: 20px;
+    color: rgb(56,75,90);
+    display: inline-block;
+
 }
