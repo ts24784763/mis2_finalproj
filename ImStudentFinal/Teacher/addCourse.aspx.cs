@@ -48,7 +48,6 @@ public partial class Course : System.Web.UI.Page
         string school = ReadDatabase.UserInfo(userSession).School;
         Models.CourseModel course = new Models.CourseModel
         {
-            CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"])),
             CourseName = txtCourseName.Text,
             CourseIntro = txtCourseInfo.Text,
             CourseCredit = int.Parse(RadioCredit.Text),

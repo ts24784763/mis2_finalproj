@@ -163,7 +163,7 @@ public class ReadDatabase
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 HWFileName = row["HWFileName"].ToString(),
                 HWFilePath = row["HWFilePath"].ToString(),
-                HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
+                //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
                 PassOrNot = row["PassOrNot"].ToString(),
             });
         }

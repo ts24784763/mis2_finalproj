@@ -9,13 +9,14 @@ public partial class Student_manageCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-        int courseId = 100007;//int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        string teacherAccount = Session["userID"].ToString();
+        string schoolName = ReadDatabase.UserInfo(teacherAccount).School;
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
-        var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
-        var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
+        var courseList = ReadDatabase.ListCourseInSchoolByTeacher(schoolName, teacherAccount); //課程清單
+        var chapterList = ReadDatabase.ListAllChapterInCourse(courseId); //章節清單 參數放課程Id
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
         String html = string.Empty;
 
@@ -46,7 +47,7 @@ public partial class Student_manageCourse : System.Web.UI.Page
 
     protected void editBtn_Click(object sender, EventArgs e)
     {
-        int courseId = 100007; //int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         Response.Redirect("addCourse.aspx?act=edit&courseId=" + courseId);
     }
 }
