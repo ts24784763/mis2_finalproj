@@ -101,7 +101,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="radioRole" ErrorMessage="請選擇身分" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Button ID="btnSubmitRegister" runat="server" Text="註冊" Width="388px" Height="31px" OnClick="btnSubmitRegister_Click1" />
+                <asp:Button ID="btnSubmitRegister" runat="server" Text="註冊" Width="390px" Height="41px" OnClick="btnSubmitRegister_Click1" />
                 <br />
                 <br />
                 <br />
