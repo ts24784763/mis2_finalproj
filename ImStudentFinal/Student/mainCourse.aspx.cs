@@ -21,7 +21,7 @@ public partial class mainCourse : System.Web.UI.Page
         string passString = ReadDatabase.CourseSelectionInfo(studentAccount, courseId).PassOrNot;
         if (passString == "") lbHWPass.Text = "尚未批改";
         else lbHWPass.Text = passString;
-        var courseList = ReadDatabase.ListAllCourseInSchool(schoolName); //課程清單
+        var courseList = ReadDatabase.ListAllCourseByStudent(studentAccount); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(courseId);
         String html = string.Empty;
 
