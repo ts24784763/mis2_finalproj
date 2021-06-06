@@ -51,7 +51,7 @@
                 <br />
                 <br />
                 <div class="btnArea" style="margin-top:20px;">
-                         <asp:Button ID="viewCourse" CssClass="checkBtn2" style="border-radius: 5px;" runat="server" Text="查看目前課程" OnClick="viewCourse_Click" />
+                         <asp:Button ID="viewCourse" CssClass="checkBtn2" style="border-radius: 5px;" CausesValidation="false"  runat="server" Text="查看目前課程" OnClick="viewCourse_Click" />
                           <asp:Button ID="savingBtn" CssClass="checkBtn2" style="border-radius: 5px;" runat="server" Text="儲存" BackColor="Black" OnClick="savingBtn_Click"/>
                 </div>
             </div>
