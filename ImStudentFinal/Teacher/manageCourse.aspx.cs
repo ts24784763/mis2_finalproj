@@ -15,6 +15,7 @@ public partial class Student_manageCourse : System.Web.UI.Page
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
+        lbCourseIntro.Text = ReadDatabase.CourseInfo(courseId).CourseIntro;
         var courseList = ReadDatabase.ListCourseInSchoolByTeacher(schoolName, teacherAccount); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(courseId); //章節清單 參數放課程Id
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;

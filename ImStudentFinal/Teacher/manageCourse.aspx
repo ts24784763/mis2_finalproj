@@ -34,8 +34,6 @@
                             </div>
                         </div>
                         <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
-
-
                         </div>
                          <div class="btn" style="margin-top: auto; ">
                             <asp:Button ID="uploardCourse" CssClass="btnCourse" style="border-radius: 5px;" runat="server" Text="上傳課程影片" />
@@ -45,15 +43,14 @@
                         <div style="display:flex;flex-direction:row;"> 
                             <asp:Label ID="lbCourseName" CssClass="courseFonts" runat="server" Text="基礎會計"></asp:Label>
                             <asp:Button ID="editBtn" CssClass="editButton" style="border-radius: 5px;" runat="server" Text="編輯" Width="60px" OnClick="editBtn_Click" />
-                        </div>
-                    
+                        </div>                  
                         <br />
                         <div class="teacherArea">
                            <asp:Label ID="lbTeacherName" CssClass="Items" runat="server" Text="XXX"></asp:Label>
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
-                        <div> <a href="#" class="courseLink">(課程簡介)</a></div>
+                        <div><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="subHomeworkArea">
                             <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" />

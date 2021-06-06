@@ -58,7 +58,7 @@ public partial class Principal_fixSchool : System.Web.UI.Page
         try
         {
             editSchool(school);
-            Response.Write("<script>alert('整修成功');location.href='inviteTeacher.aspx';</script>");
+            Response.Write("<script>alert('整修成功');location.href='courseInSchool.aspx';</script>");
         }
         catch
         {
