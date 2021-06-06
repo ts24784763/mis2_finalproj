@@ -453,4 +453,52 @@ public class ReadDatabase
         }
         return result;
     }
+
+    /// <summary>
+    /// 根據關鍵字搜尋老師
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.ApplyModel> SearchTeacherByWord(string ApplyType, string Applicant, string Receiver, string ApplicantName, string ApplyResult)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Name AS ApplicantName, Applicant, Receiver, ApplyIntro, ResumeFileName, ResumeFilePath, ApplyResult
+                        FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType";
+        if (Applicant != "")
+            sql += " AND Applicant = @Applicant\n";
+        else if (Receiver != "")
+            sql += " AND Receiver = @Receiver\n";
+        else if (ApplicantName != "")
+            sql += " AND Name like '%' + @ApplicantName + '%'\n";
+        else if (ApplyResult != "")
+            sql += " AND ApplyResult = @ApplyResult";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@ApplyType", ApplyType));
+            cmd.Parameters.Add(new SqlParameter("@Applicant", Applicant));
+            cmd.Parameters.Add(new SqlParameter("@Receiver", Receiver));
+            cmd.Parameters.Add(new SqlParameter("@ApplicantName", ApplicantName));
+            cmd.Parameters.Add(new SqlParameter("@ApplyResult", ApplyResult));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.ApplyModel> result = new List<Models.ApplyModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.ApplyModel()
+            {
+                ApplicantName = row["ApplicantName"].ToString(),
+                Applicant = row["Applicant"].ToString(),
+                Receiver = row["Receiver"].ToString(),
+                ApplyIntro = row["ApplyIntro"].ToString(),
+                ApplyResult = row["ApplyResult"].ToString(),
+                ResumeFileName = row["ResumeFileName"].ToString(),
+                ResumeFilePath = row["ResumeFilePath"].ToString(),
+            });
+        }
+        return result;
+    }
 }
