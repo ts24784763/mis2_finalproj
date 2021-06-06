@@ -36,7 +36,7 @@
                         <asp:Image id="schoolImg" runat="server" ImageUrl="https://picsum.photos/300/150?random=1" Height="120px" Width="180px"/>
                     </div>
                     <div class="resultSchoolInfo">
-                        <asp:Label ID="lbStudentName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("School") %>'/>
+                        <asp:Label ID="lbStudentName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("Receiver") %>'/>
                     <br />
                     <div style="padding-top: 30px">
                         申請狀況：
