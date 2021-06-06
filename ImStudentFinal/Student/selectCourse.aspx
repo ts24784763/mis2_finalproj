@@ -28,12 +28,12 @@
      <div class="courseWrapper">
          <div class="left">
          <div class="items">
-             課程名稱
-             <asp:TextBox ID="courseName" CssClass="professorUnique" runat="server"></asp:TextBox>
-         </div>
-         <div class="items">
              教授名稱
              <asp:TextBox ID="professorName" CssClass="professorUnique" runat="server"></asp:TextBox>
+         </div>
+         <div class="items">
+             課程名稱
+             <asp:TextBox ID="courseName" CssClass="professorUnique" runat="server"></asp:TextBox>
          </div>
          </div>
          <div class="right">
@@ -45,6 +45,7 @@
     <asp:GridView ID="GVCourse" CssClass="mGrid" HorizontalAlign="Center" runat="server"  >
         <Columns>
             <asp:TemplateField HeaderText="選擇課程">
+                <ItemStyle CssClass="GV"/>
                 <ItemTemplate>
                     <asp:CheckBox ID="chkAdd"  runat="server"  ></asp:CheckBox>
                 </ItemTemplate>

@@ -27,7 +27,10 @@
             <div class="wrapper" style="line-height:1">
                 <br />
                 <asp:Label ID="schoolDate" runat="server" style="color:midnightblue" Text="一個學期的長度"></asp:Label><br />
-                <asp:TextBox id="txtDays" CssClass="textWraper" type="text" placeholder="Update the semester days of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <div  style="white-space: nowrap">
+                    <asp:TextBox id="txtDays" CssClass="textWraper" type="text" placeholder="Update the semester days of the school" runat="server" Width="98%" BackColor="#F0F0F0" TextMode="Number"></asp:TextBox>
+                    <asp:Label ID="Label1" Width="2%" runat="server" Text="天"></asp:Label>
+                </div>
                 <br />
                 <center><asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtDays" ErrorMessage="請輸入數字（學期天數可為30～365天）" ForeColor="#CC0000" MaximumValue="365" MinimumValue="30" Type="Integer"></asp:RangeValidator></center>
                 <br />
@@ -37,12 +40,15 @@
                 <center><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCertification" ErrorMessage="請輸入畢業可獲得之證書" ForeColor="#CC0000"></asp:RequiredFieldValidator></center>
                 <br />
                 <asp:Label ID="graduationCredit" style="color:midnightblue" runat="server" Text="畢業門檻學分"></asp:Label><br />
-                <asp:TextBox id="txtCredit" CssClass="textWraper" type="text" placeholder="Update the credit of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <asp:TextBox id="txtCredit" CssClass="textWraper" type="text" placeholder="Update the credit of the school" runat="server" Width="100%" BackColor="#F0F0F0" TextMode="Number"></asp:TextBox>
                 <br />
                 <center><asp:RangeValidator ID="RangeValidator3" runat="server" ErrorMessage="請輸入數字（畢業門檻上限200）" ForeColor="#CC0000" MaximumValue="200" MinimumValue="1" ControlToValidate="txtCredit" Type="Integer"></asp:RangeValidator></center>
                 <br />
                 <asp:Label ID="dateNum" style="color:midnightblue" runat="server" Text="學費"></asp:Label><br />
-                <asp:TextBox id="txtFee"  CssClass="textWraper" type="text" placeholder="Update the money of the school" runat="server" Width="100%" BackColor="#F0F0F0"></asp:TextBox>
+                <div style="white-space: nowrap">
+                    <asp:TextBox id="txtFee"  CssClass="textWraper" type="text" placeholder="Update the money of the school" runat="server" Width="98%" BackColor="#F0F0F0" TextMode="Number"></asp:TextBox>
+                    <asp:Label ID="Label2" Width="2%" runat="server" Text="元"></asp:Label>
+                </div>
                 <br />
                 <center><asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtFee" ErrorMessage="請輸入數字（學費上限為300,000）" ForeColor="#CC0000" MaximumValue="300000" MinimumValue="1" Type="Integer"></asp:RangeValidator></center>
                 <br />
