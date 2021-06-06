@@ -28,12 +28,12 @@
      <div class="courseWrapper">
          <div class="left">
          <div class="items">
-             課程名稱
-             <asp:TextBox ID="courseName" CssClass="professorUnique" runat="server"></asp:TextBox>
-         </div>
-         <div class="items">
              教授名稱
              <asp:TextBox ID="professorName" CssClass="professorUnique" runat="server"></asp:TextBox>
+         </div>
+         <div class="items">
+             課程名稱
+             <asp:TextBox ID="courseName" CssClass="professorUnique" runat="server"></asp:TextBox>
          </div>
          </div>
          <div class="right">

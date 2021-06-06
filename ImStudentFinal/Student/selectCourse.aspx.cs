@@ -10,7 +10,15 @@ public partial class selectCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         if (!IsPostBack)
         {
             LoadGridViewData();
@@ -66,7 +74,15 @@ public partial class selectCourse : System.Web.UI.Page
 
     protected void btnCheck_Click(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         int Credit = 0;
         int cal = 0;
         foreach (GridViewRow item in this.GVCourse.Rows)
@@ -92,7 +108,15 @@ public partial class selectCourse : System.Web.UI.Page
 
     protected void reset_Click(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         foreach (GridViewRow item in this.GVCourse.Rows)
         {
             CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
