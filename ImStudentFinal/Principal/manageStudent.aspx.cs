@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -55,6 +56,51 @@ public partial class verifyStudent : System.Web.UI.Page
         {
             if (download != null)
                 download.Close();
+        }
+    }
+
+    protected void btnDeny_Click(object sender, EventArgs e)
+    {
+        string student = ((Button)sender).CommandArgument;
+        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
+        Models.ApplyModel apply = new Models.ApplyModel
+        {
+            Applicant = student,
+            Receiver = schoolName,
+            ApplyResult = "未通過",
+            PaymentStatus = "",
+        };
+        try
+        {
+            ReadDatabase.denyOrAllowApply(apply);
+            Response.Write("<script>alert('已拒絕" + ReadDatabase.UserInfo(student).Name + "加入" + schoolName + "');location.href='manageStudent.aspx';</script>");
+        }
+        catch
+        {
+            Response.Write("<script>alert('拒絕失敗');</script>");
+        }
+    }
+
+    protected void btnAllow_Click(object sender, EventArgs e)
+    {
+        string student = ((Button)sender).CommandArgument;
+        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
+        Models.ApplyModel apply = new Models.ApplyModel
+        {
+            Applicant = student,
+            Receiver = schoolName,
+            ApplyResult = "通過",
+            PaymentStatus = "未繳費",
+        };
+        try
+        {
+            ReadDatabase.denyOrAllowApply(apply);
+            ReadDatabase.addSchoolToUser(student, schoolName);
+            Response.Write("<script>alert('已讓" + ReadDatabase.UserInfo(student).Name + "加入" + schoolName + "');location.href='manageStudent.aspx';</script>");
+        }
+        catch
+        {
+            Response.Write("<script>alert('允許失敗');</script>");
         }
     }
 }
