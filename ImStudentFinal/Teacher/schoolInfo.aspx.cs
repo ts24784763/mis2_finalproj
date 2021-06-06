@@ -15,7 +15,6 @@ public partial class Teacher_schoolInfo : System.Web.UI.Page
         lbPrincipalName.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(school).Principal).Name;
         lbSchoolIntro.Text = ReadDatabase.SchoolInfo(school).SchoolIntro;
         lbSchoolDays.Text = ReadDatabase.SchoolInfo(school).SemesterDays.ToString() + "天";
-
         var courseList = ReadDatabase.ListCourseInSchoolByTeacher(school, teacherAccount);
         var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
         String html = string.Empty;
