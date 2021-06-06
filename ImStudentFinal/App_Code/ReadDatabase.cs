@@ -641,4 +641,52 @@ public class ReadDatabase
         }
         return result.FirstOrDefault();
     }
+
+    /// <summary>
+    /// 查詢作業資料
+    /// </summary>
+    /// <returns></returns>
+    public static List<Models.CourseSelectionModel> CheckHW(string StudentName, string CourseName)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT CourseName,Name,COURSE_SELECTION.courseId,HWFileName FROM COURSE_SELECTION 
+                            Join MEMBER on Student=Account 
+                            Join COURSE on COURSE_SELECTION.courseId = COURSE.courseId 
+                            WHERE 1 = 1 ";
+        if (StudentName != "")
+        {
+            sql += " AND Name = @StudentName\n";
+        }
+        else if (CourseName != "")
+        {
+            sql += " AND COURSE.CourseName like '%'+  @CourseName +'%'\n";
+        }
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@StudentName", StudentName));
+            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseSelectionModel> result = new List<Models.CourseSelectionModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseSelectionModel()
+            {
+                Name = row["Name"].ToString(),
+                CourseId = int.Parse(row["CourseId"].ToString()),
+                HWFileName = row["HWFileName"].ToString(),
+                CourseName = row["CourseName"].ToString(),
+                //HWFilePath = row["HWFilePath"].ToString(),
+                //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
+                //PassOrNot = row["PassOrNot"].ToString(),
+            });
+        }
+        return result;
+    }
+
 }
