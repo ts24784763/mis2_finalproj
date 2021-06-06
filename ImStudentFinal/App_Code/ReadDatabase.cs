@@ -126,9 +126,45 @@ public class ReadDatabase
                 CourseCredit = int.Parse(row["CourseCredit"].ToString()),
                 Teacher = row["Teacher"].ToString(),
                 School = row["School"].ToString(),
-                //HWName = row["HWName"].ToString(),
-                //HWDetail = row["HWDetail"].ToString(),
-                //HWDeadlineDays = int.Parse(row["Teacher"].ToString()),
+                HWName = row["HWName"].ToString(),
+                HWDetail = row["HWDetail"].ToString(),
+                HWDeadlineDays = int.Parse(row["HWDeadlineDays"].ToString() == "" ? "0" : row["HWDeadlineDays"].ToString()),
+            });
+        }
+        return result.FirstOrDefault();
+    }
+
+    /// <summary>
+    /// 查詢特定courseSelection所有資料
+    /// </summary>
+    /// <param name="userAccount">用戶帳號</param>
+    /// <returns></returns>
+    public static Models.CourseSelectionModel CourseSelectionInfo(string student, int courseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT * FROM COURSE_SELECTION WHERE Student = @Student AND CourseId = @CourseId";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", courseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseSelectionModel> result = new List<Models.CourseSelectionModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseSelectionModel()
+            {
+                Student = row["Student"].ToString(),
+                CourseId = int.Parse(row["CourseId"].ToString()),
+                HWFileName = row["HWFileName"].ToString(),
+                HWFilePath = row["HWFilePath"].ToString(),
+                //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
+                PassOrNot = row["PassOrNot"].ToString(),
             });
         }
         return result.FirstOrDefault();
@@ -571,5 +607,38 @@ public class ReadDatabase
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+    }
+
+    /// <summary>
+    /// 計算學生已選學分加總
+    /// </summary>
+    public static Models.SumCredit SumCredit(string Student)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"select 
+                                Student, SUM(CourseCredit) as [SumCredit]
+                                from COURSE_SELECTION CS join COURSE C 
+                                on CS.CourseId = C.CourseId
+                                group by Student";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", Student));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.SumCredit> result = new List<Models.SumCredit>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.SumCredit()
+            {
+                Student = row["Student"].ToString(),
+                Credit = int.Parse(row["SumCredit"].ToString()),
+            });
+        }
+        return result.FirstOrDefault();
     }
 }

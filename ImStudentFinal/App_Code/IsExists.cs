@@ -85,4 +85,55 @@ public class IsExists
         emptyItem += "請先填寫完成！";
         return emptyItem;
     }
+
+    /// <summary>
+    /// 判斷學生是否已繳交作業
+    /// </summary>
+    /// <param name="CourseId"></param>
+    /// <returns></returns>
+    public static bool AlreadyUploadHW(string student, int CourseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT HWFileName FROM COURSE_SELECTION WHERE Student = @Student AND CourseId = @CourseId ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        if (dt.Rows[0]["HWFileName"].ToString() == "")
+            return false;
+        else
+            return true;
+    }
+
+    /// <summary>
+    /// 判斷此章節是否已上傳教材
+    /// </summary>
+    /// <param name="CourseId"></param>
+    /// <param name="ChapterNum"></param>
+    /// <returns></returns>
+    public static bool AlreadyUploadMaterial(int CourseId, int ChapterNum)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT MaterialFileName FROM CHAPTER WHERE CourseId = @CourseId AND ChapterNum = @ChapterNum ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
+            cmd.Parameters.Add(new SqlParameter("@ChapterNum", ChapterNum));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        if (dt.Rows[0]["MaterialFileName"].ToString() == "")
+            return false;
+        else
+            return true;
+    }
 }
