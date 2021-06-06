@@ -51,7 +51,7 @@
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
-                        <div> <a href="#" class="courseLink">(課程簡介)</a></div>
+                        <div><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="homeworkArea">
                             <div style="float:left; width:20%">
