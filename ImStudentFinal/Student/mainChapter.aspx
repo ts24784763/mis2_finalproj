@@ -26,7 +26,7 @@
                     <div class="schoolLeft">
                         <div class="items">
                             <div class="itemsProcess">
-                               會計學校
+                                <asp:Label ID="lbSchoolName" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
                         <div class="items">
@@ -40,12 +40,13 @@
                     </div>
                     <div class="schoolRight">
                         <div style="display:inline-block;padding-left:30px;padding-top:20px;">
-                        <asp:Label ID="mainCourse" CssClass="subCourseFonts" runat="server" Text="基礎會計"></asp:Label>＞<asp:Label ID="subCourseName" CssClass="subCourseFonts" runat="server" Text="第一章"></asp:Label></div>
+                        <asp:Label ID="lbCourseName" CssClass="subCourseFonts" runat="server" Text="基礎會計"></asp:Label>＞<asp:Label ID="lbChapterName" CssClass="subCourseFonts" runat="server" Text="第一章"></asp:Label></div>
                         <br />
                         <div class="subCourseArea">
-                           <asp:Label ID="teacherName" CssClass="Items" runat="server" Text="第一章"></asp:Label>
+                           <asp:Label ID="lbChapterName2" CssClass="Items" runat="server" Text="第一章"></asp:Label>
                         </div>
-                        <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
+                        <iframe id="playVideo" runat="server" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+                        <%--<asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>--%>
                         <div class="subHomeworkArea">
                             <asp:Button ID="download" CssClass="homeworkButton" runat="server" Text="下載教材" />
                         </div>

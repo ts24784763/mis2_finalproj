@@ -15,13 +15,12 @@ public partial class selectCourse : System.Web.UI.Page
         {
             checkCreditSum.Visible = false;
         }
+        lbTitle.Text = "在" + ReadDatabase.UserInfo(Session["userID"].ToString()).School + "選課";
     }
 
     private void LoadGridViewData()
     {
-        //string schoolName = Server.UrlDecode(Request.QueryString["school"]);
-        string schoolName = "元智資管學校";
-
+        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
         GVCourse.DataSource = ReadDatabase.CourseInSchool(schoolName, "");
         GVCourse.DataBind();
         //不顯示的colums 在此設定
@@ -129,23 +128,22 @@ public partial class selectCourse : System.Web.UI.Page
                 //學分數
                 Credit += int.Parse(item.Cells[6].Text);
             }
-            if (Credit < 30)
-            {
-                Response.Write("<script>alert('學分未達到上限：30學分')</script>");
-                return;
-            }
+            //if (Credit < 30)
+            //{
+            //    Response.Write("<script>alert('學分未達到上限：30學分')</script>");
+            //    return;
+            //}
         }
 
         Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
         {
-            //Student = Session["userID"].ToString(),
-            Student = "28cyc",
+            Student = Session["userID"].ToString(),
             CourseId = CourseID,
         };
         try
         {
             SelectedCourse(CourseSelection);
-            Response.Write("<script>alert('選課成功');location.href='Login.aspx';</script>");
+            Response.Write("<script>alert('選課成功');location.href='mainSchool';</script>");
         }
         catch
         {
