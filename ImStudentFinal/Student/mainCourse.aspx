@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../Css/kendo.common-material.min.css">
     <link rel="stylesheet" href="../Css/kendo.material.min.css">
     <link rel="stylesheet" href="../Css/kendo.materialblack.min.css">
-    <title></title>
+    <title>IM STUDENT - 查看課程</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -63,8 +63,10 @@
                             <br />
                                 <br />
                                 <br />
-                                <a style="padding-left:60%">作業成績：</a>
-                                <asp:Label ID="lbHWPass" CssClass="fontStyle" style="float:right" runat="server" Text="尚未通過"></asp:Label>
+                                <div style="float:right">
+                                    <a>作業成績：</a>
+                                    <asp:Label ID="lbHWPass" CssClass="fontStyle" runat="server" Text="尚未通過"></asp:Label>
+                                </div>
                             </div>
                         </div>
 

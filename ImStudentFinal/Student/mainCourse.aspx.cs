@@ -16,9 +16,15 @@ public partial class mainCourse : System.Web.UI.Page
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
-        lbHW.Text = ReadDatabase.CourseInfo(courseId).HWName;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
         lbCourseIntro.Text = ReadDatabase.CourseInfo(courseId).CourseIntro;
+
+        lbHW.Text = ReadDatabase.CourseInfo(courseId).HWName;
+        lbHWDetail.Text = ReadDatabase.CourseInfo(courseId).HWDetail;
+        int deadLineDays = ReadDatabase.CourseInfo(courseId).HWDeadlineDays;
+        DateTime deadlineDate = Convert.ToDateTime(ReadDatabase.SchoolInfo(schoolName).OpenSemesterDate).AddDays(deadLineDays);
+        lbDeadline.Text = deadlineDate.ToString("yyyy-MM-dd");
+
         string passString = ReadDatabase.CourseSelectionInfo(studentAccount, courseId).PassOrNot;
         if (passString == "") lbHWPass.Text = "尚未批改";
         else lbHWPass.Text = passString;
