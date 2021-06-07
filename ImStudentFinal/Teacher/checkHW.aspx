@@ -39,7 +39,7 @@
         </center>
         <br />
             <center>
-            <asp:DataList ID="StudentHWDataList" runat="server" CellPadding="4"  RepeatColumns="1" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" >
+            <asp:DataList ID="StudentHWDataList" runat="server" CellPadding="4"  RepeatColumns="1" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" OnItemDataBound="StudentHWDataList_ItemDataBound" >
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

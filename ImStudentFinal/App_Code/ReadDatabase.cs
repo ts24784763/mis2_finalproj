@@ -691,7 +691,7 @@ public class ReadDatabase
     /// 查詢作業資料
     /// </summary>
     /// <returns></returns>
-    public static List<Models.CourseSelectionModel> CheckHW(string StudentName)
+    public static List<Models.CourseSelectionModel> CheckHW(string StudentName, int CourseId)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT PassOrNot,
@@ -709,11 +709,16 @@ public class ReadDatabase
         {
             sql += " AND Name = @StudentName\n";
         }
+        else if (CourseId != 0)
+        {
+            sql += " AND COURSE_SELECTION.CourseId =  @CourseId \n";
+        }
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@StudentName", StudentName));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", CourseId));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();

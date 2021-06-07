@@ -84,6 +84,7 @@ public partial class Student_manageCourse : System.Web.UI.Page
 
     protected void checkHwBtn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("../Teacher/checkHW.aspx");
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        Response.Redirect("../Teacher/checkHW.aspx?courseId=" + courseId);
     }
 }

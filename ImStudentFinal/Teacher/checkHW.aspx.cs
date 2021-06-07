@@ -16,9 +16,11 @@ public partial class Teacher_checkHW : System.Web.UI.Page
     }
     private void LoadDataList()
     {
-        StudentHWDataList.DataSource = ReadDatabase.CheckHW("");
+        int CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        StudentHWDataList.DataSource = ReadDatabase.CheckHW("", CourseId);
         StudentHWDataList.DataBind();
     }
+
     protected void btnDownloadHW_Click(object sender, EventArgs e)
     {
         string HWPath = "../Student/" + ((Button)sender).CommandArgument;
@@ -61,7 +63,7 @@ public partial class Teacher_checkHW : System.Web.UI.Page
     protected void btnAllow_Click(object sender, EventArgs e)
     {
         string student = ((Button)sender).CommandArgument;
-        int CourseId = 100001;
+        int CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         Models.CourseSelectionModel PassOrNot = new Models.CourseSelectionModel
         {
             Student = student,
@@ -106,10 +108,20 @@ public partial class Teacher_checkHW : System.Web.UI.Page
     {
         if (txtStudentName.Text != "" )
         {
-            StudentHWDataList.DataSource = ReadDatabase.CheckHW(txtStudentName.Text);
+            int CourseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+            StudentHWDataList.DataSource = ReadDatabase.CheckHW(txtStudentName.Text, CourseId);
             StudentHWDataList.DataBind();
         }
     }
 
 
+
+    protected void StudentHWDataList_ItemDataBound(object sender, DataListItemEventArgs e)
+    {
+        Label lblPassOrNot = e.Item.FindControl("lblPassOrNot") as Label;
+        if (lblPassOrNot.Text == "")
+        {
+            lblPassOrNot.Text = "未審核";
+        }
+    }
 }
