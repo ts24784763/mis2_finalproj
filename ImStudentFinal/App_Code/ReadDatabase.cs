@@ -437,6 +437,8 @@ public class ReadDatabase
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 ChapterName = row["ChapterName"].ToString(),
                 VideoUrl = row["VideoUrl"].ToString(),
+                MaterialFileName = row["MaterialFileName"].ToString(),
+                MaterialFilePath = row["MaterialFilePath"].ToString(),
             });
         }
         return result;

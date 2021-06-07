@@ -58,7 +58,7 @@
                             <center><button class="k-button k-primary btn-open-school" id="btn-open-HwWindow">查看作業</button></center>
                             </div>
                             <div style="float:right; width:80%">
-                            <asp:FileUpload ID="uploadHW" runat="server" style="padding-top:10px;padding-left:20%; width:70%"/>
+                            <asp:FileUpload ID="uploadHW" runat="server" style="padding-top:10px;padding-left:20%; width:70%" Visible="False"/>
                             <asp:Button ID="uploadHomework" CssClass="homeworkButton" style="float:right" runat="server" Text="上傳作業" OnClick="uploadHomework_Click" />
                             <br />
                                 <br />

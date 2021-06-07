@@ -47,7 +47,6 @@
                         </div>
                         <div>
                         <iframe id="playVideo" style="padding-left:10%" runat="server" width="90%" height="300px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
-                        <%--<asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>--%>
                         </div>
                         <div style="padding-top:30px; padding-left:10%">
                             <asp:Button ID="download" CssClass="homeworkButton" runat="server" Text="下載教材" OnClick="download_Click" />
