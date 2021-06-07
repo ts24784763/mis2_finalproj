@@ -44,11 +44,11 @@
                     </div>
                     <div class="schoolRight">
                         <div style="display:inline-block;padding-left:30px;padding-top:20px;">
-                        <div class="teacherSubCourseArea">
+                        <div class="teacherSubCourseArea" style="padding-bottom: 20px">
                            <label class="schoolIntroTitle" style="padding-right:5px">學期長度</label>
                            <asp:Label ID="lbSchoolDays" CssClass="Items3" runat="server" Text="幾天"></asp:Label>
                         </div>
-                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server"/>
+                        <asp:Image ID="schoolImage" CssClass="schoolImg" style="height:auto" runat="server"/>
                         <div style="margin-top:20px; display:flex; flex-direction:column;">
                             <asp:Label ID="intro" CssClass="schoolIntroTitle" runat="server" Text="簡介"></asp:Label>
                             <asp:Label ID="lbSchoolIntro" CssClass="schoolIntro" runat="server" Text="好學校"></asp:Label>
