@@ -61,10 +61,6 @@
                <asp:Label ID="lbSchool" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
                <asp:Label ID="lbMoney" CssClass="money" runat="server" Text="錢包餘額： $ 15"></asp:Label>
            </div>
-<%--           <div class="certification">
-               <asp:Label ID="myCertification" runat="server" Text="• 我的證書："></asp:Label>
-               <asp:Label ID="certifications" CssClass="certificationLabel" runat="server" Text="XXXX"></asp:Label>
-           </div>--%>
            </div>
            <div class="setting">
                <asp:Label ID="settings" CssClass="settingFonts" runat="server" Text="個人資料設定"></asp:Label><hr />

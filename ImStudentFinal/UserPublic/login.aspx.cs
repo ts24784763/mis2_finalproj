@@ -31,8 +31,7 @@ public partial class Login : System.Web.UI.Page
                 {
                     if(IsExists.AlreadyApply(Session["userID"].ToString(),"")) nextPage = "../Teacher/schoolInviteMe.aspx";
                     else nextPage = "../Teacher/uploadResume.aspx";
-                }
-                    
+                }                 
             }
             //有學校
             else

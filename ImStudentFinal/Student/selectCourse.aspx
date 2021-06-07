@@ -59,7 +59,7 @@
     </asp:GridView>
             <br />
         <div style="font-size:25px;font-weight:bold;">
-               <asp:Button ID="btnCheck" runat="server" Text="查看是否超過學分上限" CssClass="checkBtn" OnClick="btnCheck_Click" ></asp:Button>
+               <asp:Button ID="btnCheck" runat="server" Text="查看是否超過畢業門檻" CssClass="checkBtn" OnClick="btnCheck_Click" ></asp:Button>
                 <br /><br />
             <asp:Label ID="checkCreditSum" runat="server" Text="0/30"></asp:Label>
         </div>

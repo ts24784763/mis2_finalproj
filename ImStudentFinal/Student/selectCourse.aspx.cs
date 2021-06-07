@@ -10,27 +10,21 @@ public partial class selectCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int SumCredit = 0;
-        try
-        {
-            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-        }
-        catch
-        {
-            SumCredit = 0;
-        }
+        string student = Session["userID"].ToString();
+        int SumCredit = ReadDatabase.SumCredit(student).Credit;
+        int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
         if (!IsPostBack)
         {
             LoadGridViewData();
         }
         lbTitle.Text = "在" + ReadDatabase.UserInfo(Session["userID"].ToString()).School + "選課";
-        checkCreditSum.Text = "已選擇學分：  " + SumCredit + "/30  學分";
+        checkCreditSum.Text = "已選擇學分：  " + SumCredit + "/"+ RequiredCredits + "  學分";
     }
 
     private void LoadGridViewData()
     {
-        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-        GVCourse.DataSource = ReadDatabase.CourseInSchool(schoolName, "");
+        string student = Session["userID"].ToString();
+        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student);
         GVCourse.DataBind();
         //不顯示的colums 在此設定
         int[] ary = { 1, 3, 4 };
@@ -74,21 +68,22 @@ public partial class selectCourse : System.Web.UI.Page
 
     protected void btnCheck_Click(object sender, EventArgs e)
     {
-        int SumCredit = 0;
-        try
-        {
-            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-        }
-        catch
-        {
-            SumCredit = 0;
-        }
-        int Credit = 0;
-        int cal = 0;
+        checkCredit();
+    }
+
+    /// <summary>
+    /// 目前選擇學分是否超過畢業門檻
+    /// </summary>
+    /// <returns></returns>
+    public bool checkCredit()
+    {
+        string student = Session["userID"].ToString();
+        int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
+        int SumCredit = ReadDatabase.SumCredit(student).Credit;
+        int Credit = 0, cal = 0;
         foreach (GridViewRow item in this.GVCourse.Rows)
         {
             CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
-
             if (ckb.Checked)
             {
                 //學分數
@@ -102,31 +97,77 @@ public partial class selectCourse : System.Web.UI.Page
                 checkCreditSum.Text = cal.ToString();
             }
         }
-        
-        checkCreditSum.Text = "已選擇學分：  " + cal.ToString() + "/30  學分";
+        checkCreditSum.Text = "已選擇學分：  " + cal.ToString() + "/" + RequiredCredits + "  學分";
+        if (cal > RequiredCredits) return true;
+        else return false;
     }
 
     protected void reset_Click(object sender, EventArgs e)
     {
-        int SumCredit = 0;
-        try
-        {
-            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-        }
-        catch
-        {
-            SumCredit = 0;
-        }
+        string student = Session["userID"].ToString();
+        int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
+        int SumCredit = ReadDatabase.SumCredit(student).Credit;
         foreach (GridViewRow item in this.GVCourse.Rows)
         {
             CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
-
             if (ckb.Checked)
             {
                 ckb.Checked = false;
             }
         }
-        checkCreditSum.Text = "已選擇學分：  " + SumCredit + "/30  學分";
+        checkCreditSum.Text = "已選擇學分：  " + SumCredit + "/" + RequiredCredits + "  學分";
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        if (checkCredit())
+        {
+            Response.Write("<script>alert('選擇學分不能超過畢業門檻')</script>");
+        }
+        else
+        {
+            int Credit = 0;
+            bool successFlag = false, failFlag = false; //有沒有成功INSERT過
+            string CourseID = "", CourseName = "", SuccessMsg = "", FailMsg = "";
+
+            foreach (GridViewRow item in this.GVCourse.Rows)
+            {
+                CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
+                if (ckb.Checked)
+                {
+                    CourseID = item.Cells[1].Text; //課程ID
+                    Credit += int.Parse(item.Cells[6].Text); //學分數
+                    CourseName = item.Cells[2].Text; //課程名稱
+                    Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
+                    {
+                        Student = Session["userID"].ToString(),
+                        CourseId = int.Parse(CourseID),
+                    };
+                    try
+                    {
+                        SelectedCourse(CourseSelection);
+                        SuccessMsg += CourseName + " ";
+                        successFlag = true;
+                    }
+                    catch
+                    {
+                        FailMsg += CourseName + " ";
+                        failFlag = true;
+                    }
+                }
+            }
+            if (successFlag == true) Response.Write("<script>alert('選擇成功的課程：" + SuccessMsg + "')</script>");
+            if (failFlag == true) Response.Write("<script>alert('選擇失敗的課程：" + CourseName + "')</script>");
+
+            string student = Session["userID"].ToString();
+            int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
+            if (Credit < RequiredCredits)
+            {
+                int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+                Response.Write("<script>alert('學分未達到畢業門檻： " + Credit + "/" + RequiredCredits + "')</script>");
+            }
+            LoadGridViewData();
+        }
     }
 
     public void SelectedCourse(Models.CourseSelectionModel CourseSelection)
@@ -141,92 +182,6 @@ public partial class selectCourse : System.Web.UI.Page
             cmd.Parameters.Add(new SqlParameter("@CourseId", CourseSelection.CourseId));
             cmd.ExecuteNonQuery();
             conn.Close();
-        }
-    }
-
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        int Credit = 0;
-        bool flag = false;
-        string CourseID = "";
-        string CourseName = "";
-        string SuccessMsg = "", FailMsg = "", alreadyChoose = "";
-        
-        foreach (GridViewRow item in this.GVCourse.Rows)
-        {
-            CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
-
-            if (ckb.Checked)
-            {
-                //課程ID
-                CourseID = item.Cells[1].Text;
-                //學分數
-                Credit += int.Parse(item.Cells[6].Text);
-                //課程名稱
-                CourseName = item.Cells[2].Text;
-                
-                Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
-                {
-                    Student = Session["userID"].ToString(),
-                    CourseId = int.Parse(CourseID),
-                };
-
-                //紀錄重複選擇的課程
-                if (IsExists.AlreadySelectedCourse(Session["userID"].ToString(), int.Parse(CourseID)) == true)
-                {
-                    alreadyChoose += CourseName;
-                }
-
-                try
-                {
-                    SelectedCourse(CourseSelection);
-                    SuccessMsg += CourseName + " ";
-                    flag = true;
-                }
-                catch
-                {
-                    
-                }
-                if (flag == true)
-                {
-                    if (alreadyChoose == "")
-                    {
-                        alreadyChoose = "無";
-                    }
-                    Response.Write("<script>alert('選擇成功的課程：" + SuccessMsg + "，"  + "重複選擇課程：" + alreadyChoose + "')</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('重複選擇的課程：" + alreadyChoose + "')</script>");
-                }
-
-                if (Credit < 30)
-                {
-                    int SumCredit = 0;
-                    try
-                    {
-                        SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-                    }
-                    catch
-                    {
-                        SumCredit = 0;
-                    }
-                    int cal = 0;
-                    cal = SumCredit + Credit;
-                    checkCreditSum.Text = cal.ToString();
-                    Response.Write("<script>alert('學分未達到上限：" + checkCreditSum.Text + "')</script>");
-                }
-
-                if (flag == true)
-                {
-                    Response.Write("<script>alert('選課成功！');location.href='mainSchool.aspx';</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('選課失敗！');location.href='mainSchool.aspx';</script>");
-                }
-
-            }
         }
     }
 }
