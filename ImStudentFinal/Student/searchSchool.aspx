@@ -56,6 +56,7 @@
                     <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" style="word-break:break-word" runat="server" Text='<%# Eval("SchoolIntro") %>'></asp:Label>
                     <br />
                     <br />
+                    <label style="font-size:larger;color:darkblue">修畢學分可得</label><br />
                     <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>
                     <br />
                     <br />

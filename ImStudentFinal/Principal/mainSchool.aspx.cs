@@ -17,5 +17,6 @@ public partial class mainSchool : System.Web.UI.Page
         lbLicense.Text = ReadDatabase.SchoolInfo(schoolName).License;
         lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
         lbPrincipal.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(schoolName).Principal).Name;
+        schoolImage.ImageUrl = "~/Principal/" + ReadDatabase.SchoolInfo(schoolName).ImageUrl;
     }
 }

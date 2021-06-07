@@ -28,7 +28,6 @@
                             <div class="itemsProcess">
                                <asp:Label ID="lbSchoolName" runat="server" Text="學校名字"></asp:Label>
                             </div>
-
                         </div>
                     </div>
                     <div class="schoolRight" >
@@ -37,9 +36,9 @@
                             <label class="schoolFonts" style="color:#4b7799; font-size: 20px; font-weight:bold">畢業所需</label>
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
-                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"  src="https://picsum.photos/300/150?random=1"/>
+                        <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"/>
                          <asp:Label ID="intro" CssClass="schoolTitle" style="padding-right:30px" runat="server" Text="簡介"></asp:Label>     
-                         <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" runat="server" Text="好學校"></asp:Label>
+                         <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" style="padding-right:30px" runat="server" Text="好學校"></asp:Label>
                          <asp:Label ID="schoolCertification" CssClass="schoolTitle" runat="server" Text="證書"></asp:Label>
                          <asp:Label ID="lbLicense" CssClass="schoolFonts" runat="server" Text="IMS認證會計"></asp:Label>
                         <div style="display:flex;flex-direction:column;">

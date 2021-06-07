@@ -17,6 +17,7 @@ public partial class mainSchool : System.Web.UI.Page
         lbLicense.Text = ReadDatabase.SchoolInfo(schoolName).License;
         lbSchoolIntro.Text = ReadDatabase.SchoolInfo(schoolName).SchoolIntro;
         lbPrincipal.Text = ReadDatabase.UserInfo(ReadDatabase.SchoolInfo(schoolName).Principal).Name;
+        schoolImage.ImageUrl = "~/Principal/" + ReadDatabase.SchoolInfo(schoolName).ImageUrl;
         var courseList = ReadDatabase.ListAllCourseByStudent(Session["userID"].ToString()); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(100001); //章節清單 參數放課程Id
         String html = string.Empty;

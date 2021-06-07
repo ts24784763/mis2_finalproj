@@ -18,7 +18,8 @@
         <div class="bar">
             <a href="../UserPublic/index.aspx" style="font-size: 30px;">IM STUDENT</a>
             <div class="rightText">
-            <a href="../UserPublic/login.aspx">登入/註冊</a>
+            <a href="../UserPublic/login.aspx">登入</a>
+            <a href="../UserPublic/register.aspx">註冊</a>
             </div>
         </div>
         <div class="block">
@@ -37,15 +38,15 @@
         <div class="footer">
             <div class="wrap">
             <img src="https://picsum.photos/300/150?random=1" alt="測試圖片1"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片2"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片3"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片4"/>
+            <img src="https://picsum.photos/300/150?random=2" alt="測試圖片2"/>
+            <img src="https://picsum.photos/300/150?random=3" alt="測試圖片3"/>
+            <img src="https://picsum.photos/300/150?random=4" alt="測試圖片4"/>
             </div>
             <div class="wrap">
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片5"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片6"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片7"/>
-            <img src="https://picsum.photos/300/150?random=1" alt="測試圖片8"/>
+            <img src="https://picsum.photos/300/150?random=5" alt="測試圖片5"/>
+            <img src="https://picsum.photos/300/150?random=6" alt="測試圖片6"/>
+            <img src="https://picsum.photos/300/150?random=7" alt="測試圖片7"/>
+            <img src="https://picsum.photos/300/150?random=8" alt="測試圖片8"/>
             </div>
          </div>
     </form>
