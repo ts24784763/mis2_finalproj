@@ -15,6 +15,7 @@ public partial class Student_manageCourse : System.Web.UI.Page
         lbCourseName.Text = ReadDatabase.CourseInfo(courseId).CourseName;
         lbTeacherName.Text = ReadDatabase.UserInfo(ReadDatabase.CourseInfo(courseId).Teacher).Name;
         lbCourseCredit.Text = ReadDatabase.CourseInfo(courseId).CourseCredit.ToString() + " 學分";
+        lbCourseIntro.Text = ReadDatabase.CourseInfo(courseId).CourseIntro;
         var courseList = ReadDatabase.ListCourseInSchoolByTeacher(schoolName, teacherAccount); //課程清單
         var chapterList = ReadDatabase.ListAllChapterInCourse(courseId); //章節清單 參數放課程Id
         lbSchoolName.Text = ReadDatabase.CourseInfo(courseId).School;
@@ -43,11 +44,47 @@ public partial class Student_manageCourse : System.Web.UI.Page
             this.accordionPanelsStayOpenExample.Controls.Add(new LiteralControl(html));
             html = string.Empty;
         }
+
+        if (IsExists.CourseHaveHW(courseId))
+        {
+            addHomework.Visible = false;
+            lbHWName.Visible = true;
+            lbHWDetail.Visible = true;
+            lbHWDeadline.Visible = true;
+            lbHWName.Text += ReadDatabase.CourseInfo(courseId).HWName;
+            lbHWDetail.Text += ReadDatabase.CourseInfo(courseId).HWDetail;
+            lbHWDeadline.Text += ReadDatabase.CourseInfo(courseId).HWDeadlineDays + "天";
+        }
+        else
+        {
+            addHomework.Visible = true;
+            lbHWName.Visible = false;
+            lbHWDetail.Visible = false;
+            lbHWDeadline.Visible = false;
+        }
     }
 
     protected void editBtn_Click(object sender, EventArgs e)
     {
         int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
         Response.Redirect("addCourse.aspx?act=edit&courseId=" + courseId);
+    }
+
+    protected void addHomework_Click(object sender, EventArgs e)
+    { 
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        Response.Redirect("addHW.aspx?courseId=" + courseId);
+    }
+
+    protected void btnAddChapter_Click(object sender, EventArgs e)
+    {
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        Response.Redirect("addChapter.aspx?courseId=" + courseId);
+    }
+
+    protected void checkHwBtn_Click(object sender, EventArgs e)
+    {
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        Response.Redirect("../Teacher/checkHW.aspx?courseId=" + courseId);
     }
 }

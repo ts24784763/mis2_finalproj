@@ -11,7 +11,7 @@
           opacity: 1;
         }
     </style>
-    <title></title>
+    <title>IM STUDENT - 搜尋學校</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
@@ -48,7 +48,7 @@
             <ItemStyle BackColor="white" CssClass="schoolTd" ForeColor="Black"/>
             <ItemTemplate>
                 <center>
-                    <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl="../image/YZULogo.png"></asp:Image>
+                    <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl='<%#"~/Principal/" + Eval("ImageUrl") %>'></asp:Image>
                     <br />
                     <asp:Label ID="lblCourseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />

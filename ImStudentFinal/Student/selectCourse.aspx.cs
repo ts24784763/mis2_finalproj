@@ -10,7 +10,15 @@ public partial class selectCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         if (!IsPostBack)
         {
             LoadGridViewData();
@@ -66,7 +74,15 @@ public partial class selectCourse : System.Web.UI.Page
 
     protected void btnCheck_Click(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         int Credit = 0;
         int cal = 0;
         foreach (GridViewRow item in this.GVCourse.Rows)
@@ -92,7 +108,15 @@ public partial class selectCourse : System.Web.UI.Page
 
     protected void reset_Click(object sender, EventArgs e)
     {
-        int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        int SumCredit = 0;
+        try
+        {
+            SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+        }
+        catch
+        {
+            SumCredit = 0;
+        }
         foreach (GridViewRow item in this.GVCourse.Rows)
         {
             CheckBox ckb = item.FindControl("chkAdd") as CheckBox;
@@ -126,7 +150,7 @@ public partial class selectCourse : System.Web.UI.Page
         bool flag = false;
         string CourseID = "";
         string CourseName = "";
-        string SuccessMsg = "", FailMsg = "";
+        string SuccessMsg = "", FailMsg = "", alreadyChoose = "";
         
         foreach (GridViewRow item in this.GVCourse.Rows)
         {
@@ -140,17 +164,19 @@ public partial class selectCourse : System.Web.UI.Page
                 Credit += int.Parse(item.Cells[6].Text);
                 //課程名稱
                 CourseName = item.Cells[2].Text;
-
-                if (Credit < 30)
-                {
-                    Response.Write("<script>alert('學分未達到上限：" + checkCreditSum.Text + "')</script>");
-                }
-
+                
                 Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
                 {
                     Student = Session["userID"].ToString(),
                     CourseId = int.Parse(CourseID),
                 };
+
+                //紀錄重複選擇的課程
+                if (IsExists.AlreadySelectedCourse(Session["userID"].ToString(), int.Parse(CourseID)) == true)
+                {
+                    alreadyChoose += CourseName;
+                }
+
                 try
                 {
                     SelectedCourse(CourseSelection);
@@ -159,16 +185,35 @@ public partial class selectCourse : System.Web.UI.Page
                 }
                 catch
                 {
-                    FailMsg += CourseName + " ";
+                    
                 }
                 if (flag == true)
                 {
-                    Response.Write("<script>alert('選擇成功的課程：" + SuccessMsg + "\n選課失敗的課程：" + FailMsg + "');location.href='mainSchool.aspx';</script>");
+                    if (alreadyChoose == "")
+                    {
+                        alreadyChoose = "無";
+                    }
+                    Response.Write("<script>alert('選擇成功的課程：" + SuccessMsg + "，"  + "重複選擇課程：" + alreadyChoose + "')</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('選課失敗的課程：" + FailMsg + "')</script>");
+                    Response.Write("<script>alert('重複選擇的課程：" + alreadyChoose + "')</script>");
                 }
+
+                if (Credit < 30)
+                {
+                    Response.Write("<script>alert('學分未達到上限：" + checkCreditSum.Text + "')</script>");
+                }
+
+                if (flag == true)
+                {
+                    Response.Write("<script>alert('選課成功！');location.href='mainSchool.aspx';</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('選課失敗！');location.href='mainSchool.aspx';</script>");
+                }
+
             }
         }
     }

@@ -46,20 +46,20 @@ public partial class Course : System.Web.UI.Page
         string userSession = Session["userID"].ToString();
         string act = Server.UrlDecode(Request.QueryString["act"]);
         string school = ReadDatabase.UserInfo(userSession).School;
-        Models.CourseModel course = new Models.CourseModel
-        {
-            CourseName = txtCourseName.Text,
-            CourseIntro = txtCourseInfo.Text,
-            CourseCredit = int.Parse(RadioCredit.Text),
-            Teacher = userSession,
-            School = school,
-        };
         if (act == "add")
         {
             try
             {
-                int courseId = AddCourse(course);
-                Response.Write("<script>alert('課程新增成功');location.href='manageCourse.aspx?courseId=" + courseId + "';</script>");
+                Models.CourseModel course = new Models.CourseModel
+                {
+                    CourseName = txtCourseName.Text,
+                    CourseIntro = txtCourseInfo.Text,
+                    CourseCredit = int.Parse(RadioCredit.Text),
+                    Teacher = userSession,
+                    School = school,
+                };
+                int nextCourseId = AddCourse(course);
+                Response.Write("<script>alert('課程新增成功');location.href='manageCourse.aspx?courseId=" + nextCourseId + "';</script>");
             }
             catch
             {
@@ -69,6 +69,15 @@ public partial class Course : System.Web.UI.Page
         else if (act == "edit")
         {
             int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+            Models.CourseModel course = new Models.CourseModel
+            {
+                CourseId = courseId,
+                CourseName = txtCourseName.Text,
+                CourseIntro = txtCourseInfo.Text,
+                CourseCredit = int.Parse(RadioCredit.Text),
+                Teacher = userSession,
+                School = school,
+            };
             try
             {
                 EditCourse(course);

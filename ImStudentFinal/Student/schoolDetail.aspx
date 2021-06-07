@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 學校資訊</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
@@ -97,13 +97,14 @@
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:DataList>
                 </div>
-            <center>
+            <br />
+            <%--<center>
                 <div style="padding-top: 50px">
                     <asp:Label runat="server" Text="校友清單" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                     <br />
                 </div>
-             </center>
-                <div class="graduatedMemberInfo">
+             </center>--%>
+                <%--<div class="graduatedMemberInfo">
                 <asp:DataList ID="GraduatedMemberDataList" runat="server" CellPadding="8" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -121,7 +122,7 @@
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:DataList>
                     <br />
-                </div>
+                </div>--%>
         </div>
     </form>
 </body>

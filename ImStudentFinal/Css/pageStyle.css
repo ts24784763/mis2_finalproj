@@ -285,7 +285,6 @@
     height: 120px;
     border-radius: 50%;
     margin: 0 0 10px 0;
-    <<<<<<< HEAD
 }
 
 .schoolFonts {
@@ -319,6 +318,7 @@
     font-weight: bold;
     margin-top: 20px;
     margin-left: 30px;
+    padding-right: 30px
 }
 
 .schoolItems .schoolImg {
@@ -451,7 +451,7 @@
     font-size: 15px;
 }
 .subCourseArea {
-    display: inline-block;
+    /*display: inline-block;*/
     text-align: left;
     margin-left: 30px;
     color: rgb(75,119,153);
@@ -516,7 +516,8 @@
     color: grey;
 }
 .courseWrapper{
-    width:100vw;
+    width:70%;
+    margin:auto;
     display:flex;
     color:grey;
     flex-direction:row;
@@ -526,7 +527,7 @@
 }
 .courseWrapper .left{
     display:flex;
-    width:66%;
+    width:70%;
     justify-content:space-around;
 }
 .courseWrapper .left .items{
@@ -537,20 +538,19 @@
 }
 .courseWrapper .right{
     display:flex;
-    width:34%;
+    width:30%;
+    padding-left:5%;
 }
 .courseWrapper .btnStyle{
     height:50px;
     width:150px;
     margin-top:20px;
     margin-left:10px;
-    border-color:lightblue;
     border-radius:5px;
     color:black;
     font-size:20px;
 }
 .professorUnique {
-    border-color: lightblue;
     margin-top: 10px;
 }
 .bottomBorder td {
@@ -567,7 +567,6 @@
         width: 150px;
         margin-top: 20px;
         margin-left: 10px;
-        border-color: lightblue;
         border-radius: 5px;
         color: black;
         font-size: 20px;
@@ -614,6 +613,20 @@
         color: white;
         transition: color 0.4s;
     }
+
+#reset:hover {
+    background-color: darkblue;
+    transition: background-color 0.4s;
+    color: white;
+    transition: color 0.4s;
+}
+
+#btnSubmit:hover {
+    background-color: darkblue;
+    transition: background-color 0.4s;
+    color: white;
+    transition: color 0.4s;
+}
 
 .wrapperBuilding .textWraper {
     border-top: none;
@@ -796,7 +809,7 @@
 .schoolRight .schoolIntro {
     color: rgb(51,121,173);
     font-size: 15px;
-    margin-top:30px;
+    margin-top: 20px;
 }
 .schoolRight .Items3 {
     font-size: 15px;

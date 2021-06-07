@@ -36,6 +36,10 @@ radioButton {
     margin-top: 10px;
 }
 
+.spaced td {
+    padding-right: 20px;
+}
+
 .rdBtnCredit td {
     padding-right: 20px;
 }
@@ -225,6 +229,14 @@ radioButton {
     border-color: lightgrey;
 }
 
+.resultTd {
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    border: solid;
+    border-color: lightgrey;
+}
+
 #TeacherDataList {
     padding-left: 10%;
     padding-right: 10%;
@@ -318,6 +330,7 @@ radioButton {
 }
 
 .studentTd {
+    width:100%;
     padding: 30px;
     border-top: solid;
     border-color: lightgrey;
@@ -355,7 +368,9 @@ radioButton {
 }
 
 .DenyBtn {
+    height: 30px;
     float: right;
+    border-radius: 5px;
 }
 
     .DenyBtn:hover {
@@ -366,7 +381,9 @@ radioButton {
     }
 
 .AllowBtn {
+    height: 30px;
     float: right;
+    border-radius: 5px;
 }
 
     .AllowBtn:hover {
@@ -376,12 +393,16 @@ radioButton {
         transition: color 0.4s;
     }
 
-.DownloadResumeBtn:hover {
-    background-color: darkblue;
-    transition: background-color 0.4s;
-    color: white;
-    transition: color 0.4s;
+.DownloadResumeBtn{
+    border-radius: 5px;
 }
+
+    .DownloadResumeBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
 
 .schoolCoursesArea {
     position: absolute;
@@ -483,3 +504,16 @@ radioButton {
 #DataListSchoolInfo {
     margin: auto;
 }
+
+#checkHwBtn {
+    border-radius: 5px;
+    height: 42px;
+    width: 107px;
+}
+
+    #checkHwBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }

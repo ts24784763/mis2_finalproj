@@ -31,10 +31,18 @@ public partial class Teacher_SchoolInviteMe : System.Web.UI.Page
         string teacherAccount = Session["userID"].ToString();
         string principalAccount = ((Button)sender).CommandArgument;
         string schoolName = ReadDatabase.UserInfo(principalAccount).School;
+        Models.ApplyModel apply = new Models.ApplyModel
+        {
+            Applicant = teacherAccount,
+            Receiver = "",
+            ApplyResult = "審核通過",
+            PaymentStatus = "",
+        };
         try
         {
             joinSchool(schoolName, principalAccount, teacherAccount);
-            Response.Write("<script>alert('成功加入" + schoolName + "');location.href=schoolInfo.aspx';</script>");
+            ReadDatabase.denyOrAllowApply(apply);
+            Response.Write("<script>alert('成功加入" + schoolName + "');location.href='schoolInfo.aspx';</script>");
         }
         catch
         {

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 查看課程章節</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
@@ -45,8 +45,10 @@
                         <div class="subCourseArea" style="padding-bottom: 20px">
                            <asp:Label ID="lbChapterName2" CssClass="Items" runat="server" Text="第一章"></asp:Label>
                         </div>
-                        <iframe id="playVideo" style="padding-left:10%" runat="server" width="90%" height="90%" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
-                        <div class="subHomeworkArea">
+                        <div>
+                        <iframe id="playVideo" style="padding-left:10%" runat="server" width="90%" height="300px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+                        </div>
+                        <div style="padding-top:30px; padding-left:10%">
                             <asp:Button ID="download" CssClass="homeworkButton" runat="server" Text="下載教材" OnClick="download_Click" />
                         </div>
                     </div>

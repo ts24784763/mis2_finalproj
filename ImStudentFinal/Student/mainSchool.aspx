@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 我的學校</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
@@ -41,11 +41,12 @@
                         <asp:Label ID="schoolFonts1" CssClass="schoolFonts" runat="server" Text="🏆️取得畢業門檻學分將可獲得證書"></asp:Label>
                         <br />
                         <div class="schoolItems">
+                            <label class="schoolFonts" style="color:#4b7799; font-size: 20px; font-weight:bold">畢業所需</label>
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"  src="https://picsum.photos/300/150?random=1"/>
-                         <asp:Label ID="intro" CssClass="schoolTitle" runat="server" Text="簡介"></asp:Label>     
-                         <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" runat="server" Text="好學校"></asp:Label>
+                         <asp:Label ID="intro" CssClass="schoolTitle" style="padding-right:30px" runat="server" Text="簡介"></asp:Label>     
+                         <asp:Label ID="lbSchoolIntro" CssClass="schoolFonts" style="padding-right:30px" runat="server" Text="好學校"></asp:Label>
                          <asp:Label ID="schoolCertification" CssClass="schoolTitle" runat="server" Text="證書"></asp:Label>
                          <asp:Label ID="lbLicense" CssClass="schoolFonts" runat="server" Text="IMS認證會計"></asp:Label>
                         <div style="display:flex;flex-direction:column;">

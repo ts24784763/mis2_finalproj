@@ -10,13 +10,15 @@ public partial class HomeWork : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int courseId = 100001; //TODO
-        lblHomeWork.Text = ReadDatabase.CourseInfo(courseId).CourseName + "新增課程";
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        lblHomeWork.Text = ReadDatabase.CourseInfo(courseId).CourseName + " 新增作業";
+        int semesterDays = ReadDatabase.SchoolInfo(ReadDatabase.CourseInfo(courseId).School).SemesterDays;
+        lblDeadLine.Text = "*設定繳交期限(本學期共有" + semesterDays + "天)：";
     }
 
     public void AddHomeWork(Models.CourseModel course)
     {
-        string sql = @"UPDATE COURSE SET HWName= @HWName, HWDetail= @HWDetail, HWDeadlineDays=30 WHERE CourseId=@CourseId";
+        string sql = @"UPDATE COURSE SET HWName= @HWName, HWDetail= @HWDetail, HWDeadlineDays=@HWDeadlineDays WHERE CourseId=@CourseId";
         using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
         {
             conn.Open();
@@ -32,22 +34,30 @@ public partial class HomeWork : System.Web.UI.Page
 
     protected void btnAddHW_Click(object sender, EventArgs e)
     {
-        int courseId = 100001; //TODO
-        Models.CourseModel HWPost = new Models.CourseModel
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        int semesterDays = ReadDatabase.SchoolInfo(ReadDatabase.CourseInfo(courseId).School).SemesterDays;
+        if (int.Parse(txtHWDeadlineDays.Text) > semesterDays) 
         {
-            HWName = txtHWName.Text,
-            HWDetail = txtHWDetail.Text,
-            HWDeadlineDays = int.Parse(txtHWDeadlineDays.Text),
-            CourseId = courseId
-        };
-        try
-        {
-            AddHomeWork(HWPost);
-            Response.Write("<script>alert('作業新增成功');location.href='manageCourse.aspx';</script>");
+            Response.Write("<script>alert('繳交期限不能超過學期天數');</script>");
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('作業新增失敗');</script>");
+            Models.CourseModel HWPost = new Models.CourseModel
+            {
+                HWName = txtHWName.Text,
+                HWDetail = txtHWDetail.Text,
+                HWDeadlineDays = int.Parse(txtHWDeadlineDays.Text),
+                CourseId = courseId
+            };
+            try
+            {
+                AddHomeWork(HWPost);
+                Response.Write("<script>alert('作業新增成功');location.href='manageCourse.aspx?courseId=" + courseId + "';</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('作業新增失敗');</script>");
+            }
         }
     }
 }

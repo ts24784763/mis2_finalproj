@@ -9,7 +9,8 @@ public partial class SearchCourse : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        DataListSchoolInfo.DataSource = ReadDatabase.SearchSchoolByWord("");
+        DataListSchoolInfo.DataBind();
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)

@@ -55,41 +55,49 @@ public partial class subCourse : System.Web.UI.Page
 
     protected void download_Click(object sender, EventArgs e)
     {
-        string resumePath = "../Teacher/material/" + ((Button)sender).CommandArgument;
-        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/"));
-        Response.ContentType = resumePath;
-        Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
-
-        // Write the file to the Response  
-        const int bufferLength = 10000;
-        byte[] buffer = new Byte[bufferLength];
-        int length = 0;
-        Stream download = null;
-        try
+        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+        int chapterNum = int.Parse(Server.UrlDecode(Request.QueryString["chapter"]));
+        if (IsExists.AlreadyUploadMaterial(courseId, chapterNum))
         {
-            download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
-            do
+            string path = ReadDatabase.ChapterInCourse(courseId, chapterNum)[0].MaterialFilePath;
+            string resumePath = "../Teacher/" + path;
+            string resumeFileName = path.Substring(path.IndexOf("/") + 1);
+            Response.ContentType = resumePath;
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
+
+            // Write the file to the Response  
+            const int bufferLength = 10000;
+            byte[] buffer = new Byte[bufferLength];
+            int length = 0;
+            Stream download = null;
+            try
             {
-                if (Response.IsClientConnected)
+                download = new FileStream(Server.MapPath(resumePath), FileMode.Open, FileAccess.Read);
+                do
                 {
-                    length = download.Read(buffer, 0, bufferLength);
-                    Response.OutputStream.Write(buffer, 0, length);
-                    buffer = new Byte[bufferLength];
+                    if (Response.IsClientConnected)
+                    {
+                        length = download.Read(buffer, 0, bufferLength);
+                        Response.OutputStream.Write(buffer, 0, length);
+                        buffer = new Byte[bufferLength];
+                    }
+                    else
+                    {
+                        length = -1;
+                    }
                 }
-                else
-                {
-                    length = -1;
-                }
+                while (length > 0);
+                Response.Flush();
+                Response.End();
             }
-            while (length > 0);
-            Response.Flush();
-            Response.End();
+            finally
+            {
+                if (download != null) download.Close();
+            }
         }
-        finally
+        else
         {
-            if (download != null)
-                download.Close();
+            Response.Write("<script>alert('這個章節沒有教材')</script>");
         }
-
     }
 }
