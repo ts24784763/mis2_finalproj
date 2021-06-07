@@ -43,13 +43,13 @@
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHWDetail" ErrorMessage="請輸入作業內容" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px" runat="server" Text="*設定繳交期限："></asp:Label>
+            <asp:Label ID="lblDeadLine" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 160px" runat="server" Text="*設定繳交期限："></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="txtHWDeadlineDays" placeholder=" 從學期開始算幾天內須繳交 例：21" CssClass="Cohwtxt" runat="server" Width="350px" Height="45px" TextMode="Number" ></asp:TextBox>
             &nbsp&nbsp&nbsp&nbsp
             <asp:Label ID="lblDay" style="font-size: x-large;" runat="server" Text="天"></asp:Label><br />
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtHWDeadlineDays" ErrorMessage="天數不可小於0" ForeColor="#CC0000" Type="Integer"></asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtHWDeadlineDays" ErrorMessage="天數不可小於0" ForeColor="#CC0000" Type="Integer" MaximumValue="999" MinimumValue="0"></asp:RangeValidator>
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHWDeadlineDays" ErrorMessage="請輸入繳交期限" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             <br /><br />

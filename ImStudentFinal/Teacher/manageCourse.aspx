@@ -52,10 +52,10 @@
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
                         <div style="padding-left:30px; padding-top:30px"><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
-                        <div class="subHomeworkArea">
+                        <div class="subHomeworkArea" style="display:block; line-height:1.5">
                             <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" OnClick="addHomework_Click" />
-                            <asp:Label ID="lbHWName" runat="server" Text="作業名稱："></asp:Label>
-                            <asp:Label ID="lbHWDetail" runat="server" Text="作業內容："></asp:Label>
+                            <asp:Label ID="lbHWName" runat="server" Text="作業名稱："></asp:Label><br />
+                            <asp:Label ID="lbHWDetail" runat="server" Text="作業內容："></asp:Label><br />
                             <asp:Label ID="lbHWDeadline" runat="server" Text="繳交期限："></asp:Label>
                         </div>
                     </div>
