@@ -16,6 +16,7 @@
             IM STUDENT
             <div class="rightText">
             <a href="../Principal/mainSchool.aspx">我的學校</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
@@ -33,6 +34,7 @@
                     <div class="schoolRight" >
                         <br />
                         <div class="schoolItems">
+                            <label class="schoolFonts" style="color:#4b7799; font-size: 20px; font-weight:bold">畢業所需</label>
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"  src="https://picsum.photos/300/150?random=1"/>

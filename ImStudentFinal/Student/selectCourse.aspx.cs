@@ -24,8 +24,12 @@ public partial class selectCourse : System.Web.UI.Page
     private void LoadGridViewData()
     {
         string student = Session["userID"].ToString();
-        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student);
+        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student, "", "");
         GVCourse.DataBind();
+        if (ReadDatabase.CourseStudentNotSelect(student, "", "").Count() == 0 )
+        {
+            return;
+        }
         //不顯示的colums 在此設定
         int[] ary = { 1, 3, 4 };
         foreach (int j in ary)
@@ -46,10 +50,12 @@ public partial class selectCourse : System.Web.UI.Page
     {
         string StrCourseName = courseName.Text.Trim();
         string StrProfessorrName = professorName.Text.Trim();
-
-        GVCourse.DataSource = ReadDatabase.SearchCourseByWord(StrCourseName, StrProfessorrName);
+        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(Session["userID"].ToString(), StrCourseName, StrProfessorrName);
         GVCourse.DataBind();
-
+        if (ReadDatabase.CourseStudentNotSelect(Session["userID"].ToString(), StrCourseName, StrProfessorrName).Count() == 0)
+        {
+            return;
+        }
         //不顯示的colums 在此設定
         int[] ary = { 1, 3, 4 };
         foreach (int j in ary)
@@ -126,7 +132,6 @@ public partial class selectCourse : System.Web.UI.Page
         }
         else
         {
-            int Credit = 0;
             bool successFlag = false, failFlag = false; //有沒有成功INSERT過
             string CourseID = "", CourseName = "", SuccessMsg = "", FailMsg = "";
 
@@ -136,7 +141,6 @@ public partial class selectCourse : System.Web.UI.Page
                 if (ckb.Checked)
                 {
                     CourseID = item.Cells[1].Text; //課程ID
-                    Credit += int.Parse(item.Cells[6].Text); //學分數
                     CourseName = item.Cells[2].Text; //課程名稱
                     Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
                     {
@@ -161,10 +165,10 @@ public partial class selectCourse : System.Web.UI.Page
 
             string student = Session["userID"].ToString();
             int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
-            if (Credit < RequiredCredits)
+            int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+            if (SumCredit < RequiredCredits)
             {
-                int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-                Response.Write("<script>alert('學分未達到畢業門檻： " + Credit + "/" + RequiredCredits + "')</script>");
+                Response.Write("<script>alert('學分未達到畢業門檻： " + SumCredit + "/" + RequiredCredits + "')</script>");
             }
             LoadGridViewData();
         }

@@ -216,12 +216,16 @@ public class ReadDatabase
     /// <param name="teacherAccount"></param>
     /// <param name="student"></param>
     /// <returns></returns>
-    public static List<Models.CourseAndTeacherModel> CourseStudentNotSelect(string student)
+    public static List<Models.CourseAndTeacherModel> CourseStudentNotSelect(string student, string CourseName, string professorName)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT CourseId, CourseName, CourseIntro, Teacher TeacherAccount, Name TeacherName, CourseCredit 
                         FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName
                         AND CourseId NOT IN (SELECT CourseId FROM COURSE_SELECTION WHERE Student = @Student)";
+        //if ()
+        //{
+
+        //}
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -584,7 +588,15 @@ public class ReadDatabase
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT Name, CourseName, CourseCredit FROM MEMBER M JOIN COURSE C ON M.Account = C.Teacher 
-                       WHERE CourseName LIKE '%' + @CourseName + '%' AND Name LIKE '%' + @TeacherName + '%'";
+                       WHERE 1 = 1 ";
+        if (CourseName != "")
+        {
+            sql += " AND CourseName LIKE '%' + @CourseName + '%'";
+        }
+        else if (professorName != "")
+        {
+            sql += " AND Name LIKE '%' + @TeacherName + '%' ";
+        }
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();

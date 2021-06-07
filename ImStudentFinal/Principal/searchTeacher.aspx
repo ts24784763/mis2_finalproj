@@ -18,7 +18,6 @@
         <div class="rightText">
             <a href="../Principal/fixSchool.aspx">整修學校</a>
             <a href="../Principal/inviteTeacher.aspx">邀請老師</a>
-            <a href="../Principal/manageStudent.aspx">管理學生</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
         </div>
@@ -43,7 +42,7 @@
                     <br />
                     <asp:Label ID="teacherName" CssClass="name" runat="server" Text='<%# Eval("ApplicantName") %>'></asp:Label>
                     <br />
-                    <asp:Label ID="introduction" CssClass="intro" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
+                    <asp:Label ID="introduction" CssClass="intro" style="word-break:break-word" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
                     <div class="btn" style="padding-bottom:10%; position:relative; bottom:0">
                         <center>
                         <asp:Button ID="btnviewResume" OnClick="btnviewResume_Click" runat="server" CommandArgument ='<%# Eval("ResumeFilePath") %>' CssClass="viewStyle" Text="檢視履歷" />
