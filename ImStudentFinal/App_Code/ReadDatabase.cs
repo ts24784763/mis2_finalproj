@@ -579,12 +579,14 @@ public class ReadDatabase
                         FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType";
         if (Applicant != "")
             sql += " AND Applicant = @Applicant\n";
-        else if (Receiver != "")
+        if (Receiver != "")
             sql += " AND Receiver = @Receiver\n";
-        else if (ApplicantName != "")
-            sql += " AND Name like '%' + @ApplicantName + '%'\n";
-        else if (ApplyResult != "")
+        if (ApplicantName != "")
+            sql += " AND Name like '%' + @ApplicantName + '%' OR ApplyIntro like '%' + @ApplicantName + '%'";
+        if (ApplyResult != "")
             sql += " AND ApplyResult = @ApplyResult";
+        
+
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
