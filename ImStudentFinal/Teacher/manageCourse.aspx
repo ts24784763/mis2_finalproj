@@ -36,7 +36,7 @@
                         <div class="accordion" id="accordionPanelsStayOpenExample" runat="server">
                         </div>
                          <div class="btn" style="margin-top: auto; padding-bottom:10% ">
-                            <asp:Button ID="uploardCourse" CssClass="btnCourse" style="border-radius: 5px;" runat="server" Text="上傳課程影片" />
+                            <asp:Button ID="btnAddChapter" CssClass="btnCourse" style="border-radius: 5px;" runat="server" Text="新增章節" OnClick="btnAddChapter_Click" />
                         </div>
                     </div>
                     <div class="schoolRight">
