@@ -664,8 +664,12 @@ public class ReadDatabase
         DataTable dt = new DataTable();
         string sql = @"select 
                                 Student, SUM(CourseCredit) as [SumCredit]
-                                from COURSE_SELECTION CS join COURSE C 
-                                on CS.CourseId = C.CourseId
+                                from COURSE_SELECTION CS 
+                                join COURSE C 
+                                on CS.CourseId = C.CourseId 
+                                join MEMBER M
+								on CS.Student = M.Account
+                                where CS.student = @Student
                                 group by Student";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
