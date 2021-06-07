@@ -30,7 +30,7 @@
             <br /><br />
             <asp:TextBox ID="txtChapterName" CssClass="Cohwtxt" placeholder=" 輸入章節名稱" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
-            <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 320px" runat="server" Text="*教材影片網址："></asp:Label>
+            <asp:Label ID="lblannex" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-right: 290px" runat="server" Text="*教材影片網址："></asp:Label>
             <br /><br />         
             <asp:TextBox ID="txtVideoUrl" CssClass="Cohwtxt" placeholder=" 請提供Youtube網址" runat="server" Width="400px" Height="45px" ></asp:TextBox>
             <br /><br />
