@@ -42,7 +42,7 @@
                     <br />
                     <asp:Label ID="teacherName" CssClass="name" runat="server" Text='<%# Eval("ApplicantName") %>'></asp:Label>
                     <br />
-                    <asp:Label ID="introduction" CssClass="intro" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
+                    <asp:Label ID="introduction" CssClass="intro" style="word-break:break-word" runat="server" Text='<%# Eval("ApplyIntro") %>'></asp:Label></div>
                     <div class="btn" style="padding-bottom:10%; position:relative; bottom:0">
                         <center>
                         <asp:Button ID="btnviewResume" OnClick="btnviewResume_Click" runat="server" CommandArgument ='<%# Eval("ResumeFilePath") %>' CssClass="viewStyle" Text="檢視履歷" />

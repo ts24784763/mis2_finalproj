@@ -488,12 +488,13 @@ radioButton {
 
 .schoolList {
     position: relative;
-    width: 100%;
+    width: 90%;
     padding-top: 50px;
     margin: auto;
 }
 
 .schoolTd {
+    width: 50%;
     padding: 30px;
     margin: auto;
     border: solid;
@@ -502,6 +503,8 @@ radioButton {
 }
 
 #DataListSchoolInfo {
+    padding-left: 10%;
+    padding-right: 10%;
     margin: auto;
 }
 

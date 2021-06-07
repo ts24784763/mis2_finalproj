@@ -42,7 +42,7 @@
             <asp:Button ID="btnApplyOutCome" runat="server" CssClass="Applybtn" Text="查看申請學校結果" OnClick="btnApplyOutCome_Click" />
         </center>
         <div class="schoolList">
-        <asp:DataList ID="DataListSchoolInfo" runat="server" RepeatColumns="4" CellPadding="8" RepeatDirection="Horizontal" BackColor="White">
+        <asp:DataList ID="DataListSchoolInfo" runat="server" RepeatColumns="2" CellPadding="4" RepeatDirection="Horizontal" BackColor="White" HorizontalAlign="Center">
             <FooterStyle BackColor="#507CD1" ForeColor="Black" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="true" ForeColor="#E7E7FF" />
             <ItemStyle BackColor="white" CssClass="schoolTd" ForeColor="Black"/>
@@ -53,7 +53,7 @@
                     <asp:Label ID="lblCourseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("SchoolIntro") %>'></asp:Label>
+                    <asp:Label ID="lblCourseInfo" Font-Size="Larger" ForeColor="#93a7ce" style="word-break:break-word" runat="server" Text='<%# Eval("SchoolIntro") %>'></asp:Label>
                     <br />
                     <br />
                     <asp:Label ID="lblCoursePeroid" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("License") %>'></asp:Label>
