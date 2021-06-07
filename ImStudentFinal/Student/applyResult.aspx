@@ -42,7 +42,7 @@
                         <label>申請狀況：</label>
                         <asp:Label ID="lbResult"  Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" runat="server" Text='<%# Eval("ApplyResult") %>'/>
                     </div>
-                    <div style="float: right; padding-top:15%">
+                    <div style="float: right">
                         <asp:Label ID="lbSchoolFee" runat="server" Text="學費多少"></asp:Label><br /><br />
                         <asp:Button ID="btnPayFee" CssClass="ToPayBtn" runat="server" Text='繳費入學'  Width="120px" OnClick="btnPayFee_Click" CommandArgument='<%# Eval("Receiver") %>' />     
                     </div>
