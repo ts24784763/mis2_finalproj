@@ -52,8 +52,10 @@ public partial class setting : System.Web.UI.Page
             }
             else if (ReadDatabase.UserInfo(userSession).Role == "校長")
             {
+                string school = ReadDatabase.UserInfo(userSession).School;
                 imgRole.ImageUrl = "~/image/principal.png";
-                principalBar.Visible = true;
+                if (ReadDatabase.SchoolInfo(school).SchoolStatus == "FIX") principalFixSchoolBar.Visible = true;
+                else if (ReadDatabase.SchoolInfo(school).SchoolStatus == "SELL") principalSellSchoolBar.Visible = true;
             }
         }
     }

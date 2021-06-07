@@ -28,10 +28,9 @@
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
-            <div class="rightText" id="principalBar" runat="server" visible="false">
+            <div class="rightText" id="principalFixSchoolBar" runat="server" visible="false">
             <a href="../Principal/fixSchool.aspx">整修學校</a>
             <a href="../Principal/inviteTeacher.aspx">邀請老師</a>
-            <a href="../Principal/manageStudent.aspx">管理學生</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
@@ -51,6 +50,13 @@
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
+            <div class="rightText" id="principalSellSchoolBar" runat="server" visible="false">
+            <a href="../Principal/mainSchool.aspx">我的學校</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+
         </div>
         <div class="area">
            <div class="wrapper">

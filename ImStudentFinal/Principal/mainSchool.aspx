@@ -16,6 +16,7 @@
             IM STUDENT
             <div class="rightText">
             <a href="../Principal/mainSchool.aspx">我的學校</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
