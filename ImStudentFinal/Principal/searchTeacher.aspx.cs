@@ -106,7 +106,7 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
         else if (Type == "Search")
         {
             string ApplicantName = searchTeacher.Text.Trim();
-            teacherDatalist.DataSource = ReadDatabase.SearchTeacherByWord("老師上傳履歷", "", "",ApplicantName, "等待審核中");
+            teacherDatalist.DataSource = ReadDatabase.SearchTeacherByWord("老師上傳履歷", "", "", ApplicantName, "等待審核中");
             teacherDatalist.DataBind();
         }
     }
