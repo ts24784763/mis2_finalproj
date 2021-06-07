@@ -24,7 +24,7 @@
     </div>
         <div class="wrapperTeacher" style="padding-top:30px">
             <asp:Label ID="starting" CssClass="labelItems" runat="server" Text="老師管理列表"></asp:Label>
-            <div class="wrapper" style="width:50%">
+            <div class="wrapper" style="width:50%; padding-top:30px">
             <asp:DataList ID="invitedTeacherDataList" runat="server" CellPadding="4"  ForeColor="#333333" RepeatColumns="1" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" OnItemDataBound="invitedTeacherDataList_ItemDataBound">
             <AlternatingItemStyle BackColor="#F0F0F0" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="white" />
