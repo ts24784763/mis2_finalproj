@@ -706,14 +706,10 @@ public class ReadDatabase
                                 FROM COURSE_SELECTION 
                             Join MEMBER on Student=Account 
                             Join COURSE on COURSE_SELECTION.courseId = COURSE.courseId 
-                            WHERE 1 = 1 ";
+                            WHERE 1 = 1  AND COURSE_SELECTION.CourseId =  @CourseId ";
         if (StudentName != "")
         {
-            sql += " AND Name = @StudentName\n";
-        }
-        else if (CourseId != 0)
-        {
-            sql += " AND COURSE_SELECTION.CourseId =  @CourseId \n";
+            sql += " AND Name like '%' + @StudentName + '%'";
         }
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
