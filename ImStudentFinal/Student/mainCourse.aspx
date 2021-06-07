@@ -51,7 +51,7 @@
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
-                        <div><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
+                        <div style="padding-top: 20px;padding-left: 30px;padding-bottom:10px"><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="homeworkArea">
                             <div style="float:left; width:20%">
@@ -72,16 +72,16 @@
                             <div id="openHwForm">
                                 <ul class="fieldlist">
                                     <li>
-                                        <a style="color:darkblue; font-size:large;">作業名稱</a><br />
-                                        <asp:Label ID="lbHW" Font-Size="X-Large" ForeColor="#93a7ce" runat="server" Text="作業名稱"/>
+                                        <a style="font-size:large;">作業名稱</a><br />
+                                        <asp:Label ID="lbHW" Font-Size="X-Large" ForeColor="darkblue" runat="server" Text="作業名稱"/>
                                     </li>
                                     <li>
-                                        <a style="color:darkblue; font-size:large;">作業細節</a><br />
-                                        <asp:Label ID="lbHWDetail" Font-Size="X-Large" ForeColor="#93a7ce" runat="server" Text="作業細節"/>
+                                        <a style="font-size:large;">作業細節</a><br />
+                                        <asp:Label ID="lbHWDetail" Font-Size="X-Large" ForeColor="darkblue" runat="server" Text="作業細節"/>
                                     </li>
                                     <li>
-                                        <a style="color:darkblue; font-size:large;">作業截止日：</a>
-                                        <asp:Label ID="lbDeadline" Font-Size="X-Large" ForeColor="#93a7ce" runat="server" Text="截止日期"/>
+                                        <a style="font-size:large;">作業截止日</a><br />
+                                        <asp:Label ID="lbDeadline" Font-Size="X-Large" ForeColor="darkblue" runat="server" Text="截止日期"/>
                                     </li>
                                 </ul>
                             </div>
