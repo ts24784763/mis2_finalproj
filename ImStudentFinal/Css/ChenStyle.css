@@ -141,3 +141,19 @@
     }
 /*------------------------------------------------------------------------------------*/
 
+.checkBtn {
+    height: 50px;
+    width: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    color: black;
+    font-size: 20px;
+}
+
+    .checkBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
