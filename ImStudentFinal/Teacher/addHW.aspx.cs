@@ -18,7 +18,7 @@ public partial class HomeWork : System.Web.UI.Page
 
     public void AddHomeWork(Models.CourseModel course)
     {
-        string sql = @"UPDATE COURSE SET HWName= @HWName, HWDetail= @HWDetail, HWDeadlineDays=30 WHERE CourseId=@CourseId";
+        string sql = @"UPDATE COURSE SET HWName= @HWName, HWDetail= @HWDetail, HWDeadlineDays=@HWDeadlineDays WHERE CourseId=@CourseId";
         using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
         {
             conn.Open();
