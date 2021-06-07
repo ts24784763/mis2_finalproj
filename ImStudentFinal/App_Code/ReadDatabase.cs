@@ -691,10 +691,17 @@ public class ReadDatabase
     /// 查詢作業資料
     /// </summary>
     /// <returns></returns>
-    public static List<Models.CourseSelectionModel> CheckHW(string StudentName, string CourseName)
+    public static List<Models.CourseSelectionModel> CheckHW(string StudentName)
     {
         DataTable dt = new DataTable();
-        string sql = @"SELECT CourseName,Name,COURSE_SELECTION.courseId,HWFileName FROM COURSE_SELECTION 
+        string sql = @"SELECT PassOrNot,
+                                COURSE_SELECTION.courseId,
+                                COURSE_SELECTION.Student,
+                                CourseName,
+                                Name,
+                                HWFileName,
+                                HWFilePath
+                                FROM COURSE_SELECTION 
                             Join MEMBER on Student=Account 
                             Join COURSE on COURSE_SELECTION.courseId = COURSE.courseId 
                             WHERE 1 = 1 ";
@@ -702,16 +709,11 @@ public class ReadDatabase
         {
             sql += " AND Name = @StudentName\n";
         }
-        else if (CourseName != "")
-        {
-            sql += " AND COURSE.CourseName like '%'+  @CourseName +'%'\n";
-        }
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@StudentName", StudentName));
-            cmd.Parameters.Add(new SqlParameter("@CourseName", CourseName));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             sqlAdapter.Fill(dt);
             conn.Close();
@@ -726,12 +728,31 @@ public class ReadDatabase
                 CourseId = int.Parse(row["CourseId"].ToString()),
                 HWFileName = row["HWFileName"].ToString(),
                 CourseName = row["CourseName"].ToString(),
-                //HWFilePath = row["HWFilePath"].ToString(),
+                Student = row["Student"].ToString(),
+                HWFilePath = row["HWFilePath"].ToString(),
+                PassOrNot = row["PassOrNot"].ToString(),
                 //HWUploadTime = Convert.ToDateTime(row["HWUploadTime"].ToString()),
-                //PassOrNot = row["PassOrNot"].ToString(),
             });
         }
         return result;
     }
 
+    /// <summary>
+    /// 送出審核結果
+    /// </summary>
+    public static void PassOrNot(Models.CourseSelectionModel PassOrNot)
+    {
+        string sql = @"UPDATE COURSE_SELECTION SET PassOrNot = @PassOrNot";
+        sql += " WHERE Student = @Student And CourseId = @CourseId";
+        using (SqlConnection conn = new SqlConnection(ReadDatabase.GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@PassOrNot", PassOrNot.PassOrNot));
+            cmd.Parameters.Add(new SqlParameter("@Student", PassOrNot.Student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", PassOrNot.CourseId));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+    }
 }

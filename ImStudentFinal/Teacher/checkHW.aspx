@@ -30,9 +30,6 @@
                 <asp:Label ID="lblStudentName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-top: 40px; padding-right: 20px; " runat="server" Text="查詢學生名稱：" ></asp:Label>
                 <asp:TextBox ID="txtStudentName" CssClass="Cohwtxt" placeholder=" 輸入學生名稱" runat="server" Width="250px" Height="45px" ></asp:TextBox>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:Label ID="lblCourseName" style="font-family:'Microsoft JhengHei UI'; color:midnightblue; font-size: medium; padding-top: 40px; padding-right: 20px; " runat="server" Text="查詢課程名稱：" ></asp:Label>
-                <asp:TextBox ID="txtCourseName" CssClass="Cohwtxt" placeholder=" 輸入課程名稱" runat="server" Width="250px" Height="45px" ></asp:TextBox>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="btnSearch" runat="server" Width="150px" Height="40px" Text="搜尋" OnClick="btnSearch_Click" />
                 </div>
             </div>
@@ -48,16 +45,18 @@
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="#EFF3FB" CssClass="studentTd"/>
                 <ItemTemplate>
-                    學生姓名：<asp:Label ID="lbStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" Text='<%# Eval("Name") %>' runat="server" />
+                    學生姓名：<asp:Label ID="lblStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" Text='<%# Eval("Name") %>' runat="server" />
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='通過' Width="120px" Onclick="btnAllow_Click"/>
+                    <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='通過' Width="120px" Onclick="btnAllow_Click" CommandArgument ='<%# Eval("Student") %>'/>
                     <br />
-                    課程名稱：<asp:Label ID="lbSelfIntro" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" CssClass="introLab" Text='<%# Eval("CourseName") %>' runat="server" />
+                    課程名稱：<asp:Label ID="lblCourseName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" CssClass="introLab" Text='<%# Eval("CourseName") %>' runat="server" />
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <asp:Button ID="btnDownloadHW" CssClass="DownloadResumeBtn" runat="server" Text='檢視作業' Width="200px" Onclick="btnDownloadHW_Click"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <asp:Button ID="btnDownloadHW" CssClass="DownloadResumeBtn" runat="server" Text='檢視作業' Width="200px" Onclick="btnDownloadHW_Click" CommandArgument ='<%# Eval("HWFilePath") %>'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <br />
-                    作業名稱：<asp:Label ID="Label1" Font-Size="Larger" ForeColor="DimGray" Font-Bold="true" CssClass="introLab" Text='<%# Eval("HWFileName") %>' runat="server" />
-                    <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='不通過' Width="120px" Onclick="btnDeny_Click"/>
+                    作業名稱：<asp:Label ID="lblHWName" Font-Size="Larger" ForeColor="DimGray" Font-Bold="true" CssClass="introLab" Text='<%# Eval("HWFileName") %>' runat="server" />
+                    <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='不通過' Width="120px" Onclick="btnDeny_Click" CommandArgument ='<%# Eval("Student") %>'/>
+                    <br />
+                    繳交狀態：<asp:Label ID="lblPassOrNot" Font-Size="Larger" ForeColor="Red" Font-Bold="true" CssClass="introLab" Text='<%# Eval("PassOrNot") %>' runat="server" />
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
