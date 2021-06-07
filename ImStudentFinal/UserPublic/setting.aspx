@@ -17,9 +17,37 @@
     <form id="form1" runat="server">
         <div class="bar">
             IM STUDENT
-            <div class="rightText">
+            <div class="rightText" id="studentBar" runat="server" visible="false">
             <a href="../Student/selectCourse.aspx">選課</a>
             <a href="../Student/mainSchool.aspx">我的學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+            <div class="rightText" id="teacherBar" runat="server" visible="false">
+            <a href="../Teacher/schoolInfo.aspx">管理我的課程</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+            <div class="rightText" id="principalBar" runat="server" visible="false">
+            <a href="../Principal/fixSchool.aspx">整修學校</a>
+            <a href="../Principal/inviteTeacher.aspx">邀請老師</a>
+            <a href="../Principal/manageStudent.aspx">管理學生</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+            <div class="rightText" id="studentNoSchoolBar" runat="server" visible="false">
+            <a href="../Student/searchSchool.aspx">探索學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+            <div class="rightText" id="principalNoSchoolBar" runat="server" visible="false">
+            <a href="../Principal/buildSchool.aspx">建立學校</a>
+            <a href="../UserPublic/setting.aspx">個人資料設定</a>
+            <a href="../UserPublic/login.aspx">登出</a>
+            </div>
+            <div class="rightText" id="teacherNoSchoolBar" runat="server" visible="false">
+            <a href="../Teacher/schoolInviteMe.aspx">探索學校</a>
+            <a href="../Teacher/uploadResume.aspx">上傳履歷</a>
             <a href="../UserPublic/setting.aspx">個人資料設定</a>
             <a href="../UserPublic/login.aspx">登出</a>
             </div>
@@ -33,19 +61,19 @@
                <asp:Label ID="lbSchool" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
                <asp:Label ID="lbMoney" CssClass="money" runat="server" Text="錢包餘額： $ 15"></asp:Label>
            </div>
-           <div class="certification">
+<%--           <div class="certification">
                <asp:Label ID="myCertification" runat="server" Text="• 我的證書："></asp:Label>
                <asp:Label ID="certifications" CssClass="certificationLabel" runat="server" Text="XXXX"></asp:Label>
-           </div>
+           </div>--%>
            </div>
            <div class="setting">
                <asp:Label ID="settings" CssClass="settingFonts" runat="server" Text="個人資料設定"></asp:Label><hr />
-                       帳號<br /><br />
+                       帳號<br />
             <asp:Label ID="lbEmail" CssClass="emailFonts" runat="server" Text="xxxx@mail.com"></asp:Label>
-               <br /><br />姓名<br /><br />
+               <br /><br />姓名<br />
                <asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br />
-               電話<br /><br />
-               <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox><br /><br />
+               電話<br />
+               <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox><br />
                <br />
                <asp:Button ID="update" CssClass="updateBtn" runat="server" Text="更新資訊" OnClick="update_Click" />
            </div>
