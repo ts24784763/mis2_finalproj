@@ -55,7 +55,7 @@ public partial class Principal_searchTeacher : System.Web.UI.Page
     protected void btnviewResume_Click(object sender, EventArgs e)
     {
         string resumePath = "../Teacher/" + ((Button)sender).CommandArgument;
-        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/"));
+        string resumeFileName = ((Button)sender).CommandArgument.Substring(((Button)sender).CommandArgument.IndexOf("/")+1);
         Response.ContentType = resumePath;
         Response.AppendHeader("Content-Disposition", "attachment; filename=" + resumeFileName);
 
