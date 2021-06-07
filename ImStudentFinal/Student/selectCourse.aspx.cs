@@ -103,7 +103,7 @@ public partial class selectCourse : System.Web.UI.Page
             }
         }
         
-        checkCreditSum.Text = "已選擇學分  " + cal.ToString() + "/30  學分";
+        checkCreditSum.Text = "已選擇學分：  " + cal.ToString() + "/30  學分";
     }
 
     protected void reset_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ public partial class selectCourse : System.Web.UI.Page
                 ckb.Checked = false;
             }
         }
-        checkCreditSum.Text = "已選擇學分  " + SumCredit + "/30  學分";
+        checkCreditSum.Text = "已選擇學分：  " + SumCredit + "/30  學分";
     }
 
     public void SelectedCourse(Models.CourseSelectionModel CourseSelection)
@@ -202,6 +202,18 @@ public partial class selectCourse : System.Web.UI.Page
 
                 if (Credit < 30)
                 {
+                    int SumCredit = 0;
+                    try
+                    {
+                        SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+                    }
+                    catch
+                    {
+                        SumCredit = 0;
+                    }
+                    int cal = 0;
+                    cal = SumCredit + Credit;
+                    checkCreditSum.Text = cal.ToString();
                     Response.Write("<script>alert('學分未達到上限：" + checkCreditSum.Text + "')</script>");
                 }
 
