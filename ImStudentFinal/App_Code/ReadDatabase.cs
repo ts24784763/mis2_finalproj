@@ -210,6 +210,47 @@ public class ReadDatabase
     }
 
     /// <summary>
+    /// 列出學生沒選過的課程
+    /// </summary>
+    /// <param name="schoolName"></param>
+    /// <param name="teacherAccount"></param>
+    /// <param name="student"></param>
+    /// <returns></returns>
+    public static List<Models.CourseAndTeacherModel> CourseStudentNotSelect(string student)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT CourseId, CourseName, CourseIntro, Teacher TeacherAccount, Name TeacherName, CourseCredit 
+                        FROM COURSE JOIN MEMBER ON Teacher=Account WHERE Course.School = @SchoolName
+                        AND CourseId NOT IN (SELECT CourseId FROM COURSE_SELECTION WHERE Student = @Student)";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@SchoolName", ReadDatabase.UserInfo(student).School));
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.CourseAndTeacherModel> result = new List<Models.CourseAndTeacherModel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.CourseAndTeacherModel()
+            {
+                CourseId = row["CourseId"].ToString(),
+                CourseName = row["CourseName"].ToString(),
+                CourseIntro = row["CourseIntro"].ToString(),
+                TeacherAccount = row["TeacherAccount"].ToString(),
+                TeacherName = row["TeacherName"].ToString(),
+                CourseCredit = int.Parse(row["CourseCredit"].ToString()),
+            });
+        }
+        return result;
+    }
+
+
+    /// <summary>
     /// 根據關鍵字搜尋學校
     /// </summary>
     /// <param name="searchWord">關鍵字</param>
@@ -664,15 +705,8 @@ public class ReadDatabase
     public static Models.SumCredit SumCredit(string Student)
     {
         DataTable dt = new DataTable();
-        string sql = @"select 
-                                Student, SUM(CourseCredit) as [SumCredit]
-                                from COURSE_SELECTION CS 
-                                join COURSE C 
-                                on CS.CourseId = C.CourseId 
-                                join MEMBER M
-								on CS.Student = M.Account
-                                where CS.student = @Student
-                                group by Student";
+        string sql = @"SELECT Student, SUM(CourseCredit) AS SumCredit FROM COURSE_SELECTION CS JOIN COURSE C 
+                        ON CS.CourseId = C.CourseId WHERE CS.student = @Student GROUP BY Student";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -684,12 +718,20 @@ public class ReadDatabase
         }
 
         List<Models.SumCredit> result = new List<Models.SumCredit>();
-        foreach (DataRow row in dt.Rows)
+        if (dt.Rows.Count == 0) 
         {
             result.Add(new Models.SumCredit()
             {
-                Student = row["Student"].ToString(),
-                Credit = int.Parse(row["SumCredit"].ToString()),
+                Student = Student,
+                Credit = 0,
+            });
+        }
+        else
+        {
+            result.Add(new Models.SumCredit()
+            {
+                Student = dt.Rows[0]["Student"].ToString(),
+                Credit = int.Parse(dt.Rows[0]["SumCredit"].ToString()),
             });
         }
         return result.FirstOrDefault();
