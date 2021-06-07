@@ -51,7 +51,7 @@
                            老師
                         </div>
                         <asp:Image ID="schoolImage" CssClass="courseImg" runat="server"  src="https://picsum.photos/300/150?random=1"/>
-                        <div style="padding-left:30px; padding-top:30px"><asp:Label ID="lbCourseIntro" runat="server" Text="Label"></asp:Label></div>
+                        <div style="padding-left:30px; padding-top:30px; padding-right:30px"><asp:Label ID="lbCourseIntro" runat="server" style="word-break:break-word" Text="Label"></asp:Label></div>
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="subHomeworkArea" style="display:block; line-height:1.5">
                             <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" OnClick="addHomework_Click" />

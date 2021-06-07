@@ -42,19 +42,25 @@ public partial class applyOutcome : System.Web.UI.Page
         string school = ((Button)sender).CommandArgument;
         string student = Session["userID"].ToString();
         int schoolFee = ReadDatabase.SchoolInfo(school).SchoolFee;
-        try
+        if (IsExists.WalletEnoughHasMoney(student, schoolFee))
         {
-            Money(0 - schoolFee, student); //學生付錢
-            Money(schoolFee, ReadDatabase.SchoolInfo(school).Principal); //校長收錢
-            changePaymentStatus(student, school); //學生繳費狀況：已繳費
-            ReadDatabase.addSchoolToUser(student, school);
-            Response.Write("<script>alert('繳費成功 成功加入"+ school + "');location.href='mainSchool.aspx';</script>");
+            try
+            {
+                Money(0 - schoolFee, student); //學生付錢
+                Money(schoolFee, ReadDatabase.SchoolInfo(school).Principal); //校長收錢
+                changePaymentStatus(student, school); //學生繳費狀況：已繳費
+                ReadDatabase.addSchoolToUser(student, school);
+                Response.Write("<script>alert('繳費成功 成功加入" + school + "');location.href='mainSchool.aspx';</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('繳費失敗')];</script>");
+            }
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('繳費失敗')];</script>");
+            Response.Write("<script>alert('錢包餘額不足');</script>");
         }
-
     }
 
     /// <summary>

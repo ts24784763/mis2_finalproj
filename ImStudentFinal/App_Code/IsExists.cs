@@ -167,4 +167,49 @@ public class IsExists
             }
         }
     }
+
+    /// <summary>
+    /// 判斷老師是否已審核過此學生
+    /// </summary>
+    /// <param name="student"></param>
+    /// <param name="courseId"></param>
+    /// <returns></returns>
+    public static bool AlreadyCheck(string student, int courseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT PassOrNot FROM COURSE_SELECTION WHERE Student = @Student AND CourseId = @CourseId ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", courseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        if (dt.Rows[0]["PassOrNot"].ToString() == "")
+            return false;
+        else
+            return true;
+    }
+
+    public static bool WalletEnoughHasMoney(string user, int fee)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Wallet FROM MEMBER WHERE Account = @Account ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Account", user));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+        if (int.Parse(dt.Rows[0]["Wallet"].ToString()) < fee)
+            return false;
+        else
+            return true;
+    }
 }

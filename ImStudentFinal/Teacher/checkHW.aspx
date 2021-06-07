@@ -53,24 +53,19 @@
                             <br />
                             學生姓名：<asp:Label ID="lblStudentName" Font-Size="Larger" ForeColor="#93a7ce" Font-Bold="true" Text='<%# Eval("Name") %>' runat="server" />
                             <br />
-                            作業名稱：<asp:Label ID="lblHWName" Font-Size="Larger" ForeColor="DimGray" Font-Bold="true" CssClass="introLab" Text='<%# Eval("HWFileName") %>' runat="server" />
+                            檔案名稱：<asp:Label ID="lblHWName" Font-Size="Larger" ForeColor="DimGray" Font-Bold="true" CssClass="introLab" Text='<%# Eval("HWFileName") %>' runat="server" />
                             <br />
-                            繳交狀態：<asp:Label ID="lblPassOrNot" Font-Size="Larger" ForeColor="Red" Font-Bold="true" CssClass="introLab" Text='<%# Eval("PassOrNot") %>' runat="server" />
+                            審核狀態：<asp:Label ID="lblPassOrNot" Font-Size="Larger" ForeColor="Red" Font-Bold="true" CssClass="introLab" Text='<%# Eval("PassOrNot") %>' runat="server" />
                         </div>
                         <div style="float:right; width:50%">
                             <div style="float:left; width:60%; padding-top:30px; margin:auto">
-                                <asp:Button ID="btnDownloadHW" CssClass="DownloadResumeBtn" runat="server" Text='檢視作業' Height="50px" Width="120px" Onclick="btnDownloadHW_Click" CommandArgument ='<%# Eval("HWFilePath") %>'/>
+                                <asp:Button ID="btnDownloadHW" CssClass="DownloadResumeBtn" runat="server" Text='檢視作業' Height="50px" Width="120px" Onclick="btnDownloadHW_Click" CommandArgument ='<%# Eval("Student") %>'/>
                             </div>
                             <div style="float:right; width:40%; padding-top:5%; line-height:3">
                                 <asp:Button ID="btnAllow" CssClass="AllowBtn" runat="server" Text='通過' Width="120px" Onclick="btnAllow_Click" CommandArgument ='<%# Eval("Student") %>'/><br />
                                 <asp:Button ID="btnDeny" CssClass="DenyBtn" runat="server" Text='不通過' Width="120px" Onclick="btnDeny_Click" CommandArgument ='<%# Eval("Student") %>'/>
                             </div>
                         </div>
-                        
-                        
-                    
-                    
-                    
                 </ItemTemplate>
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>

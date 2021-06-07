@@ -74,7 +74,7 @@
                                 <asp:Label ID="courseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("CourseName") %>'/>
                                 <br />
                                 <br />
-                                <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" runat="server" Text='<%# Eval("CourseIntro") %>'/>
+                                <asp:Label ID="courseDescription" Font-Size="Larger" ForeColor="#93a7ce" style="word-break:break-word" runat="server" Text='<%# Eval("CourseIntro") %>'/>
                                 <br />
                                 <br />
                                 <asp:Label ID="label1" runat="server" Text="授課教師："></asp:Label>

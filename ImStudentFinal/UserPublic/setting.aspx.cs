@@ -18,12 +18,44 @@ public partial class setting : System.Web.UI.Page
         lbMoney.Text = "錢包餘額： $ " + ReadDatabase.UserInfo(userSession).Wallet.ToString("N0");
         lbEmail.Text = ReadDatabase.UserInfo(userSession).Account;
 
-        if (ReadDatabase.UserInfo(userSession).Role == "老師")
-            imgRole.ImageUrl = "~/image/teacher.png";
-        else if (ReadDatabase.UserInfo(userSession).Role == "學生")
-            imgRole.ImageUrl = "~/image/student.png";
-        else if (ReadDatabase.UserInfo(userSession).Role == "校長")
-            imgRole.ImageUrl = "~/image/principal.png";
+        //沒學校
+        if (ReadDatabase.UserInfo(Session["userID"].ToString()).School == "")
+        {
+            if (ReadDatabase.UserInfo(userSession).Role == "老師")
+            {
+                imgRole.ImageUrl = "~/image/teacher.png";
+                teacherNoSchoolBar.Visible = true;
+            }
+            else if (ReadDatabase.UserInfo(userSession).Role == "學生")
+            {
+                imgRole.ImageUrl = "~/image/student.png";
+                studentNoSchoolBar.Visible = true;
+            }
+            else if (ReadDatabase.UserInfo(userSession).Role == "校長")
+            {
+                imgRole.ImageUrl = "~/image/principal.png";
+                principalNoSchoolBar.Visible = true;
+            }
+        }
+        //有學校
+        else
+        {
+            if (ReadDatabase.UserInfo(userSession).Role == "老師")
+            {
+                imgRole.ImageUrl = "~/image/teacher.png";
+                teacherBar.Visible = true;
+            }
+            else if (ReadDatabase.UserInfo(userSession).Role == "學生")
+            {
+                imgRole.ImageUrl = "~/image/student.png";
+                studentBar.Visible = true;
+            }
+            else if (ReadDatabase.UserInfo(userSession).Role == "校長")
+            {
+                imgRole.ImageUrl = "~/image/principal.png";
+                principalBar.Visible = true;
+            }
+        }
     }
 
     protected void Page_Init(object sender, EventArgs e)

@@ -579,12 +579,14 @@ public class ReadDatabase
                         FROM APPLY JOIN MEMBER ON Applicant = Account WHERE ApplyType = @ApplyType";
         if (Applicant != "")
             sql += " AND Applicant = @Applicant\n";
-        else if (Receiver != "")
+        if (Receiver != "")
             sql += " AND Receiver = @Receiver\n";
-        else if (ApplicantName != "")
-            sql += " AND Name like '%' + @ApplicantName + '%'\n";
-        else if (ApplyResult != "")
+        if (ApplicantName != "")
+            sql += " AND Name like '%' + @ApplicantName + '%' OR ApplyIntro like '%' + @ApplicantName + '%'";
+        if (ApplyResult != "")
             sql += " AND ApplyResult = @ApplyResult";
+        
+
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
             conn.Open();
@@ -664,8 +666,12 @@ public class ReadDatabase
         DataTable dt = new DataTable();
         string sql = @"select 
                                 Student, SUM(CourseCredit) as [SumCredit]
-                                from COURSE_SELECTION CS join COURSE C 
-                                on CS.CourseId = C.CourseId
+                                from COURSE_SELECTION CS 
+                                join COURSE C 
+                                on CS.CourseId = C.CourseId 
+                                join MEMBER M
+								on CS.Student = M.Account
+                                where CS.student = @Student
                                 group by Student";
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
@@ -706,14 +712,10 @@ public class ReadDatabase
                                 FROM COURSE_SELECTION 
                             Join MEMBER on Student=Account 
                             Join COURSE on COURSE_SELECTION.courseId = COURSE.courseId 
-                            WHERE 1 = 1 ";
+                            WHERE 1 = 1  AND COURSE_SELECTION.CourseId =  @CourseId ";
         if (StudentName != "")
         {
-            sql += " AND Name = @StudentName\n";
-        }
-        else if (CourseId != 0)
-        {
-            sql += " AND COURSE_SELECTION.CourseId =  @CourseId \n";
+            sql += " AND Name like '%' + @StudentName + '%'";
         }
         using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
         {
