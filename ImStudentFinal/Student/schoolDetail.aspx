@@ -97,12 +97,13 @@
                 <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:DataList>
                 </div>
-            <center>
+            <br />
+            <%--<center>
                 <div style="padding-top: 50px">
                     <asp:Label runat="server" Text="校友清單" Font-Size="XX-Large" ForeColor="DarkBlue" Font-Bold="true"></asp:Label>
                     <br />
                 </div>
-             </center>
+             </center>--%>
                 <%--<div class="graduatedMemberInfo">
                 <asp:DataList ID="GraduatedMemberDataList" runat="server" CellPadding="8" RepeatColumns="4" ForeColor="#333333" RepeatDirection="Horizontal" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center">
                 <AlternatingItemStyle BackColor="White" />
