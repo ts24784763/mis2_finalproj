@@ -26,6 +26,10 @@ public partial class selectCourse : System.Web.UI.Page
         string student = Session["userID"].ToString();
         GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student);
         GVCourse.DataBind();
+        if (ReadDatabase.CourseStudentNotSelect(student).Count() == 0 )
+        {
+            return;
+        }
         //不顯示的colums 在此設定
         int[] ary = { 1, 3, 4 };
         foreach (int j in ary)
