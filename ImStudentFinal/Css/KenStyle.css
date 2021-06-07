@@ -330,6 +330,7 @@ radioButton {
 }
 
 .studentTd {
+    width:100%;
     padding: 30px;
     border-top: solid;
     border-color: lightgrey;
@@ -367,7 +368,9 @@ radioButton {
 }
 
 .DenyBtn {
+    height: 30px;
     float: right;
+    border-radius: 5px;
 }
 
     .DenyBtn:hover {
@@ -378,7 +381,9 @@ radioButton {
     }
 
 .AllowBtn {
+    height: 30px;
     float: right;
+    border-radius: 5px;
 }
 
     .AllowBtn:hover {
@@ -388,12 +393,16 @@ radioButton {
         transition: color 0.4s;
     }
 
-.DownloadResumeBtn:hover {
-    background-color: darkblue;
-    transition: background-color 0.4s;
-    color: white;
-    transition: color 0.4s;
+.DownloadResumeBtn{
+    border-radius: 5px;
 }
+
+    .DownloadResumeBtn:hover {
+        background-color: darkblue;
+        transition: background-color 0.4s;
+        color: white;
+        transition: color 0.4s;
+    }
 
 .schoolCoursesArea {
     position: absolute;

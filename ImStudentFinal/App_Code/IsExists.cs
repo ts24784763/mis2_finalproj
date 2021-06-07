@@ -136,4 +136,35 @@ public class IsExists
         else
             return true;
     }
+
+    /// <summary>
+    /// 判斷學生有沒有選過這堂課
+    /// </summary>
+    /// <param name="student"></param>
+    /// <param name="courseId"></param>
+    /// <returns></returns>
+    public static bool AlreadySelectedCourse(int student, int courseId)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT * FROM COURSE_SELECTION WHERE Student = @Student AND CourseId = @CourseId ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            cmd.Parameters.Add(new SqlParameter("@CourseId", courseId));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
+        }
+    }
 }
