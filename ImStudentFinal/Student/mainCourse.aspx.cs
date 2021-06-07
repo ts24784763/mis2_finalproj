@@ -24,6 +24,7 @@ public partial class mainCourse : System.Web.UI.Page
         int deadLineDays = ReadDatabase.CourseInfo(courseId).HWDeadlineDays;
         DateTime deadlineDate = Convert.ToDateTime(ReadDatabase.SchoolInfo(schoolName).OpenSemesterDate).AddDays(deadLineDays);
         lbDeadline.Text = deadlineDate.ToString("yyyy-MM-dd");
+        uploadHW.Visible = false;
 
         string passString = ReadDatabase.CourseSelectionInfo(studentAccount, courseId).PassOrNot;
         if (passString == "") lbHWPass.Text = "尚未批改";
@@ -63,39 +64,46 @@ public partial class mainCourse : System.Web.UI.Page
 
     protected void uploadHomework_Click(object sender, EventArgs e)
     {
-        string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
-        int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
-        string student = ReadDatabase.UserInfo(Session["userID"].ToString()).Name;
-        if (IsExists.AlreadyUploadHW(Session["userID"].ToString(), courseId))
+        if(uploadHW.Visible == false)
         {
-            Response.Write("<script>alert('你已繳交過這份作業')</script>");
+            uploadHW.Visible = true;
         }
         else
         {
-            if (uploadHW.HasFile)
+            string schoolName = ReadDatabase.UserInfo(Session["userID"].ToString()).School;
+            int courseId = int.Parse(Server.UrlDecode(Request.QueryString["courseId"]));
+            string student = ReadDatabase.UserInfo(Session["userID"].ToString()).Name;
+            if (IsExists.AlreadyUploadHW(Session["userID"].ToString(), courseId))
             {
-                string path = "homeWork/" + schoolName + " " + ReadDatabase.CourseInfo(courseId).CourseName + " " + student + "_" + uploadHW.FileName;
-                Models.CourseSelectionModel model = new Models.CourseSelectionModel
-                {
-                    Student = Session["userID"].ToString(),
-                    CourseId = courseId,
-                    HWFileName = uploadHW.FileName,
-                    HWFilePath = path,
-                };
-                try
-                {
-                    studentUploadHW(model);
-                    uploadHW.SaveAs(Server.MapPath(path));
-                    Response.Write("<script>alert('繳交作業成功')</script>");
-                }
-                catch
-                {
-                    Response.Write("<script>alert('繳交作業失敗')</script>");
-                }
+                Response.Write("<script>alert('你已繳交過這份作業')</script>");
             }
             else
             {
-                Response.Write("<script>alert('請先上傳作業')</script>");
+                if (uploadHW.HasFile)
+                {
+                    string path = "homeWork/" + schoolName + " " + ReadDatabase.CourseInfo(courseId).CourseName + " " + student + "_" + uploadHW.FileName;
+                    Models.CourseSelectionModel model = new Models.CourseSelectionModel
+                    {
+                        Student = Session["userID"].ToString(),
+                        CourseId = courseId,
+                        HWFileName = uploadHW.FileName,
+                        HWFilePath = path,
+                    };
+                    try
+                    {
+                        studentUploadHW(model);
+                        uploadHW.SaveAs(Server.MapPath(path));
+                        Response.Write("<script>alert('繳交作業成功')</script>");
+                    }
+                    catch
+                    {
+                        Response.Write("<script>alert('繳交作業失敗')</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('請先上傳作業')</script>");
+                }
             }
         }
     }
