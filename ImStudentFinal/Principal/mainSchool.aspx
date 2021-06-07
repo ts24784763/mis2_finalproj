@@ -33,6 +33,7 @@
                     <div class="schoolRight" >
                         <br />
                         <div class="schoolItems">
+                            <label class="schoolFonts" style="color:#4b7799; font-size: 20px; font-weight:bold">畢業所需</label>
                             <asp:Label ID="lbCredit" CssClass="schoolFonts" runat="server" Text="3學分數"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" runat="server" Height="400px"  src="https://picsum.photos/300/150?random=1"/>
