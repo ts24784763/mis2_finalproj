@@ -49,7 +49,7 @@
                            <asp:Label ID="lbSchoolDays" CssClass="Items3" runat="server" Text="幾天"></asp:Label>
                         </div>
                         <asp:Image ID="schoolImage" CssClass="schoolImg" style="height:auto" runat="server"/>
-                        <div style="margin-top:20px; display:flex; flex-direction:column;">
+                        <div style="margin-top:20px; display:flex; flex-direction:column; padding-right:30px">
                             <asp:Label ID="intro" CssClass="schoolIntroTitle" runat="server" Text="簡介"></asp:Label>
                             <asp:Label ID="lbSchoolIntro" CssClass="schoolIntro" runat="server" Text="好學校"></asp:Label>
                         </div>
