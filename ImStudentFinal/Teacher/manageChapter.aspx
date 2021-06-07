@@ -41,21 +41,20 @@
                         <div style="display:inline-block;padding-left:30px;padding-top:20px;">
                         <asp:Label ID="lbCourseName" CssClass="subCourseFonts" runat="server" Text="基礎會計"></asp:Label>＞<asp:Label ID="lbChapterName" CssClass="subCourseFonts" runat="server" Text="第一章"></asp:Label></div>
                         <br />
-                        <div class="subCourseArea">
+                        <div class="subCourseArea" style="padding-bottom:20px">
                            <asp:Label ID="lbChapterName2" CssClass="Items" runat="server" Text="第一章"></asp:Label>
                         </div>
-                        <iframe id="playVideo" style="padding-left:10%" runat="server" width="90%" height="90%" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
-                        <div class="subHomeworkArea">
-                            <asp:FileUpload ID="uploadMaterialFile" runat="server" />
-                            <asp:Button ID="uploadMaterial" CssClass="btnUploadMaterial" style="border-radius: 5px;" runat="server" Text="上傳教材" OnClick="btnUploadMaterial_Click" />
+                        <iframe id="playVideo" style="padding-left:10%" runat="server" width="90%" height="300px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+                        <div style="padding-top:30px; padding-left:10%">
+                            <asp:FileUpload ID="uploadMaterialFile" style="height:28px" runat="server" />
+                            <asp:Button ID="uploadMaterial" CssClass="btnUploadMaterial" style="border-radius: 5px;height: 30px" runat="server" Text="上傳教材" OnClick="btnUploadMaterial_Click" />
                         </div>
+                        <br />
                     </div>
                 </div>
             </div>
     </form>
-</body>
-</html>
-<script>
+    <script>
     function test(check) {
         course = check.id.split(":");
         window.location.href = "../Teacher/manageChapter.aspx?courseId=" + course[0]+"&chapter="+course[1];
@@ -64,5 +63,8 @@
         course = check.id.split(":");
         window.location.href = "../Teacher/manageCourse.aspx?courseId=" + course[0];  
     }
-</script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </body>
+</html>
+
