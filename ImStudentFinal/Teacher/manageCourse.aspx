@@ -10,6 +10,7 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
+    <link href="../Css/KenStyle.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
         <div class="bar">
@@ -54,9 +55,14 @@
                         <asp:Label ID="lbCourseCredit" CssClass="creditStyle" runat="server" Text="3學分"></asp:Label>
                         <div class="subHomeworkArea" style="display:block; line-height:1.5">
                             <asp:Button ID="addHomework" CssClass="homeworkButton" style="border-radius: 5px;" runat="server" Text="新增作業" OnClick="addHomework_Click" />
-                            <asp:Label ID="lbHWName" runat="server" Text="作業名稱："></asp:Label><br />
-                            <asp:Label ID="lbHWDetail" runat="server" Text="作業內容："></asp:Label><br />
-                            <asp:Label ID="lbHWDeadline" runat="server" Text="繳交期限："></asp:Label>
+                            <div style="float: left">
+                                <asp:Label ID="lbHWName" runat="server" Text="作業名稱："></asp:Label><br />
+                                <asp:Label ID="lbHWDetail" runat="server" Text="作業內容："></asp:Label><br />
+                                <asp:Label ID="lbHWDeadline" runat="server" Text="繳交期限："></asp:Label>
+                            </div>
+                            <div style="float: right;padding-top: 30px">
+                                <asp:Button ID="checkHwBtn" runat="server" Text="檢查作業" OnClick="checkHwBtn_Click"/>
+                            </div>
                         </div>
                     </div>
                 </div>

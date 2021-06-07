@@ -5,11 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>IM STUDENT - 選課</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="../Css/reset.css" rel="stylesheet" />
     <link href="../Css/pageStyle.css" rel="stylesheet" />
     <link href="../Css/ChenStyle.css" rel="stylesheet" />
+    <script>
+        $("#btnCheck").click(function (e) {
+            e.preventDefault();
+        })
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -54,15 +59,16 @@
     </asp:GridView>
             <br />
         <div style="font-size:25px;font-weight:bold;">
-               <asp:Button ID="btnCheck" runat="server" Text="查看是否超過學分上限" style="height: 50px;width: auto;margin-top: 20px;margin-left: 10px;border-color: lightblue;border-radius: 5px;color: black; font-size: 20px;" OnClick="btnCheck_Click" ></asp:Button>
+               <asp:Button ID="btnCheck" runat="server" Text="查看是否超過學分上限" CssClass="checkBtn" OnClick="btnCheck_Click" ></asp:Button>
                 <br /><br />
             <asp:Label ID="checkCreditSum" runat="server" Text="0/30"></asp:Label>
         </div>
         </center>
         <div class="selectFooter">
-                <asp:Button ID="reset" runat="server" CssClass="btnStyle" Text="重新選擇" OnClick="reset_Click" />                
+            <asp:Button ID="reset" runat="server" CssClass="btnStyle" Text="重新選擇" OnClick="reset_Click" />                
             <asp:Button ID="btnSubmit" runat="server" CssClass="btnStyle" Text="選擇完成" OnClick="btnSubmit_Click" />
         </div>
+        <br />
     </form>
 </body>
 </html>
