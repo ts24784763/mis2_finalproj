@@ -95,8 +95,7 @@ public partial class verifyStudent : System.Web.UI.Page
         try
         {
             ReadDatabase.denyOrAllowApply(apply);
-            ReadDatabase.addSchoolToUser(student, schoolName);
-            Response.Write("<script>alert('已讓" + ReadDatabase.UserInfo(student).Name + "加入" + schoolName + "');location.href='manageStudent.aspx';</script>");
+            Response.Write("<script>alert('已讓" + ReadDatabase.UserInfo(student).Name + "加入" + schoolName + " 等待學生繳費');location.href='manageStudent.aspx';</script>");
         }
         catch
         {
