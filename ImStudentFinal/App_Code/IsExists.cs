@@ -143,7 +143,7 @@ public class IsExists
     /// <param name="student"></param>
     /// <param name="courseId"></param>
     /// <returns></returns>
-    public static bool AlreadySelectedCourse(int student, int courseId)
+    public static bool AlreadySelectedCourse(string student, int courseId)
     {
         DataTable dt = new DataTable();
         string sql = @"SELECT * FROM COURSE_SELECTION WHERE Student = @Student AND CourseId = @CourseId ";
