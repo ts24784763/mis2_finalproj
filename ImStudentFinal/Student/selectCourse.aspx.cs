@@ -24,9 +24,9 @@ public partial class selectCourse : System.Web.UI.Page
     private void LoadGridViewData()
     {
         string student = Session["userID"].ToString();
-        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student);
+        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(student, "", "");
         GVCourse.DataBind();
-        if (ReadDatabase.CourseStudentNotSelect(student).Count() == 0 )
+        if (ReadDatabase.CourseStudentNotSelect(student, "", "").Count() == 0 )
         {
             return;
         }
@@ -50,10 +50,12 @@ public partial class selectCourse : System.Web.UI.Page
     {
         string StrCourseName = courseName.Text.Trim();
         string StrProfessorrName = professorName.Text.Trim();
-
-        GVCourse.DataSource = ReadDatabase.SearchCourseByWord(StrCourseName, StrProfessorrName);
+        GVCourse.DataSource = ReadDatabase.CourseStudentNotSelect(Session["userID"].ToString(), StrCourseName, StrProfessorrName);
         GVCourse.DataBind();
-
+        if (ReadDatabase.CourseStudentNotSelect(Session["userID"].ToString(), StrCourseName, StrProfessorrName).Count() == 0)
+        {
+            return;
+        }
         //不顯示的colums 在此設定
         int[] ary = { 1, 3, 4 };
         foreach (int j in ary)
