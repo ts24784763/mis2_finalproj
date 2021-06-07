@@ -48,7 +48,7 @@
             <ItemStyle BackColor="white" CssClass="schoolTd" ForeColor="Black"/>
             <ItemTemplate>
                 <center>
-                    <asp:Image ID="lblCoursePhoto" runat="server" ImageUrl='<%#"~/Principal/" + Eval("ImageUrl") %>'></asp:Image>
+                    <asp:Image ID="lblCoursePhoto" runat="server" width="50%" height="50%" ImageUrl='<%#"~/Principal/" + Eval("ImageUrl") %>'></asp:Image>
                     <br />
                     <asp:Label ID="lblCourseName" Font-Size="X-Large" ForeColor="DarkBlue" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
                     <br />
