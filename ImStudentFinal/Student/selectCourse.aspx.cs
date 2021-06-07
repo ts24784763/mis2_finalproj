@@ -132,7 +132,6 @@ public partial class selectCourse : System.Web.UI.Page
         }
         else
         {
-            int Credit = 0;
             bool successFlag = false, failFlag = false; //有沒有成功INSERT過
             string CourseID = "", CourseName = "", SuccessMsg = "", FailMsg = "";
 
@@ -142,7 +141,6 @@ public partial class selectCourse : System.Web.UI.Page
                 if (ckb.Checked)
                 {
                     CourseID = item.Cells[1].Text; //課程ID
-                    Credit += int.Parse(item.Cells[6].Text); //學分數
                     CourseName = item.Cells[2].Text; //課程名稱
                     Models.CourseSelectionModel CourseSelection = new Models.CourseSelectionModel
                     {
@@ -167,10 +165,10 @@ public partial class selectCourse : System.Web.UI.Page
 
             string student = Session["userID"].ToString();
             int RequiredCredits = ReadDatabase.SchoolInfo(ReadDatabase.UserInfo(student).School).RequiredCredits;
-            if (Credit < RequiredCredits)
+            int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
+            if (SumCredit < RequiredCredits)
             {
-                int SumCredit = ReadDatabase.SumCredit(Session["userID"].ToString()).Credit;
-                Response.Write("<script>alert('學分未達到畢業門檻： " + Credit + "/" + RequiredCredits + "')</script>");
+                Response.Write("<script>alert('學分未達到畢業門檻： " + SumCredit + "/" + RequiredCredits + "')</script>");
             }
             LoadGridViewData();
         }
