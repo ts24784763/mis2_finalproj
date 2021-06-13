@@ -150,4 +150,13 @@ public class Models
         public string Student { get; set; }
         public int Credit { get; set; }
     }
+
+    public class licenseMdoel
+    {
+        public string Student { get; set; }
+        public string School { get; set; }
+        public string License { get; set; }
+        public string Principal { get; set; }
+    }
+
 }

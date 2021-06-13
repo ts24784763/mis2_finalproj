@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="setting.aspx.cs" Inherits="setting" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="setting.aspx.cs" Inherits="setting" enableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -69,12 +69,12 @@
                </div>
                <div class="certificationList">
                    <asp:Label ID="Label1" runat="server" Text="已獲得的證書" style="color:#294f74; font-weight:bold"></asp:Label>
-                   <asp:DataList ID="DataList1" runat="server">
+                   <asp:DataList ID="LicenseDataList" runat="server">
                        <ItemTemplate>
                            <div class="teacherTitle" style="margin:10px 0;">
-                              <asp:Label ID="lbGetDate" runat="server" Text="獲得日期"></asp:Label>
-                              <asp:Label ID="lbCertification" runat="server" Text="證書" style="color:#294f74"></asp:Label>
-                               <asp:Button ID="btnDownloadCertification" CssClass="downloadCertificationBtn" runat="server" Text="下載證書"/>
+                              <asp:Label ID="lbSchool" runat="server" Text='<%# Eval("School") %>'></asp:Label>
+                              <asp:Label ID="lbCertification" runat="server" Text='<%# Eval("License") %>' style="color:#294f74"></asp:Label>
+                               <asp:Button ID="btnDownloadCertification" CssClass="downloadCertificationBtn" runat="server" Text="下載證書" CommandArgument='<%# Eval("School") %>' OnClick="btnDownloadCertification_Click"/>
                            </div>
                         </ItemTemplate>
                    </asp:DataList>

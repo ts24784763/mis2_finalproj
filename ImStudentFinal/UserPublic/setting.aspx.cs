@@ -17,6 +17,11 @@ public partial class setting : System.Web.UI.Page
         lbSchool.Text = ReadDatabase.UserInfo(userSession).School;
         lbMoney.Text = "錢包餘額： $ " + ReadDatabase.UserInfo(userSession).Wallet.ToString("N0");
         lbEmail.Text = ReadDatabase.UserInfo(userSession).Account;
+        if (ReadDatabase.UserInfo(userSession).Role == "學生")
+        {
+            LicenseDataList.DataSource = ReadDatabase.studentGetLicense(userSession);
+            LicenseDataList.DataBind();
+        }
 
         //沒學校
         if (ReadDatabase.UserInfo(Session["userID"].ToString()).School == "")
@@ -102,5 +107,12 @@ public partial class setting : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+    }
+
+    protected void btnDownloadCertification_Click(object sender, EventArgs e)
+    {
+        string school = ((Button)sender).CommandArgument;
+        string student = Session["userID"].ToString();
+        //輸出證書
     }
 }

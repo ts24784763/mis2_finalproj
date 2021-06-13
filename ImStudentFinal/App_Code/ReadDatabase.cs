@@ -818,4 +818,32 @@ public class ReadDatabase
             conn.Close();
         }
     }
+
+    public static List<Models.licenseMdoel> studentGetLicense(string student)
+    {
+        DataTable dt = new DataTable();
+        string sql = @"SELECT Applicant AS Student, Receiver AS School, ObtainLicense AS License FROM APPLY 
+                        WHERE ApplyResult = '通過' AND ApplyType = '學生申請學校' AND Applicant = @Student ";
+        using (SqlConnection conn = new SqlConnection(GetDBConnectionString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@Student", student));
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            sqlAdapter.Fill(dt);
+            conn.Close();
+        }
+
+        List<Models.licenseMdoel> result = new List<Models.licenseMdoel>();
+        foreach (DataRow row in dt.Rows)
+        {
+            result.Add(new Models.licenseMdoel()
+            {
+                Student = row["Student"].ToString(),
+                School = row["School"].ToString(),
+                License = row["License"].ToString(),
+            });
+        }
+        return result;
+    }
 }
