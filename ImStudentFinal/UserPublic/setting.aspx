@@ -60,13 +60,25 @@
         </div>
         <div class="area">
            <div class="wrapper">
-           <div class="photoItems">
-               <asp:Image ID="imgRole" runat="server" CssClass="imgCircle"/>
-               <asp:Label ID="lbName" CssClass="myName" runat="server" Text="試試看"></asp:Label>
-               <asp:Label ID="lbRole" CssClass="nameSub" runat="server" Text="身分：(學生/校長/老師)"></asp:Label>
-               <asp:Label ID="lbSchool" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
-               <asp:Label ID="lbMoney" CssClass="money" runat="server" Text="錢包餘額： $ 15"></asp:Label>
-           </div>
+               <div class="photoItems">
+                   <asp:Image ID="imgRole" runat="server" CssClass="imgCircle"/>
+                   <asp:Label ID="lbName" CssClass="myName" runat="server" Text="試試看"></asp:Label>
+                   <asp:Label ID="lbRole" CssClass="nameSub" runat="server" Text="身分：(學生/校長/老師)"></asp:Label>
+                   <asp:Label ID="lbSchool" CssClass="school" runat="server" Text="• 會計學校"></asp:Label>
+                   <asp:Label ID="lbMoney" CssClass="money" runat="server" Text="錢包餘額： $ 15"></asp:Label>
+               </div>
+               <div class="certificationList">
+                   <asp:Label ID="Label1" runat="server" Text="已獲得的證書" style="color:#294f74; font-weight:bold"></asp:Label>
+                   <asp:DataList ID="DataList1" runat="server">
+                       <ItemTemplate>
+                           <div class="teacherTitle" style="margin:10px 0;">
+                              <asp:Label ID="lbGetDate" runat="server" Text="獲得日期"></asp:Label>
+                              <asp:Label ID="lbCertification" runat="server" Text="證書" style="color:#294f74"></asp:Label>
+                               <asp:Button ID="btnDownloadCertification" CssClass="downloadCertificationBtn" runat="server" Text="下載證書"/>
+                           </div>
+                        </ItemTemplate>
+                   </asp:DataList>
+               </div>
            </div>
            <div class="setting">
                <asp:Label ID="settings" CssClass="settingFonts" runat="server" Text="個人資料設定"></asp:Label><hr />
