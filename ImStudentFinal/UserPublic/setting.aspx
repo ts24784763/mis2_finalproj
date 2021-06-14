@@ -72,8 +72,8 @@
                    <asp:DataList ID="LicenseDataList" runat="server">
                        <ItemTemplate>
                            <div class="teacherTitle" style="margin:10px 0;">
-                              <asp:Label ID="lbSchool" runat="server" Text='<%# Eval("School") %>'></asp:Label>
-                              <asp:Label ID="lbCertification" runat="server" Text='<%# Eval("License") %>' style="color:#294f74"></asp:Label>
+                              <asp:Label ID="lbSchool" runat="server" Text='<%# Eval("School") %>'></asp:Label><br />
+                              <asp:Label ID="lbCertification" runat="server" Text='<%# Eval("License") %>' style="color:#294f74;padding-right:10px"></asp:Label>
                                <asp:Button ID="btnDownloadCertification" CssClass="downloadCertificationBtn" runat="server" Text="下載證書" CommandArgument='<%# Eval("School") %>' OnClick="btnDownloadCertification_Click"/>
                            </div>
                         </ItemTemplate>
